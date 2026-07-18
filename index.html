@@ -1,0 +1,2305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORM Performance Report — Sumadhura</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lato:wght@400;700&family=Lato:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --font-display: 'Cormorant Garamond', 'Arial Black', Arial, sans-serif;
+    --font-body: 'Lato', Arial, Helvetica, sans-serif;
+    --obsidian:#0A0A0A;
+    --arctic:#F8F9FA;
+    --constellation:#1A1F36;
+    --meridian:#1A5276;
+    --atlas:#2C3E50;
+    --gold:#C9A96E;
+    --gold-deep:#B8923A;
+    --dusk:#4A4E69;
+    --fog:#7F8C8D;
+    --mist:#F5F6FA;
+    --cloud:#ECECEC;
+    --offwhite:#EDE7DA;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:var(--font-body); background:var(--arctic); color:var(--atlas);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{ font-family:var(--font-display); }
+  a{color:var(--meridian);}
+
+  .sticky-masthead{ position:sticky; top:0; z-index:101; background:var(--constellation); padding:20px 5vw 16px; border-radius:16px 16px 0 0; box-shadow:0 2px 0 0 var(--constellation); }
+  .sticky-masthead .header-masthead{ display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+  .sticky-masthead .header-brand-left{ display:flex; align-items:center; gap:18px; }
+  .sticky-masthead .header-divider{ width:1px; height:36px; background:rgba(255,255,255,0.22); }
+  .sticky-masthead .header-logo-wrap{ opacity:0.98; line-height:0; }
+  .sticky-masthead .header-logo-wrap svg{ height:34px; width:auto; display:block; }
+  .sticky-masthead .header-brand-right{ display:flex; flex-direction:column; align-items:flex-end; gap:5px; }
+  .sticky-masthead .delivered-by{ font-size:10px; letter-spacing:2.5px; color:var(--gold); font-weight:bold; text-transform:uppercase; }
+  .sticky-masthead .header-agency-mark{ display:flex; align-items:center; }
+  .sticky-masthead .header-agency-mark img{ height:30px; width:auto; display:block; }
+  header.top{ background:var(--constellation); color:#fff; padding:4px 5vw 30px; position:relative; overflow:hidden; }
+  header.top h1.orm-title{ position:relative; z-index:1; margin:0 0 10px; font-size:38px; font-weight:bold; letter-spacing:-0.01em; }
+  header.top p{ position:relative; z-index:1; margin:0; color:#C9CEDB; font-size:14px; }
+
+  .sticky-bar{ position:sticky; z-index:100; background:var(--constellation); }
+  .sticky-bar .hero{ display:flex; justify-content:space-between; align-items:center; gap:24px; padding:16px 5vw; background:var(--constellation); border-bottom:1px solid rgba(255,255,255,0.10); flex-wrap:wrap; }
+  .sticky-bar .hero-copy{ max-width:560px; flex:1 1 320px; min-width:0; }
+  .sticky-bar .hero-copy h1.orm-title{ margin:0 0 6px; font-size:32px; font-weight:600; line-height:1.08; color:#fff; }
+  .sticky-bar .hero-copy p{ margin:0; color:#cbd2df; font-size:13px; }
+  .pulse-wrap{ display:flex; align-items:center; gap:10px; margin-top:10px; }
+  .pulse-wrap svg{ width:120px; height:22px; flex-shrink:0; overflow:visible; }
+  .pulse-wrap .pulse-label{ font-size:10.5px; letter-spacing:0.4px; color:#8b93ac; text-transform:uppercase; }
+  .sticky-bar .hero-actions{ display:flex; flex-wrap:nowrap; justify-content:flex-end; align-items:center; flex-shrink:0; }
+  .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  .sticky-bar .tracking-card{ display:flex; align-items:center; gap:14px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.10); border-radius:9px; padding:8px 12px; flex-wrap:nowrap; }
+  .sticky-bar .tc-title{ color:#fff; font-size:12.5px; font-weight:600; white-space:nowrap; }
+  .sticky-bar .tc-title .range-summary{ display:inline; color:var(--gold); font-weight:bold; margin-left:5px; }
+  .sticky-bar .tc-range-col{ display:flex; flex-direction:column; gap:6px; }
+  .sticky-bar .range-chip-row{ display:flex; flex-wrap:nowrap; gap:5px; position:relative; }
+  .sticky-bar .range-chip{ border:1px solid rgba(255,255,255,0.16); background:rgba(255,255,255,0.06); color:#fff; border-radius:7px; padding:5px 10px; font-size:11.5px; font-weight:600; cursor:pointer; transition:all .2s ease; white-space:nowrap; font-family:var(--font-body); }
+  .sticky-bar .range-chip:hover{ background:rgba(255,255,255,0.14); }
+  .sticky-bar .range-chip.active{ background:var(--gold); color:var(--constellation); border-color:var(--gold); }
+  .sticky-bar .range-month-wrap{ position:relative; }
+  .sticky-bar .range-month-btn{ display:flex; align-items:center; gap:4px; }
+  .sticky-bar .range-month-btn .chev{ width:11px; height:11px; stroke:currentColor; transition:transform .15s ease; }
+  .sticky-bar .range-month-btn[aria-expanded="true"] .chev{ transform:rotate(180deg); }
+  .sticky-bar .range-month-menu{ position:absolute; top:calc(100% + 6px); left:0; background:var(--constellation); border:1px solid rgba(255,255,255,0.16); border-radius:9px; padding:5px; display:flex; flex-direction:column; gap:2px; min-width:130px; z-index:110; box-shadow:0 10px 30px rgba(0,0,0,0.35); }
+  .sticky-bar .range-month-menu button{ border:none; background:transparent; color:#fff; text-align:left; padding:7px 10px; border-radius:6px; font-size:12px; font-weight:600; cursor:pointer; font-family:var(--font-body); }
+  .sticky-bar .range-month-menu button:hover{ background:rgba(255,255,255,0.10); }
+  .sticky-bar .range-month-menu button.active{ background:var(--gold); color:var(--constellation); }
+  .sticky-bar .refresh-btn{ display:flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:8px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14); cursor:pointer; flex-shrink:0; transition:background .2s ease; }
+  .sticky-bar .refresh-btn:hover{ background:rgba(255,255,255,0.14); }
+  .sticky-bar .refresh-btn svg{ width:16px; height:16px; stroke:var(--gold); }
+  .sticky-bar .refresh-btn.spinning svg{ animation:orm-spin 0.9s linear infinite; }
+  @keyframes orm-spin{ from{ transform:rotate(0deg); } to{ transform:rotate(360deg); } }
+  .range-hint{ display:inline-block; color:var(--fog); font-size:12px; }
+
+  nav.tabs{ background:#151a2e; padding:10px 5vw; display:flex; gap:6px; overflow-x:auto; }
+  nav.tabs button{
+    background:transparent; border:none; color:#9AA3BD; font-family:Arial; font-size:14px; font-weight:bold;
+    padding:10px 18px; cursor:pointer; border-radius:9px; white-space:nowrap;
+    display:flex; align-items:center; gap:9px;
+  }
+  nav.tabs button svg{ width:16px; height:16px; stroke:currentColor; flex-shrink:0; }
+  nav.tabs button.active{ color:var(--constellation); background:var(--gold); }
+  nav.tabs button:hover:not(.active){ color:#fff; background:rgba(255,255,255,0.06); }
+
+  main{ padding:28px 5vw 60px; max-width:1400px; margin:0 auto; }
+  section{ margin-bottom:40px; }
+  section h2{ font-size:20px; margin:0 0 4px; color:var(--constellation); }
+  section .section-sub{ color:var(--fog); font-size:13px; margin:0 0 18px; }
+
+  .kpi-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+  .kpi-card{ background:#fff; border:1px solid var(--cloud); border-radius:10px; padding:18px 20px; }
+  .kpi-card .kpi-top{ display:flex; align-items:flex-start; gap:12px; margin-bottom:2px; }
+  .kpi-card .kpi-icon{ width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .kpi-card .kpi-icon svg{ width:20px; height:20px; }
+  .kpi-card .label{ font-size:11px; text-transform:uppercase; letter-spacing:0.5px; color:var(--fog); font-weight:bold; line-height:1.4; padding-top:2px;}
+  .kpi-card .value{ font-family:var(--font-display); font-size:42px; font-weight:600; color:var(--constellation); margin:8px 0 4px; line-height:1; }
+  .kpi-card .delta{ font-size:12px; }
+  .kpi-card .delta.up{ color:var(--meridian); }
+  .kpi-card .delta.down{ color:var(--gold-deep); }
+
+  .grid-2{ display:grid; grid-template-columns:1.3fr 1fr; gap:20px; }
+  .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .grid-4{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  @media (max-width:900px){ .grid-2, .grid-3, .grid-4{ grid-template-columns:1fr; } }
+
+  .card{ background:#fff; border:1px solid var(--cloud); border-radius:8px; padding:20px; }
+  .card h3{ margin:0 0 4px; font-size:15px; color:var(--constellation); }
+  .card .card-sub{ margin:0 0 14px; font-size:12px; color:var(--fog); }
+  .pie-chart-shell{ width:100%; max-width:420px; margin:0 auto; display:flex; align-items:center; justify-content:center; }
+  .pie-chart-shell canvas{ width:100% !important; height:auto !important; aspect-ratio:1 / 1; display:block; max-width:100%; }
+
+  table{ width:100%; border-collapse:collapse; font-size:13px; }
+  th{ text-align:left; padding:10px 12px; background:var(--mist); color:var(--dusk); font-size:11px; text-transform:uppercase; letter-spacing:0.4px; border-bottom:2px solid var(--cloud); }
+  td{ padding:10px 12px; border-bottom:1px solid var(--cloud); }
+  #deliveryTable th, #deliveryTable td{ white-space:nowrap; }
+  #deliveryTable td:first-child{ white-space:normal; min-width:200px; }
+  #deliveryTable th.num, #deliveryTable td.num{ min-width:70px; }
+  tr:last-child td{ border-bottom:none; }
+  tbody tr:hover{ background:var(--mist); }
+  .num{ text-align:right; font-variant-numeric:tabular-nums; }
+  .platform-tag{ display:inline-block; font-size:10px; font-weight:bold; text-transform:uppercase; letter-spacing:0.4px; padding:3px 8px; border-radius:20px; color:#fff; }
+  .tag-reddit{ background:var(--meridian); }
+  .tag-quora{ background:var(--atlas); }
+  .tag-gmb{ background:var(--gold-deep); }
+  .tag-other{ background:var(--dusk); }
+
+  .sent-bar{ display:flex; height:10px; border-radius:5px; overflow:hidden; background:var(--cloud); }
+  .sent-bar span{ height:100%; }
+  .sent-legend{ display:flex; gap:14px; font-size:11px; color:var(--fog); margin-top:8px; }
+  .sent-legend .dot{ display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:5px; }
+
+  .post-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; }
+  .post-card{ background:#fff; border:1px solid var(--cloud); border-radius:8px; padding:18px; display:flex; flex-direction:column; gap:10px; }
+  .post-card .bucket{ font-size:10px; text-transform:uppercase; letter-spacing:0.4px; color:var(--gold-deep); font-weight:bold; }
+  .post-card .title{ font-size:14px; font-weight:bold; color:var(--constellation); line-height:1.35; }
+  .post-card .sub{ font-size:12px; color:var(--fog); }
+  .post-card .stats{ display:flex; gap:18px; font-size:13px; }
+  .post-card .stats b{ display:block; font-size:16px; color:var(--meridian); }
+  .post-card a.link{ font-size:12px; font-weight:bold; text-decoration:none; }
+  .post-card a.link:after{ content:" →"; }
+
+  .progress-row{ margin-bottom:20px; }
+  .progress-row .p-label{ display:flex; justify-content:space-between; font-size:12px; margin-bottom:6px; color:var(--atlas); }
+  .progress-row .p-label .p-pct{ font-weight:bold; color:var(--constellation); margin-left:6px; }
+  .progress-track{ position:relative; background:var(--cloud); border-radius:5px; height:10px; }
+  .progress-fill{ background:var(--meridian); height:100%; border-radius:5px; position:relative; }
+
+  .filter-bar{ display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap; }
+  .filter-btn{
+    background:var(--mist); border:1px solid var(--cloud); color:var(--dusk); font-family:Arial;
+    font-size:12px; font-weight:bold; padding:7px 14px; border-radius:20px; cursor:pointer;
+  }
+  .filter-btn.active{ background:var(--constellation); color:#fff; border-color:var(--constellation); }
+  .filter-btn:hover:not(.active){ background:var(--cloud); }
+
+  .project-btn-bar{ display:flex; gap:6px; margin-bottom:16px; flex-wrap:wrap; }
+  .project-btn{
+    background:#fff; border:1px solid var(--cloud); color:var(--atlas); font-family:Arial;
+    font-size:11.5px; font-weight:bold; padding:6px 12px; border-radius:6px; cursor:pointer;
+  }
+  .project-btn.active{ background:var(--meridian); color:#fff; border-color:var(--meridian); }
+  .project-btn:hover:not(.active){ border-color:var(--meridian); }
+
+  footer{ padding:22px 5vw; background:var(--constellation); color:#9AA3BD; font-size:12px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+  footer span.gold{ color:var(--gold); }
+
+  .hidden{ display:none !important; }
+  canvas{ max-width:100%; }
+
+  .theme-toggle{ display:flex; gap:8px; margin-bottom:10px; }
+  .theme-table{ width:100%; border-collapse:collapse; font-size:12.5px; }
+  .theme-table th{ text-align:left; padding:7px 8px; background:var(--mist); color:var(--dusk); font-size:10px; text-transform:uppercase; letter-spacing:0.4px; border-bottom:2px solid var(--cloud); }
+  .theme-table td{ padding:8px; border-bottom:1px solid var(--cloud); vertical-align:top; }
+  .theme-table tr:last-child td{ border-bottom:none; }
+  .theme-table .proj-name{ font-weight:bold; color:var(--constellation); white-space:nowrap; }
+  .theme-table .theme-empty{ color:var(--fog); font-style:italic; }
+  .theme-readmore{ border:none; background:none; color:var(--meridian); font-weight:bold; font-size:inherit; cursor:pointer; padding:0; text-decoration:underline; }
+
+  .story-card-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
+  .story-card{ background:#fff; border:1px solid var(--cloud); border-radius:8px; padding:14px 16px; border-left:4px solid var(--meridian); display:flex; flex-direction:column; gap:8px; }
+  .story-card.negative{ border-left-color:var(--fog); }
+  .story-card .story-head{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
+  .story-card .story-project{ font-weight:bold; font-size:13.5px; color:var(--constellation); }
+  .story-card .story-count{ font-size:11px; color:var(--fog); font-weight:bold; white-space:nowrap; }
+  .story-card .story-text{ font-size:12.5px; line-height:1.5; color:var(--atlas); margin:0; }
+  .keyword-row{ display:flex; flex-wrap:wrap; gap:6px; margin-top:2px; }
+  .keyword-chip{ display:inline-flex; align-items:center; font-size:10.5px; font-weight:bold; letter-spacing:0.2px; padding:3px 9px; border-radius:20px; background:var(--mist); color:var(--dusk); border:1px solid var(--cloud); white-space:nowrap; }
+  .keyword-chip.rank-1{ background:var(--meridian); color:#fff; border-color:var(--meridian); font-size:11.5px; }
+  .keyword-chip.rank-2{ background:rgba(26,82,118,0.14); color:var(--meridian); border-color:rgba(26,82,118,0.3); }
+  .story-card.negative .keyword-chip.rank-1{ background:var(--atlas); border-color:var(--atlas); }
+  .story-card.negative .keyword-chip.rank-2{ background:rgba(44,62,80,0.10); color:var(--atlas); border-color:rgba(44,62,80,0.25); }
+  .theme-modal-overlay{ position:fixed; inset:0; background:rgba(10,14,26,0.6); z-index:200; display:none; align-items:center; justify-content:center; padding:20px; }
+  .theme-modal{ background:#fff; border-radius:12px; max-width:560px; width:100%; max-height:75vh; overflow-y:auto; padding:24px; position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.3); }
+  .theme-modal-close{ position:absolute; top:12px; right:14px; border:none; background:none; font-size:22px; line-height:1; color:var(--fog); cursor:pointer; }
+  .theme-modal-close:hover{ color:var(--dusk); }
+  .theme-modal-project{ font-size:11px; font-weight:bold; text-transform:uppercase; letter-spacing:0.6px; color:var(--gold-deep); margin-bottom:8px; }
+  .theme-modal-text{ font-size:14px; line-height:1.6; color:var(--dusk); white-space:pre-wrap; }
+
+  .methodology{ background:var(--mist); border:1px solid var(--cloud); border-radius:8px; padding:18px 20px; font-size:12px; color:var(--atlas); line-height:1.6; }
+  .methodology h4{ margin:14px 0 4px; font-size:12.5px; color:var(--constellation); }
+  .methodology h4:first-child{ margin-top:0; }
+  .methodology code{ background:var(--cloud); padding:1px 5px; border-radius:3px; font-size:11px; }
+</style>
+</head>
+<body>
+
+<div class="sticky-masthead">
+  <div class="header-masthead">
+    <div class="header-brand-left">
+    <div class="header-logo-wrap"><svg class="header-logo" width="218" height="52" viewBox="0 0 218 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_636_6236)">
+<path d="M0 35.5142H216.027" stroke="#D5AE58" stroke-width="0.6" stroke-miterlimit="10"/>
+<path d="M24.3516 51.5726V45.3345H27.6191V46.0139H25.0914V47.805H27.6191V48.4844H25.0914V51.5726H24.3516Z" fill="#A37F48"/>
+<path d="M37.4218 48.4847C37.4218 48.917 37.3601 49.3493 37.1752 49.7199C36.9902 50.0905 36.8053 50.4611 36.4354 50.7699C36.1271 51.0787 35.7572 51.3258 35.3873 51.5111C34.9557 51.6964 34.5858 51.7581 34.1543 51.7581C33.7227 51.7581 33.2911 51.6964 32.9212 51.5111C32.4897 51.3258 32.1814 51.0787 31.8731 50.7699C31.5649 50.4611 31.3183 50.0905 31.1333 49.7199C30.9484 49.3493 30.8867 48.917 30.8867 48.4847C30.8867 48.0523 30.9484 47.62 31.1333 47.2494C31.3183 46.8788 31.5649 46.5082 31.8731 46.1994C32.1814 45.8906 32.5513 45.6435 32.9212 45.52C33.3528 45.3347 33.7227 45.2729 34.1543 45.2729C34.5858 45.2729 35.0174 45.3347 35.3873 45.52C35.8188 45.7053 36.1271 45.8906 36.4354 46.1994C36.7436 46.5082 36.9902 46.8788 37.1752 47.2494C37.3601 47.62 37.4218 48.0523 37.4218 48.5464M34.0926 51.0787C34.4009 51.0787 34.7708 51.017 35.079 50.8934C35.3873 50.7699 35.6339 50.5846 35.8805 50.3376C36.1271 50.0905 36.3121 49.8435 36.4354 49.5346C36.5587 49.2258 36.6203 48.917 36.6203 48.5464C36.6203 48.1758 36.5587 47.867 36.4354 47.5582C36.3121 47.2494 36.1271 46.9406 35.8805 46.6935C35.6339 46.4465 35.3873 46.2612 35.079 46.1376C34.7708 46.0141 34.4625 45.9523 34.0926 45.9523C33.7227 45.9523 33.4144 46.0141 33.1062 46.1376C32.7979 46.2612 32.5513 46.4465 32.3047 46.6935C32.0581 46.9406 31.8731 47.2494 31.7498 47.5582C31.6265 47.867 31.5649 48.1758 31.5649 48.5464C31.5649 48.917 31.6265 49.2258 31.7498 49.5346C31.8731 49.8435 32.0581 50.0905 32.3047 50.3993C32.5513 50.6464 32.7979 50.8317 33.1062 50.9552C33.4144 51.0787 33.7227 51.1405 34.0926 51.1405V51.0787Z" fill="#A37F48"/>
+<path d="M40.9983 45.3345H41.7381V49.2256C41.7381 49.8432 41.8614 50.3373 42.108 50.6461C42.3546 50.955 42.7862 51.0785 43.3411 51.0785C43.8959 51.0785 44.3275 50.955 44.5741 50.6461C44.8207 50.3373 44.944 49.905 44.944 49.2256V45.3345H45.6838V49.2256C45.6838 50.0903 45.4989 50.7079 45.0673 51.1403C44.6974 51.5726 44.0809 51.7579 43.2794 51.7579C42.4779 51.7579 41.8614 51.5726 41.4915 51.1403C41.1216 50.7079 40.875 50.0903 40.875 49.2256V45.3345H40.9983Z" fill="#A37F48"/>
+<path d="M49.5703 51.5726V45.0874L54.0709 50.0903V45.3345H54.8107V51.8196L50.3101 46.8785V51.5726H49.5703Z" fill="#A37F48"/>
+<path d="M58.6914 51.5726V45.3345H59.8628C60.7259 45.3345 61.3424 45.3345 61.7123 45.458C62.0822 45.5198 62.3905 45.7051 62.6371 45.8903C63.007 46.1374 63.2536 46.508 63.4386 46.9403C63.6235 47.3727 63.6852 47.8668 63.6852 48.4227C63.6852 48.9785 63.6235 49.4726 63.4386 49.905C63.2536 50.3373 63.007 50.7079 62.6371 50.955C62.3905 51.1403 62.0822 51.3255 61.7123 51.3873C61.3424 51.4491 60.8492 51.5108 60.1094 51.5108H58.6914V51.5726ZM59.4312 50.8932H59.9244C60.6643 50.8932 61.2191 50.8932 61.4657 50.7697C61.774 50.7079 62.0206 50.5844 62.2055 50.3991C62.4522 50.2138 62.6371 49.905 62.7604 49.5962C62.8837 49.2873 62.9454 48.855 62.9454 48.4227C62.9454 47.9903 62.8837 47.6197 62.7604 47.2491C62.6371 46.9403 62.4522 46.6315 62.2055 46.4462C62.0206 46.2609 61.774 46.1374 61.4657 46.0756C61.1575 46.0139 60.6643 45.9521 59.9244 45.9521H59.4312V50.8314V50.8932Z" fill="#A37F48"/>
+<path d="M69.1133 45.0874L71.8876 51.5726H71.0862L70.2847 49.6579H67.8803L67.0788 51.5726H66.2773L69.0517 45.0874H69.1133ZM69.1133 46.755L68.1269 49.0403H70.0997L69.1133 46.755Z" fill="#A37F48"/>
+<path d="M75.5231 51.5726V46.0756H73.7969V45.3345H77.9892V46.0756H76.2629V51.5726H75.5231Z" fill="#A37F48"/>
+<path d="M81.9976 45.3345H81.2578V51.5726H81.9976V45.3345Z" fill="#A37F48"/>
+<path d="M92.1679 48.4847C92.1679 48.917 92.1062 49.3493 91.9213 49.7199C91.7363 50.0905 91.5514 50.4611 91.1815 50.7699C90.8732 51.0787 90.5033 51.3258 90.1334 51.5111C89.7018 51.6964 89.3319 51.7581 88.9003 51.7581C88.4688 51.7581 88.0372 51.6964 87.6673 51.5111C87.2358 51.3258 86.9275 51.0787 86.6192 50.7699C86.311 50.4611 86.0644 50.0905 85.8794 49.7199C85.6945 49.3493 85.6328 48.917 85.6328 48.4847C85.6328 48.0523 85.6945 47.62 85.8794 47.2494C86.0644 46.8788 86.311 46.5082 86.6192 46.1994C86.9275 45.8906 87.2974 45.6435 87.6673 45.52C88.0989 45.3347 88.4688 45.2729 88.9003 45.2729C89.3319 45.2729 89.7635 45.3347 90.1334 45.52C90.5649 45.7053 90.8732 45.8906 91.1815 46.1994C91.4897 46.5082 91.7363 46.8788 91.9213 47.2494C92.1062 47.62 92.1679 48.0523 92.1679 48.5464M88.9003 51.0787C89.2086 51.0787 89.5785 51.017 89.8868 50.8934C90.195 50.7699 90.4416 50.5846 90.6882 50.3376C90.9349 50.0905 91.1198 49.8435 91.2431 49.5346C91.3664 49.2258 91.4281 48.917 91.4281 48.5464C91.4281 48.1758 91.3664 47.867 91.2431 47.5582C91.1198 47.2494 90.9349 46.9406 90.6882 46.6935C90.4416 46.4465 90.195 46.2612 89.8868 46.1376C89.5785 46.0141 89.2703 45.9523 88.9003 45.9523C88.5304 45.9523 88.2222 46.0141 87.9139 46.1376C87.6057 46.2612 87.3591 46.4465 87.1125 46.6935C86.8658 46.9406 86.6809 47.2494 86.5576 47.5582C86.4343 47.867 86.3726 48.1758 86.3726 48.5464C86.3726 48.917 86.4343 49.2258 86.5576 49.5346C86.6809 49.8435 86.8658 50.0905 87.1125 50.3993C87.3591 50.6464 87.6057 50.8317 87.9139 50.9552C88.2222 51.0787 88.5304 51.1405 88.9003 51.1405V51.0787Z" fill="#A37F48"/>
+<path d="M95.7461 51.5726V45.0874L100.247 50.0903V45.3345H100.925V51.8196L96.4243 46.8785V51.5726H95.7461Z" fill="#A37F48"/>
+<path d="M116.09 48.4847C116.09 48.917 116.028 49.3493 115.843 49.7199C115.658 50.0905 115.473 50.4611 115.103 50.7699C114.795 51.0787 114.425 51.3258 114.055 51.5111C113.624 51.6964 113.254 51.7581 112.822 51.7581C112.391 51.7581 111.959 51.6964 111.589 51.5111C111.158 51.3258 110.849 51.0787 110.541 50.7699C110.233 50.4611 109.986 50.0905 109.801 49.7199C109.616 49.3493 109.555 48.917 109.555 48.4847C109.555 48.0523 109.616 47.62 109.801 47.2494C109.986 46.8788 110.233 46.5082 110.541 46.1994C110.849 45.8906 111.219 45.6435 111.589 45.52C112.021 45.3347 112.391 45.2729 112.822 45.2729C113.254 45.2729 113.685 45.3347 114.055 45.52C114.487 45.7053 114.795 45.8906 115.103 46.1994C115.412 46.5082 115.658 46.8788 115.843 47.2494C116.028 47.62 116.09 48.0523 116.09 48.5464M112.761 51.0787C113.069 51.0787 113.439 51.017 113.747 50.8934C114.055 50.7699 114.302 50.5846 114.548 50.3376C114.795 50.0905 114.98 49.8435 115.103 49.5346C115.227 49.2258 115.288 48.917 115.288 48.5464C115.288 48.1758 115.227 47.867 115.103 47.5582C114.98 47.2494 114.795 46.9406 114.548 46.6935C114.302 46.4465 114.055 46.2612 113.747 46.1376C113.439 46.0141 113.13 45.9523 112.761 45.9523C112.391 45.9523 112.082 46.0141 111.774 46.1376C111.466 46.2612 111.219 46.4465 110.973 46.6935C110.726 46.9406 110.541 47.2494 110.418 47.5582C110.295 47.867 110.233 48.1758 110.233 48.5464C110.233 48.917 110.295 49.2258 110.418 49.5346C110.541 49.8435 110.726 50.0905 110.973 50.3993C111.219 50.6464 111.466 50.8317 111.774 50.9552C112.082 51.0787 112.391 51.1405 112.761 51.1405V51.0787Z" fill="#A37F48"/>
+<path d="M119.664 51.5726V45.3345H122.87V46.0139H120.404V47.805H122.87V48.4844H120.404V51.5726H119.664Z" fill="#A37F48"/>
+<path d="M131.379 51.5726V45.3345H132.119V47.7433H135.386V45.3345H136.126V51.5726H135.386V48.4844H132.119V51.5726H131.379Z" fill="#A37F48"/>
+<path d="M141.922 45.0874L144.696 51.5726H143.895L143.093 49.6579H140.689L139.887 51.5726H139.086L141.86 45.0874H141.922ZM141.922 46.755L140.935 49.0403H142.908L141.922 46.755Z" fill="#A37F48"/>
+<path d="M148.459 48.7932V51.5726H147.719V45.3345H149.013C149.445 45.3345 149.815 45.3345 150 45.3962C150.185 45.3962 150.37 45.5198 150.555 45.6433C150.74 45.7668 150.925 45.9521 150.986 46.1992C151.11 46.4462 151.171 46.6933 151.171 47.0021C151.171 47.3109 151.171 47.558 150.986 47.805C150.863 48.0521 150.74 48.2374 150.555 48.3609C150.37 48.4844 150.185 48.5462 150 48.6079C149.815 48.6079 149.445 48.6697 149.013 48.6697H148.459V48.7932ZM148.459 48.1138H148.828C149.445 48.1138 149.877 48.0521 150.123 47.8668C150.37 47.7433 150.431 47.4344 150.431 47.0639C150.431 46.6933 150.308 46.3845 150.123 46.1992C149.877 46.0139 149.507 45.9521 148.89 45.9521H148.52V48.0521L148.459 48.1138Z" fill="#A37F48"/>
+<path d="M155.24 48.7932V51.5726H154.5V45.3345H155.795C156.226 45.3345 156.596 45.3345 156.781 45.3962C156.966 45.3962 157.151 45.5198 157.336 45.6433C157.521 45.7668 157.706 45.9521 157.768 46.1992C157.891 46.4462 157.952 46.6933 157.952 47.0021C157.952 47.3109 157.952 47.558 157.768 47.805C157.644 48.0521 157.521 48.2374 157.336 48.3609C157.151 48.4844 156.966 48.5462 156.781 48.6079C156.596 48.6079 156.226 48.6697 155.795 48.6697H155.24V48.7932ZM155.24 48.1138H155.61C156.226 48.1138 156.658 48.0521 156.904 47.8668C157.151 47.7433 157.213 47.4344 157.213 47.0639C157.213 46.6933 157.089 46.3845 156.904 46.1992C156.658 46.0139 156.288 45.9521 155.671 45.9521H155.301V48.0521L155.24 48.1138Z" fill="#A37F48"/>
+<path d="M162.084 45.3345H161.344V51.5726H162.084V45.3345Z" fill="#A37F48"/>
+<path d="M165.965 51.5726V45.0874L170.465 50.0903V45.3345H171.144V51.8196L166.643 46.8785V51.5726H165.965Z" fill="#A37F48"/>
+<path d="M175.031 51.5726V45.3345H178.237V46.0139H175.771V47.805H178.237V48.4844H175.771V50.8932H178.237V51.5726H175.031Z" fill="#A37F48"/>
+<path d="M184.151 48.1141C184.521 48.2994 184.829 48.5464 185.076 48.7935C185.261 49.1023 185.384 49.4111 185.384 49.8435C185.384 50.3993 185.199 50.8934 184.829 51.2023C184.459 51.5728 183.966 51.7581 183.411 51.7581C182.856 51.7581 182.548 51.6346 182.178 51.3875C181.87 51.1405 181.623 50.7699 181.5 50.3376L182.178 50.0287C182.24 50.3993 182.425 50.7081 182.61 50.8934C182.795 51.0787 183.103 51.2023 183.411 51.2023C183.719 51.2023 184.089 51.0787 184.274 50.8934C184.521 50.7081 184.644 50.3993 184.644 50.0287C184.644 49.6582 184.583 49.5346 184.398 49.2876C184.213 49.1023 184.028 48.917 183.658 48.7935L182.918 48.4847C182.486 48.2994 182.178 48.1141 181.993 47.8053C181.808 47.5582 181.685 47.1876 181.685 46.817C181.685 46.4465 181.87 46.0141 182.178 45.7053C182.486 45.3965 182.918 45.2729 183.411 45.2729C183.904 45.2729 184.089 45.3347 184.398 45.52C184.644 45.7053 184.891 45.8906 185.014 46.1994L184.398 46.57C184.274 46.3229 184.089 46.1376 183.966 46.0141C183.781 45.8906 183.596 45.8288 183.411 45.8288C183.226 45.8288 182.918 45.8906 182.733 46.0759C182.548 46.2612 182.486 46.4465 182.486 46.7553C182.486 47.0641 182.548 47.1876 182.671 47.3111C182.795 47.4964 183.041 47.62 183.288 47.7435L184.151 48.1141Z" fill="#A37F48"/>
+<path d="M190.936 48.1141C191.306 48.2994 191.614 48.5464 191.861 48.7935C192.046 49.1023 192.169 49.4111 192.169 49.8435C192.169 50.3993 191.984 50.8934 191.614 51.2023C191.244 51.5728 190.751 51.7581 190.196 51.7581C189.641 51.7581 189.333 51.6346 188.963 51.3875C188.655 51.1405 188.408 50.7699 188.285 50.3376L188.963 50.0287C189.025 50.3993 189.21 50.7081 189.395 50.8934C189.58 51.0787 189.888 51.2023 190.196 51.2023C190.505 51.2023 190.875 51.0787 191.059 50.8934C191.306 50.7081 191.429 50.3993 191.429 50.0287C191.429 49.6582 191.368 49.5346 191.183 49.2876C190.998 49.1023 190.813 48.917 190.443 48.7935L189.703 48.4847C189.272 48.2994 188.963 48.1141 188.778 47.8053C188.593 47.5582 188.47 47.1876 188.47 46.817C188.47 46.4465 188.655 46.0141 188.963 45.7053C189.272 45.3965 189.703 45.2729 190.196 45.2729C190.69 45.2729 190.875 45.3347 191.183 45.52C191.429 45.7053 191.676 45.8906 191.799 46.1994L191.183 46.57C191.059 46.3229 190.875 46.1376 190.751 46.0141C190.566 45.8906 190.381 45.8288 190.196 45.8288C190.011 45.8288 189.703 45.8906 189.518 46.0759C189.333 46.2612 189.272 46.4465 189.272 46.7553C189.272 47.0641 189.333 47.1876 189.457 47.3111C189.58 47.4964 189.826 47.62 190.073 47.7435L190.936 48.1141Z" fill="#A37F48"/>
+<path d="M15.7811 4.38522C15.2262 3.89112 14.6714 3.45877 14.0549 3.08819C13.2534 2.59408 12.4519 2.2235 11.5272 2.03821C10.664 1.85292 9.8009 1.72939 8.93778 1.72939H8.56787C8.01301 1.72939 7.5198 1.79115 6.96493 1.91468C6.47172 2.03821 5.91685 2.28526 5.48529 2.59408C5.11538 2.84113 4.80713 3.14995 4.49887 3.45877C4.19061 3.82935 4.00566 4.19993 3.88235 4.69404C3.8207 5.00286 3.75905 5.24992 3.75905 5.55873C3.75905 5.86755 3.75905 5.92932 3.75905 6.17637C3.75905 6.48519 3.88235 6.79401 4.06731 7.16459C4.31391 7.72046 4.68382 8.21457 5.11538 8.64691C5.54695 9.07926 5.97851 9.44984 6.41007 9.82042C7.27319 10.4381 8.19796 10.9939 9.06109 11.5498C9.18439 11.6116 9.30769 11.7351 9.43099 11.7969C10.1092 12.1674 10.7257 12.5998 11.4038 13.0321C12.0204 13.4645 12.6369 13.8968 13.2534 14.3909C13.7466 14.7615 14.1782 15.2556 14.6097 15.7497C15.0413 16.2438 15.4112 16.7997 15.6578 17.4173C16.0894 18.282 16.2743 19.1467 16.2743 20.0732C16.2743 20.9996 16.2743 20.3202 16.2743 20.4438C16.2743 21.2467 16.0277 21.9261 15.7195 22.6673C15.4112 23.2849 15.0413 23.9025 14.5481 24.3966C14.0549 24.8907 13.5617 25.2613 12.9451 25.6319C12.267 26.0025 11.5888 26.3113 10.7873 26.4966C10.0475 26.6819 9.30769 26.7437 8.50622 26.8054H8.13631C7.39649 26.8054 6.65667 26.8054 5.91686 26.6201C5.11538 26.4966 4.25226 26.2495 3.51244 25.9407C2.15611 25.3849 0.923077 24.5819 -0.125 23.4702L0.553167 22.6673C1.10803 23.1614 1.6629 23.5937 2.27941 23.9643C3.08088 24.4584 3.88235 24.829 4.80713 25.0143C5.67025 25.2613 6.59502 25.3231 7.5198 25.3231H7.7664C8.32127 25.3231 8.81448 25.2613 9.36934 25.076C9.86256 24.9525 10.4174 24.7055 10.849 24.3966C11.2189 24.1496 11.5272 23.8408 11.8354 23.5319C12.1437 23.1614 12.3286 22.7908 12.4519 22.2967C12.5136 22.0496 12.5752 21.7408 12.5752 21.4937C12.5752 21.2467 12.5752 21.1232 12.5136 20.8143C12.5136 20.5055 12.3286 20.1967 12.1437 19.7644C11.8971 19.2085 11.5271 18.7144 11.0956 18.282C10.664 17.8497 10.2325 17.4791 9.80091 17.1085C8.93778 16.4909 8.07466 15.935 7.14989 15.3791C7.02658 15.3174 6.90328 15.1939 6.77998 15.1321C6.10181 14.7615 5.48529 14.3292 4.86878 13.8968C4.25226 13.4645 3.63575 13.0321 3.01923 12.538C2.52602 12.1674 2.09446 11.6733 1.6629 11.1792C1.23133 10.6851 0.861425 10.1292 0.614819 9.5116C0.183258 8.70868 -0.00169683 7.78222 -0.00169683 6.85577V6.48519C-0.00169683 5.68226 0.244909 5.00286 0.553167 4.2617C0.861425 3.64406 1.23133 3.02642 1.72455 2.53232C2.21776 2.03821 2.71097 1.66763 3.32749 1.29704C4.00566 0.926462 4.74547 0.617644 5.48529 0.432353C6.22511 0.247062 6.96493 0.185299 7.7664 0.123535H8.13631C8.87613 0.123535 9.61595 0.123535 10.3558 0.308826C11.1572 0.432353 12.0204 0.679408 12.8218 0.988226C14.1782 1.5441 15.4112 2.34703 16.4593 3.45877L15.7811 4.2617V4.38522Z" fill="#D5AE58"/>
+<path d="M21.5156 0.802734H25.338V17.2936C25.338 18.0348 25.338 18.7759 25.4613 19.5171C25.5846 20.2583 25.7079 20.9994 26.0162 21.6788C26.2628 22.3582 26.6327 22.9759 27.0643 23.5317C27.6808 24.2111 28.4206 24.7053 29.2221 24.9523C29.9002 25.1376 30.5168 25.2611 31.2566 25.2611C31.9964 25.2611 31.5648 25.2611 31.7498 25.2611C33.3527 25.1994 34.7091 24.52 35.9421 23.3465C36.8052 22.4818 37.4217 21.4935 37.8533 20.32C38.2849 19.1465 38.5315 17.9113 38.5315 16.6142V0.802734H39.5179V16.676C39.5179 18.0965 39.2713 19.5171 38.8397 20.8141C38.3465 22.1112 37.6683 23.2847 36.6819 24.2729C36.0037 24.9523 35.2023 25.5082 34.4008 25.8788C33.5377 26.2493 32.6746 26.4964 31.8114 26.5582C31.4415 26.5582 31.01 26.5582 30.6401 26.5582C29.9619 26.5582 29.2221 26.4964 28.3589 26.3729C27.4958 26.2493 26.6327 25.8788 25.6463 25.3846C25.0298 25.0141 24.4749 24.5817 23.9817 24.0876C23.4268 23.47 22.9336 22.8523 22.5637 22.1112C22.1938 21.37 21.9472 20.6289 21.7622 19.7642C21.5773 18.9612 21.5156 18.0965 21.5156 17.2319V0.802734Z" fill="#D5AE58"/>
+<path d="M46.1145 26.0643H45.0664L45.1281 0.864746H48.3339L56.287 16.4909L64.3017 0.864746H68.0008V26.0643H64.3017V3.08824L54.7457 21.8644L46.1145 4.87938V26.0643Z" fill="#D5AE58"/>
+<path d="M77.6816 17.3556L74.1058 26.0643H72.9961L83.4152 0.864746H84.5249L94.8824 26.0643H90.7517L87.176 17.3556H77.6816ZM82.4288 5.80583L78.1132 16.2439H86.6827L82.3671 5.80583H82.4288Z" fill="#D5AE58"/>
+<path d="M119.912 13.4645C119.912 15.7498 119.419 17.9115 118.432 19.7644C117.446 21.6791 116.089 23.2232 114.425 24.3349C112.76 25.4467 110.849 26.0643 108.814 26.0643H99.875V0.864746H108.814C110.849 0.864746 112.76 1.42062 114.425 2.59413C116.089 3.70587 117.446 5.24996 118.432 7.16464C119.419 9.07931 119.912 11.1793 119.912 13.5263M103.574 24.9526H107.335C108.814 24.9526 110.048 24.6437 111.157 24.0261C112.267 23.4085 113.192 22.5438 113.932 21.4938C114.671 20.4438 115.226 19.2085 115.658 17.788C116.028 16.4292 116.213 14.9468 116.213 13.4645C116.213 11.9822 115.843 9.44989 115.165 7.72051C114.425 5.99113 113.438 4.57056 112.082 3.58235C110.726 2.53236 109.184 2.03825 107.273 2.03825H103.512V25.0143L103.574 24.9526Z" fill="#D5AE58"/>
+<path d="M124.906 26.0643V0.864746H128.667V12.9087H139.764V0.864746H143.463V26.0643H139.764V14.0204H128.667V26.0643H124.906Z" fill="#D5AE58"/>
+<path d="M149.133 0.802734H152.955V17.2936C152.955 18.0348 152.955 18.7759 153.079 19.5171C153.202 20.2583 153.325 20.9994 153.633 21.6788C153.88 22.3582 154.25 22.9759 154.681 23.5317C155.298 24.2111 156.038 24.7053 156.839 24.9523C157.517 25.1376 158.134 25.2611 158.874 25.2611C159.614 25.2611 159.182 25.2611 159.367 25.2611C160.97 25.1994 162.326 24.52 163.559 23.3465C164.422 22.4818 165.039 21.4935 165.47 20.32C165.902 19.1465 166.149 17.9113 166.149 16.6142V0.802734H167.135V16.676C167.135 18.0965 166.888 19.5171 166.457 20.8141C165.964 22.1112 165.286 23.2847 164.299 24.2729C163.621 24.9523 162.819 25.5082 162.018 25.8788C161.155 26.2493 160.292 26.4964 159.429 26.5582C159.059 26.5582 158.627 26.5582 158.257 26.5582C157.579 26.5582 156.839 26.4964 155.976 26.3729C155.113 26.2493 154.25 25.8788 153.263 25.3846C152.647 25.0141 152.092 24.5817 151.599 24.0876C151.044 23.47 150.551 22.8523 150.181 22.1112C149.811 21.37 149.564 20.6289 149.379 19.7642C149.194 18.9612 149.133 18.0965 149.133 17.2319V0.802734Z" fill="#D5AE58"/>
+<path d="M172.379 26.0643V0.864746H182.983C184.154 0.864746 185.202 1.17356 186.127 1.85296C187.052 2.4706 187.853 3.33529 188.408 4.44704C188.963 5.49702 189.271 6.73229 189.271 8.02933C189.271 9.32636 188.963 10.5616 188.408 11.6116C187.853 12.6616 187.052 13.5263 186.127 14.2057C185.202 14.8233 184.093 15.1939 182.983 15.1939L190.011 26.1261H185.387L178.359 15.1939H176.078V26.1261H172.379V26.0643ZM176.078 14.0204H180.27C181.75 14.0204 182.983 13.4028 184.031 12.2293C185.079 11.0557 185.572 9.63518 185.572 7.96756C185.572 6.29994 185.079 4.87938 184.031 3.70587C182.983 2.53236 181.75 1.91473 180.27 1.91473H176.078V14.0204Z" fill="#D5AE58"/>
+<path d="M198.701 17.3556L195.125 26.0643H194.016L204.435 0.864746H205.544L215.902 26.0643H211.771L208.195 17.3556H198.701ZM203.448 5.80583L199.133 16.2439H207.702L203.387 5.80583H203.448Z" fill="#D5AE58"/>
+<path d="M215.536 4.94109C214.18 4.94109 213.07 3.82934 213.07 2.47054C213.07 1.11174 214.18 0 215.536 0C216.893 0 218.002 1.11174 218.002 2.47054C218.002 3.82934 216.893 4.94109 215.536 4.94109ZM215.536 0.370582C214.365 0.370582 213.44 1.29704 213.44 2.47054C213.44 3.64405 214.365 4.57051 215.536 4.57051C216.708 4.57051 217.633 3.64405 217.633 2.47054C217.633 1.29704 216.708 0.370582 215.536 0.370582Z" fill="#D5AE58"/>
+<path d="M214.672 3.89093V1.0498H215.843C215.967 1.0498 216.09 1.0498 216.213 1.17333C216.336 1.2351 216.398 1.35862 216.46 1.48215C216.521 1.60568 216.583 1.7292 216.583 1.9145C216.583 2.09979 216.583 2.22331 216.46 2.34684C216.398 2.47037 216.336 2.5939 216.213 2.65566C216.09 2.71742 215.967 2.77919 215.843 2.77919L216.645 4.01446H216.152L215.35 2.77919H215.103V4.01446H214.672V3.89093ZM215.103 2.53213H215.597C215.782 2.53213 215.905 2.47037 216.028 2.34684C216.152 2.22331 216.213 2.03802 216.213 1.85273C216.213 1.66744 216.213 1.48215 216.028 1.35862C215.905 1.2351 215.782 1.17333 215.597 1.17333H215.103V2.53213Z" fill="#D5AE58"/>
+</g>
+<defs>
+<clipPath id="clip0_636_6236">
+<rect width="218" height="51.8197" fill="#A37F48"/>
+</clipPath>
+</defs>
+</svg></div>
+      <div class="header-divider"></div>
+    </div>
+    <div class="header-brand-right">
+      <div class="delivered-by">Delivered by</div>
+      <div class="header-agency-mark">
+      <img src="data:image/png;base64,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" alt="North Star Digital">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sticky-bar">
+  <div class="hero">
+    <div class="hero-copy">
+      <h1 class="orm-title">ORM Performance Report</h1>
+      <p>Weekly Reputation Intelligence across Reddit, Quora, Google Business &amp; Social Media</p>
+      <div class="pulse-wrap" id="pulseWrap" aria-hidden="true">
+        <svg id="pulseSvg" viewBox="0 0 320 36" preserveAspectRatio="none"></svg>
+        <span class="pulse-label">Sentiment pulse · last 6 weeks</span>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <div class="tracking-card">
+        <div class="tc-range-col">
+          <div class="tc-title">Tracking range <strong id="rangeSummaryLabel" class="range-summary">Select a window</strong></div>
+          <div class="range-chip-row" id="rangeChipRow">
+            <button class="range-chip active" type="button" data-preset="latestweek">Latest Week</button>
+            <button class="range-chip" type="button" data-preset="lastweek">Last Week</button>
+            <div class="range-month-wrap">
+              <button class="range-chip range-month-btn" type="button" id="rangeMonthBtn" aria-haspopup="true" aria-expanded="false">
+                Month <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="range-month-menu" id="rangeMonthMenu" hidden></div>
+            </div>
+          </div>
+        </div>
+        <button class="refresh-btn" id="refreshDataBtn" type="button" title="Re-fetch all sheets now">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          <span class="sr-only" id="metaRefreshLabel">Refresh data</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="dataStatusBar" style="display:none; padding:10px 5vw; font-size:12.5px; background:rgba(201,169,110,0.12); color:var(--gold); border-top:1px solid rgba(255,255,255,0.1);"></div>
+
+<nav class="tabs">
+  <button class="tab-btn active" data-target="all"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Overview</button>
+  <button class="tab-btn" data-target="gmb"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>GMB</button>
+  <button class="tab-btn" data-target="reddit"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1.2" fill="currentColor" stroke="none"/><path d="M8.5 15.5c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2"/></svg>Reddit</button>
+  <button class="tab-btn" data-target="quora"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.8" y2="15.8"/></svg>Quora</button>
+  <button class="tab-btn" data-target="social"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Social</button>
+</nav>
+</div>
+
+<main>
+
+  <!-- KPI STRIP -->
+  <section data-platform="all">
+    <h2>Selected Window at a Glance</h2>
+    <p class="section-sub" id="kpiSub">Choose Latest Week, Last Week, or a month above to filter the report.</p>
+    <div class="filter-bar" id="windowScopeFilter">
+      <span class="range-hint">The selected window above drives the KPI cards, charts, and summaries for the whole dashboard.</span>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-icon" style="background:rgba(26,82,118,0.12);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--meridian)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 6"/><polyline points="15 6 21 6 21 12"/></svg></div>
+          <div class="label">Total Activity (All Platforms)</div>
+        </div>
+        <div class="value" id="kpiTotalActivity">207</div>
+        <div class="delta down" id="kpiTotalActivityDelta">↓ 8.4% vs W2 (226)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-icon" style="background:rgba(201,169,110,0.18);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-deep)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div class="label">Reddit + Quora New Posts</div>
+        </div>
+        <div class="value" id="kpiNewPosts">8</div>
+        <div class="delta up" id="kpiNewPostsDelta">4 Reddit posts · 4 Quora questions</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-icon" style="background:rgba(44,62,80,0.10);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--atlas)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg></div>
+          <div class="label">GMB Negative Reviews Responded</div>
+        </div>
+        <div class="value" id="kpiGmbNeg">6</div>
+        <div class="delta up" id="kpiGmbNegDelta">↑ from 2 in W2 — full response coverage</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-icon" style="background:rgba(74,78,105,0.12);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--dusk)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V6a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/><path d="M7 9h9M7 12.5h6" stroke-width="1.6"/></svg></div>
+          <div class="label">Social Comments Handled</div>
+        </div>
+        <div class="value" id="kpiSocial">430</div>
+        <div class="delta up" id="kpiSocialDelta">36.7% positive · 1.9% negative</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW: combined sentiment + filterable delivery table -->
+  <section data-platform="all">
+    <h2>Overall Sentiment — All Platforms</h2>
+    <p class="section-sub">Combined Reddit, GMB, and Social sentiment across the tracking window</p>
+    <div class="grid-2">
+      <div class="card" style="max-width:420px;">
+        <div class="pie-chart-shell"><canvas id="pieOverall"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Top 3 Positive Themes</h3>
+        <p class="card-sub">Combined GMB + Reddit, by positive mentions</p>
+        <ol id="topPositiveThemes" style="margin:0; padding-left:18px; font-size:12.5px; color:var(--atlas); line-height:1.6;"></ol>
+        <h3 style="margin-top:16px;">Top 3 Negative Themes</h3>
+        <p class="card-sub">Combined GMB + Reddit, by negative mentions</p>
+        <ol id="topNegativeThemes" style="margin:0; padding-left:18px; font-size:12.5px; color:var(--atlas); line-height:1.6;"></ol>
+      </div>
+    </div>
+  </section>
+
+  <section data-platform="all">
+    <h2>Weekly Delivery Overview</h2>
+    <p class="section-sub">Activity delivered by platform, week over week</p>
+    <div class="card">
+      <h3>Total Activity by Platform</h3>
+      <p class="card-sub">Posts, comments, and responses per platform per week — pick a platform to focus the chart</p>
+      <div class="filter-bar" id="weeklyPlatformFilter"></div>
+      <div style="max-width:50%;margin:0 auto;"><canvas id="chartWeekly" height="230"></canvas></div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <h3>Full Delivery Breakdown</h3>
+      <p class="card-sub">Source: Summary tab — activity tracking only (not a sentiment measure). Filter by platform:</p>
+      <div class="filter-bar" id="deliveryFilterBar"></div>
+      <div style="overflow-x:auto;">
+        <table id="deliveryTable">
+          <thead>
+            <tr id="deliveryTableHeadRow"><th>Metric</th><th>Platform</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SENTIMENT ANALYSIS (per platform, filtered by tab) -->
+  <section data-platform="all">
+    <h2>Sentiment Analysis</h2>
+    <p class="section-sub">Positive / negative / neutral split by platform</p>
+
+    <div class="grid-2" data-platform="reddit" style="margin-bottom:20px;">
+      <div class="card">
+        <h3>Reddit — Overall</h3>
+        <p class="card-sub" id="redditPieSub">Reddit sentiment split for the current tracking window, using seeded-thread replies and existing-thread engagement.</p>
+        <div class="pie-chart-shell"><canvas id="pieReddit"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Project Sentiment Themes</h3>
+        <div class="theme-toggle" id="redditThemeToggle">
+          <button class="filter-btn active" data-sent="positive">Positive Themes</button>
+          <button class="filter-btn" data-sent="negative">Negative Themes</button>
+        </div>
+        <table class="theme-table">
+          <thead><tr><th>Project</th><th class="num">Mentions</th><th>Theme</th></tr></thead>
+          <tbody id="redditThemeBody"></tbody>
+        </table>
+        <p class="card-sub" style="margin-top:10px;" id="redditThemeFootnote">Themes are directional summaries of the tracked thread content rather than an exhaustive topic list.</p>
+      </div>
+    </div>
+
+    <div class="grid-2" data-platform="gmb" style="margin-bottom:20px;">
+      <div class="card">
+        <h3 id="gmbPieHeading">GMB — Reviews</h3>
+        <p class="card-sub" id="gmbPieSub">Current + prior-month GMB review sentiment across the locked project list.</p>
+        <div class="pie-chart-shell"><canvas id="pieGMB"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Project Sentiment Themes</h3>
+        <div class="theme-toggle" id="gmbThemeToggle">
+          <button class="filter-btn active" data-sent="positive">Positive Themes</button>
+          <button class="filter-btn" data-sent="negative">Negative Themes</button>
+        </div>
+        <table class="theme-table">
+          <thead><tr><th>Project</th><th class="num">Mentions</th><th>Theme</th></tr></thead>
+          <tbody id="gmbThemeBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid-2" data-platform="social" style="margin-bottom:20px;">
+      <div class="card">
+        <h3>Social (IG/FB/LinkedIn)</h3>
+        <p class="card-sub" id="socialPieSub">Social sentiment across Instagram, Facebook and LinkedIn in the current window.</p>
+        <div class="pie-chart-shell"><canvas id="pieSocial"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Project Sentiment Themes</h3>
+        <div class="theme-toggle" id="socialThemePlatformToggle" style="margin-bottom:8px;">
+          <button class="filter-btn active" data-platform-sel="Instagram">Instagram</button>
+          <button class="filter-btn" data-platform-sel="Facebook">Facebook</button>
+          <button class="filter-btn" data-platform-sel="LinkedIn">LinkedIn</button>
+        </div>
+        <div class="theme-toggle" id="socialThemeToggle">
+          <button class="filter-btn active" data-sent="positive">Positive Themes</button>
+          <button class="filter-btn" data-sent="negative">Negative Themes</button>
+        </div>
+        <table class="theme-table">
+          <thead><tr><th>Project</th><th class="num">Mentions</th><th>Theme</th></tr></thead>
+          <tbody id="socialThemeBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px;" data-platform="social">
+      <h3>Social Sentiment Trend</h3>
+      <p class="card-sub">Week-on-week comment volume across Instagram, Facebook and LinkedIn — pick a sentiment to focus the chart</p>
+      <div class="filter-bar" id="socialTrendFilter"></div>
+      <div style="max-width:50%;margin:0 auto;"><canvas id="chartSocialTrend" height="230"></canvas></div>
+    </div>
+
+    <div class="card" style="margin-top:20px;" data-platform="social">
+      <h3>Sentiment by Platform</h3>
+      <p class="card-sub" id="platformPieSub">Breakdown by platform for the same window, with platform-level notes below for data quality context.</p>
+      <div class="grid-3" id="platformPieGrid"></div>
+      <p class="card-sub" style="margin-top:12px;" id="platformPieFootnote">The platform-level split is directional and should be read alongside the message-level notes above for data-quality context.</p>
+    </div>
+  </section>
+
+  <!-- REDDIT -->
+  <section data-platform="reddit">
+    <h2>Reddit — New Post Outcomes</h2>
+    <p class="section-sub">Performance of freshly seeded Reddit threads, most recent first</p>
+    <div class="post-grid" id="redditPosts"></div>
+
+    <div class="card" style="margin-top:20px;">
+      <h3>Reddit Delivery vs. Target</h3>
+      <div id="redditProgress"></div>
+    </div>
+  </section>
+
+  <!-- QUORA -->
+  <section data-platform="quora">
+    <h2>Quora Performance</h2>
+    <p class="section-sub">Monthly target vs. delivered, and sentiment on published answers</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Quora — Comment Sentiment</h3>
+        <p class="card-sub" id="quoraPieSub">Quora sentiment on published answers within the current tracking window.</p>
+        <div class="pie-chart-shell"><canvas id="pieQuora"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Project Sentiment Themes</h3>
+        <div class="theme-toggle" id="quoraThemeToggle">
+          <button class="filter-btn active" data-sent="positive">Positive Themes</button>
+          <button class="filter-btn" data-sent="negative">Negative Themes</button>
+        </div>
+        <table class="theme-table">
+          <thead><tr><th>Project</th><th class="num">Mentions</th><th>Theme</th></tr></thead>
+          <tbody id="quoraThemeBody"></tbody>
+        </table>
+        <p class="card-sub" style="margin-top:10px;" id="quoraThemeFootnote">Themes are directional summaries from the seeded Quora content plan and the underlying thread context.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <h3>Delivery vs. Target</h3>
+      <div id="quoraProgress"></div>
+      <p class="card-sub" style="margin-top:10px;" id="quoraProgressFootnote">Progress is benchmarked against the monthly target values supplied in the content plan sheet.</p>
+    </div>
+  </section>
+
+  <!-- GMB -->
+  <section data-platform="gmb">
+    <h2>GMB — Project Performance</h2>
+
+    <div class="grid-2" style="margin-bottom:20px;">
+      <div class="card">
+        <h3>Top 3 — Highest Rated</h3>
+        <p class="card-sub">By current Google rating (manually maintained)</p>
+        <div id="topPositiveList"></div>
+      </div>
+      <div class="card">
+        <h3>Bottom 3 — Lowest Rated</h3>
+        <p class="card-sub">By current Google rating (manually maintained) — needs the closest attention</p>
+        <div id="topNegativeList"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="card-sub" style="margin-bottom:14px;" id="gmbMethodologyNote">Ratings are manually maintained from public Google Business Profile data; the prior-month baseline now uses the tracker’s prior-month tab rather than the live rating snapshot.</p>
+      <div style="overflow-x:auto;">
+        <table id="gmbTable">
+          <thead>
+            <tr><th>Project</th><th class="num">Current Rating</th><th class="num">Live Reviews</th><th class="num">Last Month Rating</th><th class="num">Live − Last Month Δ</th><th class="num">Reviews (Jun–Jul)</th><th class="num">Positive</th><th class="num">Negative</th><th class="num">Neutral</th><th>Sentiment split</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top:20px;">
+      <div class="card">
+        <h3>Top Performing Projects</h3>
+        <p class="card-sub" id="topProjectsSub">Project volume across the current and prior-month tracker tabs.</p>
+        <canvas id="chartTopProjects" height="220"></canvas>
+      </div>
+      <div class="card">
+        <h3>Rating Shift Notes</h3>
+        <p class="card-sub" id="ratingShiftSub">Changes vs. the prior-month baseline, using the latest locked project snapshot.</p>
+        <div id="ratingShiftNotes" style="font-size:13px;color:var(--atlas);line-height:1.6;"></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <h3>Rating History — Month on Month</h3>
+      <p class="card-sub" id="ratingHistorySub">Month-by-month history for the selected project, with monthly snapshots persisted automatically on month-end.</p>
+      <div class="project-btn-bar" id="historyProjectButtons"></div>
+      <canvas id="chartRatingHistory" height="170"></canvas>
+      <div id="historyEmptyNote" class="card-sub" style="margin-top:10px;"></div>
+      <div id="autoSaveNote" class="card-sub" style="margin-top:6px;font-style:italic;"></div>
+    </div>
+  </section>
+
+  <!-- NEGATIVE REVIEW THEMES -->
+  <section data-platform="gmb">
+    <h2 id="negThemesHeading">Negative Review Themes — Latest Week</h2>
+    <p class="section-sub" id="negThemesSub">What's actually driving low ratings, by project</p>
+    <div class="post-grid" id="negativeThemes"></div>
+  </section>
+
+</main>
+
+<footer>
+  <span>North Star Digital &nbsp;|&nbsp; ORM Performance Report &nbsp;|&nbsp; <span class="gold">thenorthstardigital.ai</span></span>
+  <span>Sources: Summary, Reddit &amp; Quora Content Plan, GMB Tracker, Sumadhura daily report — data as of 14 Jul 2026</span>
+</footer>
+
+<div class="theme-modal-overlay" id="themeModalOverlay">
+  <div class="theme-modal">
+    <button type="button" class="theme-modal-close" id="themeModalClose" aria-label="Close">&times;</button>
+    <div class="theme-modal-project" id="themeModalProject"></div>
+    <div class="theme-modal-text" id="themeModalText"></div>
+  </div>
+</div>
+
+<script>
+// ---------- COLORS ----------
+const COLORS = { meridian:'#1A5276', gold:'#C9A96E', goldDeep:'#B8923A', atlas:'#2C3E50', fog:'#7F8C8D', constellation:'#1A1F36', cloud:'#ECECEC', offwhite:'#EDE7DA', dusk:'#4A4E69' };
+if(typeof Chart !== 'undefined'){
+  Chart.defaults.font.family = 'Arial, Helvetica, sans-serif';
+  Chart.defaults.color = COLORS.atlas;
+}
+
+// Live month, not hardcoded — the dashboard tracks whatever "now" is on each visit.
+const REPORT_MONTH = (()=>{ const n=new Date(); return `${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,'0')}`; })();
+function prevMonthKey(monthStr){
+  const [y,m] = monthStr.split('-').map(Number);
+  const d = new Date(y, m-2, 1);
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
+}
+function monthLabel(monthStr){
+  const [y,m] = monthStr.split('-').map(Number);
+  return new Date(y, m-1, 1).toLocaleDateString('en-GB', {month:'short'});
+}
+
+// ---------- CUSTOM CHART.JS PLUGINS (no external CDN needed) ----------
+const pieLabelPlugin = {
+  id: 'pieLabelPlugin',
+  afterDatasetsDraw(chart){
+    const {ctx} = chart;
+    const meta = chart.getDatasetMeta(0);
+    const data = chart.data.datasets[0].data;
+    const labels = chart.data.labels || [];
+    const total = data.reduce((a,b)=>a+b,0);
+    const {left, right, top, bottom} = chart.chartArea;
+    const centerX = (left + right) / 2;
+    const centerY = (top + bottom) / 2;
+    const outerRadius = Math.min((right - left) / 2, (bottom - top) / 2) * 0.86;
+    const canvasWidth = chart.width;
+    const canvasHeight = chart.height;
+
+    ctx.save();
+    meta.data.forEach((arc, i) => {
+      const value = Number(data[i]) || 0;
+      if(!value) return;
+      const pct = total ? Math.round(value / total * 100) : 0;
+      const midAngle = (arc.startAngle + arc.endAngle) / 2;
+      const innerRadius = outerRadius * 0.52;
+      const labelRadius = (outerRadius + innerRadius) / 2;
+      const labelX = centerX + Math.cos(midAngle) * labelRadius;
+      const labelY = centerY + Math.sin(midAngle) * labelRadius;
+      const text = `${labels[i] || 'Slice'} • ${pct}%`;
+      const valueText = `${value}`;
+
+      ctx.font = 'bold 12px Arial';
+      ctx.fillStyle = '#ffffff';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(text, labelX, labelY - 7);
+
+      ctx.font = 'bold 13px Arial';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText(valueText, labelX, labelY + 12);
+    });
+    ctx.restore();
+  }
+};
+const barLabelPlugin = {
+  id: 'barLabelPlugin',
+  afterDatasetsDraw(chart){
+    const {ctx} = chart;
+    ctx.save();
+    chart.data.datasets.forEach((ds, dsIndex) => {
+      const meta = chart.getDatasetMeta(dsIndex);
+      meta.data.forEach((bar, i) => {
+        const val = ds.data[i];
+        if(!val) return;
+        ctx.font = 'bold 9.5px Arial';
+        ctx.fillStyle = COLORS.constellation;
+        ctx.textAlign = 'center';
+        ctx.fillText(val, bar.x, bar.y - 5);
+      });
+    });
+    ctx.restore();
+  }
+};
+// Note: these plugins are passed per-chart (not Chart.register'd globally) so only the
+// charts that asked for data labels (pies, Sentiment by Platform) get them.
+
+// ---------- LIVE DATA SOURCES (Google Sheets, fetched client-side) ----------
+// Each sheet must be shared "Anyone with the link — Viewer" (or published to web).
+// We use the gviz CSV endpoint with headers=1 so row 1 is always treated as the header,
+// regardless of Google's column-type-sniffing heuristics.
+const SHEET_IDS = {
+  summary: '1w-KzhMosrUQvxhRPMrk5YggJ_Dwi3ibsWv5kNqifC7c',            // Summary tab (weekly activity)
+  redditQuora: '1pEp5zMru4ZqF339rb_glcbWe-XrAufiH5mUOgcQKPCs',        // Reddit & Quora Content Plan
+  gmb: '1PsBz-XXb-862vNES8WEgmtorVh7_stqaP6YbmAnUC14',                // GMB Escalation Tracker (monthly tabs)
+  daily: '1IjbMN2n2n2xPNmLFifmM5yNYoxyPKi-TPTjdUa3Dbo0',              // Sumadhura Daily Tracker
+};
+
+// GMB Tracker tab names aren't a predictable pattern (June's tab is "June-2026", full name;
+// July's is "Jul-2026", abbreviated) — Google Sheets tab names are whatever a human typed.
+// Map each month we know about here; when a new month's tab is created, add its exact name.
+const GMB_TAB_NAMES = {
+  '2026-06': 'June-2026',
+  '2026-07': 'Jul-2026',
+};
+function guessGmbTabName(monthKey){
+  if(GMB_TAB_NAMES[monthKey]) return GMB_TAB_NAMES[monthKey];
+  const [y,m] = monthKey.split('-').map(Number);
+  return new Date(y, m-1, 1).toLocaleDateString('en-US',{month:'short'}) + '-' + y; // best-effort fallback
+}
+
+// forceHeaders=true pins row 1 as the header row (needed for the Daily Tracker's
+// "specific data" tab, where Google's auto-heuristic otherwise merges row 1 into row 2).
+// Leave it off elsewhere — the Summary tab has two merged title rows above its real
+// header row, and forcing headers=1 there mis-aligns every column.
+function sheetCsvUrl(sheetId, tabName, forceHeaders){
+  const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv` + (forceHeaders ? '&headers=1' : '');
+  return tabName ? `${base}&sheet=${encodeURIComponent(tabName)}` : base;
+}
+
+// Minimal RFC4180 CSV parser — handles quoted fields with embedded commas, quotes and newlines
+// (GMB review messages routinely contain all three).
+function parseCSV(text){
+  const rows = []; let row = [], field = '', inQuotes = false;
+  for(let i=0;i<text.length;i++){
+    const c = text[i], next = text[i+1];
+    if(inQuotes){
+      if(c === '"' && next === '"'){ field += '"'; i++; }
+      else if(c === '"'){ inQuotes = false; }
+      else field += c;
+    } else {
+      if(c === '"') inQuotes = true;
+      else if(c === ','){ row.push(field); field=''; }
+      else if(c === '\n'){ row.push(field); rows.push(row); row=[]; field=''; }
+      else if(c === '\r'){ /* skip, \n handles the line break */ }
+      else field += c;
+    }
+  }
+  if(field.length || row.length){ row.push(field); rows.push(row); }
+  return rows;
+}
+
+async function fetchSheetRows(sheetId, tabName, forceHeaders){
+  const res = await fetch(sheetCsvUrl(sheetId, tabName, forceHeaders), {cache:'no-store'});
+  if(!res.ok) throw new Error(`Sheet fetch failed (HTTP ${res.status}) — check it's shared "Anyone with the link".`);
+  const text = await res.text();
+  if(/^<!DOCTYPE html/i.test(text.trim())) throw new Error('Got an HTML login page instead of CSV — sheet sharing may have changed.');
+  return parseCSV(text).filter(r => r.some(c => c && c.trim() !== ''));
+}
+// Header-based row objects — use when the tab's header row has no duplicate column names.
+async function fetchSheetObjects(sheetId, tabName, forceHeaders){
+  const rows = await fetchSheetRows(sheetId, tabName, forceHeaders);
+  if(!rows.length) return [];
+  const headers = rows[0].map(h=>h.trim());
+  return rows.slice(1).map(r=>{
+    const obj = {};
+    headers.forEach((h,i)=>{ obj[h] = (r[i]||'').trim(); });
+    return obj;
+  });
+}
+function numOr(v, fallback){ const n = parseFloat(v); return Number.isFinite(n) ? n : fallback; }
+// Sheet "Post Link" cells are sometimes bare domains (no protocol) or rich-text
+// hyperlinks whose display text isn't a URL at all — normalize the former, drop the latter.
+function sanitizeUrl(raw){
+  const v = (raw||'').toString().trim();
+  if(!v) return null;
+  if(/\s/.test(v) || !v.includes('.')) return null; // not URL-shaped (plain label text etc.)
+  if(/^https?:\/\//i.test(v)) return v;
+  if(/^www\./i.test(v) || /^[a-z0-9-]+\.[a-z]{2,}/i.test(v)) return 'https://' + v;
+  return null;
+}
+
+// ---------- Canonical GMB project list (locked, per build spec) ----------
+const GMB_PROJECTS = ['Folium','Edition','Capitol Residences','Panorama','Capitol Towers','Elysium','Infracon','Z-hub','Hive and Thrive','Solace','Epitome'];
+const GMB_PROJECT_ALIASES = {
+  'capitol residency': 'Capitol Residences',
+  'capitol residences': 'Capitol Residences',
+  'capitol towers': 'Capitol Towers',
+  'z-hub': 'Z-hub', 'zhub': 'Z-hub',
+  'hive and thrive': 'Hive and Thrive', 'sumadhura hive': 'Hive and Thrive',
+  'infracon': 'Infracon', 'sumadhura infracon private limited': 'Infracon',
+  'folium': 'Folium', 'edition': 'Edition', 'panorama': 'Panorama',
+  'elysium': 'Elysium', 'solace': 'Solace', 'epitome': 'Epitome',
+};
+function normalizeGmbProject(raw){
+  if(!raw) return null;
+  const key = raw.trim().toLowerCase();
+  if(GMB_PROJECT_ALIASES[key]) return GMB_PROJECT_ALIASES[key];
+  // Daily Tracker "Channel Name" values are full display names ("Sumadhura Capitol Towers",
+  // "Folium by Sumadhura", "SST Z-Hub by Sumadhura") rather than the bare project name the
+  // GMB Tracker sheet uses — fall back to substring containment against the locked list.
+  const match = GMB_PROJECTS.find(p => key.includes(p.toLowerCase()));
+  return match || null; // still null (dropped) for anything not on the locked list, e.g. GBTB
+}
+function sentimentFromRating(rating){
+  if(rating >= 4) return 'positive';
+  if(rating === 3) return 'neutral';
+  return 'negative';
+}
+// GMB dates in the tracker are "Jul 1" style, no year — attach the tab's own month/year.
+function parseGmbDate(dateStr, monthKey){
+  if(!dateStr || !monthKey) return null;
+  const m = dateStr.trim().match(/^([A-Za-z]{3,})\s+(\d{1,2})/);
+  if(!m) return null;
+  const [y] = monthKey.split('-').map(Number);
+  const monthIdx = new Date(`${m[1]} 1, 2000`).getMonth();
+  if(Number.isNaN(monthIdx)) return null;
+  return new Date(y, monthIdx, parseInt(m[2],10));
+}
+function isoDate(d){
+  if(!d) return null;
+  const y = d.getFullYear(), m = String(d.getMonth()+1).padStart(2,'0'), day = String(d.getDate()).padStart(2,'0');
+  return `${y}-${m}-${day}`;
+}
+function parseDateValue(value){
+  if(!value && value !== 0) return null;
+  const s = String(value).trim();
+  if(!s) return null;
+  const iso = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if(iso) return new Date(Number(iso[1]), Number(iso[2])-1, Number(iso[3]));
+  const m = s.match(/^(\d{1,2})\s+([A-Za-z]{3,})\s+(\d{2,4})/);
+  if(m){
+    const day = Number(m[1]);
+    const monthIdx = new Date(`${m[2]} 1 2000`).getMonth();
+    const year = m[3].length === 2 ? 2000 + Number(m[3]) : Number(m[3]);
+    return new Date(year, monthIdx, day);
+  }
+  const d = new Date(s);
+  return Number.isNaN(d.getTime()) ? null : d;
+}
+function getRowDate(row){
+  const candidates = ['Post Publish date','Post Date','Comment Date','Date','Post date'];
+  for(const key of candidates){
+    const parsed = parseDateValue(row?.[key]);
+    if(parsed) return parsed;
+  }
+  return null;
+}
+function normalizeRange(startDate, endDate){
+  const start = startDate ? new Date(startDate) : null;
+  const end = endDate ? new Date(endDate) : null;
+  if(start && end && start > end){ const tmp = start; start = end; end = tmp; }
+  if(start) start.setHours(0,0,0,0);
+  if(end) end.setHours(23,59,59,999);
+  return {start, end};
+}
+function isDateInRange(date, start, end){
+  if(!date) return false;
+  if(start && date < start) return false;
+  if(end && date > end) return false;
+  return true;
+}
+function dateRangeLabel(start, end){
+  if(!start && !end) return 'All available data';
+  if(start && end && isoDate(start) === isoDate(end)) return fmtLong(start);
+  return `${start ? fmtLong(start) : 'start'} – ${end ? fmtLong(end) : 'end'}`;
+}
+function overlapRange(startA, endA, startB, endB){
+  if(!startA || !endA || !startB || !endB) return true;
+  return startA <= endB && endA >= startB;
+}
+
+// ---------- Week helpers ----------
+// W1 anchor — the Monday the tracking window started. Everything else (current week,
+// completed-week count, KPI full-period window) is computed from this + the real clock,
+// so the dashboard keeps advancing on its own as new weeks of sheet data appear.
+const WEEK1_START = new Date(2026, 5, 22); // Mon 22 Jun 2026
+function mondayOf(dateStr){
+  const d = new Date(dateStr+'T00:00:00');
+  const day = d.getDay();
+  const diff = (day===0) ? 6 : day-1;
+  d.setDate(d.getDate()-diff);
+  return d;
+}
+function fmtShort(d){ return d.toLocaleDateString('en-GB', {day:'numeric', month:'short'}); }
+function fmtLong(d){ return d.toLocaleDateString('en-GB', {day:'numeric', month:'short', year:'numeric'}); }
+
+// Manually maintained — see decision log: live Google ratings would require a Places API
+// key + Google Cloud billing account, so this stays hand-updated month to month instead.
+// Update the `rating`/`count` here whenever you re-pull each project's public Google rating.
+const liveRatings = {
+  "Folium":              {rating:4.1, count:715},
+  "Edition":             {rating:4.5, count:64},
+  "Capitol Residences":  {rating:4.8, count:132},
+  "Panorama":            {rating:3.7, count:252},
+  "Capitol Towers":      {rating:4.1, count:155},
+  "Elysium":             {rating:3.7, count:9},
+  "Infracon":            {rating:4.1, count:493},
+  "Z-hub":               {rating:2.8, count:9},
+  "Hive and Thrive":     {rating:1.7, count:6},
+  "Solace":              {rating:4.4, count:19},
+  "Epitome":             {rating:4.6, count:105},
+};
+
+function getLastCompleteWeek(anchor){
+  const d = new Date(anchor);
+  const day = d.getDay();
+  const diffToMonday = (day === 0) ? 6 : day - 1;
+  const thisMonday = new Date(d); thisMonday.setDate(d.getDate() - diffToMonday);
+  const lastMonday = new Date(thisMonday); lastMonday.setDate(thisMonday.getDate() - 7);
+  const lastSunday = new Date(thisMonday); lastSunday.setDate(thisMonday.getDate() - 1);
+  return {start:lastMonday, end:lastSunday};
+}
+function computeSocialWeekly(trend){
+  const map = {};
+  trend.forEach(rec=>{
+    const monday = mondayOf(rec.date);
+    const key = isoDate(monday);
+    if(!map[key]) map[key] = {monday, positive:0, negative:0, neutral:0, days:0};
+    map[key].positive += rec.positive; map[key].negative += rec.negative; map[key].neutral += rec.neutral; map[key].days += 1;
+  });
+  return Object.values(map).sort((a,b)=> a.monday - b.monday).map(w=>{
+    const sunday = new Date(w.monday); sunday.setDate(w.monday.getDate()+6);
+    return {...w, label:`${fmtShort(w.monday)}–${fmtShort(sunday)}`, partial: w.days < 6};
+  });
+}
+function weekRange(i){ // i = 1-based week index from WEEK1_START
+  const mon = new Date(WEEK1_START); mon.setDate(mon.getDate() + (i-1)*7);
+  const sun = new Date(mon); sun.setDate(mon.getDate()+6);
+  return {mon, sun};
+}
+function weekLabel(i){
+  const {mon,sun} = weekRange(i);
+  return `W${i} (${fmtShort(mon)}-${fmtShort(sun)})`;
+}
+function excerpt(text){
+  if(!text) return '';
+  const t = text.trim().replace(/\s+/g,' ');
+  return t.length > 200 ? t.slice(0,200)+'…' : t;
+}
+function normalizeHeaderName(value){ return (value||'').trim().toLowerCase(); }
+function getMatchingRowValue(row, candidates, excludeFragments=[]){
+  const keys = Object.keys(row || {});
+  for(const key of keys){
+    const keyName = normalizeHeaderName(key);
+    if(excludeFragments.some(fragment => keyName.includes(fragment))) continue;
+    const matches = candidates.some(candidate => {
+      const cand = normalizeHeaderName(candidate);
+      return keyName === cand || keyName.includes(cand) || cand.includes(keyName);
+    });
+    if(matches){
+      const value = row[key];
+      if(typeof value === 'string' && value.trim()) return value.trim();
+      if(value !== null && value !== undefined && value !== '') return String(value).trim();
+    }
+  }
+  return '';
+}
+function getDiscussionText(row, textFields){
+  return textFields.map(field => {
+    const fieldCandidates = Array.isArray(field) ? field : [field];
+    const exclude = fieldCandidates.some(c => normalizeHeaderName(c).includes('comment'))
+      ? ['status','link','date','upvote','total']
+      : [];
+    return getMatchingRowValue(row, fieldCandidates, exclude);
+  }).filter(Boolean).join(' ');
+}
+function rowByLabel(rows, label){ return rows.find(r => r.some(c => c.trim() === label)); }
+function lastN(row, n){ return row ? row.slice(row.length-n).map(v=>(v||'').trim()) : Array(n).fill(''); }
+
+// Groups free-text rows (Reddit/Quora threads) by whichever locked GMB project name is
+// mentioned in the title/body — mechanical keyword match, not curated judgment. Loses the
+// nuance a human curator would apply (micro-market aliases like "Devanahalli" -> Panorama)
+// but stays fully live.
+function buildMentionThemes(rows, textFields, sentimentGetter){
+  const byProject = {};
+  rows.forEach(row=>{
+    const discussionText = getDiscussionText(row, textFields);
+    const haystack = discussionText.toLowerCase();
+    const matched = GMB_PROJECTS.find(p => haystack.includes(p.toLowerCase()));
+    if(!matched) return;
+    const sc = sentimentGetter(row);
+    if(!sc) return;
+    if(!byProject[matched]) byProject[matched] = {project:matched, mentions:0, positive:{count:0, snippets:[]}, negative:{count:0, snippets:[]}};
+    const m = byProject[matched];
+    m.mentions += 1;
+    const dominant = sc.positive >= sc.negative ? 'positive' : 'negative';
+    const excerptText = excerpt(discussionText);
+    if(sc.positive){
+      if(dominant==='positive' && m.positive.snippets.length<2) m.positive.snippets.push(excerptText || `${sc.positive} positive repl${sc.positive===1?'y':'ies'} on this thread.`);
+      else if(m.positive.snippets.length<2) m.positive.snippets.push(`${sc.positive} positive repl${sc.positive===1?'y':'ies'} on this thread (see the negative-leaning excerpt above for the topic).`);
+      m.positive.count += sc.positive;
+    }
+    if(sc.negative){
+      if(dominant==='negative' && m.negative.snippets.length<2) m.negative.snippets.push(excerptText || `${sc.negative} negative repl${sc.negative===1?'y':'ies'} on this otherwise positive thread.`);
+      else if(m.negative.snippets.length<2) m.negative.snippets.push(`${sc.negative} negative repl${sc.negative===1?'y':'ies'} on this otherwise positive thread (see the positive excerpt above for the topic).`);
+      m.negative.count += sc.negative;
+    }
+  });
+  return Object.values(byProject).map(m=>({
+    project:m.project, mentions:m.mentions,
+    positive:{count:m.positive.count, themes:m.positive.snippets, theme: m.positive.snippets.length ? m.positive.snippets.join(' / ') : null},
+    negative:{count:m.negative.count, themes:m.negative.snippets, theme: m.negative.snippets.length ? m.negative.snippets.join(' / ') : null},
+  }));
+}
+// ---------- Theme cache (polished project-level themes, precomputed by Claude) ----------
+// Genuinely polished narrative themes (not mechanical excerpts) require reading and
+// synthesizing real comment text — something browser JS can't do on its own. theme_cache.json
+// is precomputed offline (ask Claude to regenerate it) from the Daily Tracker's "specific data"
+// tab, keyed by ISO week-start date and by calendar month, covering GMB + Instagram/Facebook/
+// LinkedIn. The dashboard just loads and displays whichever week/month is current.
+async function loadThemeCache(){
+  try{
+    const res = await fetch('theme_cache.json', {cache:'no-store'});
+    if(!res.ok) return null;
+    return await res.json();
+  } catch(e){ return null; }
+}
+// Converts a cache entry ({project: {positive:[theme,...], negative:[theme,...],
+// topKeywords:{positive:[...],negative:[...]}}}) into the row shape renderThemeTable/
+// mergeThemeSources expect, carrying the precomputed keywords through as `.keywords`.
+function cacheToThemeRows(projectsObj){
+  return Object.entries(projectsObj||{}).map(([project, sc])=>{
+    const pos = sc.positive || [], neg = sc.negative || [];
+    const kw = sc.topKeywords || {};
+    return {
+      project, mentions: pos.length + neg.length,
+      positive: {count:pos.length, themes:pos, theme: pos.length ? pos.join(' ') : null, keywords: kw.positive || []},
+      negative: {count:neg.length, themes:neg, theme: neg.length ? neg.join(' ') : null, keywords: kw.negative || []},
+    };
+  }).filter(r=>r.mentions>0);
+}
+function buildRatingShiftNotes(projects, sampleSizes){
+  const notes = {};
+  projects.forEach(p=>{
+    if(p.lastMonthRating===null || p.lastMonthRating===undefined) return;
+    const live = liveRatings[p.project];
+    if(!live) return;
+    const delta = +(live.rating - p.lastMonthRating).toFixed(2);
+    const n = sampleSizes[p.project] || 0;
+    const dir = delta>0.04 ? 'Improved' : (delta<-0.04 ? 'Declined' : 'Roughly flat');
+    const confidence = n < 5
+      ? ` Prior-month baseline is only ${n} review${n===1?'':'s'} — treat the size of this shift as low-confidence.`
+      : ` Backed by a reasonable prior-month sample (${n} reviews).`;
+    notes[p.project] = `${dir} (${delta>0?'+':''}${delta}) vs ${monthLabel(prevMonthKey(REPORT_MONTH))}.${confidence}`;
+  });
+  return notes;
+}
+
+// ---------- LIVE DATA LOADERS ----------
+async function loadSummarySheet(){
+  // This sheet has two merged title rows above the real header row, so the header can't
+  // be assumed to be row 1 — locate it by finding the row that actually contains "Platform".
+  const rows = await fetchSheetRows(SHEET_IDS.summary);
+  const headerRowIdx = rows.findIndex(r => r.some(c => c.trim() === 'Platform'));
+  if(headerRowIdx < 0) throw new Error('Could not find the "Platform" header row — sheet layout may have changed.');
+  const header = rows[headerRowIdx];
+  const platformIdx = header.findIndex(c => c.trim() === 'Platform');
+  const metricIdx = platformIdx - 1;
+  const totalIdx = header.findIndex(c => c.trim() === 'Total');
+  const weekCol = {};
+  for(let i = platformIdx+1; i < totalIdx; i++){
+    const m = header[i].trim().match(/^W(\d+)$/);
+    if(m) weekCol[parseInt(m[1],10)] = i;
+  }
+  const weekCount = Math.max(0, ...Object.keys(weekCol).map(Number));
+  const dataRows = rows.slice(headerRowIdx+1).filter(r => (r[metricIdx]||'').trim() && (r[platformIdx]||'').trim());
+  const weeklyDelivery = dataRows.map(r => {
+    const row = {metric:(r[metricIdx]||'').trim(), platform:(r[platformIdx]||'').trim(), total: totalIdx>=0 ? numOr(r[totalIdx],0) : 0};
+    for(let w=1; w<=weekCount; w++) row['w'+w] = numOr(r[weekCol[w]],0);
+    return row;
+  });
+  const platforms = ['Reddit','Quora','GMB','Other Social'];
+  const weekNums = Array.from({length:weekCount}, (_,i)=>i+1);
+  const platformWeekly = {labels: weekNums.map(weekLabel)};
+  platforms.forEach(p=>{
+    platformWeekly[p] = weekNums.map(w => weeklyDelivery.filter(r=>r.platform===p).reduce((s,r)=>s+r['w'+w],0));
+  });
+  return {weeklyDelivery, platformWeekly, weekCount};
+}
+
+// Reddit/Quora "Delivery vs. Target" progress bars — always full-month-to-date, never
+// scoped to the header's tracking-range picker. Confirmed targets: 10 new posts and 65
+// comments per month, on both platforms. "Comments" = our own seeded comments (new +
+// existing threads for Reddit; answers posted for Quora), not organic reply volume.
+function sumDeliveryMetric(platform, keywordFragments){
+  return summaryWeeklyDelivery
+    .filter(r => r.platform===platform && keywordFragments.some(k => r.metric.toLowerCase().includes(k)))
+    .reduce((s,r)=> s + r.total, 0);
+}
+function buildPlatformProgressRows(){
+  const redditNewPosts = sumDeliveryMetric('Reddit', ['new posts published']);
+  const redditComments = sumDeliveryMetric('Reddit', ['comments seeded']);
+  const quoraNewPosts = sumDeliveryMetric('Quora', ['new questions seeded']);
+  const quoraComments = sumDeliveryMetric('Quora', ['new answers posted']);
+  const redditProgressRows = [
+    {label:'New posts (target 10/mo)', value:redditNewPosts, target:10, display:`${redditNewPosts} delivered`},
+    {label:'Comments (target 65/mo)', value:redditComments, target:65, display:`${redditComments} delivered`},
+  ];
+  const quoraProgressRows = [
+    {label:'New posts (target 10/mo)', value:quoraNewPosts, target:10, display:`${quoraNewPosts} delivered`},
+    {label:'Comments (target 65/mo)', value:quoraComments, target:65, display:`${quoraComments} delivered`},
+  ];
+  return {redditProgressRows, quoraProgressRows};
+}
+
+async function loadRedditQuora(){
+  const [summaryRaw, seedRows, existingRows, quoraRows] = await Promise.all([
+    fetchSheetRows(SHEET_IDS.redditQuora, 'Summary'),
+    fetchSheetObjects(SHEET_IDS.redditQuora, 'Reddit - New Seeds'),
+    fetchSheetObjects(SHEET_IDS.redditQuora, 'Reddit - Existing Threads'),
+    fetchSheetObjects(SHEET_IDS.redditQuora, 'Quora - New + Existing'),
+  ]);
+
+  const kpisIdx = summaryRaw.findIndex(r => r.some(c => c.trim()==='KPIs'));
+  const after = kpisIdx<0 ? [] : summaryRaw.slice(kpisIdx+1);
+  const kpiRow = label => rowByLabel(after, label);
+  // Reddit/Quora Delivery-vs-Target progress rows are built separately in loadAllData(),
+  // straight from the (reliable, already-parsed) main Summary sheet's full-month totals —
+  // see buildPlatformProgressRows(). Not sourced from this sheet's own Summary tab.
+
+  const positiveKpi = lastN(kpiRow('Positive comments'), 3).map(Number);
+  const negativeKpi = lastN(kpiRow('Nagative comments'), 3).map(Number); // sheet's own spelling
+  const neutralKpi = lastN(kpiRow('Neutral comments'), 3).map(Number);
+  const redditSentiment = {positive: positiveKpi[2]||0, negative: negativeKpi[2]||0, neutral: neutralKpi[2]||0};
+
+  const threadRows = seedRows.filter(r => r['Title / Question'] && r['Total Upvotes']);
+  const redditPosts = threadRows.map(r => ({
+    week:r.Week, subreddit:r.Subreddit, bucket:r.Bucket, title:r['Title / Question'],
+    date:r['Post Publish date'], upvotes:numOr(r['Total Upvotes'],0), comments:numOr(r['Total Comments'],0),
+    positive:numOr(r['Total Positive comments'],0), negative:numOr(r['Total Nagative Comments'],0), neutral:numOr(r['Total Neutral Comments'],0),
+    link: sanitizeUrl(getMatchingRowValue(r, ['Post Link','Link','Thread Link','Post URL','URL'], [])),
+  }));
+
+  let qPos=0, qNeg=0, qTotal=0;
+  const quoraThreadRows = [];
+  quoraRows.forEach(r=>{
+    const tot = r['Total Comments'] !== '' ? numOr(r['Total Comments'], null) : null;
+    if(tot===null) return;
+    qTotal += tot; qPos += numOr(r['Positive comments'],0); qNeg += numOr(r['Nagative Comments'],0);
+    quoraThreadRows.push(r);
+  });
+  const quoraSentiment = {positive:qPos, negative:qNeg, neutral:Math.max(0, qTotal-qPos-qNeg)};
+
+  const redditThemeData = buildMentionThemes(
+    [...threadRows, ...existingRows.filter(r=>getMatchingRowValue(r,['Thread Title','Thread Title ','Thread title'], []))],
+    [
+      ['Title / Question','Title','Question'],
+      ['Body','Body / Context'],
+      ['Thread Title','Thread Title ','Thread title'],
+      ['Comments (Seeded)','Comment/Answer','Comment/Answer 1','Comments','Answers']
+    ],
+    row => ({positive:numOr(getMatchingRowValue(row,['Total Positive comments','Positive comments'], []),0), negative:numOr(getMatchingRowValue(row,['Total Nagative Comments','Nagative Comments','Negative comments'], []),0)})
+  );
+  const quoraThemeData = buildMentionThemes(
+    quoraThreadRows,
+    [
+      ['Title / Question','Title','Question'],
+      ['Body / Context','Body','Context'],
+      ['Comment/Answer 1','Comment/Answer','Comments','Answers']
+    ],
+    row => ({positive:numOr(getMatchingRowValue(row,['Positive comments','Positive Comments'], []),0), negative:numOr(getMatchingRowValue(row,['Nagative Comments','Negative Comments','Negative comments'], []),0)})
+  );
+
+  return {redditSentiment, redditPosts, quoraSentiment, redditThemeData, quoraThemeData, redditRows: [...threadRows, ...existingRows.filter(r=>getMatchingRowValue(r,['Thread Title','Thread Title ','Thread title'], []))], quoraRows: quoraThreadRows};
+}
+
+async function loadGmb(){
+  const curKey = REPORT_MONTH, prevKey = prevMonthKey(REPORT_MONTH);
+  const curTab = guessGmbTabName(curKey), prevTab = guessGmbTabName(prevKey);
+  const [curRowsRaw, prevRowsRaw] = await Promise.all([
+    fetchSheetObjects(SHEET_IDS.gmb, curTab),
+    fetchSheetObjects(SHEET_IDS.gmb, prevTab).catch(()=>[]),
+  ]);
+  function clean(rows, monthKey){
+    return rows.map(r=>{
+      const project = normalizeGmbProject(r['Project Highlighted'] || r['GMB Handle']);
+      const rating = numOr(r.Rating, null);
+      if(!project || rating===null) return null;
+      return {project, rating, priority:r.Priority||'', message:r.Message||'', date:parseGmbDate(r.Date, monthKey), responded:r.Responded||''};
+    }).filter(Boolean);
+  }
+  const curRows = clean(curRowsRaw, curKey);
+  const prevRows = clean(prevRowsRaw, prevKey);
+  const allRows = [...prevRows, ...curRows];
+
+  const gmbProjects = GMB_PROJECTS.map(project=>{
+    const rows = allRows.filter(r=>r.project===project);
+    const positive = rows.filter(r=>sentimentFromRating(r.rating)==='positive').length;
+    const negative = rows.filter(r=>sentimentFromRating(r.rating)==='negative').length;
+    const neutral  = rows.filter(r=>sentimentFromRating(r.rating)==='neutral').length;
+    const prevOnly = prevRows.filter(r=>r.project===project);
+    const lastMonthRating = prevOnly.length ? +(prevOnly.reduce((s,r)=>s+r.rating,0)/prevOnly.length).toFixed(2) : null;
+    return {project, lastMonthRating, reviews:rows.length, positive, negative, neutral};
+  });
+  const juneSampleSize = {};
+  GMB_PROJECTS.forEach(p=>{ juneSampleSize[p] = prevRows.filter(r=>r.project===p).length; });
+
+  const gmbSentiment = allRows.reduce((acc,r)=>{ acc[sentimentFromRating(r.rating)]++; return acc; }, {positive:0,negative:0,neutral:0});
+
+  const negativeReviews = curRows.filter(r=>r.rating<=3).map(r=>({
+    project:r.project, rating:r.rating, priority:r.priority, date:isoDate(r.date), responded:r.responded, message:r.message,
+  }));
+
+  return {gmbProjects, juneSampleSize, gmbSentiment, negativeReviews, gmbRows: allRows};
+}
+
+async function loadDailyTracker(){
+  const rows = await fetchSheetObjects(SHEET_IDS.daily, 'specific data', true);
+  const platBuckets = {Instagram:{positive:0,negative:0,neutral:0}, Facebook:{positive:0,negative:0,neutral:0}, LinkedIn:{positive:0,negative:0,neutral:0}};
+  const byDate = {};
+  let gmbP=0, gmbN=0, gmbNeu=0;
+  rows.forEach(r=>{
+    const sentiment = (r['Final Sentiment']||'').trim().toLowerCase();
+    if(!['positive','negative','neutral'].includes(sentiment)) return;
+    const source = (r.Source||'').toLowerCase();
+    let platKey = null;
+    if(source.includes('instagram')) platKey='Instagram';
+    else if(source.includes('facebook')) platKey='Facebook';
+    else if(source.includes('linkedin')) platKey='LinkedIn';
+    else if(source.includes('google business')) platKey='GMB';
+    if(!platKey) return;
+    if(platKey==='GMB'){
+      if(sentiment==='positive') gmbP++; else if(sentiment==='negative') gmbN++; else gmbNeu++;
+      return;
+    }
+    platBuckets[platKey][sentiment]++;
+    const m = (r.Date||'').trim().match(/^(\d{1,2})\s+([A-Za-z]{3,})\s+(\d{2,4})/);
+    if(m){
+      const day=+m[1], monIdx=new Date(`${m[2]} 1 2000`).getMonth(), yr = m[3].length===2 ? 2000+ +m[3] : +m[3];
+      const iso = isoDate(new Date(yr,monIdx,day));
+      if(!byDate[iso]) byDate[iso] = {positive:0,negative:0,neutral:0};
+      byDate[iso][sentiment]++;
+    }
+  });
+  const socialByPlatform = platBuckets;
+  const gmbMessageLevelSentiment = {positive:gmbP, negative:gmbN, neutral:gmbNeu};
+  const socialSentiment = Object.values(platBuckets).reduce((acc,v)=>({positive:acc.positive+v.positive, negative:acc.negative+v.negative, neutral:acc.neutral+v.neutral}), {positive:0,negative:0,neutral:0});
+  const socialTrend = Object.entries(byDate).sort(([a],[b])=>a.localeCompare(b)).map(([date,v])=>({date, total:v.positive+v.negative+v.neutral, ...v}));
+  const socialRows = rows.map(r=>({
+    date: parseDateValue(r.Date),
+    source:(r.Source||'').trim(),
+    sentiment:(r['Final Sentiment']||'').trim().toLowerCase(),
+    message:(r.Message||'').trim(),
+    project: normalizeGmbProject(r['Channel Name']),
+    platform: (()=>{ const source=(r.Source||'').toLowerCase(); if(source.includes('instagram')) return 'Instagram'; if(source.includes('facebook')) return 'Facebook'; if(source.includes('linkedin')) return 'LinkedIn'; if(source.includes('google business')) return 'GMB'; return null; })()
+  })).filter(r=>r.sentiment && ['positive','negative','neutral'].includes(r.sentiment) && r.platform);
+  return {socialByPlatform, gmbMessageLevelSentiment, socialSentiment, socialTrend, socialRows};
+}
+
+function computeRangeView(){
+  const {start, end} = selectedRange;
+  const allWeeks = Array.from({length:totalWeekCount}, (_,i)=>i+1);
+  const visibleWeeks = allWeeks.filter(i => overlapRange(weekRange(i).mon, weekRange(i).sun, start, end));
+  const weekLabels = visibleWeeks.map(i => weekLabel(i));
+
+  const filteredWeeklyDelivery = summaryWeeklyDelivery.map(row => {
+    const weekValues = {};
+    let total = 0;
+    allWeeks.forEach(w => { const v = visibleWeeks.includes(w) ? row['w'+w] : 0; weekValues['w'+w] = v; total += v; });
+    return {...row, ...weekValues, total};
+  });
+  const filteredPlatformWeekly = {labels: weekLabels, Reddit: [], Quora: [], GMB: [], 'Other Social': []};
+  ['Reddit','Quora','GMB','Other Social'].forEach(p=>{
+    filteredPlatformWeekly[p] = visibleWeeks.map(w => filteredWeeklyDelivery.filter(r=>r.platform===p).reduce((s,r)=>s+r['w'+w],0));
+  });
+
+  const visibleSocialWeeks = socialWeekly.filter(w => overlapRange(w.monday, new Date(w.monday.getTime()+6*86400000), start, end));
+  const socialTotal = visibleSocialWeeks.reduce((s,w)=>s+w.positive+w.negative+w.neutral,0);
+  const socialPositive = visibleSocialWeeks.reduce((s,w)=>s+w.positive,0);
+  const socialNegative = visibleSocialWeeks.reduce((s,w)=>s+w.negative,0);
+  const socialNeutral = visibleSocialWeeks.reduce((s,w)=>s+w.neutral,0);
+
+  const totalActivity = filteredWeeklyDelivery.reduce((s,row)=>s+row.total,0);
+  const newPosts = filteredWeeklyDelivery.filter(r=>r.platform==='Reddit' && r.metric==='New posts published').reduce((s,r)=>s+r.total,0)
+    + filteredWeeklyDelivery.filter(r=>r.platform==='Quora' && r.metric==='New questions seeded').reduce((s,r)=>s+r.total,0);
+  const gmbNeg = filteredWeeklyDelivery.filter(r=>r.platform==='GMB' && r.metric==='Negative reviews responded to').reduce((s,r)=>s+r.total,0);
+
+  return {
+    weeklyDelivery: filteredWeeklyDelivery,
+    platformWeekly: filteredPlatformWeekly,
+    totalActivity: {value:String(totalActivity), delta:`${visibleWeeks.length} visible week${visibleWeeks.length===1?'':'s'}`, deltaClass:'up'},
+    newPosts: {value:String(newPosts), delta:'Filtered from selected range', deltaClass:'up'},
+    gmbNeg: {value:String(gmbNeg), delta:'Filtered from selected range', deltaClass:'up'},
+    social: {value:String(socialTotal), delta:`${pct(socialPositive,socialTotal)}% positive · ${pct(socialNegative,socialTotal)}% negative`, deltaClass:'up'},
+    sub: `Range · ${dateRangeLabel(start, end)}`,
+    windowLabel: `${start ? fmtShort(start) : 'start'}–${end ? fmtShort(end) : 'end'}`,
+  };
+}
+function pct(n, total){ return total? Math.round(n/total*100) : 0; }
+
+// ---------- ORCHESTRATION: fetch everything, then render ----------
+let weeklyDelivery=[], summaryWeeklyDelivery=[], platformWeekly={labels:[],Reddit:[],Quora:[],GMB:[],'Other Social':[]};
+// Unfiltered week-on-week totals (all available weeks) for the "Total Activity by Platform"
+// chart — that chart always shows the full week-on-week trend regardless of the header's
+// tracking-range picker, unlike `platformWeekly` which applyDateRange() re-filters to the
+// selected window.
+let fullPlatformWeekly={labels:[],Reddit:[],Quora:[],GMB:[],'Other Social':[]};
+let totalWeekCount = 3; // how many "W" columns exist in the Summary sheet right now — grows as more weeks are tracked
+let redditSentiment={positive:0,negative:0,neutral:0}, gmbSentiment={positive:0,negative:0,neutral:0};
+let socialSentiment={positive:0,negative:0,neutral:0}, overallSentiment={positive:0,negative:0,neutral:0};
+let socialTrend=[], socialWeekly=[], redditPosts=[], gmbProjects=[], negativeReviews=[];
+let allRedditRows=[], allQuoraRows=[], allGmbRows=[], allSocialRows=[];
+let socialByPlatform={Instagram:{positive:0,negative:0,neutral:0},Facebook:{positive:0,negative:0,neutral:0},LinkedIn:{positive:0,negative:0,neutral:0}};
+let gmbMessageLevelSentiment={positive:0,negative:0,neutral:0}, quoraSentiment={positive:0,negative:0,neutral:0};
+let gmbThemeData=[], redditThemeData=[], quoraThemeData=[], overallThemeData=[];
+let socialThemeData={Instagram:[],Facebook:[],LinkedIn:[]};
+let redditProgressRows=[], quoraProgressRows=[];
+let kpiScopes=null, juneSampleSize={}, ratingShiftCopy={};
+let weekStart=new Date(), weekEnd=new Date(), latestWeekNegatives=[], currentWeekIdx=1;
+let selectedRange = {start: WEEK1_START, end: new Date()};
+let themeCache=null, themeCacheStatus='';
+let activeRangeMode = {type:'weekly', key:null, label:''};
+let loadErrors = [];
+let dashboardBuilt = false;
+
+async function loadAllData(){
+  const statusEl = document.getElementById('dataStatusBar');
+  const refreshLabel = document.getElementById('metaRefreshLabel');
+  const refreshBtn = document.getElementById('refreshDataBtn');
+  const errors = loadErrors = [];
+  refreshLabel.textContent = 'Loading…';
+  if(refreshBtn) refreshBtn.classList.add('spinning');
+  statusEl.style.display = 'none';
+
+  const now = new Date();
+  ({start:weekStart, end:weekEnd} = getLastCompleteWeek(now));
+  currentWeekIdx = Math.max(1, Math.min(totalWeekCount, Math.round((weekStart-WEEK1_START)/(7*86400000))+1));
+
+  try {
+    let weekCount;
+    ({weeklyDelivery, platformWeekly, weekCount} = await loadSummarySheet());
+    summaryWeeklyDelivery = weeklyDelivery;
+    fullPlatformWeekly = platformWeekly;
+    totalWeekCount = weekCount || 3;
+    ({redditProgressRows, quoraProgressRows} = buildPlatformProgressRows());
+  } catch(e){ errors.push('Summary sheet: '+e.message); }
+
+  try {
+    const rq = await loadRedditQuora();
+    ({redditSentiment, redditPosts, quoraSentiment, redditThemeData, quoraThemeData, redditRows: allRedditRows, quoraRows: allQuoraRows} = rq);
+  } catch(e){ errors.push('Reddit & Quora Content Plan: '+e.message); }
+
+  try {
+    const g = await loadGmb();
+    ({gmbProjects, juneSampleSize, gmbSentiment, negativeReviews, gmbRows: allGmbRows} = g);
+  } catch(e){ errors.push('GMB Escalation Tracker: '+e.message); }
+
+  try {
+    const d = await loadDailyTracker();
+    ({socialByPlatform, gmbMessageLevelSentiment, socialSentiment, socialTrend, socialRows: allSocialRows} = d);
+  } catch(e){ errors.push('Sumadhura Daily Tracker: '+e.message); }
+
+  // theme_cache.json is only fetched here; which period's entry gets *displayed* is decided
+  // per range change inside applyDateRange() via themeCacheBucket(), keyed off activeRangeMode
+  // — never hardcoded to the week at load time (that was the bug: this used to be overwritten
+  // by the mechanical builders the instant applyRangeMode() ran below).
+  themeCache = await loadThemeCache();
+  if(!themeCache) errors.push('theme_cache.json not found or failed to load — narrative themes unavailable this session.');
+  buildMonthMenu();
+
+  socialWeekly = computeSocialWeekly(socialTrend);
+  latestWeekNegatives = negativeReviews.filter(r=>{
+    if(!r.date) return false;
+    const rd = new Date(r.date+'T00:00:00');
+    return rd >= weekStart && rd <= weekEnd;
+  });
+  overallSentiment = {
+    positive: redditSentiment.positive + gmbSentiment.positive + socialSentiment.positive,
+    negative: redditSentiment.negative + gmbSentiment.negative + socialSentiment.negative,
+    neutral: redditSentiment.neutral + gmbSentiment.neutral + socialSentiment.neutral,
+  };
+  overallThemeData = mergeThemeSources([{label:'GMB', data:gmbThemeData}, {label:'Reddit', data:redditThemeData}]);
+  ratingShiftCopy = buildRatingShiftNotes(gmbProjects, juneSampleSize);
+  applyRangeMode({type:'week', which:'latest'});
+
+  const metaDataPulledEl = document.getElementById('metaDataPulled');
+  if(metaDataPulledEl) metaDataPulledEl.textContent = now.toLocaleString('en-GB',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+  const metaTrackingWindowEl = document.getElementById('metaTrackingWindow');
+  if(metaTrackingWindowEl) metaTrackingWindowEl.textContent = `${selectedRange.start ? fmtShort(selectedRange.start) : 'start'}–${selectedRange.end ? fmtShort(selectedRange.end) : 'end'}`;
+  refreshLabel.textContent = 'Refresh data';
+  if(refreshBtn) refreshBtn.classList.remove('spinning');
+  refreshStatusBar();
+}
+function refreshStatusBar(){
+  const statusEl = document.getElementById('dataStatusBar');
+  if(!statusEl) return;
+  if(loadErrors.length || themeCacheStatus){
+    statusEl.style.display = 'block';
+    statusEl.style.background = 'rgba(184,146,58,0.2)';
+    const parts = [...loadErrors];
+    if(themeCacheStatus) parts.push(themeCacheStatus);
+    statusEl.textContent = '⚠ ' + parts.join(' | ');
+  } else {
+    statusEl.style.display = 'none';
+  }
+}
+
+// Builds Project Sentiment Themes for GMB straight from the Daily Tracker "specific data"
+// tab (Channel Name -> project, Message, Final Sentiment) — not the GMB Tracker sheet.
+function trimTheme(message){
+  const clean = (message||'').replace(/\s+/g,' ').trim();
+  return clean || null;
+}
+function buildGmbThemeRowsFromDaily(rows){
+  const byProject = {};
+  rows.forEach(row=>{
+    if(!row.project) return;
+    if(!byProject[row.project]) byProject[row.project] = {project:row.project, mentions:0, positive:{count:0, themes:[], theme:null}, negative:{count:0, themes:[], theme:null}};
+    const m = byProject[row.project];
+    m.mentions += 1;
+    const theme = trimTheme(row.message);
+    if(row.sentiment === 'positive'){
+      m.positive.count += 1;
+      if(theme && m.positive.themes.length < 2) m.positive.themes.push(theme);
+    } else if(row.sentiment === 'negative'){
+      m.negative.count += 1;
+      if(theme && m.negative.themes.length < 2) m.negative.themes.push(theme);
+    }
+  });
+  return Object.values(byProject).map(m=>({
+    project:m.project, mentions:m.mentions,
+    positive:{count:m.positive.count, themes:m.positive.themes, theme: m.positive.themes.length ? m.positive.themes.join(' / ') : null},
+    negative:{count:m.negative.count, themes:m.negative.themes, theme: m.negative.themes.length ? m.negative.themes.join(' / ') : null},
+  })).sort((a,b)=> b.mentions - a.mentions);
+}
+
+// Full text behind every truncated "Read more" trigger, looked up by index at click time
+// (see the delegated listener near the modal markup below).
+let themeFullTexts = [];
+function escapeHtml(str){
+  return (str||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+const THEME_TRUNCATE_AT = 140;
+function renderThemeSnippet(text, project){
+  const safe = escapeHtml(text);
+  if(text.length <= THEME_TRUNCATE_AT) return safe;
+  const idx = themeFullTexts.push(text) - 1;
+  return `${escapeHtml(text.slice(0,THEME_TRUNCATE_AT))}… <button type="button" class="theme-readmore" data-idx="${idx}" data-project="${escapeHtml(project)}">Read more</button>`;
+}
+function openThemeModal(text, project){
+  document.getElementById('themeModalProject').textContent = project || '';
+  document.getElementById('themeModalText').textContent = text;
+  document.getElementById('themeModalOverlay').style.display = 'flex';
+}
+function closeThemeModal(){
+  document.getElementById('themeModalOverlay').style.display = 'none';
+}
+document.addEventListener('click', e=>{
+  const btn = e.target.closest('.theme-readmore');
+  if(btn){ openThemeModal(themeFullTexts[+btn.dataset.idx], btn.dataset.project); return; }
+  if(e.target.id === 'themeModalClose' || e.target.id === 'themeModalOverlay') closeThemeModal();
+});
+document.addEventListener('keydown', e=>{ if(e.key === 'Escape') closeThemeModal(); });
+// Ranked keyword phrases -> chip row, sized/weighted by rank (rank-1 = most salient).
+function renderKeywordChips(keywords){
+  if(!Array.isArray(keywords) || !keywords.length) return '';
+  return `<div class="keyword-row">${keywords.slice(0,6).map((k,i)=>
+    `<span class="keyword-chip rank-${Math.min(i+1,3)}">${escapeHtml(k)}</span>`
+  ).join('')}</div>`;
+}
+function renderThemeTable(tbodyId, data, sentiment){
+  const tbody = document.getElementById(tbodyId);
+  if(!data.length){
+    tbody.innerHTML = `<tr><td colspan="3"><span class="theme-empty">No cached themes for this period.</span></td></tr>`;
+    return;
+  }
+  const cards = data.map(row=>{
+    const cell = row[sentiment];
+    const themes = Array.isArray(cell?.themes) ? cell.themes : (cell?.theme ? [cell.theme] : []);
+    const bodyHtml = themes.length
+      ? themes.map(t=>`<p class="story-text">${renderThemeSnippet(t, row.project)}</p>`).join('')
+      : `<p class="story-text"><span class="theme-empty">No ${sentiment} reviews logged this period.</span></p>`;
+    return `<div class="story-card${sentiment==='negative' ? ' negative' : ''}">
+      <div class="story-head"><span class="story-project">${row.project}</span><span class="story-count">${cell.count} mention${cell.count===1?'':'s'}</span></div>
+      ${bodyHtml}
+      ${renderKeywordChips(cell.keywords)}
+    </div>`;
+  }).join('');
+  tbody.innerHTML = `<tr><td colspan="3" style="border:none;padding:4px 0 0;"><div class="story-card-grid">${cards}</div></td></tr>`;
+}
+function wireThemeToggle(toggleId, tbodyId, data){
+  const el = document.getElementById(toggleId);
+  renderThemeTable(tbodyId, data, 'positive');
+  el.addEventListener('click', e=>{
+    if(!e.target.classList.contains('filter-btn')) return;
+    el.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    e.target.classList.add('active');
+    renderThemeTable(tbodyId, data, e.target.dataset.sent);
+  });
+}
+// ---------- Project Sentiment Themes: Overall (All Platforms) ----------
+// Merges gmbThemeData + redditThemeData by project name, summing mentions and combining
+// themes with a source tag when both platforms have content for the same project.
+function mergeThemeSources(sources){
+  const merged = {};
+  sources.forEach(({label, data})=>{
+    data.forEach(row=>{
+      if(!merged[row.project]) merged[row.project] = {project:row.project, mentions:0, positive:{count:0, parts:[]}, negative:{count:0, parts:[]}};
+      const m = merged[row.project];
+      m.mentions += row.mentions;
+      ['positive','negative'].forEach(sent=>{
+        m[sent].count += row[sent].count;
+        if(row[sent].theme) m[sent].parts.push(`<b>${label}:</b> ${row[sent].theme}`);
+      });
+    });
+  });
+  return Object.values(merged).map(m=>({
+    project: m.project, mentions: m.mentions,
+    positive: {count:m.positive.count, theme: m.positive.parts.length ? m.positive.parts.join(' ') : null},
+    negative: {count:m.negative.count, theme: m.negative.parts.length ? m.negative.parts.join(' ') : null},
+  })).sort((a,b)=> b.mentions - a.mentions);
+}
+// Top 3 positive / negative themes — ranked by count, tie-broken by total mentions
+// (a higher-volume project's theme is a stronger signal than a low-volume tie).
+function renderTopThemes(elId, sentiment){
+  const ranked = overallThemeData
+    .filter(row => row[sentiment].theme)
+    .sort((a,b)=> b[sentiment].count - a[sentiment].count || b.mentions - a.mentions)
+    .slice(0,3);
+  document.getElementById(elId).innerHTML = ranked.map(row=>
+    `<li style="margin-bottom:8px;"><b style="color:var(--constellation);">${row.project}</b> (${row[sentiment].count}) — ${row[sentiment].theme}</li>`
+  ).join('');
+}
+
+// Returns theme_cache.json's entry for whichever window (weekly Monday-ISO or monthly
+// YYYY-MM) is currently active — the single source of truth for narrative + keyword lookup.
+function themeCacheBucket(){
+  if(!themeCache || !activeRangeMode.key) return null;
+  return themeCache[activeRangeMode.type]?.[activeRangeMode.key] || null;
+}
+function applyDateRange(){
+  const rangeStart = selectedRange.start;
+  const rangeEnd = selectedRange.end;
+  const bucket = themeCacheBucket();
+  themeCacheStatus = themeCache
+    ? (bucket ? '' : `No cached narrative themes for ${activeRangeMode.label || activeRangeMode.key} yet — ask Claude to regenerate theme_cache.json to cover this period.`)
+    : themeCacheStatus;
+
+  const filteredRedditRows = allRedditRows.filter(r=>{ const d=getRowDate(r); return d && isDateInRange(d, rangeStart, rangeEnd); });
+  const filteredQuoraRows = allQuoraRows.filter(r=>{ const d=getRowDate(r); return d && isDateInRange(d, rangeStart, rangeEnd); });
+  const filteredGmbRows = allGmbRows.filter(r=>r.date && isDateInRange(r.date, rangeStart, rangeEnd));
+  const filteredSocialRows = allSocialRows.filter(r=>r.date && isDateInRange(r.date, rangeStart, rangeEnd));
+
+  redditPosts = filteredRedditRows.filter(r => r['Title / Question']).map(r => ({
+    week:r.Week, subreddit:r.Subreddit, bucket:r.Bucket, title:r['Title / Question'], date:r['Post Publish date'], upvotes:numOr(r['Total Upvotes'],0), comments:numOr(r['Total Comments'],0), positive:numOr(r['Total Positive comments'],0), negative:numOr(r['Total Nagative Comments'],0), neutral:numOr(r['Total Neutral Comments'],0), link: sanitizeUrl(getMatchingRowValue(r, ['Post Link','Link','Thread Link','Post URL','URL'], [])),
+  }));
+  redditSentiment = {positive: filteredRedditRows.reduce((s,r)=>s+numOr(r['Total Positive comments'],0),0), negative: filteredRedditRows.reduce((s,r)=>s+numOr(r['Total Nagative Comments'],0),0), neutral: filteredRedditRows.reduce((s,r)=>s+numOr(r['Total Neutral Comments'],0),0)};
+  redditThemeData = bucket?.Reddit?.projects ? cacheToThemeRows(bucket.Reddit.projects) : buildMentionThemes(filteredRedditRows, [ ['Title / Question','Title','Question'], ['Body','Body / Context'], ['Thread Title','Thread Title ','Thread title'], ['Comments (Seeded)','Comment/Answer','Comment/Answer 1','Comments','Answers'] ], row => ({positive:numOr(getMatchingRowValue(row,['Total Positive comments','Positive comments'], []),0), negative:numOr(getMatchingRowValue(row,['Total Nagative Comments','Nagative Comments','Negative comments'], []),0)}));
+
+  const qPos = filteredQuoraRows.reduce((s,r)=>s+numOr(r['Positive comments'],0),0);
+  const qNeg = filteredQuoraRows.reduce((s,r)=>s+numOr(r['Nagative Comments'],0),0);
+  const qTotal = filteredQuoraRows.reduce((s,r)=>s+numOr(r['Total Comments'],0),0);
+  quoraSentiment = {positive:qPos, negative:qNeg, neutral:Math.max(0, qTotal-qPos-qNeg)};
+  quoraThemeData = bucket?.Quora?.projects ? cacheToThemeRows(bucket.Quora.projects) : buildMentionThemes(filteredQuoraRows, [ ['Title / Question','Title','Question'], ['Body / Context','Body','Context'], ['Comment/Answer 1','Comment/Answer','Comments','Answers'] ], row => ({positive:numOr(getMatchingRowValue(row,['Positive comments','Positive Comments'], []),0), negative:numOr(getMatchingRowValue(row,['Nagative Comments','Negative Comments','Negative comments'], []),0)}));
+
+  gmbProjects = GMB_PROJECTS.map(project=>{
+    const rows = filteredGmbRows.filter(r=>r.project===project);
+    const positive = rows.filter(r=>r.rating >= 4).length;
+    const negative = rows.filter(r=>r.rating <= 3).length;
+    const neutral = rows.filter(r=>r.rating === 3).length;
+    return {project, lastMonthRating: rows.length ? null : null, reviews:rows.length, positive, negative, neutral};
+  });
+  gmbSentiment = filteredGmbRows.reduce((acc,r)=>{ acc[r.rating >= 4 ? 'positive' : (r.rating === 3 ? 'neutral' : 'negative')]++; return acc; }, {positive:0,negative:0,neutral:0});
+  negativeReviews = filteredGmbRows.filter(r=>r.rating<=3).map(r=>({project:r.project, rating:r.rating, priority:r.priority, date:isoDate(r.date), responded:r.responded, message:r.message}));
+  const filteredGmbDailyRows = filteredSocialRows.filter(r=>r.platform==='GMB' && r.project);
+  gmbThemeData = bucket?.GMB?.projects ? cacheToThemeRows(bucket.GMB.projects) : buildGmbThemeRowsFromDaily(filteredGmbDailyRows);
+
+  const platBuckets = {Instagram:{positive:0,negative:0,neutral:0}, Facebook:{positive:0,negative:0,neutral:0}, LinkedIn:{positive:0,negative:0,neutral:0}};
+  filteredSocialRows.forEach(r=>{
+    if(!r.platform) return;
+    if(r.platform==='GMB') return;
+    platBuckets[r.platform][r.sentiment] += 1;
+  });
+  socialByPlatform = platBuckets;
+  socialSentiment = Object.values(platBuckets).reduce((acc,v)=>({positive:acc.positive+v.positive, negative:acc.negative+v.negative, neutral:acc.neutral+v.neutral}), {positive:0,negative:0,neutral:0});
+  const byDate = {};
+  filteredSocialRows.forEach(r=>{
+    if(!r.date || !r.sentiment || !['positive','negative','neutral'].includes(r.sentiment)) return;
+    const iso = isoDate(r.date);
+    if(!byDate[iso]) byDate[iso] = {positive:0,negative:0,neutral:0};
+    byDate[iso][r.sentiment] += 1;
+  });
+  socialTrend = Object.entries(byDate).sort(([a],[b])=>a.localeCompare(b)).map(([date,v])=>({date, total:v.positive+v.negative+v.neutral, ...v}));
+  socialWeekly = computeSocialWeekly(socialTrend);
+  socialThemeData = {
+    Instagram: bucket?.Instagram?.projects ? cacheToThemeRows(bucket.Instagram.projects) : [],
+    Facebook: bucket?.Facebook?.projects ? cacheToThemeRows(bucket.Facebook.projects) : [],
+    LinkedIn: bucket?.LinkedIn?.projects ? cacheToThemeRows(bucket.LinkedIn.projects) : [],
+  };
+  overallSentiment = {positive: redditSentiment.positive + gmbSentiment.positive + socialSentiment.positive, negative: redditSentiment.negative + gmbSentiment.negative + socialSentiment.negative, neutral: redditSentiment.neutral + gmbSentiment.neutral + socialSentiment.neutral};
+  overallThemeData = mergeThemeSources([{label:'GMB', data:gmbThemeData}, {label:'Reddit', data:redditThemeData}]);
+  refreshStatusBar();
+  const s = computeRangeView();
+  kpiScopes = s;
+  weeklyDelivery = s.weeklyDelivery;
+  platformWeekly = s.platformWeekly;
+  document.getElementById('kpiSub').textContent = s.sub;
+  const metaTrackingWindowEl2 = document.getElementById('metaTrackingWindow');
+  if(metaTrackingWindowEl2) metaTrackingWindowEl2.textContent = s.windowLabel;
+  const map = {kpiTotalActivity:'totalActivity', kpiNewPosts:'newPosts', kpiGmbNeg:'gmbNeg', kpiSocial:'social'};
+  Object.entries(map).forEach(([elId,key])=>{
+    document.getElementById(elId).textContent = s[key].value;
+    const deltaEl = document.getElementById(elId+'Delta');
+    deltaEl.textContent = s[key].delta;
+    deltaEl.className = 'delta ' + s[key].deltaClass;
+  });
+}
+// ---------- Range model: Latest Week / Last Week / Month(Jun 2026 →) ----------
+// Every window maps to exactly one theme_cache.json lookup key (weekly Monday-ISO or
+// monthly YYYY-MM) — no free-form dates, so narrative/keyword lookup is always an exact
+// cache hit instead of a live re-synthesis. "Last Week" is derived by feeding the latest
+// complete week's own Monday back into getLastCompleteWeek() as the anchor, which rolls
+// it exactly one week further back — avoids a second, duplicate "most recent complete
+// week" implementation.
+function monthBounds(monthKey){
+  const [y,m] = monthKey.split('-').map(Number);
+  return {start: new Date(y, m-1, 1), end: new Date(y, m, 0)};
+}
+function monthsFromJune2026(){
+  const months = [];
+  let cursor = '2026-06';
+  for(let i=0;i<36;i++){
+    months.push(cursor);
+    if(cursor === REPORT_MONTH) break;
+    const [y,m] = cursor.split('-').map(Number);
+    const next = new Date(y, m, 1);
+    cursor = `${next.getFullYear()}-${String(next.getMonth()+1).padStart(2,'0')}`;
+  }
+  return months;
+}
+function buildMonthMenu(){
+  const menu = document.getElementById('rangeMonthMenu');
+  if(!menu) return;
+  menu.innerHTML = monthsFromJune2026().reverse().map(mk=>
+    `<button type="button" data-month="${mk}">${monthLabel(mk)}</button>`
+  ).join('');
+}
+function applyRangeMode(mode){ // {type:'week', which:'latest'|'last'} | {type:'month', key:'YYYY-MM'}
+  const latest = getLastCompleteWeek(new Date());
+  let start, end, cacheType, cacheKey, presetId, label;
+  if(mode.type === 'week' && mode.which === 'last'){
+    const last = getLastCompleteWeek(latest.start);
+    start = last.start; end = last.end; cacheType = 'weekly'; cacheKey = isoDate(last.start);
+    presetId = 'lastweek'; label = `Last Week · ${fmtShort(start)}–${fmtShort(end)}`;
+  } else if(mode.type === 'month'){
+    const b = monthBounds(mode.key);
+    start = b.start; end = b.end; cacheType = 'monthly'; cacheKey = mode.key;
+    presetId = 'month'; label = monthLabel(mode.key);
+  } else {
+    start = latest.start; end = latest.end; cacheType = 'weekly'; cacheKey = isoDate(latest.start);
+    presetId = 'latestweek'; label = `Latest Week · ${fmtShort(start)}–${fmtShort(end)}`;
+  }
+  activeRangeMode = {type:cacheType, key:cacheKey, label};
+  selectedRange = normalizeRange(start, end);
+
+  document.querySelectorAll('#rangeChipRow > .range-chip[data-preset]').forEach(btn=>btn.classList.toggle('active', btn.dataset.preset===presetId));
+  const monthBtn = document.getElementById('rangeMonthBtn');
+  if(monthBtn) monthBtn.classList.toggle('active', presetId==='month');
+  document.querySelectorAll('#rangeMonthMenu button').forEach(b=>b.classList.toggle('active', presetId==='month' && b.dataset.month===mode.key));
+
+  const summaryEl = document.getElementById('rangeSummaryLabel');
+  if(summaryEl) summaryEl.textContent = label;
+
+  applyDateRange();
+  renderDashboard();
+  renderPulse();
+}
+// Signature element: a slim sentiment sparkline tracing week-over-week % positive across
+// the last 6 available weeks, with a gold dot marking whichever week is currently selected
+// (month windows and "Last Week" outside the visible 6 weeks show no dot, just the trend).
+function renderPulse(){
+  const svg = document.getElementById('pulseSvg');
+  if(!svg) return;
+  const weeks = socialWeekly.slice(-6);
+  if(weeks.length < 2){ svg.innerHTML = ''; return; }
+  const ratios = weeks.map(w=>{ const t=w.positive+w.negative+w.neutral; return t ? w.positive/t : 0; });
+  const W=320, H=36, PAD=4;
+  const stepX = (W - PAD*2) / (weeks.length - 1);
+  const points = ratios.map((r,i)=> [PAD + i*stepX, H - PAD - r*(H - PAD*2)]);
+  const pathD = points.map((p,i)=> (i===0?'M':'L') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ');
+  const activeKey = activeRangeMode.type==='weekly' ? activeRangeMode.key : null;
+  const dotIdx = activeKey ? weeks.findIndex(w=>isoDate(w.monday)===activeKey) : -1;
+  const dotHtml = dotIdx>=0 ? `<circle cx="${points[dotIdx][0]}" cy="${points[dotIdx][1]}" r="3.2" style="fill:var(--gold);"></circle>` : '';
+  svg.innerHTML = `<path d="${pathD}" fill="none" style="stroke:var(--meridian);" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>${dotHtml}`;
+}
+document.getElementById('rangeChipRow').addEventListener('click', e=>{
+  const btn = e.target.closest('.range-chip[data-preset]');
+  if(!btn) return;
+  applyRangeMode({type:'week', which: btn.dataset.preset==='lastweek' ? 'last' : 'latest'});
+});
+const rangeMonthBtn = document.getElementById('rangeMonthBtn');
+const rangeMonthMenu = document.getElementById('rangeMonthMenu');
+rangeMonthBtn.addEventListener('click', e=>{
+  e.stopPropagation();
+  const open = rangeMonthMenu.hidden;
+  rangeMonthMenu.hidden = !open;
+  rangeMonthBtn.setAttribute('aria-expanded', String(open));
+});
+rangeMonthMenu.addEventListener('click', e=>{
+  const btn = e.target.closest('button[data-month]');
+  if(!btn) return;
+  rangeMonthMenu.hidden = true;
+  rangeMonthBtn.setAttribute('aria-expanded','false');
+  applyRangeMode({type:'month', key:btn.dataset.month});
+});
+document.addEventListener('click', ()=>{ rangeMonthMenu.hidden = true; rangeMonthBtn.setAttribute('aria-expanded','false'); });
+
+// ---------- RENDER: Delivery table + filter bar ----------
+function renderDeliveryTable(filter){
+  const headRow = document.getElementById('deliveryTableHeadRow');
+  headRow.innerHTML = '<th>Metric</th><th>Platform</th>'
+    + Array.from({length:totalWeekCount}, (_,i)=>`<th class="num">W${i+1}</th>`).join('')
+    + '<th class="num">Total</th>';
+
+  const tbody = document.querySelector('#deliveryTable tbody');
+  tbody.innerHTML = '';
+  // Always the full month-to-date across every tracked week — this table is a raw activity
+  // log, not scoped to the header's tracking-range picker (unlike the KPI cards).
+  summaryWeeklyDelivery.filter(row=> filter==='All' || row.platform===filter).forEach(row=>{
+    const tagClass = row.platform==='Reddit'?'tag-reddit':row.platform==='Quora'?'tag-quora':row.platform==='GMB'?'tag-gmb':'tag-other';
+    const weekCells = Array.from({length:totalWeekCount}, (_,i)=>`<td class="num">${row['w'+(i+1)]||0}</td>`).join('');
+    tbody.innerHTML += `<tr><td>${row.metric}</td><td><span class="platform-tag ${tagClass}">${row.platform}</span></td>
+      ${weekCells}<td class="num"><b>${row.total}</b></td></tr>`;
+  });
+}
+function renderProgress(containerId, rows){
+  const el = document.getElementById(containerId);
+  el.innerHTML = rows.map(r=>{
+    const p = Math.min(100, Math.round(r.value/r.target*100));
+    return `
+    <div class="progress-row">
+      <div class="p-label"><span>${r.label}</span><span>${r.display}<span class="p-pct">${p}%</span></span></div>
+      <div class="progress-track">
+        <div class="progress-fill" style="width:${p}%;"></div>
+      </div>
+    </div>`;
+  }).join('');
+}
+function renderRankList(elId, list, accentUp){
+  document.getElementById(elId).innerHTML = list.map((p,i)=>`
+    <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; ${i<list.length-1?'border-bottom:1px solid var(--cloud);':''}">
+      <div><b style="color:var(--constellation);">${i+1}. ${p.project}</b><div style="font-size:12px;color:var(--fog);">${p.count.toLocaleString()} reviews</div></div>
+      <div style="font-size:20px;font-weight:bold;color:${accentUp?'var(--meridian)':'var(--gold-deep)'};">${p.rating.toFixed(1)}★</div>
+    </div>`).join('');
+}
+async function renderGmbTable(){
+  const gmbBody = document.querySelector('#gmbTable tbody');
+  if(!gmbBody) return;
+  gmbBody.innerHTML = '';
+  const priorKey = prevMonthKey(REPORT_MONTH);
+  for(const p of gmbProjects){
+    const total = p.positive+p.negative+p.neutral;
+    const posPct = total?(p.positive/total*100):0, negPct = total?(p.negative/total*100):0, neuPct= total?(p.neutral/total*100):0;
+    const live = liveRatings[p.project];
+    const liveCell = live ? live.rating.toFixed(1) : '<span style="color:var(--fog)">Not found</span>';
+    const liveCountCell = live ? live.count.toLocaleString() : '—';
+    let lastMonthRating = p.lastMonthRating;
+    let lastMonthSource = 'baseline';
+    if(window.storage){
+      try{
+        const stored = await window.storage.get(`gmb_rating_history:${p.project}:${priorKey}`, true);
+        if(stored && stored.value){
+          const val = JSON.parse(stored.value);
+          lastMonthRating = val.rating; lastMonthSource = 'saved';
+        }
+      } catch(e){}
+    }
+    const lastMonthCell = (lastMonthRating === null || lastMonthRating === undefined)
+      ? `<span style="color:var(--fog)">No ${monthLabel(priorKey)} data</span>`
+      : lastMonthRating.toFixed(2).replace(/\.00$/,'.0');
+    let deltaCell = '—';
+    if(live && (lastMonthRating !== null && lastMonthRating !== undefined)){
+      const d = +(live.rating - lastMonthRating).toFixed(1);
+      const cls = d>0?'up':(d<0?'down':'');
+      const sign = d>0?'+':'';
+      deltaCell = `<span class="delta ${cls}">${sign}${d}</span>`;
+    }
+    gmbBody.innerHTML += `<tr>
+      <td><b>${p.project}</b></td>
+      <td class="num"><b>${liveCell}</b></td>
+      <td class="num">${liveCountCell}</td>
+      <td class="num">${lastMonthCell}${lastMonthSource==='saved'?' <span style="color:var(--meridian);font-size:11px;">●</span>':''}</td>
+      <td class="num">${deltaCell}</td>
+      <td class="num">${p.reviews}</td>
+      <td class="num">${p.positive}</td>
+      <td class="num">${p.negative}</td>
+      <td class="num">${p.neutral}</td>
+      <td style="min-width:120px;"><div class="sent-bar"><span style="width:${posPct}%;background:var(--meridian)"></span><span style="width:${negPct}%;background:var(--gold-deep)"></span><span style="width:${neuPct}%;background:var(--atlas)"></span></div></td>
+    </tr>`;
+  }
+}
+function renderRatingShiftNotes(){
+  const shiftNotesEl = document.getElementById('ratingShiftNotes');
+  let shiftHtml = '';
+  gmbProjects.forEach(p=>{
+    const copy = ratingShiftCopy[p.project];
+    if(!copy) return;
+    shiftHtml += `<p style="margin:0 0 12px;"><b style="color:var(--constellation);">${p.project}</b> — ${copy}</p>`;
+  });
+  shiftNotesEl.innerHTML = shiftHtml || '<p style="font-size:13px;color:var(--fog);margin:0;">No prior-month baseline available yet for any locked project.</p>';
+}
+
+
+// ---------- RENDER: Per-platform message-driven pointers (Instagram / Facebook / LinkedIn) ----------
+const platformPointers = {
+  Instagram: {
+    flag: null,
+    points: [
+      "Extremely low negative rate (1.4%) — the few real complaints raise substantive issues: traffic/road capacity near new project sites, and a specific buyer dispute over an AC-compressor/beam-cutting clause.",
+      "Positive comments are almost entirely short reactions (emojis, \"beautiful property\") rather than detailed feedback — genuine goodwill, but shallow.",
+      "A meaningful slice of the neutral bucket is low-content noise (single characters, garbled text, unrelated tags) rather than real sentiment signal — worth tightening the classification if precision here matters."
+    ]
+  },
+  Facebook: {
+    flag: null,
+    points: [
+      "Negative comments include direct abusive/profane language aimed at the brand, plus at least one legitimate service complaint about an unanswered email needing repeated follow-up.",
+      "The neutral bucket (72%) is dominated by short, low-content messages — single words, price queries, reactions — not substantive brand commentary.",
+      "Positive comments follow the same shallow pattern as Instagram: brief affirmations with little detail."
+    ]
+  },
+  LinkedIn: {
+    flag: "Data-quality flag: a review of the actual message text shows a large share of what's tagged here isn't about Sumadhura at all — job postings, unrelated companies' announcements, general real-estate/AI thought-leadership posts. This suggests the listening rule may be picking up broader industry content, not Sumadhura-specific mentions. Treat this platform's sentiment split with real caution until the tagging rules are confirmed.",
+    points: [
+      "Where content is genuinely Sumadhura-related, it skews positive (project walkthroughs, brand posts, congratulatory comments).",
+      "Negative-tagged items sampled were mostly unrelated critical commentary on other companies/topics, not criticism of Sumadhura specifically.",
+      "Recommend confirming the LinkedIn listening/tagging setup before using this split in reporting to stakeholders as brand sentiment."
+    ]
+  }
+};
+function renderPlatformPointersOnce(){
+  if(document.getElementById('platformPointersBlock')) return;
+  const platformPointersEl = document.createElement('div');
+  platformPointersEl.id = 'platformPointersBlock';
+  platformPointersEl.className = 'grid-3';
+  platformPointersEl.style.marginTop = '16px';
+  Object.entries(platformPointers).forEach(([name, data])=>{
+    const flagHtml = data.flag ? `<p style="font-size:12px;color:var(--gold-deep);font-weight:bold;background:rgba(184,146,58,0.08);border:1px solid rgba(184,146,58,0.25);border-radius:6px;padding:8px 10px;margin:0 0 10px;">⚠ ${data.flag}</p>` : '';
+    const items = data.points.map(p=>`<li style="margin-bottom:6px;">${p}</li>`).join('');
+    platformPointersEl.innerHTML += `
+      <div class="card" style="box-shadow:none;">
+        <h3 style="font-size:13px;">${name}</h3>
+        ${flagHtml}
+        <ul style="margin:0; padding-left:18px; font-size:12.5px; color:var(--atlas); line-height:1.6;">${items}</ul>
+      </div>`;
+  });
+  document.getElementById('platformPieGrid').after(platformPointersEl);
+}
+
+function renderNegativeThemes(){
+  document.getElementById('negThemesHeading').textContent = `Negative Review Themes — Week of ${fmtShort(weekStart)}–${fmtLong(weekEnd)}`;
+  document.getElementById('negThemesSub').textContent = `Auto-computed as the most recently completed Monday–Sunday week from this data pull (${latestWeekNegatives.length} negative review${latestWeekNegatives.length===1?'':'s'} this week).`;
+  const byProject = {};
+  latestWeekNegatives.forEach(r=>{ if(!byProject[r.project]) byProject[r.project]=[]; byProject[r.project].push(r); });
+  const themeGrid = document.getElementById('negativeThemes');
+  themeGrid.innerHTML = '';
+  if(Object.keys(byProject).length === 0){
+    themeGrid.innerHTML = `<div class="card" style="grid-column:1/-1;"><p style="font-size:13px;color:var(--fog);margin:0;">No negative (≤3★) GMB reviews logged in the week of ${fmtLong(weekStart)}–${fmtLong(weekEnd)}.</p></div>`;
+  } else {
+    Object.entries(byProject).forEach(([project, records])=>{
+      const priorities = [...new Set(records.map(r=>r.priority))].join(', ');
+      const anyOpen = records.some(r=>r.responded==='No');
+      const respSummary = anyOpen ? 'Action needed' : 'Responded';
+      const respColor = anyOpen ? 'var(--gold-deep)' : 'var(--meridian)';
+      const items = records.map(r=>`<li style="margin-bottom:6px;">${r.message} <span style="color:var(--fog);">(${r.date?fmtShort(new Date(r.date+'T00:00:00')):''}, ${r.rating}★${r.responded==='No' ? ', not yet responded' : ''})</span></li>`).join('');
+      themeGrid.innerHTML += `
+      <div class="post-card">
+        <div class="bucket">${project}</div>
+        <div class="stats" style="margin-bottom:2px;">
+          <div>Negative reviews<b>${records.length}</b></div>
+          <div>Priority<b style="font-size:13px;">${priorities}</b></div>
+          <div>Status<b style="font-size:13px;color:${respColor}">${respSummary}</b></div>
+        </div>
+        <ul style="margin:4px 0 0; padding-left:18px; font-size:13px; color:var(--atlas); line-height:1.5;">${items}</ul>
+      </div>`;
+    });
+  }
+}
+
+function renderPlatformPieCardsOnce(){
+  const platGrid = document.getElementById('platformPieGrid');
+  if(platGrid.dataset.built) return;
+  platGrid.dataset.built = '1';
+  ['Instagram','Facebook','LinkedIn'].forEach(name=>{
+    platGrid.innerHTML += `
+    <div style="text-align:center;">
+      <div style="font-size:12px;font-weight:bold;color:var(--constellation);margin-bottom:6px;">${name}</div>
+      <div class="pie-chart-shell"><canvas id="piePlat_${name}"></canvas></div>
+    </div>`;
+  });
+}
+
+function renderHistoryButtonsOnce(){
+  const btnBar = document.getElementById('historyProjectButtons');
+  if(btnBar.dataset.built) return;
+  btnBar.dataset.built = '1';
+  const projectNames = Object.keys(liveRatings).filter(k=>liveRatings[k]);
+  projectNames.forEach((name,i)=>{
+    const btn = document.createElement('button');
+    btn.className = 'project-btn' + (i===0?' active':'');
+    btn.textContent = name;
+    btn.dataset.project = name;
+    btnBar.appendChild(btn);
+  });
+  btnBar.addEventListener('click', e=>{
+    if(!e.target.classList.contains('project-btn')) return;
+    btnBar.querySelectorAll('.project-btn').forEach(b=>b.classList.remove('active'));
+    e.target.classList.add('active');
+    loadHistoryFor(e.target.dataset.project);
+  });
+}
+
+let ratingHistoryChart = null;
+async function loadHistoryFor(project){
+  const emptyNote = document.getElementById('historyEmptyNote');
+  const live = liveRatings[project];
+  const gmbRow = gmbProjects.find(p=>p.project===project);
+  const baseline = {};
+  // June baseline: gmbProjects.lastMonthRating is now a genuine June-2026-only average
+  // (fixed in an earlier revision), so it's legitimate to show as June's actual data point.
+  if(gmbRow && gmbRow.lastMonthRating !== null && gmbRow.lastMonthRating !== undefined){
+    baseline[prevMonthKey(REPORT_MONTH)] = {month:prevMonthKey(REPORT_MONTH), rating:gmbRow.lastMonthRating, count:null, source:'tracker'};
+  }
+  if(live) baseline[REPORT_MONTH] = {month:REPORT_MONTH, rating:live.rating, count:live.count, source:'live'};
+
+  let stored = {};
+  if(window.storage){
+    try{
+      const list = await window.storage.list(`gmb_rating_history:${project}:`, true);
+      const keys = (list && list.keys) ? list.keys : [];
+      for(const key of keys){
+        try{
+          const res = await window.storage.get(key, true);
+          if(res && res.value){ const val = JSON.parse(res.value); stored[val.month] = val; }
+        } catch(e){}
+      }
+    } catch(e){}
+  }
+  const merged = {...baseline, ...stored};
+  const points = Object.values(merged).sort((a,b)=> a.month.localeCompare(b.month));
+
+  const canvas = document.getElementById('chartRatingHistory');
+  if(ratingHistoryChart) ratingHistoryChart.destroy();
+
+  if(!window.storage){
+    emptyNote.textContent = 'Persistent storage isn\'t available in this preview environment — history tracking works when this dashboard is opened as a Claude artifact.';
+  } else if(points.length <= 1){
+    emptyNote.textContent = `Showing the ${REPORT_MONTH} baseline for ${project} — this is the first tracked point. It'll auto-extend on the last day of each month.`;
+  } else {
+    emptyNote.textContent = '';
+  }
+
+  if(typeof Chart === 'undefined') return;
+  ratingHistoryChart = new Chart(canvas, {
+    type:'line',
+    data:{
+      labels: points.map(p=>p.month),
+      datasets:[{ label:`${project} — Google rating`, data:points.map(p=>p.rating), borderColor:COLORS.meridian, backgroundColor:'rgba(26,82,118,0.1)', fill:true, tension:0.2, pointBackgroundColor:COLORS.gold, pointRadius:6 }]
+    },
+    options:{ responsive:true, plugins:{legend:{display:false}}, layout:{padding:{top:18}}, scales:{ y:{ suggestedMin:1, suggestedMax:5, grid:{color:COLORS.cloud} }, x:{grid:{display:false}} } },
+    plugins:[barLabelPlugin]
+  });
+}
+// ---------- AUTO-SAVE: last calendar date of the month ----------
+function isLastDayOfMonth(d){
+  const tomorrow = new Date(d.getFullYear(), d.getMonth(), d.getDate()+1);
+  return tomorrow.getMonth() !== d.getMonth();
+}
+async function autoSaveMonthEndSnapshots(){
+  const noteEl = document.getElementById('autoSaveNote');
+  if(!window.storage){
+    noteEl.textContent = 'Persistent storage isn\'t available in this preview environment — month-end auto-save runs when this dashboard is opened as a Claude artifact.';
+    return;
+  }
+  const now = new Date();
+  if(!isLastDayOfMonth(now)){
+    noteEl.textContent = `Auto-save runs on the last calendar date of each month. Today isn't month-end, so no automatic snapshot was taken this visit.`;
+    return;
+  }
+  const monthKey = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
+  let savedCount = 0, skippedCount = 0;
+  for(const [project, live] of Object.entries(liveRatings)){
+    if(!live) continue;
+    const key = `gmb_rating_history:${project}:${monthKey}`;
+    try{
+      const existing = await window.storage.get(key, true);
+      if(existing){ skippedCount++; continue; }
+    } catch(e){}
+    try{
+      await window.storage.set(key, JSON.stringify({month:monthKey, rating:live.rating, count:live.count, autoSaved:true}), true);
+      savedCount++;
+    } catch(e){}
+  }
+  noteEl.textContent = `Month-end auto-save ran for ${monthKey}: ${savedCount} project snapshot${savedCount===1?'':'s'} saved${skippedCount?`, ${skippedCount} already had one`:''}.`;
+  const activeBtn = document.querySelector('.project-btn.active');
+  if(activeBtn) loadHistoryFor(activeBtn.dataset.project);
+}
+
+// ---------- CHARTS ----------
+let weeklyChart = null, socialTrendChart = null;
+const weeklyPlatformColors = { Reddit: COLORS.meridian, Quora: COLORS.atlas, GMB: COLORS.goldDeep, 'Other Social': COLORS.fog };
+function renderWeeklyChart(platform){
+  if(typeof Chart === 'undefined') return;
+  if(weeklyChart) weeklyChart.destroy();
+  weeklyChart = new Chart(document.getElementById('chartWeekly'), {
+    type:'bar',
+    data:{
+      labels: fullPlatformWeekly.labels,
+      datasets:[{ label:platform, data:fullPlatformWeekly[platform], backgroundColor:weeklyPlatformColors[platform] }]
+    },
+    options:{
+      responsive:true,
+      plugins:{ legend:{display:false} },
+      scales:{ x:{grid:{display:false}}, y:{grid:{color:COLORS.cloud}} },
+      layout:{ padding:{top:16} }
+    },
+    plugins:[barLabelPlugin]
+  });
+}
+document.getElementById('weeklyPlatformFilter').addEventListener('click', e=>{
+  if(!e.target.classList.contains('filter-btn')) return;
+  document.querySelectorAll('#weeklyPlatformFilter .filter-btn').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  renderWeeklyChart(e.target.dataset.weeklyPlatform);
+});
+
+const sentimentColors = { Positive: COLORS.meridian, Negative: COLORS.goldDeep, Neutral: COLORS.offwhite };
+function renderSocialTrendChart(sentiment){
+  if(typeof Chart === 'undefined') return;
+  if(socialTrendChart) socialTrendChart.destroy();
+  socialTrendChart = new Chart(document.getElementById('chartSocialTrend'), {
+    type:'bar',
+    data:{
+      labels: socialWeekly.map(w=> w.label + (w.partial ? ' (partial)' : '')),
+      datasets:[{ label:sentiment, data:socialWeekly.map(w=>w[sentiment.toLowerCase()]), backgroundColor:sentimentColors[sentiment], borderColor: sentiment==='Neutral' ? COLORS.fog : sentimentColors[sentiment], borderWidth: sentiment==='Neutral' ? 1.5 : 0 }]
+    },
+    options:{
+      responsive:true,
+      plugins:{ legend:{display:false} },
+      scales:{ x:{grid:{display:false}}, y:{grid:{color:COLORS.cloud}, beginAtZero:true} },
+      layout:{ padding:{top:16} }
+    },
+    plugins:[barLabelPlugin]
+  });
+}
+document.getElementById('socialTrendFilter').addEventListener('click', e=>{
+  if(!e.target.classList.contains('filter-btn')) return;
+  document.querySelectorAll('#socialTrendFilter .filter-btn').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  renderSocialTrendChart(e.target.dataset.socialSentiment);
+});
+
+function pie(id, data){
+  if(typeof Chart === 'undefined') return;
+  const existing = Chart.getChart(document.getElementById(id));
+  if(existing) existing.destroy();
+  new Chart(document.getElementById(id), {
+    type:'pie',
+    data:{ labels:['Positive','Negative','Neutral'], datasets:[{ data:[data.positive,data.negative,data.neutral], backgroundColor:[COLORS.meridian,COLORS.goldDeep,COLORS.atlas], borderWidth:2, borderColor:'#fff' }] },
+    options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false} }, layout:{ padding:{top:24,right:32,bottom:24,left:32} } },
+    plugins:[pieLabelPlugin]
+  });
+}
+let topProjectsChart = null;
+function renderTopProjectsChart(){
+  if(typeof Chart === 'undefined') return;
+  if(topProjectsChart) topProjectsChart.destroy();
+  const topProjectsSorted = [...gmbProjects].sort((a,b)=> b.reviews - a.reviews);
+  topProjectsChart = new Chart(document.getElementById('chartTopProjects'), {
+    type:'bar',
+    data:{
+      labels: topProjectsSorted.map(p=>p.project),
+      datasets:[{ label:'Reviews (current + prior month)', data: topProjectsSorted.map(p=>p.reviews), backgroundColor:COLORS.meridian }]
+    },
+    options:{
+      responsive:true,
+      plugins:{ legend:{display:false} },
+      scales:{ x:{grid:{display:false}}, y:{grid:{color:COLORS.cloud}} },
+      layout:{ padding:{top:16} }
+    },
+    plugins:[barLabelPlugin]
+  });
+}
+
+function renderAllCharts(){
+  if(typeof Chart === 'undefined'){ console.error('Chart.js failed to load — charts skipped, rest of dashboard unaffected.'); return; }
+  try {
+    renderWeeklyChart(document.querySelector('#weeklyPlatformFilter .filter-btn.active')?.dataset.weeklyPlatform || 'GMB');
+    renderSocialTrendChart(document.querySelector('#socialTrendFilter .filter-btn.active')?.dataset.socialSentiment || 'Positive');
+    pie('pieOverall', overallSentiment);
+    pie('pieReddit', redditSentiment);
+    pie('pieGMB', gmbSentiment);
+    pie('pieSocial', socialSentiment);
+    pie('pieQuora', quoraSentiment);
+    ['Instagram','Facebook','LinkedIn'].forEach(name=> pie(`piePlat_${name}`, socialByPlatform[name]));
+    renderTopProjectsChart();
+  } catch(e){ console.error('Chart rendering failed:', e); }
+}
+
+function populateStaticCardCopy(){
+  const redditPieSub = document.getElementById('redditPieSub');
+  if(redditPieSub) redditPieSub.textContent = 'Reddit sentiment split for the current tracking window, using seeded-thread replies and existing-thread engagement.';
+
+  const gmbPieSub = document.getElementById('gmbPieSub');
+  if(gmbPieSub) gmbPieSub.textContent = 'Current + prior-month GMB review sentiment across the locked project list.';
+
+  const socialPieSub = document.getElementById('socialPieSub');
+  if(socialPieSub) socialPieSub.textContent = 'Social sentiment across Instagram, Facebook and LinkedIn in the current window.';
+
+  const platformPieSub = document.getElementById('platformPieSub');
+  if(platformPieSub) platformPieSub.textContent = 'Breakdown by platform for the same window, with platform-level notes below for data quality context.';
+
+  const platformPieFootnote = document.getElementById('platformPieFootnote');
+  if(platformPieFootnote) platformPieFootnote.textContent = 'The platform-level split is directional and should be read alongside the message-level notes above for data-quality context.';
+
+  const quoraPieSub = document.getElementById('quoraPieSub');
+  if(quoraPieSub) quoraPieSub.textContent = 'Quora sentiment on published answers within the current tracking window.';
+
+  const redditThemeFootnote = document.getElementById('redditThemeFootnote');
+  if(redditThemeFootnote) redditThemeFootnote.textContent = 'Themes are directional summaries of the tracked thread content rather than an exhaustive topic list.';
+
+  const quoraThemeFootnote = document.getElementById('quoraThemeFootnote');
+  if(quoraThemeFootnote) quoraThemeFootnote.textContent = 'Themes are directional summaries from the seeded Quora content plan and the underlying thread context.';
+
+  const quoraProgressFootnote = document.getElementById('quoraProgressFootnote');
+  if(quoraProgressFootnote) quoraProgressFootnote.textContent = 'Progress is benchmarked against the monthly target values supplied in the content plan sheet.';
+
+  const gmbMethodologyNote = document.getElementById('gmbMethodologyNote');
+  if(gmbMethodologyNote) gmbMethodologyNote.textContent = 'Ratings are manually maintained from public Google Business Profile data; the prior-month baseline now uses the tracker’s prior-month tab rather than the live rating snapshot.';
+
+  const topProjectsSub = document.getElementById('topProjectsSub');
+  if(topProjectsSub) topProjectsSub.textContent = 'Project volume across the current and prior-month tracker tabs.';
+
+  const ratingShiftSub = document.getElementById('ratingShiftSub');
+  if(ratingShiftSub) ratingShiftSub.textContent = 'Changes vs. the prior-month baseline, using the latest locked project snapshot.';
+
+  const ratingHistorySub = document.getElementById('ratingHistorySub');
+  if(ratingHistorySub) ratingHistorySub.textContent = 'Month-by-month history for the selected project, with monthly snapshots persisted automatically on month-end.';
+}
+
+// ---------- MASTER RENDER: runs after every successful/partial data load ----------
+function renderDashboard(){
+  populateStaticCardCopy();
+
+  // one-time UI chrome (button bars, static cards) — built once, safe to call repeatedly
+  if(!dashboardBuilt){
+    const platformsForFilter = ['All','Reddit','Quora','GMB','Other Social'];
+    const filterBar = document.getElementById('deliveryFilterBar');
+    platformsForFilter.forEach(p=>{
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn' + (p==='All' ? ' active' : '');
+      btn.textContent = p; btn.dataset.filterPlatform = p;
+      filterBar.appendChild(btn);
+    });
+    filterBar.addEventListener('click', e=>{
+      if(!e.target.classList.contains('filter-btn')) return;
+      filterBar.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      e.target.classList.add('active');
+      renderDeliveryTable(e.target.dataset.filterPlatform);
+    });
+
+    const weeklyPlatforms = ['GMB','Reddit','Quora','Other Social'];
+    const weeklyFilterBar = document.getElementById('weeklyPlatformFilter');
+    weeklyPlatforms.forEach(p=>{
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn' + (p==='GMB' ? ' active' : '');
+      btn.textContent = p; btn.dataset.weeklyPlatform = p;
+      weeklyFilterBar.appendChild(btn);
+    });
+
+    const socialSentimentOptions = ['Positive','Negative','Neutral'];
+    const socialTrendFilterBar = document.getElementById('socialTrendFilter');
+    socialSentimentOptions.forEach(s=>{
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn' + (s==='Positive' ? ' active' : '');
+      btn.textContent = s; btn.dataset.socialSentiment = s;
+      socialTrendFilterBar.appendChild(btn);
+    });
+
+    renderPlatformPointersOnce();
+    renderPlatformPieCardsOnce();
+    renderHistoryButtonsOnce();
+    dashboardBuilt = true;
+  }
+
+  renderDeliveryTable(document.querySelector('#deliveryFilterBar .filter-btn.active')?.dataset.filterPlatform || 'All');
+
+  const postGrid = document.getElementById('redditPosts');
+  postGrid.innerHTML = '';
+  redditPosts.slice().reverse().forEach(p=>{
+    const total = p.positive+p.negative+p.neutral;
+    const posPct = total? (p.positive/total*100):0, negPct = total?(p.negative/total*100):0, neuPct = total?(p.neutral/total*100):0;
+    postGrid.innerHTML += `
+    <div class="post-card">
+      <div class="bucket">${p.bucket}</div>
+      <div class="title">${p.title}</div>
+      <div class="sub">${p.subreddit} · ${p.week} · published ${p.date}</div>
+      <div class="stats">
+        <div>Upvotes<b>${p.upvotes}</b></div>
+        <div>Comments<b>${p.comments}</b></div>
+      </div>
+      <div class="sent-bar">
+        <span style="width:${posPct}%;background:var(--meridian)"></span>
+        <span style="width:${negPct}%;background:var(--gold-deep)"></span>
+        <span style="width:${neuPct}%;background:var(--offwhite);box-shadow:inset 0 0 0 1px var(--fog);"></span>
+      </div>
+      <div class="sub">${p.positive} positive · ${p.negative} negative · ${p.neutral} neutral</div>
+      ${p.link ? `<a class="link" href="${p.link}" target="_blank" rel="noopener">View thread</a>` : `<span class="link" style="opacity:0.5;cursor:default;">Link unavailable</span>`}
+    </div>`;
+  });
+
+  renderProgress('redditProgress', redditProgressRows);
+  renderProgress('quoraProgress', quoraProgressRows);
+
+  const allRated = Object.entries(liveRatings).filter(([n,v])=>v).map(([n,v])=>({project:n, rating:v.rating, count:v.count}));
+  renderRankList('topPositiveList', [...allRated].sort((a,b)=> b.rating - a.rating || b.count - a.count).slice(0,3), true);
+  renderRankList('topNegativeList', [...allRated].sort((a,b)=> a.rating - b.rating || b.count - a.count).slice(0,3), false);
+
+  renderGmbTable();
+  renderRatingShiftNotes();
+  renderNegativeThemes();
+  renderThemeTable('gmbThemeBody', gmbThemeData, document.querySelector('#gmbThemeToggle .filter-btn.active')?.dataset.sent || 'positive');
+  renderThemeTable('redditThemeBody', redditThemeData, document.querySelector('#redditThemeToggle .filter-btn.active')?.dataset.sent || 'positive');
+  renderThemeTable('quoraThemeBody', quoraThemeData, document.querySelector('#quoraThemeToggle .filter-btn.active')?.dataset.sent || 'positive');
+  renderSocialThemeTable();
+  renderTopThemes('topPositiveThemes', 'positive');
+  renderTopThemes('topNegativeThemes', 'negative');
+
+  const activeProjectBtn = document.querySelector('.project-btn.active');
+  loadHistoryFor(activeProjectBtn ? activeProjectBtn.dataset.project : Object.keys(liveRatings)[0]);
+  autoSaveMonthEndSnapshots();
+
+  renderAllCharts();
+}
+
+// Wire theme toggle click handlers once — they read whichever data set is current at click time.
+document.getElementById('gmbThemeToggle').addEventListener('click', e=>{
+  if(!e.target.classList.contains('filter-btn')) return;
+  document.getElementById('gmbThemeToggle').querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  renderThemeTable('gmbThemeBody', gmbThemeData, e.target.dataset.sent);
+});
+document.getElementById('redditThemeToggle').addEventListener('click', e=>{
+  if(!e.target.classList.contains('filter-btn')) return;
+  document.getElementById('redditThemeToggle').querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  renderThemeTable('redditThemeBody', redditThemeData, e.target.dataset.sent);
+});
+document.getElementById('quoraThemeToggle').addEventListener('click', e=>{
+  if(!e.target.classList.contains('filter-btn')) return;
+  document.getElementById('quoraThemeToggle').querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  renderThemeTable('quoraThemeBody', quoraThemeData, e.target.dataset.sent);
+});
+function renderSocialThemeTable(){
+  const platform = document.querySelector('#socialThemePlatformToggle .filter-btn.active')?.dataset.platformSel || 'Instagram';
+  const sentiment = document.querySelector('#socialThemeToggle .filter-btn.active')?.dataset.sent || 'positive';
+  renderThemeTable('socialThemeBody', socialThemeData[platform] || [], sentiment);
+}
+document.getElementById('socialThemePlatformToggle').addEventListener('click', e=>{
+  if(!e.target.classList.contains('filter-btn')) return;
+  document.getElementById('socialThemePlatformToggle').querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  renderSocialThemeTable();
+});
+document.getElementById('socialThemeToggle').addEventListener('click', e=>{
+  if(!e.target.classList.contains('filter-btn')) return;
+  document.getElementById('socialThemeToggle').querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  renderSocialThemeTable();
+});
+
+// ---------- BOOTSTRAP ----------
+async function refreshDashboard(){
+  await loadAllData();
+  renderDashboard();
+}
+document.getElementById('refreshDataBtn').addEventListener('click', refreshDashboard);
+refreshDashboard();
+
+// ---------- STICKY OFFSET: keep sticky-bar directly under the sticky masthead ----------
+function updateStickyOffset(){
+  const masthead = document.querySelector('.sticky-masthead');
+  const bar = document.querySelector('.sticky-bar');
+  if(masthead && bar){ bar.style.top = Math.ceil(masthead.getBoundingClientRect().height) + 'px'; }
+}
+updateStickyOffset();
+window.addEventListener('resize', updateStickyOffset);
+
+// ---------- TAB FILTER ----------
+const buttons = document.querySelectorAll('.tab-btn');
+buttons.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    buttons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const target = btn.dataset.target;
+    document.querySelectorAll('section[data-platform]').forEach(sec=>{
+      const plat = sec.dataset.platform;
+      if(plat === 'all'){
+        const hasInnerFilters = !!sec.querySelector('[data-platform]');
+        sec.classList.toggle('hidden', !hasInnerFilters && target !== 'all');
+      } else {
+        sec.classList.toggle('hidden', !(target==='all' || plat===target));
+      }
+    });
+    document.querySelectorAll(':not(section)[data-platform]').forEach(el=>{
+      if(el.closest('section') && el.closest('section').dataset.platform==='all'){
+        el.classList.toggle('hidden', !(target==='all' || el.dataset.platform===target));
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>
