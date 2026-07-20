@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-19T06:24:08+05:30",
+ "generated_at": "2026-07-20T06:19:17+05:30",
  "weekly": {
   "2026-06-15": {
    "GMB": {
@@ -440,17 +440,18 @@
     "projects": {
      "Infracon": {
       "positive": [
-       "Mostly generic reactions and automated \"check your inbox\" DM replies on North Bangalore villa-plot promo posts (Sumadhura Panorama, Elysium); a profile piece on CMD Madhusudhan G personally handling customer grievances draws admiring comments but is tagged Negative in the source sheet — likely a sentiment mis-tag worth flagging, not real negative content."
+       "Engagement is almost entirely emoji/one-word reactions on two North Bangalore villa-plot promotional posts for Sumadhura Panorama, plus scattered short praise elsewhere; virtually no substantive project commentary."
       ],
       "negative": [
-       "One genuine complaint: \"Roads are not able to support current traffic... all these builders are coming with huge projects without connecting roads\" — an infrastructure grievance aimed at the broader building boom, not Sumadhura specifically."
+       "The recurring infrastructure complaint returns — \"roads are not able to support current traffic... 24/7 traffic jam... all these builders are coming with huge projects without connecting roads\" — alongside a bare \"Froud\" accusation with no further detail and a comment demanding a road be \"sanctioned first,\" none naming a specific Sumadhura project."
       ],
       "topKeywords": {
        "positive": [
-        "CMD grievance-handling profile (mis-tagged sentiment)"
+        "Panorama villa-plot promo engagement"
        ],
        "negative": [
-        "road/traffic infrastructure strain"
+        "road/traffic infrastructure strain",
+        "unsubstantiated fraud accusation"
        ]
       }
      }
@@ -459,12 +460,15 @@
    "Facebook": {
     "projects": {
      "Infracon": {
+      "positive": [
+       "No substantive praise this week — just brief acknowledgements (\"Nice\", \"Very nice\") buried in spam."
+      ],
       "negative": [
-       "Thin week, dominated by spam; the one substantive comment echoes Instagram's traffic complaint — \"roads and other infrastructure are worse\" — a general grievance about the area's development pace rather than Sumadhura specifically."
+       "The only semi-substantive comment calls the surrounding area a \"Dusty area\"; the rest of the week's volume is emoji spam, a personal-loan referral pitch, and an unrelated business-collaboration solicitation."
       ],
       "topKeywords": {
        "negative": [
-        "roads/infrastructure complaint"
+        "dusty area complaint"
        ]
       }
      }
@@ -474,12 +478,13 @@
     "projects": {
      "Infracon": {
       "positive": [
-       "The RealView campaign continues to generate the bulk of volume — genuine-sounding buyer stories about being burned by other builders' sample flats (\"the model flat i saw looked nothing like wat i got delivered\") used to endorse Sumadhura's approach, plus a well-received profile of CMD Madhusudhan G personally handling grievances and industry-event mentions (GRI funding panel, CII learning mission)."
+       "Almost none of this week's LinkedIn volume is customer feedback: 17+ congratulatory comments celebrate channel partner Prospen Estates' new office opening, an employee marks a 24-month work anniversary with Sumadhura Infracon, and one comment reflects approvingly on verified on-site previews building more buyer trust than renders — genuine engagement, but not project-specific customer sentiment."
       ],
       "topKeywords": {
        "positive": [
-        "RealView campaign engagement",
-        "CMD grievance-handling profile"
+        "Prospen Estates office-opening congrats",
+        "employee 24-month anniversary post",
+        "verified on-site preview trust"
        ]
       }
      }
@@ -490,6 +495,7 @@
      "Folium": {
       "positive": [
        "A genuine possession thread (\"Took possession of Folium Phase 2 a couple months back\") drew real buyer questions from people hesitant because of earlier Phase 1 complaint threads; the poster reports on-time possession, e-Khata further along than Phase 1, and only two minor PDI snags (a scratched window pane, a bathroom fitting) both fixed before handover.",
+       "Separate due-diligence and yield threads add specifics: a security-guard check found only a minor power issue, the RWA has been formally handed over to residents, realistic net rental yield lands around 2.8-2.9% (not the 4-5% brokers quote) after a typical 6-8 week vacancy, and maintenance runs 4-5k/month.",
        "A negative refund-complaint thread (\"Cancellation refund not received from Sumadhura\") drew a wave of counter-testimonials describing smooth Folium and Capitol Residences refunds after their own cancellations, several suggesting the original poster file a RERA complaint if truly unresolved."
       ],
       "negative": [
@@ -499,6 +505,8 @@
        "positive": [
         "Phase 2 possession reassurance",
         "PDI snags fixed pre-handover",
+        "realistic net yield ~2.8-2.9%",
+        "RWA handed over",
         "counter-testimonials on refunds"
        ],
        "negative": [
@@ -509,11 +517,25 @@
      },
      "Capitol Residences": {
       "positive": [
-       "Commenters defending against the refund-complaint thread describe their own Capitol Residences cancellations being processed smoothly, with the CRM team keeping them informed throughout."
+       "Commenters defending against the refund-complaint thread describe their own Capitol Residences cancellations being processed smoothly, with the CRM team keeping them informed throughout; a separate tower-density comparison also credits Capitol with a better lift-to-flat ratio than Edition and other nearby projects."
       ],
       "topKeywords": {
        "positive": [
-        "counter-testimonial: refund processed"
+        "counter-testimonial: refund processed",
+        "better lift-to-flat ratio"
+       ]
+      }
+     },
+     "Edition": {
+      "positive": [
+       "A dedicated \"Sumadhura Edition Buyers\" thread has an owner confirming the EOI-phase price (~₹13,500/sqft) was worth it for the location, and a shortlister noting the payment plan isn't a strict 20:80 split — the breathing room after the initial payment is called sensible for families not wanting to stretch finances immediately.",
+       "A tile hollow-sound test comparison also finds Edition's sample-flat tile bonding noticeably tighter than a competing project's."
+      ],
+      "topKeywords": {
+       "positive": [
+        "EOI price ~₹13,500/sqft fair",
+        "flexible (non-20:80) payment plan",
+        "tight sample-flat tile bonding"
        ]
       }
      },
@@ -548,46 +570,49 @@
    },
    "Quora": {
     "projects": {
-     "Folium": {
+     "Panorama": {
       "positive": [
-       "A first-time-homebuyer evaluation thread cites Folium's RWA handover and a realistic ~2.9% net rental yield testimonial as concrete due-diligence data points, and separately notes Capitol had a better lift-to-flat ratio in a side-by-side comparison."
-      ],
-      "negative": [
-       "The same thread flags that Phase 1 Folium buyers dealt with e-Khata delays — something the answer suggests asking about specifically before booking."
+       "A site-visit question about Phase 2 near the airport drew due-diligence answers on resale demand depth and realistic rental-yield assumptions (2.5-3% net, not the 4-5% brokers quote), plus a practical tip to check the entrance road at both 8:30am and 7pm to see the real commute picture rather than only the sales-arranged visit time."
       ],
       "topKeywords": {
        "positive": [
-        "RWA handover verified",
-        "realistic ~2.9% net yield"
+        "realistic 2.5-3% yield guidance",
+        "8:30am/7pm commute check tip"
+       ]
+      }
+     },
+     "Folium": {
+      "positive": [
+       "The week's Folium answers repeatedly use it as the delivered-project reference point: one buyer benchmarks a still-under-construction project against a visit to delivered Folium, another notes it beat a higher-profile alternative on carpet efficiency and water source in a side-by-side comparison, and a third flags its e-Khata process (with Phase 1 delays acknowledged) as something to ask about specifically."
+      ],
+      "topKeywords": {
+       "positive": [
+        "delivered-project benchmark",
+        "better carpet efficiency & water source"
        ],
        "negative": [
-        "Phase 1 e-Khata delays"
+        "Phase 1 e-Khata delays acknowledged"
        ]
       }
      },
      "Capitol Residences": {
       "positive": [
-       "The same comparison thread notes Capitol had a better lift-to-flat ratio than Edition and one other project checked side-by-side."
+       "Cited for a better lift-to-flat ratio and fuller backup-power coverage than two comparison projects in a first-time-buyer evaluation answer."
       ],
       "topKeywords": {
        "positive": [
-        "better lift-to-flat ratio"
+        "better lift-to-flat ratio",
+        "fuller backup-power coverage"
        ]
       }
      },
      "Elysium": {
       "positive": [
-       "A \"is Panathur overpriced\" question cites Elysium favorably on carpet-area efficiency versus three other new launches in the corridor."
-      ],
-      "negative": [
-       "The same answer flags peak-hour traffic as the corridor's one genuine current drawback."
+       "Rated favorably on carpet-area efficiency and amenity-cost bundling in a Panathur-corridor comparison against three other new launches."
       ],
       "topKeywords": {
        "positive": [
         "carpet-area efficiency"
-       ],
-       "negative": [
-        "peak-hour traffic"
        ]
       }
      }
@@ -599,22 +624,62 @@
     "projects": {
      "Panorama": {
       "negative": [
-       "A detailed buyer complaint alleges Phase 2's parks/amenities sit on reserved-forest buffer and civic-amenity (CA) land that could be reclaimed by the government, and that the marketing brochure shows amenities on CA land that deviates from the BIAAPA-approved plan.",
-       "The same complaint thread also flags old water wells filled and converted into plots and a 24/7 railway maintenance depot directly adjacent to the boundary wall, urging buyers to do independent legal verification before signing."
-      ]
+       "A one-star review calls Phase 2 \"a failed project before even the launch,\" alleging Sumadhura misled buyers by planning parks and amenities inside reserved-forest buffer and civic-amenity (CA) land where no structures are permitted, and disputing the marketed \"five states, South Indian theme\" concept as undeliverable under those restrictions."
+      ],
+      "topKeywords": {
+       "negative": [
+        "failed project before launch",
+        "buffer-zone amenities misleading",
+        "5-states theme undeliverable"
+       ]
+      }
      },
      "Capitol Towers": {
       "positive": [
-       "A short, positive one-line review with no elaboration."
+       "A brief, unelaborated five-star \"nic experience\" review."
       ],
       "negative": [
-       "A buyer reports a 3-year-unresolved parking dispute — the registered sale deed's stated parking area doesn't match the actual usable space, spaces were never clearly marked, and repeated follow-up emails went unanswered."
-      ]
+       "A buyer reports a three-year-unresolved parking dispute: the registered sale deed's stated area for two paid parking spaces (~₹15 lakh) doesn't match the actual usable space, the spaces were never clearly marked, and repeated follow-up emails over three years have gone unanswered."
+      ],
+      "topKeywords": {
+       "positive": [
+        "short 5-star rating"
+       ],
+       "negative": [
+        "3-year parking/deed mismatch",
+        "₹15L parking spaces unmarked",
+        "unanswered follow-up emails"
+       ]
+      }
      },
      "Folium": {
       "negative": [
-       "The identical parking/deed-mismatch complaint text also appears tagged to Folium — likely the same review mis-tagged across two projects rather than two separate incidents; worth verifying in the source sheet."
-      ]
+       "The identical parking/deed-mismatch complaint text posted the same week also appears tagged to Folium — most likely the same reviewer's post mis-tagged across two GMB listings rather than a second, separate incident."
+      ],
+      "topKeywords": {
+       "negative": [
+        "parking/deed mismatch (dup. tag, see Capitol Towers)"
+       ]
+      }
+     },
+     "Edition": {
+      "positive": [
+       "Three named-staff reviews this week: Somasekhar draws praise for a knowledgeable walkthrough of the project and experience centre (though the same reviewer flags the cost as high), Keshav is credited for patiently helping a buyer choose a flat and booking it the same day, and Saurabh Saran is singled out for a courteous, well-coordinated experience covering documentation questions."
+      ],
+      "negative": [
+       "Two separate reviewers flag undisclosed land litigation on Edition Phase I this week, both asking Sumadhura to issue a RERA Annexure 49 and an indemnity clause before they'll proceed, and pointing other buyers to verify the litigation directly on the RERA website."
+      ],
+      "topKeywords": {
+       "positive": [
+        "Somasekhar walkthrough (cost flagged high)",
+        "Keshav same-day booking",
+        "Saurabh Saran documentation support"
+       ],
+       "negative": [
+        "Phase I land litigation (2 reviewers)",
+        "Annexure 49 / indemnity clause demand"
+       ]
+      }
      }
     }
    },
@@ -622,13 +687,19 @@
     "projects": {
      "Infracon": {
       "positive": [
-       "Mostly short positive reactions — emojis, \"amazing project\", \"I love sumadhura\" — with little detailed feedback.",
-       "One comment is actually a DOOH advertising agency (Dynapix Digital Media) soliciting a business partnership, not genuine customer sentiment."
+       "Only two comments this week carry a positive tag — a bare \"Hi\" and a buyer asking to \"share details, interested\" — alongside one neutral-tagged comment calling the project \"promising\" for striking a balance between attractive pricing and developer credibility."
       ],
       "negative": [
-       "One comment is an unrelated, garbled string with no interpretable content.",
-       "One lengthy complaint is directed at Housing.com about poor lead quality on a paid listing package — it's not a complaint about Sumadhura itself, likely misclassified as Sumadhura sentiment."
-      ]
+       "The one alarming comment this week is neutral-tagged but not really sentiment about Sumadhura at all: someone pleads for help after apparently being scammed, asking others to call an unknown number because \"she given money\" — a fraud victim's cry for help, not a product or service complaint."
+      ],
+      "topKeywords": {
+       "positive": [
+        "short acknowledgements only"
+       ],
+       "negative": [
+        "scam-victim plea (unrelated to Sumadhura)"
+       ]
+      }
      }
     }
    },
@@ -636,17 +707,94 @@
     "projects": {
      "Infracon": {
       "positive": [
-       "Only two very short acknowledgements (\"Thank you.\", \"Done\") — no substantive praise this week."
+       "The only two comments this week are a bare acknowledgement (\"Hi\") and a specific plot-price inquiry (60'×50' north-facing corner plot) — no elaborated praise or complaints."
       ]
      }
     }
    },
    "LinkedIn": {
+    "projects": {},
+    "_note": "No organic LinkedIn engagement is logged for Sumadhura this week — the daily tracker has zero LinkedIn rows dated Jul 13-19 (the Prospen Estates congratulatory wave and buyer-trust comments seen the prior week don't recur here). Not a sentiment signal one way or the other; flagged rather than fabricated."
+   },
+   "Reddit": {
     "projects": {
-     "Infracon": {
+     "Panorama": {
       "positive": [
-       "Data-quality flag: none of this week's LinkedIn items are genuine Sumadhura customer sentiment — they're a GRI funding-panel recap and a legal-tech company's office-launch post that merely name-tag Sumadhura's CMD as an attendee/panelist, plus an unrelated job-seeker's post listing Sumadhura among dozens of companies. Treat this platform's \"positive\" count with caution until tagging rules are reviewed."
-      ]
+       "A Devanahalli site-visit comment reports Phase 2 layout groundwork already visible — roads being laid, boundary marking largely complete — calling it \"legitimate rather than just a marketing render\"; other replies note the cleaner RERA/DC-conversion paperwork typical of an established developer's plotted launch and suggest comparing against nearby Orchid Nirvana and Brigade Oasis before deciding."
+      ],
+      "topKeywords": {
+       "positive": [
+        "visible site groundwork",
+        "cleaner RERA/DC-conversion paperwork",
+        "Orchid Nirvana/Brigade Oasis comparison"
+       ]
+      }
+     },
+     "Elysium": {
+      "positive": [
+       "Elysium-specific replies in a Panathur launch thread call the entry pricing attractive given the builder's clean RERA record, one site-visit comment says ORR access is \"better than expected given how built-up that stretch already is,\" and a separate comment flags Elysium among the launches pricing clubhouse/amenity costs into the base rather than as a later maintenance surprise."
+      ],
+      "negative": [
+       "One reply cautions buyers to get any possession-timeline commitment in writing rather than relying on verbal assurances at the sales office, citing cases where that bit buyers at nearby projects."
+      ],
+      "topKeywords": {
+       "positive": [
+        "ORR access better than expected",
+        "clean RERA record",
+        "amenities bundled into base price"
+       ],
+       "negative": [
+        "get possession timeline in writing"
+       ]
+      }
+     },
+     "Folium": {
+      "positive": [
+       "Named Folium comparisons this week are all favorable: one buyer's full-cost breakdown finds Folium beats a higher-profile competitor on per-carpet-sqft value despite a similar headline price, and another confirms it has both a BWSSB municipal water connection and borewell backup versus a nearby project still ~80% tanker-dependent — a difference the commenter calls significant enough to change the comparison outright."
+      ],
+      "topKeywords": {
+       "positive": [
+        "better cost per carpet-sqft vs competitor",
+        "BWSSB + borewell backup"
+       ]
+      }
+     },
+     "Capitol Residences": {
+      "positive": [
+       "A tower-density comparison finds Capitol's lift-to-flat ratio meaningfully better than a Prestige and a Brigade project in the same price bracket, translating to fewer people per lift at peak hours."
+      ],
+      "topKeywords": {
+       "positive": [
+        "better lift-to-flat ratio",
+        "lower tower density"
+       ]
+      }
+     }
+    }
+   },
+   "Quora": {
+    "projects": {
+     "Folium": {
+      "positive": [
+       "Folium comes up three times this week as the reference for \"lived-in\" community quality — one answer says it scores better than a higher-profile developer on livability and comes close on investment metrics once carpet efficiency is factored in, with a separate callout that its kids' play area is active and well-maintained."
+      ],
+      "topKeywords": {
+       "positive": [
+        "scores well on livability",
+        "active, maintained kids' area"
+       ]
+      }
+     },
+     "Epitome": {
+      "positive": [
+       "A \"carpet area vs community\" answer cites a weekend-afternoon visit to Epitome where the play area was busy and courts were in active use, arguing that's the right time to judge real occupancy rather than during an agent-controlled weekday sales visit."
+      ],
+      "topKeywords": {
+       "positive": [
+        "active weekend occupancy",
+        "busy play area/courts"
+       ]
+      }
      }
     }
    }
@@ -921,7 +1069,7 @@
      },
      "Edition": {
       "positive": [
-       "Named-staff praise continues (Somashekhar, Keshav, Saurabh Saran) for knowledgeable, patient explanations, though one reviewer flags that the project's pricing feels high for what's offered."
+       "Named-staff praise continues (Somashekhar/Somasekhar, Keshav, Saurabh Saran) for knowledgeable, patient explanations, though one reviewer flags that the project's pricing feels high for what's offered."
       ],
       "negative": [
        "The 3-month refund-delay complaint from early in the month is joined by two separate reviews alleging undisclosed land litigation on Edition Phase I, with reviewers asking Sumadhura to issue RERA Annexure 49 and an indemnity clause before they'll consider buying.",
@@ -929,7 +1077,7 @@
       ],
       "topKeywords": {
        "positive": [
-        "Somashekhar/Keshav/Saurabh Saran named praise",
+        "Somasekhar/Keshav/Saurabh Saran named praise",
         "cost flagged as high"
        ],
        "negative": [
@@ -952,7 +1100,7 @@
      },
      "Folium": {
       "positive": [
-       "Mostly brief high-star ratings (\"luxury place,\" \"classy view,\" \"very good place for living\") with little elaboration."
+       "Mostly brief high-star ratings (\"luxury place,\" \"classy view,\" \"very good place for living,\" \"community with great open space\") with little elaboration."
       ],
       "negative": [
        "Two distinct complaints this month: an unresolved day-one water-seepage issue, and the parking/deed-mismatch review that's also duplicated under Capitol Towers (likely a mis-tag rather than two incidents)."
@@ -1021,15 +1169,19 @@
     "projects": {
      "Infracon": {
       "positive": [
-       "Same pattern as both weeks, at higher volume — mostly emoji reactions, automated DM replies, and North Bangalore villa-plot promo engagement (Panorama, Elysium); a handful of genuine buyer questions about pricing/location surface but no sustained project-specific discussion."
+       "Same low-substance pattern across the month — mostly emoji/one-word reactions on Sumadhura Panorama villa-plot promo posts, plus a scatter of short acknowledgements and one comment calling a project \"promising\" on pricing/credibility balance."
       ],
       "negative": [
-       "Beyond the traffic/infrastructure complaint, two other negative comments surface: a vague accusation of a \"fraud company\" over a rental listing with no clear connection to Sumadhura, and an unresolved complaint from a Housing.com lead-gen subscriber about poor lead quality — the latter is directed at Housing.com, not Sumadhura, and is likely misclassified."
+       "The recurring \"roads can't support traffic\" infrastructure complaint, a bare \"Froud\" accusation, a \"get a road sanctioned first\" comment, and a scam-adjacent plea for help after being told to call an unknown number and send money — none naming a specific Sumadhura project or alleging wrongdoing by Sumadhura itself."
       ],
       "topKeywords": {
+       "positive": [
+        "Panorama villa-plot promo engagement"
+       ],
        "negative": [
         "road/traffic infrastructure strain",
-        "misclassified Housing.com lead-gen complaint"
+        "unsubstantiated fraud accusation",
+        "scam-plea comment (unrelated)"
        ]
       }
      }
@@ -1039,15 +1191,14 @@
     "projects": {
      "Infracon": {
       "positive": [
-       "Sparse genuine engagement, buried in spam and gibberish comments; brand-name mentions are mostly neutral or promotional (a competitor's Godrej Regent Park ad, a Sumadhura investment-news repost)."
+       "Sparse brief acknowledgements (\"Nice\", \"Hi\") and one specific plot-price inquiry; no elaborated praise logged this month."
       ],
       "negative": [
-       "The email-unresponsiveness and roads/infrastructure complaints from each week both fall in this month; a separate ambiguous complaint about a \"fraud company\" and \"rental showing\" scam doesn't clearly name Sumadhura as the target."
+       "The only semi-substantive complaint calls the area a \"Dusty area\"; the rest of the month's volume on this platform is emoji spam, a personal-loan referral pitch, and an unrelated business-collaboration solicitation."
       ],
       "topKeywords": {
        "negative": [
-        "email support unresponsive",
-        "roads/infrastructure complaint"
+        "dusty area complaint"
        ]
       }
      }
@@ -1057,12 +1208,13 @@
     "projects": {
      "Infracon": {
       "positive": [
-       "The RealView finished-floor campaign is by far the largest driver of this month's LinkedIn volume, generating hundreds of largely generic but positive endorsement comments; genuine Sumadhura-specific commentary is a small fraction of the total, mixed in with job-seeker posts, partner congratulations (Prospen Estates), and industry-event recaps (GRI, CII, BSHIP Expo sponsorship, EVOLVE workshop) that merely tag the organization."
+       "This month's entire logged LinkedIn volume sits in a single early-month window (Jul 6-8) and is almost all partner/employee culture content rather than customer feedback: 17+ congratulatory comments on channel partner Prospen Estates' office opening, an employee's 24-month work-anniversary post, an ET Realty industry-summit recap, and one comment reflecting approvingly on verified on-site previews building more buyer trust than renders."
       ],
+      "_note": "No LinkedIn activity is logged in the source tracker for the second half of the month (Jul 9 onward) — flagged as a coverage gap rather than an actual drop-off in engagement.",
       "topKeywords": {
        "positive": [
-        "RealView campaign dominates volume",
-        "CMD grievance-handling profile"
+        "Prospen Estates office-opening congrats",
+        "verified on-site preview trust comment"
        ]
       }
      }
@@ -1072,8 +1224,8 @@
     "projects": {
      "Folium": {
       "positive": [
-       "The month's dominant Folium narrative is reassurance for Phase-1-wary buyers: a Phase 2 possession thread reports on-time handover and only minor PDI snags, while a separate rental-yield thread cites a realistic ~2.8-2.9% net yield and positive livability notes (RWA handover on schedule, BWSSB water connection plus borewell backup vs. a tanker-dependent competitor).",
-       "A generic \"which builder would you shortlist in Whitefield\" thread produced a run of unprompted positive word-of-mouth for Sumadhura's post-possession maintenance and resident satisfaction, though it isn't Folium-specific."
+       "The month's dominant Folium narrative is reassurance for Phase-1-wary buyers: a Phase 2 possession thread reports on-time handover and only minor PDI snags, while due-diligence and yield threads add a realistic ~2.8-2.9% net rental yield, confirmed RWA handover, a BWSSB water connection plus borewell backup (versus a nearby tanker-dependent competitor), and a full-cost comparison where Folium beats a higher-profile competitor on per-carpet-sqft value.",
+       "The refund-complaint thread also drew a wave of unprompted positive word-of-mouth for Sumadhura's post-possession maintenance and resident satisfaction."
       ],
       "negative": [
        "Older Phase 1 delivery delays and PDI issues (flooring, mirrors) continue to surface as the reference point buyers are warned to check before assuming a Phase 2 review applies equally.",
@@ -1083,7 +1235,8 @@
        "positive": [
         "Phase 2 possession reassurance",
         "realistic net yield ~2.8-2.9%",
-        "BWSSB + borewell backup"
+        "BWSSB + borewell backup",
+        "better cost per carpet-sqft vs competitor"
        ],
        "negative": [
         "Phase 1 delivery delay/PDI history",
@@ -1093,20 +1246,21 @@
      },
      "Panorama": {
       "positive": [
-       "Continued organic-feeling interest in the Phase 2/Devanahalli launch, including a later site-visit thread describing visible groundwork (roads being laid, boundary marking underway) rather than only brochure renders — though commenters also urge comparison-shopping against nearby Orchid Nirvana and Brigade Oasis."
+       "Continued organic-feeling interest in the Phase 2/Devanahalli launch: a later site-visit thread describes visible groundwork (roads being laid, boundary marking underway) rather than only brochure renders, and notes the cleaner RERA/DC-conversion paperwork typical of an established developer's plotted launch — though commenters also urge comparison-shopping against nearby Orchid Nirvana and Brigade Oasis."
       ],
       "topKeywords": {
        "positive": [
-        "visible groundwork on site visit"
+        "visible groundwork on site visit",
+        "cleaner RERA/DC-conversion paperwork"
        ]
       }
      },
      "Elysium": {
       "positive": [
-       "Panathur-corridor threads consistently rate Elysium well on carpet-area efficiency and amenity-cost structure versus nearby launches; a later thread adds that its ORR access is \"better than expected.\""
+       "Panathur-corridor threads consistently rate Elysium well on carpet-area efficiency and amenity-cost structure versus nearby launches, with one thread adding that its ORR access is \"better than expected.\""
       ],
       "negative": [
-       "Peak-hour traffic at the Panathur junction is the recurring caution across every Elysium-adjacent thread this month."
+       "Peak-hour traffic at the Panathur junction is the recurring caution across every Elysium-adjacent thread this month, and one reply separately cautions buyers to get any possession-timeline commitment in writing rather than a verbal sales-office promise."
       ],
       "topKeywords": {
        "positive": [
@@ -1114,24 +1268,37 @@
         "ORR access better than expected"
        ],
        "negative": [
-        "Panathur junction peak traffic"
+        "Panathur junction peak traffic",
+        "get possession timeline in writing"
        ]
       }
      },
      "Edition": {
       "positive": [
-       "Edition's sample-flat finish quality and an unhurried sales approach continue to draw favorable comparison-thread mentions alongside Folium."
+       "Edition's sample-flat finish quality and unhurried sales approach continue to draw favorable comparison-thread mentions alongside Folium, and a dedicated \"Sumadhura Edition Buyers\" thread adds an owner confirming the EOI-phase price (~₹13,500/sqft) was worth it and a flexible, non-20:80 payment structure."
       ],
       "topKeywords": {
        "positive": [
         "tight sample-flat finish",
-        "unhurried sales approach"
+        "EOI price ~₹13,500/sqft fair",
+        "flexible payment plan"
        ]
       }
      },
      "Capitol Residences": {
       "positive": [
-       "Cited repeatedly as a counter-example in the refund-complaint thread — commenters describe their own Capitol Residences cancellations being refunded without issue."
+       "Cited repeatedly as a counter-example in the refund-complaint thread — commenters describe their own Capitol Residences cancellations being refunded without issue — and separately credited with a better lift-to-flat ratio than Edition and other nearby projects."
+      ],
+      "topKeywords": {
+       "positive": [
+        "counter-testimonial: refund processed",
+        "better lift-to-flat ratio"
+       ]
+      }
+     },
+     "Epitome": {
+      "positive": [
+       "A brother's repeat-purchase experience is cited approvingly in the refund-complaint thread — a prior Epitome booking cancellation (loan not sanctioned in time) was refunded after the required process."
       ],
       "topKeywords": {
        "positive": [
@@ -1145,7 +1312,7 @@
     "projects": {
      "Folium": {
       "positive": [
-       "The month's Folium answers consistently cite concrete due-diligence points — RWA formally handed over, e-Khata progressing, a realistic ~2.9% net rental yield, and active occupancy observed on weekend visits — used to reassure buyers wary of older Phase 1 threads.",
+       "The month's Folium answers consistently cite concrete due-diligence points — RWA formally handed over, e-Khata progressing, a realistic ~2.9% net rental yield, active occupancy observed on weekend visits, and an active/maintained kids' play area — used to reassure buyers wary of older Phase 1 threads, plus repeated use as the go-to delivered-project benchmark for still-under-construction projects.",
        "A \"Phase 1 vs Phase 2 possession\" question directly addresses this: Phase 1 had documented delays and post-possession issues, but current Phase 2 owners report those largely resolved."
       ],
       "negative": [
@@ -1155,7 +1322,8 @@
        "positive": [
         "RWA handover verified",
         "realistic ~2.9% net yield",
-        "Phase 2 issues largely resolved"
+        "delivered-project benchmark",
+        "active, maintained kids' area"
        ],
        "negative": [
         "Phase 1 e-Khata/post-possession history"
@@ -1164,11 +1332,12 @@
      },
      "Capitol Residences": {
       "positive": [
-       "Cited for a better lift-to-flat ratio in a builder-comparison answer."
+       "Cited for a better lift-to-flat ratio and fuller backup-power coverage in builder-comparison answers."
       ],
       "topKeywords": {
        "positive": [
-        "better lift-to-flat ratio"
+        "better lift-to-flat ratio",
+        "fuller backup-power coverage"
        ]
       }
      },
@@ -1195,6 +1364,17 @@
       "topKeywords": {
        "positive": [
         "active weekend occupancy"
+       ]
+      }
+     },
+     "Panorama": {
+      "positive": [
+       "A site-visit question about Phase 2 near the airport drew due-diligence answers on resale demand depth and realistic rental-yield assumptions (2.5-3% net), plus a tip to check the entrance road at both 8:30am and 7pm rather than only during the sales-arranged visit."
+      ],
+      "topKeywords": {
+       "positive": [
+        "realistic 2.5-3% yield guidance",
+        "8:30am/7pm commute check tip"
        ]
       }
      }
