@@ -3,7 +3,7 @@
 // accepted, only the password is checked.
 export const config = { matcher: '/:path*' };
 
-const PASSWORD = 'nsd@2026';
+const PASSWORD = 'sumadhura@nsd';
 
 export default function middleware(request) {
   const authHeader = request.headers.get('authorization');
