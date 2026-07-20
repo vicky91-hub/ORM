@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ORM Performance Report — Sumadhura</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lato:wght@400;700&family=Lato:ital@0;1&display=swap" rel="stylesheet">
@@ -61,18 +62,12 @@
   .sticky-bar .tc-title{ color:#fff; font-size:12.5px; font-weight:600; white-space:nowrap; }
   .sticky-bar .tc-title .range-summary{ display:inline; color:var(--gold); font-weight:bold; margin-left:5px; }
   .sticky-bar .tc-range-col{ display:flex; flex-direction:column; gap:6px; }
-  .sticky-bar .range-chip-row{ display:flex; flex-wrap:nowrap; gap:5px; position:relative; }
+  .sticky-bar .range-chip-row{ display:flex; flex-wrap:wrap; gap:5px; row-gap:6px; }
   .sticky-bar .range-chip{ border:1px solid rgba(255,255,255,0.16); background:rgba(255,255,255,0.06); color:#fff; border-radius:7px; padding:5px 10px; font-size:11.5px; font-weight:600; cursor:pointer; transition:all .2s ease; white-space:nowrap; font-family:var(--font-body); }
   .sticky-bar .range-chip:hover{ background:rgba(255,255,255,0.14); }
   .sticky-bar .range-chip.active{ background:var(--gold); color:var(--constellation); border-color:var(--gold); }
-  .sticky-bar .range-month-wrap{ position:relative; }
-  .sticky-bar .range-month-btn{ display:flex; align-items:center; gap:4px; }
-  .sticky-bar .range-month-btn .chev{ width:11px; height:11px; stroke:currentColor; transition:transform .15s ease; }
-  .sticky-bar .range-month-btn[aria-expanded="true"] .chev{ transform:rotate(180deg); }
-  .sticky-bar .range-month-menu{ position:absolute; top:calc(100% + 6px); left:0; background:var(--constellation); border:1px solid rgba(255,255,255,0.16); border-radius:9px; padding:5px; display:flex; flex-direction:column; gap:2px; min-width:130px; z-index:110; box-shadow:0 10px 30px rgba(0,0,0,0.35); }
-  .sticky-bar .range-month-menu button{ border:none; background:transparent; color:#fff; text-align:left; padding:7px 10px; border-radius:6px; font-size:12px; font-weight:600; cursor:pointer; font-family:var(--font-body); }
-  .sticky-bar .range-month-menu button:hover{ background:rgba(255,255,255,0.10); }
-  .sticky-bar .range-month-menu button.active{ background:var(--gold); color:var(--constellation); }
+  .sticky-bar .range-month-group{ display:flex; flex-wrap:wrap; gap:5px; }
+  .sticky-bar .range-month-group::before{ content:''; width:1px; align-self:stretch; background:rgba(255,255,255,0.16); margin:0 3px; }
   .sticky-bar .refresh-btn{ display:flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:8px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14); cursor:pointer; flex-shrink:0; transition:background .2s ease; }
   .sticky-bar .refresh-btn:hover{ background:rgba(255,255,255,0.14); }
   .sticky-bar .refresh-btn svg{ width:16px; height:16px; stroke:var(--gold); }
@@ -121,6 +116,7 @@
   th{ text-align:left; padding:10px 12px; background:var(--mist); color:var(--dusk); font-size:11px; text-transform:uppercase; letter-spacing:0.4px; border-bottom:2px solid var(--cloud); }
   td{ padding:10px 12px; border-bottom:1px solid var(--cloud); }
   #deliveryTable th, #deliveryTable td{ white-space:nowrap; }
+  #deliveryTable tfoot td, #gmbTable tfoot td{ font-weight:bold; color:var(--constellation); background:var(--mist); border-top:2px solid var(--cloud); border-bottom:none; }
   #deliveryTable td:first-child{ white-space:normal; min-width:200px; }
   #deliveryTable th.num, #deliveryTable td.num{ min-width:70px; }
   tr:last-child td{ border-bottom:none; }
@@ -182,21 +178,19 @@
   .theme-table tr:last-child td{ border-bottom:none; }
   .theme-table .proj-name{ font-weight:bold; color:var(--constellation); white-space:nowrap; }
   .theme-table .theme-empty{ color:var(--fog); font-style:italic; }
-  .theme-readmore{ border:none; background:none; color:var(--meridian); font-weight:bold; font-size:inherit; cursor:pointer; padding:0; text-decoration:underline; }
 
-  .story-card-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
-  .story-card{ background:#fff; border:1px solid var(--cloud); border-radius:8px; padding:14px 16px; border-left:4px solid var(--meridian); display:flex; flex-direction:column; gap:8px; }
-  .story-card.negative{ border-left-color:var(--fog); }
-  .story-card .story-head{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
-  .story-card .story-project{ font-weight:bold; font-size:13.5px; color:var(--constellation); }
-  .story-card .story-count{ font-size:11px; color:var(--fog); font-weight:bold; white-space:nowrap; }
-  .story-card .story-text{ font-size:12.5px; line-height:1.5; color:var(--atlas); margin:0; }
-  .keyword-row{ display:flex; flex-wrap:wrap; gap:6px; margin-top:2px; }
-  .keyword-chip{ display:inline-flex; align-items:center; font-size:10.5px; font-weight:bold; letter-spacing:0.2px; padding:3px 9px; border-radius:20px; background:var(--mist); color:var(--dusk); border:1px solid var(--cloud); white-space:nowrap; }
-  .keyword-chip.rank-1{ background:var(--meridian); color:#fff; border-color:var(--meridian); font-size:11.5px; }
-  .keyword-chip.rank-2{ background:rgba(26,82,118,0.14); color:var(--meridian); border-color:rgba(26,82,118,0.3); }
-  .story-card.negative .keyword-chip.rank-1{ background:var(--atlas); border-color:var(--atlas); }
-  .story-card.negative .keyword-chip.rank-2{ background:rgba(44,62,80,0.10); color:var(--atlas); border-color:rgba(44,62,80,0.25); }
+  .exec-table td, .exec-table th{ vertical-align:top; }
+  .exec-table tbody tr{ cursor:pointer; }
+  .exec-table .proj-name{ font-weight:bold; color:var(--constellation); white-space:nowrap; }
+  .exec-table .sent-verdict{ display:flex; align-items:center; gap:7px; white-space:nowrap; font-weight:600; font-size:12.5px; }
+  .exec-table .sent-verdict .dot{ width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+  .exec-table .sent-verdict.positive{ color:var(--meridian); }
+  .exec-table .sent-verdict.positive .dot{ background:var(--meridian); }
+  .exec-table .sent-verdict.mixed{ color:var(--fog); }
+  .exec-table .sent-verdict.mixed .dot{ background:var(--fog); }
+  .exec-table .sent-verdict.negative{ color:var(--gold-deep); }
+  .exec-table .sent-verdict.negative .dot{ background:var(--gold-deep); }
+  .exec-table .takeaway{ line-height:1.45; }
   .theme-modal-overlay{ position:fixed; inset:0; background:rgba(10,14,26,0.6); z-index:200; display:none; align-items:center; justify-content:center; padding:20px; }
   .theme-modal{ background:#fff; border-radius:12px; max-width:560px; width:100%; max-height:75vh; overflow-y:auto; padding:24px; position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.3); }
   .theme-modal-close{ position:absolute; top:12px; right:14px; border:none; background:none; font-size:22px; line-height:1; color:var(--fog); cursor:pointer; }
@@ -283,14 +277,8 @@
         <div class="tc-range-col">
           <div class="tc-title">Tracking range <strong id="rangeSummaryLabel" class="range-summary">Select a window</strong></div>
           <div class="range-chip-row" id="rangeChipRow">
-            <button class="range-chip active" type="button" data-preset="latestweek">Latest Week</button>
-            <button class="range-chip" type="button" data-preset="lastweek">Last Week</button>
-            <div class="range-month-wrap">
-              <button class="range-chip range-month-btn" type="button" id="rangeMonthBtn" aria-haspopup="true" aria-expanded="false">
-                Month <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-              <div class="range-month-menu" id="rangeMonthMenu" hidden></div>
-            </div>
+            <span class="range-month-group" id="rangeMonthGroup"></span>
+            <button class="range-chip" type="button" data-preset="alltime">All Time</button>
           </div>
         </div>
         <button class="refresh-btn" id="refreshDataBtn" type="button" title="Re-fetch all sheets now">
@@ -365,12 +353,12 @@
         <div class="pie-chart-shell"><canvas id="pieOverall"></canvas></div>
       </div>
       <div class="card">
-        <h3>Top 3 Positive Themes</h3>
-        <p class="card-sub">Combined GMB + Reddit, by positive mentions</p>
-        <ol id="topPositiveThemes" style="margin:0; padding-left:18px; font-size:12.5px; color:var(--atlas); line-height:1.6;"></ol>
-        <h3 style="margin-top:16px;">Top 3 Negative Themes</h3>
-        <p class="card-sub">Combined GMB + Reddit, by negative mentions</p>
-        <ol id="topNegativeThemes" style="margin:0; padding-left:18px; font-size:12.5px; color:var(--atlas); line-height:1.6;"></ol>
+        <h3>Executive Snapshot</h3>
+        <p class="card-sub">Combined GMB + Reddit, top projects by mention volume</p>
+        <table class="theme-table exec-table">
+          <thead><tr><th>Project</th><th>Sentiment</th><th>Key Takeaway</th></tr></thead>
+          <tbody id="overallThemeBody"></tbody>
+        </table>
       </div>
     </div>
   </section>
@@ -395,6 +383,7 @@
             <tr id="deliveryTableHeadRow"><th>Metric</th><th>Platform</th></tr>
           </thead>
           <tbody></tbody>
+          <tfoot id="deliveryTableFoot"></tfoot>
         </table>
       </div>
     </div>
@@ -412,16 +401,12 @@
         <div class="pie-chart-shell"><canvas id="pieReddit"></canvas></div>
       </div>
       <div class="card">
-        <h3>Project Sentiment Themes</h3>
-        <div class="theme-toggle" id="redditThemeToggle">
-          <button class="filter-btn active" data-sent="positive">Positive Themes</button>
-          <button class="filter-btn" data-sent="negative">Negative Themes</button>
-        </div>
-        <table class="theme-table">
-          <thead><tr><th>Project</th><th class="num">Mentions</th><th>Theme</th></tr></thead>
+        <h3>Executive Snapshot</h3>
+        <table class="theme-table exec-table">
+          <thead><tr><th>Project</th><th>Sentiment</th><th>Key Takeaway</th></tr></thead>
           <tbody id="redditThemeBody"></tbody>
         </table>
-        <p class="card-sub" style="margin-top:10px;" id="redditThemeFootnote">Themes are directional summaries of the tracked thread content rather than an exhaustive topic list.</p>
+        <p class="card-sub" style="margin-top:10px;" id="redditThemeFootnote">One-line verdict per project — click a row for the full narrative behind it.</p>
       </div>
     </div>
 
@@ -432,13 +417,9 @@
         <div class="pie-chart-shell"><canvas id="pieGMB"></canvas></div>
       </div>
       <div class="card">
-        <h3>Project Sentiment Themes</h3>
-        <div class="theme-toggle" id="gmbThemeToggle">
-          <button class="filter-btn active" data-sent="positive">Positive Themes</button>
-          <button class="filter-btn" data-sent="negative">Negative Themes</button>
-        </div>
-        <table class="theme-table">
-          <thead><tr><th>Project</th><th class="num">Mentions</th><th>Theme</th></tr></thead>
+        <h3>Executive Snapshot</h3>
+        <table class="theme-table exec-table">
+          <thead><tr><th>Project</th><th>Sentiment</th><th>Key Takeaway</th></tr></thead>
           <tbody id="gmbThemeBody"></tbody>
         </table>
       </div>
@@ -451,18 +432,14 @@
         <div class="pie-chart-shell"><canvas id="pieSocial"></canvas></div>
       </div>
       <div class="card">
-        <h3>Project Sentiment Themes</h3>
+        <h3>Executive Snapshot</h3>
         <div class="theme-toggle" id="socialThemePlatformToggle" style="margin-bottom:8px;">
           <button class="filter-btn active" data-platform-sel="Instagram">Instagram</button>
           <button class="filter-btn" data-platform-sel="Facebook">Facebook</button>
           <button class="filter-btn" data-platform-sel="LinkedIn">LinkedIn</button>
         </div>
-        <div class="theme-toggle" id="socialThemeToggle">
-          <button class="filter-btn active" data-sent="positive">Positive Themes</button>
-          <button class="filter-btn" data-sent="negative">Negative Themes</button>
-        </div>
-        <table class="theme-table">
-          <thead><tr><th>Project</th><th class="num">Mentions</th><th>Theme</th></tr></thead>
+        <table class="theme-table exec-table">
+          <thead><tr><th>Project</th><th>Sentiment</th><th>Key Takeaway</th></tr></thead>
           <tbody id="socialThemeBody"></tbody>
         </table>
       </div>
@@ -499,23 +476,23 @@
   <section data-platform="quora">
     <h2>Quora Performance</h2>
     <p class="section-sub">Monthly target vs. delivered, and sentiment on published answers</p>
-    <div class="grid-2">
+    <h3 style="margin-top:0;">New Question Outcomes</h3>
+    <p class="section-sub">Seeded Quora questions, most recent first</p>
+    <div class="post-grid" id="quoraQuestions"></div>
+
+    <div class="grid-2" style="margin-top:20px;">
       <div class="card">
         <h3>Quora — Comment Sentiment</h3>
         <p class="card-sub" id="quoraPieSub">Quora sentiment on published answers within the current tracking window.</p>
         <div class="pie-chart-shell"><canvas id="pieQuora"></canvas></div>
       </div>
       <div class="card">
-        <h3>Project Sentiment Themes</h3>
-        <div class="theme-toggle" id="quoraThemeToggle">
-          <button class="filter-btn active" data-sent="positive">Positive Themes</button>
-          <button class="filter-btn" data-sent="negative">Negative Themes</button>
-        </div>
-        <table class="theme-table">
-          <thead><tr><th>Project</th><th class="num">Mentions</th><th>Theme</th></tr></thead>
+        <h3>Executive Snapshot</h3>
+        <table class="theme-table exec-table">
+          <thead><tr><th>Project</th><th>Sentiment</th><th>Key Takeaway</th></tr></thead>
           <tbody id="quoraThemeBody"></tbody>
         </table>
-        <p class="card-sub" style="margin-top:10px;" id="quoraThemeFootnote">Themes are directional summaries from the seeded Quora content plan and the underlying thread context.</p>
+        <p class="card-sub" style="margin-top:10px;" id="quoraThemeFootnote">One-line verdict per project — click a row for the full narrative behind it.</p>
       </div>
     </div>
 
@@ -548,24 +525,18 @@
       <div style="overflow-x:auto;">
         <table id="gmbTable">
           <thead>
-            <tr><th>Project</th><th class="num">Current Rating</th><th class="num">Live Reviews</th><th class="num">Last Month Rating</th><th class="num">Live − Last Month Δ</th><th class="num">Reviews (Jun–Jul)</th><th class="num">Positive</th><th class="num">Negative</th><th class="num">Neutral</th><th>Sentiment split</th></tr>
+            <tr><th>Project</th><th class="num">Current Rating</th><th class="num">Live Reviews</th><th class="num" id="gmbReviewsColHead">Reviews</th><th class="num">Positive</th><th class="num">Negative</th><th class="num">Neutral</th><th>Sentiment split</th></tr>
           </thead>
           <tbody></tbody>
+          <tfoot id="gmbTableFoot"></tfoot>
         </table>
       </div>
     </div>
 
-    <div class="grid-2" style="margin-top:20px;">
-      <div class="card">
-        <h3>Top Performing Projects</h3>
-        <p class="card-sub" id="topProjectsSub">Project volume across the current and prior-month tracker tabs.</p>
-        <canvas id="chartTopProjects" height="220"></canvas>
-      </div>
-      <div class="card">
-        <h3>Rating Shift Notes</h3>
-        <p class="card-sub" id="ratingShiftSub">Changes vs. the prior-month baseline, using the latest locked project snapshot.</p>
-        <div id="ratingShiftNotes" style="font-size:13px;color:var(--atlas);line-height:1.6;"></div>
-      </div>
+    <div class="card" style="margin-top:20px;">
+      <h3>Top Performing Projects</h3>
+      <p class="card-sub" id="topProjectsSub">Review volume for the selected window, tracked via the Daily Tracker.</p>
+      <canvas id="chartTopProjects" height="220"></canvas>
     </div>
 
     <div class="card" style="margin-top:20px;">
@@ -578,18 +549,12 @@
     </div>
   </section>
 
-  <!-- NEGATIVE REVIEW THEMES -->
-  <section data-platform="gmb">
-    <h2 id="negThemesHeading">Negative Review Themes — Latest Week</h2>
-    <p class="section-sub" id="negThemesSub">What's actually driving low ratings, by project</p>
-    <div class="post-grid" id="negativeThemes"></div>
-  </section>
 
 </main>
 
 <footer>
   <span>North Star Digital &nbsp;|&nbsp; ORM Performance Report &nbsp;|&nbsp; <span class="gold">thenorthstardigital.ai</span></span>
-  <span>Sources: Summary, Reddit &amp; Quora Content Plan, GMB Tracker, Sumadhura daily report — data as of 14 Jul 2026</span>
+  <span>Sources: Summary, Reddit &amp; Quora Content Plan, Sumadhura Daily Tracker</span>
 </footer>
 
 <div class="theme-modal-overlay" id="themeModalOverlay">
@@ -610,11 +575,6 @@ if(typeof Chart !== 'undefined'){
 
 // Live month, not hardcoded — the dashboard tracks whatever "now" is on each visit.
 const REPORT_MONTH = (()=>{ const n=new Date(); return `${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,'0')}`; })();
-function prevMonthKey(monthStr){
-  const [y,m] = monthStr.split('-').map(Number);
-  const d = new Date(y, m-2, 1);
-  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
-}
 function monthLabel(monthStr){
   const [y,m] = monthStr.split('-').map(Number);
   return new Date(y, m-1, 1).toLocaleDateString('en-GB', {month:'short'});
@@ -691,22 +651,8 @@ const barLabelPlugin = {
 const SHEET_IDS = {
   summary: '1w-KzhMosrUQvxhRPMrk5YggJ_Dwi3ibsWv5kNqifC7c',            // Summary tab (weekly activity)
   redditQuora: '1pEp5zMru4ZqF339rb_glcbWe-XrAufiH5mUOgcQKPCs',        // Reddit & Quora Content Plan
-  gmb: '1PsBz-XXb-862vNES8WEgmtorVh7_stqaP6YbmAnUC14',                // GMB Escalation Tracker (monthly tabs)
   daily: '1IjbMN2n2n2xPNmLFifmM5yNYoxyPKi-TPTjdUa3Dbo0',              // Sumadhura Daily Tracker
 };
-
-// GMB Tracker tab names aren't a predictable pattern (June's tab is "June-2026", full name;
-// July's is "Jul-2026", abbreviated) — Google Sheets tab names are whatever a human typed.
-// Map each month we know about here; when a new month's tab is created, add its exact name.
-const GMB_TAB_NAMES = {
-  '2026-06': 'June-2026',
-  '2026-07': 'Jul-2026',
-};
-function guessGmbTabName(monthKey){
-  if(GMB_TAB_NAMES[monthKey]) return GMB_TAB_NAMES[monthKey];
-  const [y,m] = monthKey.split('-').map(Number);
-  return new Date(y, m-1, 1).toLocaleDateString('en-US',{month:'short'}) + '-' + y; // best-effort fallback
-}
 
 // forceHeaders=true pins row 1 as the header row (needed for the Daily Tracker's
 // "specific data" tab, where Google's auto-heuristic otherwise merges row 1 into row 2).
@@ -757,6 +703,32 @@ async function fetchSheetObjects(sheetId, tabName, forceHeaders){
     return obj;
   });
 }
+// The gviz CSV endpoint (fetchSheetRows/fetchSheetObjects above) silently respects any active
+// Google Sheets filter on the tab — a filter hides rows from every reader, not just the person
+// who applied it, including API/export access. The full-workbook XLSX export does not: it's
+// generated fresh on every request (just as live as the CSV endpoint) but includes every row
+// regardless of filter state, since a filter is a view setting rather than a data change. Use
+// this for tabs where an accidental or leftover filter has silently truncated the CSV export.
+let xlsxWorkbookCache = {};
+async function fetchWorkbookXlsx(sheetId){
+  if(xlsxWorkbookCache[sheetId]) return xlsxWorkbookCache[sheetId];
+  const res = await fetch(`https://docs.google.com/spreadsheets/d/${sheetId}/export?format=xlsx`, {cache:'no-store'});
+  if(!res.ok) throw new Error(`Workbook export failed (HTTP ${res.status}) — check it's shared "Anyone with the link".`);
+  const buf = await res.arrayBuffer();
+  const wb = XLSX.read(buf, {type:'array'});
+  xlsxWorkbookCache[sheetId] = wb;
+  return wb;
+}
+async function fetchSheetObjectsXlsx(sheetId, tabName){
+  const wb = await fetchWorkbookXlsx(sheetId);
+  const ws = wb.Sheets[tabName];
+  if(!ws) throw new Error(`Tab "${tabName}" not found in workbook.`);
+  return XLSX.utils.sheet_to_json(ws, {defval:'', raw:false}).map(r=>{
+    const obj = {};
+    Object.entries(r).forEach(([k,v])=>{ obj[k.trim()] = typeof v === 'string' ? v.trim() : v; });
+    return obj;
+  });
+}
 function numOr(v, fallback){ const n = parseFloat(v); return Number.isFinite(n) ? n : fallback; }
 // Sheet "Post Link" cells are sometimes bare domains (no protocol) or rich-text
 // hyperlinks whose display text isn't a URL at all — normalize the former, drop the latter.
@@ -786,25 +758,10 @@ function normalizeGmbProject(raw){
   const key = raw.trim().toLowerCase();
   if(GMB_PROJECT_ALIASES[key]) return GMB_PROJECT_ALIASES[key];
   // Daily Tracker "Channel Name" values are full display names ("Sumadhura Capitol Towers",
-  // "Folium by Sumadhura", "SST Z-Hub by Sumadhura") rather than the bare project name the
-  // GMB Tracker sheet uses — fall back to substring containment against the locked list.
+  // "Folium by Sumadhura", "SST Z-Hub by Sumadhura") rather than a bare project name — fall
+  // back to substring containment against the locked list.
   const match = GMB_PROJECTS.find(p => key.includes(p.toLowerCase()));
   return match || null; // still null (dropped) for anything not on the locked list, e.g. GBTB
-}
-function sentimentFromRating(rating){
-  if(rating >= 4) return 'positive';
-  if(rating === 3) return 'neutral';
-  return 'negative';
-}
-// GMB dates in the tracker are "Jul 1" style, no year — attach the tab's own month/year.
-function parseGmbDate(dateStr, monthKey){
-  if(!dateStr || !monthKey) return null;
-  const m = dateStr.trim().match(/^([A-Za-z]{3,})\s+(\d{1,2})/);
-  if(!m) return null;
-  const [y] = monthKey.split('-').map(Number);
-  const monthIdx = new Date(`${m[1]} 1, 2000`).getMonth();
-  if(Number.isNaN(monthIdx)) return null;
-  return new Date(y, monthIdx, parseInt(m[2],10));
 }
 function isoDate(d){
   if(!d) return null;
@@ -817,12 +774,28 @@ function parseDateValue(value){
   if(!s) return null;
   const iso = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if(iso) return new Date(Number(iso[1]), Number(iso[2])-1, Number(iso[3]));
+  // "DD-MM-YYYY" or "DD-MM-YYYY HH:MM:SS" (Daily Tracker's "Case Start Date" column) — parsed
+  // explicitly rather than via `new Date(s)`, which reads ambiguous D-M-Y strings as M-D-Y.
+  const dmy = s.match(/^(\d{1,2})-(\d{1,2})-(\d{4})(?:\s+\d{1,2}:\d{2}(?::\d{2})?)?$/);
+  if(dmy) return new Date(Number(dmy[3]), Number(dmy[2])-1, Number(dmy[1]));
   const m = s.match(/^(\d{1,2})\s+([A-Za-z]{3,})\s+(\d{2,4})/);
   if(m){
     const day = Number(m[1]);
     const monthIdx = new Date(`${m[2]} 1 2000`).getMonth();
     const year = m[3].length === 2 ? 2000 + Number(m[3]) : Number(m[3]);
     return new Date(year, monthIdx, day);
+  }
+  // "6 July" / "16 July" — day + month, no year (seen in the Reddit New Seeds sheet for most
+  // rows after the first couple of weeks). `new Date("6 July")` silently resolves to some
+  // unrelated year (2001 in V8) rather than failing, so it must be caught explicitly here —
+  // falling through to the generic parse below would misfile these into the wrong year/month
+  // entirely and drop them from every range filter. WEEK1_START's year is the whole program's
+  // tracking year, so it's the correct default.
+  const dayMonthOnly = s.match(/^(\d{1,2})\s+([A-Za-z]{3,})$/);
+  if(dayMonthOnly){
+    const day = Number(dayMonthOnly[1]);
+    const monthIdx = new Date(`${dayMonthOnly[2]} 1 2000`).getMonth();
+    if(!Number.isNaN(monthIdx)) return new Date(WEEK1_START.getFullYear(), monthIdx, day);
   }
   const d = new Date(s);
   return Number.isNaN(d.getTime()) ? null : d;
@@ -945,6 +918,34 @@ function getMatchingRowValue(row, candidates, excludeFragments=[]){
   }
   return '';
 }
+// New Seeds rows use "Title / Question" / "Post Publish date"; Existing Threads rows use
+// "Thread Title " / "Post Date " (note the sheet's own trailing spaces) — getMatchingRowValue
+// handles both via its candidate-list fallback, so one builder covers both sources instead of
+// the post-grid only ever showing New Seeds rows (which silently dropped every Existing
+// Threads post, since those never have a "Title / Question" field to filter on).
+function buildRedditPosts(rows){
+  return rows.map(r => ({
+    week: r.Week || getMatchingRowValue(r, ['Week'], []),
+    subreddit: r.Subreddit || '',
+    bucket: r.Bucket || getMatchingRowValue(r, ['Bucket'], []),
+    title: r['Title / Question'] || getMatchingRowValue(r, ['Thread Title'], []),
+    date: r['Post Publish date'] || getMatchingRowValue(r, ['Post Date'], []),
+    upvotes: numOr(getMatchingRowValue(r, ['Total Upvotes'], []), 0),
+    comments: numOr(getMatchingRowValue(r, ['Total Comments'], []), 0),
+    positive: numOr(getMatchingRowValue(r, ['Total Positive comments'], []), 0),
+    negative: numOr(getMatchingRowValue(r, ['Total Nagative comments','Total Negative comments'], []), 0),
+    neutral: numOr(getMatchingRowValue(r, ['Total Neutral comments'], []), 0),
+    link: sanitizeUrl(getMatchingRowValue(r, ['Existing Thread URL','Post Link','Link','Thread Link','Post URL','URL'], [])),
+  })).filter(p => p.title).sort((a,b)=>{
+    // Most-recent-first — undated rows (a handful of Existing Threads entries have no date
+    // logged yet) sort to the end rather than breaking the ordering.
+    const da = parseDateValue(a.date), db = parseDateValue(b.date);
+    if(!da && !db) return 0;
+    if(!da) return 1;
+    if(!db) return -1;
+    return db - da;
+  });
+}
 function getDiscussionText(row, textFields){
   return textFields.map(field => {
     const fieldCandidates = Array.isArray(field) ? field : [field];
@@ -1016,26 +1017,10 @@ function cacheToThemeRows(projectsObj){
       project, mentions: pos.length + neg.length,
       positive: {count:pos.length, themes:pos, theme: pos.length ? pos.join(' ') : null, keywords: kw.positive || []},
       negative: {count:neg.length, themes:neg, theme: neg.length ? neg.join(' ') : null, keywords: kw.negative || []},
+      verdict: sc.verdict || null, keyTakeaway: sc.keyTakeaway || null,
     };
   }).filter(r=>r.mentions>0);
 }
-function buildRatingShiftNotes(projects, sampleSizes){
-  const notes = {};
-  projects.forEach(p=>{
-    if(p.lastMonthRating===null || p.lastMonthRating===undefined) return;
-    const live = liveRatings[p.project];
-    if(!live) return;
-    const delta = +(live.rating - p.lastMonthRating).toFixed(2);
-    const n = sampleSizes[p.project] || 0;
-    const dir = delta>0.04 ? 'Improved' : (delta<-0.04 ? 'Declined' : 'Roughly flat');
-    const confidence = n < 5
-      ? ` Prior-month baseline is only ${n} review${n===1?'':'s'} — treat the size of this shift as low-confidence.`
-      : ` Backed by a reasonable prior-month sample (${n} reviews).`;
-    notes[p.project] = `${dir} (${delta>0?'+':''}${delta}) vs ${monthLabel(prevMonthKey(REPORT_MONTH))}.${confidence}`;
-  });
-  return notes;
-}
-
 // ---------- LIVE DATA LOADERS ----------
 async function loadSummarySheet(){
   // This sheet has two merged title rows above the real header row, so the header can't
@@ -1055,7 +1040,11 @@ async function loadSummarySheet(){
   const weekCount = Math.max(0, ...Object.keys(weekCol).map(Number));
   const dataRows = rows.slice(headerRowIdx+1).filter(r => (r[metricIdx]||'').trim() && (r[platformIdx]||'').trim());
   const weeklyDelivery = dataRows.map(r => {
-    const row = {metric:(r[metricIdx]||'').trim(), platform:(r[platformIdx]||'').trim(), total: totalIdx>=0 ? numOr(r[totalIdx],0) : 0};
+    // Sheet's own column literally reads "Other Platforms" — normalize to "Other Social",
+    // the label used everywhere else in the UI (filter buttons, chart legends, KPI colors).
+    let platform = (r[platformIdx]||'').trim();
+    if(platform === 'Other Platforms') platform = 'Other Social';
+    const row = {metric:(r[metricIdx]||'').trim(), platform, total: totalIdx>=0 ? numOr(r[totalIdx],0) : 0};
     for(let w=1; w<=weekCount; w++) row['w'+w] = numOr(r[weekCol[w]],0);
     return row;
   });
@@ -1114,25 +1103,32 @@ async function loadRedditQuora(){
   const redditSentiment = {positive: positiveKpi[2]||0, negative: negativeKpi[2]||0, neutral: neutralKpi[2]||0};
 
   const threadRows = seedRows.filter(r => r['Title / Question'] && r['Total Upvotes']);
-  const redditPosts = threadRows.map(r => ({
-    week:r.Week, subreddit:r.Subreddit, bucket:r.Bucket, title:r['Title / Question'],
-    date:r['Post Publish date'], upvotes:numOr(r['Total Upvotes'],0), comments:numOr(r['Total Comments'],0),
-    positive:numOr(r['Total Positive comments'],0), negative:numOr(r['Total Nagative Comments'],0), neutral:numOr(r['Total Neutral Comments'],0),
-    link: sanitizeUrl(getMatchingRowValue(r, ['Post Link','Link','Thread Link','Post URL','URL'], [])),
-  }));
+  const existingThreadRows = existingRows.filter(r=>getMatchingRowValue(r,['Thread Title','Thread Title ','Thread title'], []));
+  const redditPosts = buildRedditPosts([...threadRows, ...existingThreadRows]);
 
+  // Previously required a non-empty "Total Comments" to count a row at all — but that column
+  // (along with Post Date, Link, upvotes, Positive/Nagative comments) is currently 100% empty
+  // in the live sheet, so nothing ever qualified and the questions themselves never showed up
+  // anywhere. Track every seeded question row regardless of whether engagement counts exist
+  // yet; the sentiment split will legitimately read 0/0/0 until the sheet has count data, but
+  // the questions themselves are now visible.
+  const quoraThreadRows = quoraRows.filter(r => r['Title / Question']);
   let qPos=0, qNeg=0, qTotal=0;
-  const quoraThreadRows = [];
-  quoraRows.forEach(r=>{
-    const tot = r['Total Comments'] !== '' ? numOr(r['Total Comments'], null) : null;
-    if(tot===null) return;
-    qTotal += tot; qPos += numOr(r['Positive comments'],0); qNeg += numOr(r['Nagative Comments'],0);
-    quoraThreadRows.push(r);
+  quoraThreadRows.forEach(r=>{
+    qTotal += numOr(r['Total Comments'],0); qPos += numOr(r['Positive comments'],0); qNeg += numOr(r['Nagative Comments'],0);
   });
   const quoraSentiment = {positive:qPos, negative:qNeg, neutral:Math.max(0, qTotal-qPos-qNeg)};
+  // Only show questions that are actually live (have a real link) — a missing link means the
+  // question is still pending publication and shouldn't be surfaced on the dashboard yet.
+  const quoraQuestions = quoraThreadRows.map(r => ({
+    title: r['Title / Question'], category: r['Category / Topic'], date: r['Post Date'],
+    comments: numOr(r['Total Comments'],0),
+    positive: numOr(r['Positive comments'],0), negative: numOr(r['Nagative Comments'],0),
+    link: sanitizeUrl(getMatchingRowValue(r, ['Link','Post Link','Question Link','URL'], [])),
+  })).filter(q => q.link);
 
   const redditThemeData = buildMentionThemes(
-    [...threadRows, ...existingRows.filter(r=>getMatchingRowValue(r,['Thread Title','Thread Title ','Thread title'], []))],
+    [...threadRows, ...existingThreadRows],
     [
       ['Title / Question','Title','Question'],
       ['Body','Body / Context'],
@@ -1151,95 +1147,73 @@ async function loadRedditQuora(){
     row => ({positive:numOr(getMatchingRowValue(row,['Positive comments','Positive Comments'], []),0), negative:numOr(getMatchingRowValue(row,['Nagative Comments','Negative Comments','Negative comments'], []),0)})
   );
 
-  return {redditSentiment, redditPosts, quoraSentiment, redditThemeData, quoraThemeData, redditRows: [...threadRows, ...existingRows.filter(r=>getMatchingRowValue(r,['Thread Title','Thread Title ','Thread title'], []))], quoraRows: quoraThreadRows};
+  return {redditSentiment, redditPosts, quoraSentiment, quoraQuestions, redditThemeData, quoraThemeData, redditRows: [...threadRows, ...existingThreadRows], quoraRows: quoraThreadRows};
 }
 
-async function loadGmb(){
-  const curKey = REPORT_MONTH, prevKey = prevMonthKey(REPORT_MONTH);
-  const curTab = guessGmbTabName(curKey), prevTab = guessGmbTabName(prevKey);
-  const [curRowsRaw, prevRowsRaw] = await Promise.all([
-    fetchSheetObjects(SHEET_IDS.gmb, curTab),
-    fetchSheetObjects(SHEET_IDS.gmb, prevTab).catch(()=>[]),
-  ]);
-  function clean(rows, monthKey){
-    return rows.map(r=>{
-      const project = normalizeGmbProject(r['Project Highlighted'] || r['GMB Handle']);
-      const rating = numOr(r.Rating, null);
-      if(!project || rating===null) return null;
-      return {project, rating, priority:r.Priority||'', message:r.Message||'', date:parseGmbDate(r.Date, monthKey), responded:r.Responded||''};
-    }).filter(Boolean);
-  }
-  const curRows = clean(curRowsRaw, curKey);
-  const prevRows = clean(prevRowsRaw, prevKey);
-  const allRows = [...prevRows, ...curRows];
-
-  const gmbProjects = GMB_PROJECTS.map(project=>{
-    const rows = allRows.filter(r=>r.project===project);
-    const positive = rows.filter(r=>sentimentFromRating(r.rating)==='positive').length;
-    const negative = rows.filter(r=>sentimentFromRating(r.rating)==='negative').length;
-    const neutral  = rows.filter(r=>sentimentFromRating(r.rating)==='neutral').length;
-    const prevOnly = prevRows.filter(r=>r.project===project);
-    const lastMonthRating = prevOnly.length ? +(prevOnly.reduce((s,r)=>s+r.rating,0)/prevOnly.length).toFixed(2) : null;
-    return {project, lastMonthRating, reviews:rows.length, positive, negative, neutral};
-  });
-  const juneSampleSize = {};
-  GMB_PROJECTS.forEach(p=>{ juneSampleSize[p] = prevRows.filter(r=>r.project===p).length; });
-
-  const gmbSentiment = allRows.reduce((acc,r)=>{ acc[sentimentFromRating(r.rating)]++; return acc; }, {positive:0,negative:0,neutral:0});
-
-  const negativeReviews = curRows.filter(r=>r.rating<=3).map(r=>({
-    project:r.project, rating:r.rating, priority:r.priority, date:isoDate(r.date), responded:r.responded, message:r.message,
-  }));
-
-  return {gmbProjects, juneSampleSize, gmbSentiment, negativeReviews, gmbRows: allRows};
+// GMB rows are classified by star rating, not the Final Sentiment tag: 4-5 stars = positive,
+// 3 = neutral, 1-2 = negative — the rating sits in the "Recommendation" column (the sheet's
+// literal "Rating" column is unpopulated for Google reviews). Other platforms have no rating,
+// so they keep using the Final Sentiment tag.
+function gmbSentimentFromRecommendation(value){
+  const n = numOr(value, null);
+  if(n===null) return null;
+  if(n>=4) return 'positive';
+  if(n===3) return 'neutral';
+  return 'negative';
 }
-
 async function loadDailyTracker(){
-  const rows = await fetchSheetObjects(SHEET_IDS.daily, 'specific data', true);
+  // XLSX, not the CSV endpoint — the "raw" tab has had a live Google Sheets filter active
+  // (on the "Date" column) that silently hid ~90% of rows from the CSV export, capping every
+  // date-derived chart at whatever the filter happened to catch. XLSX ignores filter state.
+  const rows = await fetchSheetObjectsXlsx(SHEET_IDS.daily, 'raw');
+  const platformOf = source => {
+    const s = (source||'').toLowerCase();
+    if(s.includes('instagram')) return 'Instagram';
+    if(s.includes('facebook')) return 'Facebook';
+    if(s.includes('linkedin')) return 'LinkedIn';
+    if(s.includes('google business')) return 'GMB';
+    return null;
+  };
+  const socialRows = rows.map(r=>{
+    const platform = platformOf(r.Source);
+    const sentiment = platform==='GMB'
+      ? (gmbSentimentFromRecommendation(getMatchingRowValue(r, ['Recommendation'], [])) || (r['Final Sentiment']||'').trim().toLowerCase())
+      : (r['Final Sentiment']||'').trim().toLowerCase();
+    return {
+      date: parseDateValue(r['Case Start Date']),
+      source:(r.Source||'').trim(),
+      sentiment,
+      message:(r.Message||'').trim(),
+      project: normalizeGmbProject(r['Channel Name']),
+      platform,
+    };
+  }).filter(r=>r.sentiment && ['positive','negative','neutral'].includes(r.sentiment) && r.platform);
+
   const platBuckets = {Instagram:{positive:0,negative:0,neutral:0}, Facebook:{positive:0,negative:0,neutral:0}, LinkedIn:{positive:0,negative:0,neutral:0}};
   const byDate = {};
   let gmbP=0, gmbN=0, gmbNeu=0;
-  rows.forEach(r=>{
-    const sentiment = (r['Final Sentiment']||'').trim().toLowerCase();
-    if(!['positive','negative','neutral'].includes(sentiment)) return;
-    const source = (r.Source||'').toLowerCase();
-    let platKey = null;
-    if(source.includes('instagram')) platKey='Instagram';
-    else if(source.includes('facebook')) platKey='Facebook';
-    else if(source.includes('linkedin')) platKey='LinkedIn';
-    else if(source.includes('google business')) platKey='GMB';
-    if(!platKey) return;
-    if(platKey==='GMB'){
-      if(sentiment==='positive') gmbP++; else if(sentiment==='negative') gmbN++; else gmbNeu++;
+  socialRows.forEach(r=>{
+    if(r.platform==='GMB'){
+      if(r.sentiment==='positive') gmbP++; else if(r.sentiment==='negative') gmbN++; else gmbNeu++;
       return;
     }
-    platBuckets[platKey][sentiment]++;
-    const m = (r.Date||'').trim().match(/^(\d{1,2})\s+([A-Za-z]{3,})\s+(\d{2,4})/);
-    if(m){
-      const day=+m[1], monIdx=new Date(`${m[2]} 1 2000`).getMonth(), yr = m[3].length===2 ? 2000+ +m[3] : +m[3];
-      const iso = isoDate(new Date(yr,monIdx,day));
+    platBuckets[r.platform][r.sentiment] += 1;
+    if(r.date){
+      const iso = isoDate(r.date);
       if(!byDate[iso]) byDate[iso] = {positive:0,negative:0,neutral:0};
-      byDate[iso][sentiment]++;
+      byDate[iso][r.sentiment]++;
     }
   });
   const socialByPlatform = platBuckets;
   const gmbMessageLevelSentiment = {positive:gmbP, negative:gmbN, neutral:gmbNeu};
   const socialSentiment = Object.values(platBuckets).reduce((acc,v)=>({positive:acc.positive+v.positive, negative:acc.negative+v.negative, neutral:acc.neutral+v.neutral}), {positive:0,negative:0,neutral:0});
   const socialTrend = Object.entries(byDate).sort(([a],[b])=>a.localeCompare(b)).map(([date,v])=>({date, total:v.positive+v.negative+v.neutral, ...v}));
-  const socialRows = rows.map(r=>({
-    date: parseDateValue(r.Date),
-    source:(r.Source||'').trim(),
-    sentiment:(r['Final Sentiment']||'').trim().toLowerCase(),
-    message:(r.Message||'').trim(),
-    project: normalizeGmbProject(r['Channel Name']),
-    platform: (()=>{ const source=(r.Source||'').toLowerCase(); if(source.includes('instagram')) return 'Instagram'; if(source.includes('facebook')) return 'Facebook'; if(source.includes('linkedin')) return 'LinkedIn'; if(source.includes('google business')) return 'GMB'; return null; })()
-  })).filter(r=>r.sentiment && ['positive','negative','neutral'].includes(r.sentiment) && r.platform);
   return {socialByPlatform, gmbMessageLevelSentiment, socialSentiment, socialTrend, socialRows};
 }
 
 function computeRangeView(){
   const {start, end} = selectedRange;
-  const allWeeks = Array.from({length:totalWeekCount}, (_,i)=>i+1);
+  const allWeeks = Array.from({length:visibleWeekCount}, (_,i)=>i+1);
   const visibleWeeks = allWeeks.filter(i => overlapRange(weekRange(i).mon, weekRange(i).sun, start, end));
   const weekLabels = visibleWeeks.map(i => weekLabel(i));
 
@@ -1286,17 +1260,18 @@ let weeklyDelivery=[], summaryWeeklyDelivery=[], platformWeekly={labels:[],Reddi
 // selected window.
 let fullPlatformWeekly={labels:[],Reddit:[],Quora:[],GMB:[],'Other Social':[]};
 let totalWeekCount = 3; // how many "W" columns exist in the Summary sheet right now — grows as more weeks are tracked
+let visibleWeekCount = 3; // totalWeekCount clamped to weeks that have actually elapsed — the sheet pre-declares W1-W13 headers, most still empty
 let redditSentiment={positive:0,negative:0,neutral:0}, gmbSentiment={positive:0,negative:0,neutral:0};
 let socialSentiment={positive:0,negative:0,neutral:0}, overallSentiment={positive:0,negative:0,neutral:0};
-let socialTrend=[], socialWeekly=[], redditPosts=[], gmbProjects=[], negativeReviews=[];
-let allRedditRows=[], allQuoraRows=[], allGmbRows=[], allSocialRows=[];
+let socialTrend=[], socialWeekly=[], redditPosts=[], quoraQuestions=[], gmbProjects=[];
+let allRedditRows=[], allQuoraRows=[], allSocialRows=[];
 let socialByPlatform={Instagram:{positive:0,negative:0,neutral:0},Facebook:{positive:0,negative:0,neutral:0},LinkedIn:{positive:0,negative:0,neutral:0}};
 let gmbMessageLevelSentiment={positive:0,negative:0,neutral:0}, quoraSentiment={positive:0,negative:0,neutral:0};
 let gmbThemeData=[], redditThemeData=[], quoraThemeData=[], overallThemeData=[];
 let socialThemeData={Instagram:[],Facebook:[],LinkedIn:[]};
 let redditProgressRows=[], quoraProgressRows=[];
-let kpiScopes=null, juneSampleSize={}, ratingShiftCopy={};
-let weekStart=new Date(), weekEnd=new Date(), latestWeekNegatives=[], currentWeekIdx=1;
+let kpiScopes=null;
+let weekStart=new Date(), weekEnd=new Date(), currentWeekIdx=1;
 let selectedRange = {start: WEEK1_START, end: new Date()};
 let themeCache=null, themeCacheStatus='';
 let activeRangeMode = {type:'weekly', key:null, label:''};
@@ -1314,7 +1289,6 @@ async function loadAllData(){
 
   const now = new Date();
   ({start:weekStart, end:weekEnd} = getLastCompleteWeek(now));
-  currentWeekIdx = Math.max(1, Math.min(totalWeekCount, Math.round((weekStart-WEEK1_START)/(7*86400000))+1));
 
   try {
     let weekCount;
@@ -1324,16 +1298,22 @@ async function loadAllData(){
     totalWeekCount = weekCount || 3;
     ({redditProgressRows, quoraProgressRows} = buildPlatformProgressRows());
   } catch(e){ errors.push('Summary sheet: '+e.message); }
+  // currentWeekIdx must be computed after totalWeekCount is refreshed from the sheet — it
+  // clamps against totalWeekCount, and clamping against a stale default understates it.
+  currentWeekIdx = Math.max(1, Math.min(totalWeekCount, Math.round((weekStart-WEEK1_START)/(7*86400000))+1));
+  visibleWeekCount = Math.min(totalWeekCount, currentWeekIdx);
+  fullPlatformWeekly = {
+    labels: fullPlatformWeekly.labels.slice(0, visibleWeekCount),
+    Reddit: fullPlatformWeekly.Reddit.slice(0, visibleWeekCount),
+    Quora: fullPlatformWeekly.Quora.slice(0, visibleWeekCount),
+    GMB: fullPlatformWeekly.GMB.slice(0, visibleWeekCount),
+    'Other Social': fullPlatformWeekly['Other Social'].slice(0, visibleWeekCount),
+  };
 
   try {
     const rq = await loadRedditQuora();
-    ({redditSentiment, redditPosts, quoraSentiment, redditThemeData, quoraThemeData, redditRows: allRedditRows, quoraRows: allQuoraRows} = rq);
+    ({redditSentiment, redditPosts, quoraSentiment, quoraQuestions, redditThemeData, quoraThemeData, redditRows: allRedditRows, quoraRows: allQuoraRows} = rq);
   } catch(e){ errors.push('Reddit & Quora Content Plan: '+e.message); }
-
-  try {
-    const g = await loadGmb();
-    ({gmbProjects, juneSampleSize, gmbSentiment, negativeReviews, gmbRows: allGmbRows} = g);
-  } catch(e){ errors.push('GMB Escalation Tracker: '+e.message); }
 
   try {
     const d = await loadDailyTracker();
@@ -1346,22 +1326,16 @@ async function loadAllData(){
   // by the mechanical builders the instant applyRangeMode() ran below).
   themeCache = await loadThemeCache();
   if(!themeCache) errors.push('theme_cache.json not found or failed to load — narrative themes unavailable this session.');
-  buildMonthMenu();
+  buildMonthChips();
 
   socialWeekly = computeSocialWeekly(socialTrend);
-  latestWeekNegatives = negativeReviews.filter(r=>{
-    if(!r.date) return false;
-    const rd = new Date(r.date+'T00:00:00');
-    return rd >= weekStart && rd <= weekEnd;
-  });
   overallSentiment = {
     positive: redditSentiment.positive + gmbSentiment.positive + socialSentiment.positive,
     negative: redditSentiment.negative + gmbSentiment.negative + socialSentiment.negative,
     neutral: redditSentiment.neutral + gmbSentiment.neutral + socialSentiment.neutral,
   };
   overallThemeData = mergeThemeSources([{label:'GMB', data:gmbThemeData}, {label:'Reddit', data:redditThemeData}]);
-  ratingShiftCopy = buildRatingShiftNotes(gmbProjects, juneSampleSize);
-  applyRangeMode({type:'week', which:'latest'});
+  applyRangeMode({type:'month', key:REPORT_MONTH});
 
   const metaDataPulledEl = document.getElementById('metaDataPulled');
   if(metaDataPulledEl) metaDataPulledEl.textContent = now.toLocaleString('en-GB',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
@@ -1385,8 +1359,8 @@ function refreshStatusBar(){
   }
 }
 
-// Builds Project Sentiment Themes for GMB straight from the Daily Tracker "specific data"
-// tab (Channel Name -> project, Message, Final Sentiment) — not the GMB Tracker sheet.
+// Builds Project Sentiment Themes for GMB straight from the Daily Tracker "raw" tab
+// (Channel Name -> project, Message, Final Sentiment).
 function trimTheme(message){
   const clean = (message||'').replace(/\s+/g,' ').trim();
   return clean || null;
@@ -1414,18 +1388,11 @@ function buildGmbThemeRowsFromDaily(rows){
   })).sort((a,b)=> b.mentions - a.mentions);
 }
 
-// Full text behind every truncated "Read more" trigger, looked up by index at click time
+// Full narrative behind each Executive Snapshot row, looked up by index when a row is clicked
 // (see the delegated listener near the modal markup below).
 let themeFullTexts = [];
 function escapeHtml(str){
   return (str||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-}
-const THEME_TRUNCATE_AT = 140;
-function renderThemeSnippet(text, project){
-  const safe = escapeHtml(text);
-  if(text.length <= THEME_TRUNCATE_AT) return safe;
-  const idx = themeFullTexts.push(text) - 1;
-  return `${escapeHtml(text.slice(0,THEME_TRUNCATE_AT))}… <button type="button" class="theme-readmore" data-idx="${idx}" data-project="${escapeHtml(project)}">Read more</button>`;
 }
 function openThemeModal(text, project){
   document.getElementById('themeModalProject').textContent = project || '';
@@ -1436,80 +1403,90 @@ function closeThemeModal(){
   document.getElementById('themeModalOverlay').style.display = 'none';
 }
 document.addEventListener('click', e=>{
-  const btn = e.target.closest('.theme-readmore');
-  if(btn){ openThemeModal(themeFullTexts[+btn.dataset.idx], btn.dataset.project); return; }
+  const row = e.target.closest('.exec-table tbody tr[data-idx]');
+  if(row){ openThemeModal(themeFullTexts[+row.dataset.idx], row.dataset.project); return; }
   if(e.target.id === 'themeModalClose' || e.target.id === 'themeModalOverlay') closeThemeModal();
 });
 document.addEventListener('keydown', e=>{ if(e.key === 'Escape') closeThemeModal(); });
-// Ranked keyword phrases -> chip row, sized/weighted by rank (rank-1 = most salient).
-function renderKeywordChips(keywords){
-  if(!Array.isArray(keywords) || !keywords.length) return '';
-  return `<div class="keyword-row">${keywords.slice(0,6).map((k,i)=>
-    `<span class="keyword-chip rank-${Math.min(i+1,3)}">${escapeHtml(k)}</span>`
-  ).join('')}</div>`;
+// Verdict + one-line takeaway are precomputed in theme_cache.json (see cacheToThemeRows) for
+// cache-sourced rows. Mechanically-built rows (no cache entry for this period) don't have
+// either, so we derive a reasonable stand-in from whatever counts/text the builder produced —
+// lower quality than genuine synthesis, same tradeoff the mechanical builders already accept.
+function computeVerdict(posCount, negCount){
+  if(posCount===0 && negCount===0) return 'No data';
+  if(negCount===0) return posCount>=3 ? 'Strong Positive' : 'Positive';
+  if(posCount===0) return negCount>=3 ? 'Strong Negative' : 'Negative';
+  const ratio = posCount/(posCount+negCount);
+  if(ratio>=0.7) return 'Positive';
+  if(ratio<=0.3) return 'Negative';
+  return 'Mixed';
 }
-function renderThemeTable(tbodyId, data, sentiment){
+function verdictClass(verdict){
+  if(/positive/i.test(verdict)) return 'positive';
+  if(/negative/i.test(verdict)) return 'negative';
+  return 'mixed';
+}
+function fallbackTakeaway(row){
+  const lean = row.positive.count >= row.negative.count ? row.positive : row.negative;
+  const other = lean===row.positive ? row.negative : row.positive;
+  const text = lean.theme || other.theme || 'No narrative available for this period.';
+  return text.length > 160 ? text.slice(0,160).trim() + '…' : text;
+}
+function buildFullNarrative(row){
+  const section = (label, cell) => cell.count
+    ? `${label} (${cell.count})\n` + (cell.themes && cell.themes.length ? cell.themes : [cell.theme]).filter(Boolean).map(t=>`• ${t}`).join('\n')
+      + (cell.keywords && cell.keywords.length ? `\nKeywords: ${cell.keywords.join(', ')}` : '')
+    : null;
+  return [section('POSITIVE', row.positive), section('NEGATIVE', row.negative)].filter(Boolean).join('\n\n')
+    || 'No narrative available for this period.';
+}
+function renderExecTable(tbodyId, data){
   const tbody = document.getElementById(tbodyId);
   if(!data.length){
-    tbody.innerHTML = `<tr><td colspan="3"><span class="theme-empty">No cached themes for this period.</span></td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="3"><span class="theme-empty">No themes for this period.</span></td></tr>`;
     return;
   }
-  const cards = data.map(row=>{
-    const cell = row[sentiment];
-    const themes = Array.isArray(cell?.themes) ? cell.themes : (cell?.theme ? [cell.theme] : []);
-    const bodyHtml = themes.length
-      ? themes.map(t=>`<p class="story-text">${renderThemeSnippet(t, row.project)}</p>`).join('')
-      : `<p class="story-text"><span class="theme-empty">No ${sentiment} reviews logged this period.</span></p>`;
-    return `<div class="story-card${sentiment==='negative' ? ' negative' : ''}">
-      <div class="story-head"><span class="story-project">${row.project}</span><span class="story-count">${cell.count} mention${cell.count===1?'':'s'}</span></div>
-      ${bodyHtml}
-      ${renderKeywordChips(cell.keywords)}
-    </div>`;
+  tbody.innerHTML = data.map(row=>{
+    const verdict = row.verdict || computeVerdict(row.positive.count, row.negative.count);
+    const takeaway = row.keyTakeaway || fallbackTakeaway(row);
+    const idx = themeFullTexts.push(buildFullNarrative(row)) - 1;
+    return `<tr data-idx="${idx}" data-project="${escapeHtml(row.project)}">
+      <td class="proj-name">${escapeHtml(row.project)}</td>
+      <td><span class="sent-verdict ${verdictClass(verdict)}"><span class="dot"></span>${escapeHtml(verdict)}</span></td>
+      <td class="takeaway">${escapeHtml(takeaway)}</td>
+    </tr>`;
   }).join('');
-  tbody.innerHTML = `<tr><td colspan="3" style="border:none;padding:4px 0 0;"><div class="story-card-grid">${cards}</div></td></tr>`;
-}
-function wireThemeToggle(toggleId, tbodyId, data){
-  const el = document.getElementById(toggleId);
-  renderThemeTable(tbodyId, data, 'positive');
-  el.addEventListener('click', e=>{
-    if(!e.target.classList.contains('filter-btn')) return;
-    el.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-    e.target.classList.add('active');
-    renderThemeTable(tbodyId, data, e.target.dataset.sent);
-  });
 }
 // ---------- Project Sentiment Themes: Overall (All Platforms) ----------
 // Merges gmbThemeData + redditThemeData by project name, summing mentions and combining
-// themes with a source tag when both platforms have content for the same project.
+// themes (with a source tag) when both platforms have content for the same project. Verdict
+// is recomputed from the merged counts (not averaged from per-source verdicts, which could
+// disagree); keyTakeaway prefers whichever source's own verdict agrees with the merged one.
 function mergeThemeSources(sources){
   const merged = {};
   sources.forEach(({label, data})=>{
     data.forEach(row=>{
-      if(!merged[row.project]) merged[row.project] = {project:row.project, mentions:0, positive:{count:0, parts:[]}, negative:{count:0, parts:[]}};
+      if(!merged[row.project]) merged[row.project] = {project:row.project, mentions:0, positive:{count:0, parts:[]}, negative:{count:0, parts:[]}, candidates:[]};
       const m = merged[row.project];
       m.mentions += row.mentions;
       ['positive','negative'].forEach(sent=>{
         m[sent].count += row[sent].count;
         if(row[sent].theme) m[sent].parts.push(`<b>${label}:</b> ${row[sent].theme}`);
       });
+      if(row.keyTakeaway) m.candidates.push({verdict: row.verdict, text: `${label}: ${row.keyTakeaway}`});
     });
   });
-  return Object.values(merged).map(m=>({
-    project: m.project, mentions: m.mentions,
-    positive: {count:m.positive.count, theme: m.positive.parts.length ? m.positive.parts.join(' ') : null},
-    negative: {count:m.negative.count, theme: m.negative.parts.length ? m.negative.parts.join(' ') : null},
-  })).sort((a,b)=> b.mentions - a.mentions);
-}
-// Top 3 positive / negative themes — ranked by count, tie-broken by total mentions
-// (a higher-volume project's theme is a stronger signal than a low-volume tie).
-function renderTopThemes(elId, sentiment){
-  const ranked = overallThemeData
-    .filter(row => row[sentiment].theme)
-    .sort((a,b)=> b[sentiment].count - a[sentiment].count || b.mentions - a.mentions)
-    .slice(0,3);
-  document.getElementById(elId).innerHTML = ranked.map(row=>
-    `<li style="margin-bottom:8px;"><b style="color:var(--constellation);">${row.project}</b> (${row[sentiment].count}) — ${row[sentiment].theme}</li>`
-  ).join('');
+  return Object.values(merged).map(m=>{
+    const verdict = computeVerdict(m.positive.count, m.negative.count);
+    const cls = verdictClass(verdict);
+    const agreeing = m.candidates.find(c => verdictClass(c.verdict||'') === cls);
+    return {
+      project: m.project, mentions: m.mentions,
+      positive: {count:m.positive.count, theme: m.positive.parts.length ? m.positive.parts.join(' ') : null},
+      negative: {count:m.negative.count, theme: m.negative.parts.length ? m.negative.parts.join(' ') : null},
+      verdict, keyTakeaway: (agreeing || m.candidates[0] || {}).text || null,
+    };
+  }).sort((a,b)=> b.mentions - a.mentions);
 }
 
 // Returns theme_cache.json's entry for whichever window (weekly Monday-ISO or monthly
@@ -1527,32 +1504,49 @@ function applyDateRange(){
     : themeCacheStatus;
 
   const filteredRedditRows = allRedditRows.filter(r=>{ const d=getRowDate(r); return d && isDateInRange(d, rangeStart, rangeEnd); });
-  const filteredQuoraRows = allQuoraRows.filter(r=>{ const d=getRowDate(r); return d && isDateInRange(d, rangeStart, rangeEnd); });
-  const filteredGmbRows = allGmbRows.filter(r=>r.date && isDateInRange(r.date, rangeStart, rangeEnd));
+  // Quora sheet's "Post Date" column is entirely unpopulated in the source data (a genuine
+  // gap in what the agency tracks, not something fixable client-side) — date-filtering it
+  // would always return zero rows regardless of the selected window, so Quora sentiment is
+  // deliberately left ungated by range here, same pattern as the always-visible delivery table.
+  const filteredQuoraRows = allQuoraRows;
   const filteredSocialRows = allSocialRows.filter(r=>r.date && isDateInRange(r.date, rangeStart, rangeEnd));
+  // GMB review counts/sentiment/messages all come from the Daily Tracker's "raw" tab (Source =
+  // Google Business, Case Start Date within the selected window) — the GMB Escalation Tracker
+  // sheet has been retired entirely (its tab-name guessing was a recurring source of silent
+  // breakage, and Daily Tracker already has the full picture in one place).
+  const filteredGmbDailyRows = filteredSocialRows.filter(r=>r.platform==='GMB' && r.project);
 
-  redditPosts = filteredRedditRows.filter(r => r['Title / Question']).map(r => ({
-    week:r.Week, subreddit:r.Subreddit, bucket:r.Bucket, title:r['Title / Question'], date:r['Post Publish date'], upvotes:numOr(r['Total Upvotes'],0), comments:numOr(r['Total Comments'],0), positive:numOr(r['Total Positive comments'],0), negative:numOr(r['Total Nagative Comments'],0), neutral:numOr(r['Total Neutral Comments'],0), link: sanitizeUrl(getMatchingRowValue(r, ['Post Link','Link','Thread Link','Post URL','URL'], [])),
-  }));
-  redditSentiment = {positive: filteredRedditRows.reduce((s,r)=>s+numOr(r['Total Positive comments'],0),0), negative: filteredRedditRows.reduce((s,r)=>s+numOr(r['Total Nagative Comments'],0),0), neutral: filteredRedditRows.reduce((s,r)=>s+numOr(r['Total Neutral Comments'],0),0)};
+  redditPosts = buildRedditPosts(filteredRedditRows);
+  redditSentiment = filteredRedditRows.reduce((acc,r)=>({
+    positive: acc.positive + numOr(getMatchingRowValue(r, ['Total Positive comments'], []), 0),
+    negative: acc.negative + numOr(getMatchingRowValue(r, ['Total Nagative comments','Total Negative comments'], []), 0),
+    neutral: acc.neutral + numOr(getMatchingRowValue(r, ['Total Neutral comments'], []), 0),
+  }), {positive:0, negative:0, neutral:0});
   redditThemeData = bucket?.Reddit?.projects ? cacheToThemeRows(bucket.Reddit.projects) : buildMentionThemes(filteredRedditRows, [ ['Title / Question','Title','Question'], ['Body','Body / Context'], ['Thread Title','Thread Title ','Thread title'], ['Comments (Seeded)','Comment/Answer','Comment/Answer 1','Comments','Answers'] ], row => ({positive:numOr(getMatchingRowValue(row,['Total Positive comments','Positive comments'], []),0), negative:numOr(getMatchingRowValue(row,['Total Nagative Comments','Nagative Comments','Negative comments'], []),0)}));
 
-  const qPos = filteredQuoraRows.reduce((s,r)=>s+numOr(r['Positive comments'],0),0);
-  const qNeg = filteredQuoraRows.reduce((s,r)=>s+numOr(r['Nagative Comments'],0),0);
-  const qTotal = filteredQuoraRows.reduce((s,r)=>s+numOr(r['Total Comments'],0),0);
+  const quoraQuestionRows = filteredQuoraRows.filter(r => r['Title / Question']);
+  const qPos = quoraQuestionRows.reduce((s,r)=>s+numOr(r['Positive comments'],0),0);
+  const qNeg = quoraQuestionRows.reduce((s,r)=>s+numOr(r['Nagative Comments'],0),0);
+  const qTotal = quoraQuestionRows.reduce((s,r)=>s+numOr(r['Total Comments'],0),0);
   quoraSentiment = {positive:qPos, negative:qNeg, neutral:Math.max(0, qTotal-qPos-qNeg)};
+  // Only show questions that are actually live (have a real link) — a missing link means the
+  // question is still pending publication and shouldn't be surfaced on the dashboard yet.
+  quoraQuestions = quoraQuestionRows.map(r => ({
+    title: r['Title / Question'], category: r['Category / Topic'], date: r['Post Date'],
+    comments: numOr(r['Total Comments'],0),
+    positive: numOr(r['Positive comments'],0), negative: numOr(r['Nagative Comments'],0),
+    link: sanitizeUrl(getMatchingRowValue(r, ['Link','Post Link','Question Link','URL'], [])),
+  })).filter(q => q.link);
   quoraThemeData = bucket?.Quora?.projects ? cacheToThemeRows(bucket.Quora.projects) : buildMentionThemes(filteredQuoraRows, [ ['Title / Question','Title','Question'], ['Body / Context','Body','Context'], ['Comment/Answer 1','Comment/Answer','Comments','Answers'] ], row => ({positive:numOr(getMatchingRowValue(row,['Positive comments','Positive Comments'], []),0), negative:numOr(getMatchingRowValue(row,['Nagative Comments','Negative Comments','Negative comments'], []),0)}));
 
   gmbProjects = GMB_PROJECTS.map(project=>{
-    const rows = filteredGmbRows.filter(r=>r.project===project);
-    const positive = rows.filter(r=>r.rating >= 4).length;
-    const negative = rows.filter(r=>r.rating <= 3).length;
-    const neutral = rows.filter(r=>r.rating === 3).length;
-    return {project, lastMonthRating: rows.length ? null : null, reviews:rows.length, positive, negative, neutral};
+    const rows = filteredGmbDailyRows.filter(r=>r.project===project);
+    const positive = rows.filter(r=>r.sentiment==='positive').length;
+    const negative = rows.filter(r=>r.sentiment==='negative').length;
+    const neutral = rows.filter(r=>r.sentiment==='neutral').length;
+    return {project, reviews:rows.length, positive, negative, neutral};
   });
-  gmbSentiment = filteredGmbRows.reduce((acc,r)=>{ acc[r.rating >= 4 ? 'positive' : (r.rating === 3 ? 'neutral' : 'negative')]++; return acc; }, {positive:0,negative:0,neutral:0});
-  negativeReviews = filteredGmbRows.filter(r=>r.rating<=3).map(r=>({project:r.project, rating:r.rating, priority:r.priority, date:isoDate(r.date), responded:r.responded, message:r.message}));
-  const filteredGmbDailyRows = filteredSocialRows.filter(r=>r.platform==='GMB' && r.project);
+  gmbSentiment = filteredGmbDailyRows.reduce((acc,r)=>{ if(acc[r.sentiment]!==undefined) acc[r.sentiment]++; return acc; }, {positive:0,negative:0,neutral:0});
   gmbThemeData = bucket?.GMB?.projects ? cacheToThemeRows(bucket.GMB.projects) : buildGmbThemeRowsFromDaily(filteredGmbDailyRows);
 
   const platBuckets = {Instagram:{positive:0,negative:0,neutral:0}, Facebook:{positive:0,negative:0,neutral:0}, LinkedIn:{positive:0,negative:0,neutral:0}};
@@ -1618,35 +1612,30 @@ function monthsFromJune2026(){
   }
   return months;
 }
-function buildMonthMenu(){
-  const menu = document.getElementById('rangeMonthMenu');
-  if(!menu) return;
-  menu.innerHTML = monthsFromJune2026().reverse().map(mk=>
-    `<button type="button" data-month="${mk}">${monthLabel(mk)}</button>`
+function buildMonthChips(){
+  const group = document.getElementById('rangeMonthGroup');
+  if(!group) return;
+  group.innerHTML = monthsFromJune2026().reverse().map(mk=>
+    `<button class="range-chip" type="button" data-month="${mk}">${monthLabel(mk)}</button>`
   ).join('');
 }
-function applyRangeMode(mode){ // {type:'week', which:'latest'|'last'} | {type:'month', key:'YYYY-MM'}
-  const latest = getLastCompleteWeek(new Date());
+function applyRangeMode(mode){ // {type:'month', key:'YYYY-MM'} | {type:'all'}
   let start, end, cacheType, cacheKey, presetId, label;
-  if(mode.type === 'week' && mode.which === 'last'){
-    const last = getLastCompleteWeek(latest.start);
-    start = last.start; end = last.end; cacheType = 'weekly'; cacheKey = isoDate(last.start);
-    presetId = 'lastweek'; label = `Last Week · ${fmtShort(start)}–${fmtShort(end)}`;
-  } else if(mode.type === 'month'){
+  if(mode.type === 'all'){
+    // No single cache key can represent "all time" — themeCacheBucket() returns null for a
+    // null key, which correctly falls back to the live mechanical builders for every platform.
+    start = WEEK1_START; end = new Date(); cacheType = null; cacheKey = null;
+    presetId = 'alltime'; label = `All Time · ${fmtShort(start)}–${fmtShort(end)}`;
+  } else {
     const b = monthBounds(mode.key);
     start = b.start; end = b.end; cacheType = 'monthly'; cacheKey = mode.key;
     presetId = 'month'; label = monthLabel(mode.key);
-  } else {
-    start = latest.start; end = latest.end; cacheType = 'weekly'; cacheKey = isoDate(latest.start);
-    presetId = 'latestweek'; label = `Latest Week · ${fmtShort(start)}–${fmtShort(end)}`;
   }
   activeRangeMode = {type:cacheType, key:cacheKey, label};
   selectedRange = normalizeRange(start, end);
 
   document.querySelectorAll('#rangeChipRow > .range-chip[data-preset]').forEach(btn=>btn.classList.toggle('active', btn.dataset.preset===presetId));
-  const monthBtn = document.getElementById('rangeMonthBtn');
-  if(monthBtn) monthBtn.classList.toggle('active', presetId==='month');
-  document.querySelectorAll('#rangeMonthMenu button').forEach(b=>b.classList.toggle('active', presetId==='month' && b.dataset.month===mode.key));
+  document.querySelectorAll('#rangeMonthGroup button[data-month]').forEach(b=>b.classList.toggle('active', presetId==='month' && b.dataset.month===mode.key));
 
   const summaryEl = document.getElementById('rangeSummaryLabel');
   if(summaryEl) summaryEl.textContent = label;
@@ -1655,9 +1644,9 @@ function applyRangeMode(mode){ // {type:'week', which:'latest'|'last'} | {type:'
   renderDashboard();
   renderPulse();
 }
-// Signature element: a slim sentiment sparkline tracing week-over-week % positive across
-// the last 6 available weeks, with a gold dot marking whichever week is currently selected
-// (month windows and "Last Week" outside the visible 6 weeks show no dot, just the trend).
+// Signature element: a slim sentiment sparkline tracing week-over-week % positive across the
+// last 6 available weeks, with gold dots marking whichever weeks fall inside the selected
+// month (no dots for All Time — every week is "selected", a dot on each would just be noise).
 function renderPulse(){
   const svg = document.getElementById('pulseSvg');
   if(!svg) return;
@@ -1668,50 +1657,44 @@ function renderPulse(){
   const stepX = (W - PAD*2) / (weeks.length - 1);
   const points = ratios.map((r,i)=> [PAD + i*stepX, H - PAD - r*(H - PAD*2)]);
   const pathD = points.map((p,i)=> (i===0?'M':'L') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ');
-  const activeKey = activeRangeMode.type==='weekly' ? activeRangeMode.key : null;
-  const dotIdx = activeKey ? weeks.findIndex(w=>isoDate(w.monday)===activeKey) : -1;
-  const dotHtml = dotIdx>=0 ? `<circle cx="${points[dotIdx][0]}" cy="${points[dotIdx][1]}" r="3.2" style="fill:var(--gold);"></circle>` : '';
-  svg.innerHTML = `<path d="${pathD}" fill="none" style="stroke:var(--meridian);" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>${dotHtml}`;
+  const dotsHtml = activeRangeMode.type==='monthly'
+    ? points.filter((_,i)=> isDateInRange(weeks[i].monday, selectedRange.start, selectedRange.end))
+        .map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="3.2" style="fill:var(--gold);"></circle>`).join('')
+    : '';
+  svg.innerHTML = `<path d="${pathD}" fill="none" style="stroke:var(--meridian);" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>${dotsHtml}`;
 }
 document.getElementById('rangeChipRow').addEventListener('click', e=>{
-  const btn = e.target.closest('.range-chip[data-preset]');
-  if(!btn) return;
-  applyRangeMode({type:'week', which: btn.dataset.preset==='lastweek' ? 'last' : 'latest'});
+  const presetBtn = e.target.closest('.range-chip[data-preset="alltime"]');
+  if(presetBtn){ applyRangeMode({type:'all'}); return; }
+  const monthBtn = e.target.closest('button[data-month]');
+  if(monthBtn) applyRangeMode({type:'month', key:monthBtn.dataset.month});
 });
-const rangeMonthBtn = document.getElementById('rangeMonthBtn');
-const rangeMonthMenu = document.getElementById('rangeMonthMenu');
-rangeMonthBtn.addEventListener('click', e=>{
-  e.stopPropagation();
-  const open = rangeMonthMenu.hidden;
-  rangeMonthMenu.hidden = !open;
-  rangeMonthBtn.setAttribute('aria-expanded', String(open));
-});
-rangeMonthMenu.addEventListener('click', e=>{
-  const btn = e.target.closest('button[data-month]');
-  if(!btn) return;
-  rangeMonthMenu.hidden = true;
-  rangeMonthBtn.setAttribute('aria-expanded','false');
-  applyRangeMode({type:'month', key:btn.dataset.month});
-});
-document.addEventListener('click', ()=>{ rangeMonthMenu.hidden = true; rangeMonthBtn.setAttribute('aria-expanded','false'); });
 
 // ---------- RENDER: Delivery table + filter bar ----------
 function renderDeliveryTable(filter){
   const headRow = document.getElementById('deliveryTableHeadRow');
   headRow.innerHTML = '<th>Metric</th><th>Platform</th>'
-    + Array.from({length:totalWeekCount}, (_,i)=>`<th class="num">W${i+1}</th>`).join('')
+    + Array.from({length:visibleWeekCount}, (_,i)=>`<th class="num">W${i+1}</th>`).join('')
     + '<th class="num">Total</th>';
 
   const tbody = document.querySelector('#deliveryTable tbody');
   tbody.innerHTML = '';
-  // Always the full month-to-date across every tracked week — this table is a raw activity
-  // log, not scoped to the header's tracking-range picker (unlike the KPI cards).
-  summaryWeeklyDelivery.filter(row=> filter==='All' || row.platform===filter).forEach(row=>{
+  // Always the full month-to-date across every elapsed week — this table is a raw activity
+  // log, not scoped to the header's tracking-range picker (unlike the KPI cards). Capped at
+  // visibleWeekCount so it doesn't render the sheet's pre-declared-but-not-yet-reached W4-W13
+  // columns as a wall of zeros.
+  const filteredRows = summaryWeeklyDelivery.filter(row=> filter==='All' || row.platform===filter);
+  filteredRows.forEach(row=>{
     const tagClass = row.platform==='Reddit'?'tag-reddit':row.platform==='Quora'?'tag-quora':row.platform==='GMB'?'tag-gmb':'tag-other';
-    const weekCells = Array.from({length:totalWeekCount}, (_,i)=>`<td class="num">${row['w'+(i+1)]||0}</td>`).join('');
+    const weekCells = Array.from({length:visibleWeekCount}, (_,i)=>`<td class="num">${row['w'+(i+1)]||0}</td>`).join('');
     tbody.innerHTML += `<tr><td>${row.metric}</td><td><span class="platform-tag ${tagClass}">${row.platform}</span></td>
       ${weekCells}<td class="num"><b>${row.total}</b></td></tr>`;
   });
+
+  const footRow = document.getElementById('deliveryTableFoot');
+  const weekTotals = Array.from({length:visibleWeekCount}, (_,i)=> filteredRows.reduce((s,row)=>s+(row['w'+(i+1)]||0),0));
+  const grandTotal = filteredRows.reduce((s,row)=>s+row.total,0);
+  footRow.innerHTML = `<tr><td>Total</td><td></td>${weekTotals.map(v=>`<td class="num">${v}</td>`).join('')}<td class="num">${grandTotal}</td></tr>`;
 }
 function renderProgress(containerId, rows){
   const el = document.getElementById(containerId);
@@ -1733,44 +1716,25 @@ function renderRankList(elId, list, accentUp){
       <div style="font-size:20px;font-weight:bold;color:${accentUp?'var(--meridian)':'var(--gold-deep)'};">${p.rating.toFixed(1)}★</div>
     </div>`).join('');
 }
-async function renderGmbTable(){
+function renderGmbTable(){
   const gmbBody = document.querySelector('#gmbTable tbody');
   if(!gmbBody) return;
   gmbBody.innerHTML = '';
-  const priorKey = prevMonthKey(REPORT_MONTH);
+  const colHead = document.getElementById('gmbReviewsColHead');
+  if(colHead) colHead.textContent = `Reviews (${activeRangeMode.label || 'this period'})`;
+  const totals = {liveCount:0, reviews:0, positive:0, negative:0, neutral:0};
   for(const p of gmbProjects){
     const total = p.positive+p.negative+p.neutral;
     const posPct = total?(p.positive/total*100):0, negPct = total?(p.negative/total*100):0, neuPct= total?(p.neutral/total*100):0;
     const live = liveRatings[p.project];
     const liveCell = live ? live.rating.toFixed(1) : '<span style="color:var(--fog)">Not found</span>';
     const liveCountCell = live ? live.count.toLocaleString() : '—';
-    let lastMonthRating = p.lastMonthRating;
-    let lastMonthSource = 'baseline';
-    if(window.storage){
-      try{
-        const stored = await window.storage.get(`gmb_rating_history:${p.project}:${priorKey}`, true);
-        if(stored && stored.value){
-          const val = JSON.parse(stored.value);
-          lastMonthRating = val.rating; lastMonthSource = 'saved';
-        }
-      } catch(e){}
-    }
-    const lastMonthCell = (lastMonthRating === null || lastMonthRating === undefined)
-      ? `<span style="color:var(--fog)">No ${monthLabel(priorKey)} data</span>`
-      : lastMonthRating.toFixed(2).replace(/\.00$/,'.0');
-    let deltaCell = '—';
-    if(live && (lastMonthRating !== null && lastMonthRating !== undefined)){
-      const d = +(live.rating - lastMonthRating).toFixed(1);
-      const cls = d>0?'up':(d<0?'down':'');
-      const sign = d>0?'+':'';
-      deltaCell = `<span class="delta ${cls}">${sign}${d}</span>`;
-    }
+    if(live) totals.liveCount += live.count;
+    totals.reviews += p.reviews; totals.positive += p.positive; totals.negative += p.negative; totals.neutral += p.neutral;
     gmbBody.innerHTML += `<tr>
       <td><b>${p.project}</b></td>
       <td class="num"><b>${liveCell}</b></td>
       <td class="num">${liveCountCell}</td>
-      <td class="num">${lastMonthCell}${lastMonthSource==='saved'?' <span style="color:var(--meridian);font-size:11px;">●</span>':''}</td>
-      <td class="num">${deltaCell}</td>
       <td class="num">${p.reviews}</td>
       <td class="num">${p.positive}</td>
       <td class="num">${p.negative}</td>
@@ -1778,19 +1742,20 @@ async function renderGmbTable(){
       <td style="min-width:120px;"><div class="sent-bar"><span style="width:${posPct}%;background:var(--meridian)"></span><span style="width:${negPct}%;background:var(--gold-deep)"></span><span style="width:${neuPct}%;background:var(--atlas)"></span></div></td>
     </tr>`;
   }
+  const gmbFoot = document.getElementById('gmbTableFoot');
+  if(gmbFoot){
+    gmbFoot.innerHTML = `<tr>
+      <td>Total</td>
+      <td class="num"></td>
+      <td class="num">${totals.liveCount.toLocaleString()}</td>
+      <td class="num">${totals.reviews}</td>
+      <td class="num">${totals.positive}</td>
+      <td class="num">${totals.negative}</td>
+      <td class="num">${totals.neutral}</td>
+      <td></td>
+    </tr>`;
+  }
 }
-function renderRatingShiftNotes(){
-  const shiftNotesEl = document.getElementById('ratingShiftNotes');
-  let shiftHtml = '';
-  gmbProjects.forEach(p=>{
-    const copy = ratingShiftCopy[p.project];
-    if(!copy) return;
-    shiftHtml += `<p style="margin:0 0 12px;"><b style="color:var(--constellation);">${p.project}</b> — ${copy}</p>`;
-  });
-  shiftNotesEl.innerHTML = shiftHtml || '<p style="font-size:13px;color:var(--fog);margin:0;">No prior-month baseline available yet for any locked project.</p>';
-}
-
-
 // ---------- RENDER: Per-platform message-driven pointers (Instagram / Facebook / LinkedIn) ----------
 const platformPointers = {
   Instagram: {
@@ -1810,7 +1775,7 @@ const platformPointers = {
     ]
   },
   LinkedIn: {
-    flag: "Data-quality flag: a review of the actual message text shows a large share of what's tagged here isn't about Sumadhura at all — job postings, unrelated companies' announcements, general real-estate/AI thought-leadership posts. This suggests the listening rule may be picking up broader industry content, not Sumadhura-specific mentions. Treat this platform's sentiment split with real caution until the tagging rules are confirmed.",
+    flag: null,
     points: [
       "Where content is genuinely Sumadhura-related, it skews positive (project walkthroughs, brand posts, congratulatory comments).",
       "Negative-tagged items sampled were mostly unrelated critical commentary on other companies/topics, not criticism of Sumadhura specifically.",
@@ -1835,36 +1800,6 @@ function renderPlatformPointersOnce(){
       </div>`;
   });
   document.getElementById('platformPieGrid').after(platformPointersEl);
-}
-
-function renderNegativeThemes(){
-  document.getElementById('negThemesHeading').textContent = `Negative Review Themes — Week of ${fmtShort(weekStart)}–${fmtLong(weekEnd)}`;
-  document.getElementById('negThemesSub').textContent = `Auto-computed as the most recently completed Monday–Sunday week from this data pull (${latestWeekNegatives.length} negative review${latestWeekNegatives.length===1?'':'s'} this week).`;
-  const byProject = {};
-  latestWeekNegatives.forEach(r=>{ if(!byProject[r.project]) byProject[r.project]=[]; byProject[r.project].push(r); });
-  const themeGrid = document.getElementById('negativeThemes');
-  themeGrid.innerHTML = '';
-  if(Object.keys(byProject).length === 0){
-    themeGrid.innerHTML = `<div class="card" style="grid-column:1/-1;"><p style="font-size:13px;color:var(--fog);margin:0;">No negative (≤3★) GMB reviews logged in the week of ${fmtLong(weekStart)}–${fmtLong(weekEnd)}.</p></div>`;
-  } else {
-    Object.entries(byProject).forEach(([project, records])=>{
-      const priorities = [...new Set(records.map(r=>r.priority))].join(', ');
-      const anyOpen = records.some(r=>r.responded==='No');
-      const respSummary = anyOpen ? 'Action needed' : 'Responded';
-      const respColor = anyOpen ? 'var(--gold-deep)' : 'var(--meridian)';
-      const items = records.map(r=>`<li style="margin-bottom:6px;">${r.message} <span style="color:var(--fog);">(${r.date?fmtShort(new Date(r.date+'T00:00:00')):''}, ${r.rating}★${r.responded==='No' ? ', not yet responded' : ''})</span></li>`).join('');
-      themeGrid.innerHTML += `
-      <div class="post-card">
-        <div class="bucket">${project}</div>
-        <div class="stats" style="margin-bottom:2px;">
-          <div>Negative reviews<b>${records.length}</b></div>
-          <div>Priority<b style="font-size:13px;">${priorities}</b></div>
-          <div>Status<b style="font-size:13px;color:${respColor}">${respSummary}</b></div>
-        </div>
-        <ul style="margin:4px 0 0; padding-left:18px; font-size:13px; color:var(--atlas); line-height:1.5;">${items}</ul>
-      </div>`;
-    });
-  }
 }
 
 function renderPlatformPieCardsOnce(){
@@ -1904,13 +1839,10 @@ let ratingHistoryChart = null;
 async function loadHistoryFor(project){
   const emptyNote = document.getElementById('historyEmptyNote');
   const live = liveRatings[project];
-  const gmbRow = gmbProjects.find(p=>p.project===project);
+  // No prior-month baseline source anymore (the GMB Escalation Tracker that used to supply
+  // it is retired) — history starts from the current live snapshot and builds forward via
+  // window.storage month-end snapshots (autoSaveMonthEndSnapshots).
   const baseline = {};
-  // June baseline: gmbProjects.lastMonthRating is now a genuine June-2026-only average
-  // (fixed in an earlier revision), so it's legitimate to show as June's actual data point.
-  if(gmbRow && gmbRow.lastMonthRating !== null && gmbRow.lastMonthRating !== undefined){
-    baseline[prevMonthKey(REPORT_MONTH)] = {month:prevMonthKey(REPORT_MONTH), rating:gmbRow.lastMonthRating, count:null, source:'tracker'};
-  }
   if(live) baseline[REPORT_MONTH] = {month:REPORT_MONTH, rating:live.rating, count:live.count, source:'live'};
 
   let stored = {};
@@ -2116,13 +2048,10 @@ function populateStaticCardCopy(){
   if(quoraProgressFootnote) quoraProgressFootnote.textContent = 'Progress is benchmarked against the monthly target values supplied in the content plan sheet.';
 
   const gmbMethodologyNote = document.getElementById('gmbMethodologyNote');
-  if(gmbMethodologyNote) gmbMethodologyNote.textContent = 'Ratings are manually maintained from public Google Business Profile data; the prior-month baseline now uses the tracker’s prior-month tab rather than the live rating snapshot.';
+  if(gmbMethodologyNote) gmbMethodologyNote.textContent = 'Star ratings are manually maintained from public Google Business Profile data; review counts and sentiment are tracked monthly via the Sumadhura Daily Tracker (Source = Google Business).';
 
   const topProjectsSub = document.getElementById('topProjectsSub');
-  if(topProjectsSub) topProjectsSub.textContent = 'Project volume across the current and prior-month tracker tabs.';
-
-  const ratingShiftSub = document.getElementById('ratingShiftSub');
-  if(ratingShiftSub) ratingShiftSub.textContent = 'Changes vs. the prior-month baseline, using the latest locked project snapshot.';
+  if(topProjectsSub) topProjectsSub.textContent = 'Review volume for the selected window, tracked via the Daily Tracker.';
 
   const ratingHistorySub = document.getElementById('ratingHistorySub');
   if(ratingHistorySub) ratingHistorySub.textContent = 'Month-by-month history for the selected project, with monthly snapshots persisted automatically on month-end.';
@@ -2177,7 +2106,7 @@ function renderDashboard(){
 
   const postGrid = document.getElementById('redditPosts');
   postGrid.innerHTML = '';
-  redditPosts.slice().reverse().forEach(p=>{
+  redditPosts.forEach(p=>{
     const total = p.positive+p.negative+p.neutral;
     const posPct = total? (p.positive/total*100):0, negPct = total?(p.negative/total*100):0, neuPct = total?(p.neutral/total*100):0;
     postGrid.innerHTML += `
@@ -2199,6 +2128,31 @@ function renderDashboard(){
     </div>`;
   });
 
+  const quoraGrid = document.getElementById('quoraQuestions');
+  quoraGrid.innerHTML = '';
+  if(!quoraQuestions.length){
+    quoraGrid.innerHTML = `<span class="theme-empty">No Quora questions tracked yet this period.</span>`;
+  }
+  quoraQuestions.slice().reverse().forEach(q=>{
+    const total = q.positive+q.negative;
+    const posPct = total ? (q.positive/total*100) : 0, negPct = total ? (q.negative/total*100) : 0;
+    quoraGrid.innerHTML += `
+    <div class="post-card">
+      <div class="bucket">${q.category || 'Quora'}</div>
+      <div class="title">${q.title}</div>
+      <div class="sub">${q.date ? `published ${q.date}` : 'publish date not tracked yet'}</div>
+      <div class="stats">
+        <div>Comments<b>${q.comments}</b></div>
+      </div>
+      <div class="sent-bar">
+        <span style="width:${posPct}%;background:var(--meridian)"></span>
+        <span style="width:${negPct}%;background:var(--gold-deep)"></span>
+      </div>
+      <div class="sub">${q.positive} positive · ${q.negative} negative</div>
+      <a class="link" href="${q.link}" target="_blank" rel="noopener">View question</a>
+    </div>`;
+  });
+
   renderProgress('redditProgress', redditProgressRows);
   renderProgress('quoraProgress', quoraProgressRows);
 
@@ -2207,14 +2161,11 @@ function renderDashboard(){
   renderRankList('topNegativeList', [...allRated].sort((a,b)=> a.rating - b.rating || b.count - a.count).slice(0,3), false);
 
   renderGmbTable();
-  renderRatingShiftNotes();
-  renderNegativeThemes();
-  renderThemeTable('gmbThemeBody', gmbThemeData, document.querySelector('#gmbThemeToggle .filter-btn.active')?.dataset.sent || 'positive');
-  renderThemeTable('redditThemeBody', redditThemeData, document.querySelector('#redditThemeToggle .filter-btn.active')?.dataset.sent || 'positive');
-  renderThemeTable('quoraThemeBody', quoraThemeData, document.querySelector('#quoraThemeToggle .filter-btn.active')?.dataset.sent || 'positive');
+  renderExecTable('gmbThemeBody', gmbThemeData);
+  renderExecTable('redditThemeBody', redditThemeData);
+  renderExecTable('quoraThemeBody', quoraThemeData);
   renderSocialThemeTable();
-  renderTopThemes('topPositiveThemes', 'positive');
-  renderTopThemes('topNegativeThemes', 'negative');
+  renderExecTable('overallThemeBody', overallThemeData.slice(0,6));
 
   const activeProjectBtn = document.querySelector('.project-btn.active');
   loadHistoryFor(activeProjectBtn ? activeProjectBtn.dataset.project : Object.keys(liveRatings)[0]);
@@ -2223,39 +2174,13 @@ function renderDashboard(){
   renderAllCharts();
 }
 
-// Wire theme toggle click handlers once — they read whichever data set is current at click time.
-document.getElementById('gmbThemeToggle').addEventListener('click', e=>{
-  if(!e.target.classList.contains('filter-btn')) return;
-  document.getElementById('gmbThemeToggle').querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  e.target.classList.add('active');
-  renderThemeTable('gmbThemeBody', gmbThemeData, e.target.dataset.sent);
-});
-document.getElementById('redditThemeToggle').addEventListener('click', e=>{
-  if(!e.target.classList.contains('filter-btn')) return;
-  document.getElementById('redditThemeToggle').querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  e.target.classList.add('active');
-  renderThemeTable('redditThemeBody', redditThemeData, e.target.dataset.sent);
-});
-document.getElementById('quoraThemeToggle').addEventListener('click', e=>{
-  if(!e.target.classList.contains('filter-btn')) return;
-  document.getElementById('quoraThemeToggle').querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  e.target.classList.add('active');
-  renderThemeTable('quoraThemeBody', quoraThemeData, e.target.dataset.sent);
-});
 function renderSocialThemeTable(){
   const platform = document.querySelector('#socialThemePlatformToggle .filter-btn.active')?.dataset.platformSel || 'Instagram';
-  const sentiment = document.querySelector('#socialThemeToggle .filter-btn.active')?.dataset.sent || 'positive';
-  renderThemeTable('socialThemeBody', socialThemeData[platform] || [], sentiment);
+  renderExecTable('socialThemeBody', socialThemeData[platform] || []);
 }
 document.getElementById('socialThemePlatformToggle').addEventListener('click', e=>{
   if(!e.target.classList.contains('filter-btn')) return;
   document.getElementById('socialThemePlatformToggle').querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  e.target.classList.add('active');
-  renderSocialThemeTable();
-});
-document.getElementById('socialThemeToggle').addEventListener('click', e=>{
-  if(!e.target.classList.contains('filter-btn')) return;
-  document.getElementById('socialThemeToggle').querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   e.target.classList.add('active');
   renderSocialThemeTable();
 });
