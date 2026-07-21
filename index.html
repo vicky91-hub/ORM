@@ -444,6 +444,22 @@
       </div>
     </div>
 
+    <div class="grid-2" data-platform="quora" style="margin-bottom:20px;">
+      <div class="card">
+        <h3>Quora — Comment Sentiment</h3>
+        <p class="card-sub" id="quoraPieSub">Quora sentiment on published answers within the current tracking window.</p>
+        <div class="pie-chart-shell"><canvas id="pieQuora"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Executive Snapshot</h3>
+        <table class="theme-table exec-table">
+          <thead><tr><th>Project</th><th>Sentiment</th><th>Key Takeaway</th></tr></thead>
+          <tbody id="quoraThemeBody"></tbody>
+        </table>
+        <p class="card-sub" style="margin-top:10px;" id="quoraThemeFootnote">One-line verdict per project — click a row for the full narrative behind it.</p>
+      </div>
+    </div>
+
     <div class="grid-2" data-platform="gmb" style="margin-bottom:20px;">
       <div class="card">
         <h3 id="gmbPieHeading">GMB — Reviews</h3>
@@ -508,30 +524,12 @@
 
   <!-- QUORA -->
   <section data-platform="quora">
-    <h2>Quora Performance</h2>
-    <p class="section-sub">Monthly target vs. delivered, and sentiment on published answers</p>
-    <h3 style="margin-top:0;">New Question Outcomes</h3>
+    <h2>Quora — New Question Outcomes</h2>
     <p class="section-sub">Seeded Quora questions, most recent first</p>
     <div class="post-grid" id="quoraQuestions"></div>
 
-    <div class="grid-2" style="margin-top:20px;">
-      <div class="card">
-        <h3>Quora — Comment Sentiment</h3>
-        <p class="card-sub" id="quoraPieSub">Quora sentiment on published answers within the current tracking window.</p>
-        <div class="pie-chart-shell"><canvas id="pieQuora"></canvas></div>
-      </div>
-      <div class="card">
-        <h3>Executive Snapshot</h3>
-        <table class="theme-table exec-table">
-          <thead><tr><th>Project</th><th>Sentiment</th><th>Key Takeaway</th></tr></thead>
-          <tbody id="quoraThemeBody"></tbody>
-        </table>
-        <p class="card-sub" style="margin-top:10px;" id="quoraThemeFootnote">One-line verdict per project — click a row for the full narrative behind it.</p>
-      </div>
-    </div>
-
     <div class="card" style="margin-top:20px;">
-      <h3>Delivery vs. Target</h3>
+      <h3>Quora Delivery vs. Target</h3>
       <div id="quoraProgress"></div>
       <p class="card-sub" style="margin-top:10px;" id="quoraProgressFootnote">Progress is benchmarked against the monthly target values supplied in the content plan sheet.</p>
     </div>
