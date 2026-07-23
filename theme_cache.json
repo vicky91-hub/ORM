@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-22T06:25:25+05:30",
+  "generated_at": "2026-07-23T06:15:42+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -1079,7 +1079,8 @@
           },
           "Edition": {
             "positive": [
-              "Named-staff praise is the dominant theme — Somasekhar (twice), Francis (twice, once alongside Alfiya), Keshav and Saurabh Saran all draw specific praise for patient, transparent explanations and responsive follow-through — though one 5-star reviewer flags \"cost is high though\" for an otherwise prime location."
+              "Named-staff praise is the dominant theme — Somasekhar (twice), Francis (twice, once alongside Alfiya), Keshav and Saurabh Saran all draw specific praise for patient, transparent explanations and responsive follow-through — though one 5-star reviewer flags \"cost is high though\" for an otherwise prime location.",
+              "A Jul 22 visitor separately praised the experience centre itself — the model flat and landscaping — a marketing-touchpoint positive distinct from the staff-service theme running through the rest of the month."
             ],
             "negative": [
               "Two separate reviews this month allege undisclosed land litigation on Edition Phase I and ask Sumadhura to issue RERA Annexure 49 plus an indemnity clause before they'll consider buying — a serious, repeated claim rather than a one-off.",
@@ -1088,7 +1089,8 @@
             "topKeywords": {
               "positive": [
                 "Somasekhar/Francis/Keshav/Saurabh Saran named praise",
-                "cost flagged as high"
+                "cost flagged as high",
+                "experience centre / model flat praised (Jul 22)"
               ],
               "negative": [
                 "undisclosed Phase I land litigation (2 reviews)",
@@ -1470,6 +1472,20 @@
             },
             "verdict": "Positive",
             "keyTakeaway": "Cited for visibly active weekend occupancy — a busy play area and courts in use — as proof of a genuinely lived-in community."
+          },
+          "Edition": {
+            "positive": [
+              "Due-diligence answers place Edition's Whitefield pricing in a fair ~13-17k/sqft band for the corridor with rental demand as deep as Folium's, and separately point to it as trackable via the Karnataka RERA portal's quarterly construction-progress updates for objective visibility independent of builder communication."
+            ],
+            "topKeywords": {
+              "positive": [
+                "fair ~13-17k/sqft pricing band",
+                "RERA portal tracks construction pace",
+                "rental demand as deep as Folium"
+              ]
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Due-diligence answers place Edition's pricing in a fair 13-17k/sqft band for the corridor and point to the RERA portal for tracking its construction pace independent of builder messaging."
           }
         }
       }
