@@ -1101,6 +1101,28 @@
             "verdict": "Positive",
             "keyTakeaway": "Heavy named-staff praise outweighs by volume, but two Phase I land-litigation claims and a 3-month refund delay remain serious open issues."
           },
+          "Elysium": {
+            "positive": [
+              "Three separate site visitors this month praised Sumadhura Elysium's Panathur pre-launch: one called its 30,000 sq ft, seven-zone clubhouse (including a dedicated yoga/wellness area) the most thorough amenity plan among early-launch projects they'd toured; two others praised the nature-inspired masterplan and the detailed Elite/Regal 3BHK floor-plan walkthrough — down to wooden flooring and floor-to-ceiling glazing specs — with a patient, non-pushy sales team despite construction being barely two weeks in."
+            ],
+            "negative": [
+              "One reviewer (Jul 23) disputes that the promised CDP (Comprehensive Development Plan) infrastructure will materialize, warns other buyers not to trust the developer's claims, and predicts overcrowding from other projects in the vicinity will make the area unlivable."
+            ],
+            "topKeywords": {
+              "positive": [
+                "30,000 sq ft / 7-zone clubhouse",
+                "nature-inspired masterplan",
+                "Elite/Regal 3BHK floor-plan detail",
+                "non-pushy sales team"
+              ],
+              "negative": [
+                "CDP infrastructure distrust",
+                "overcrowding concern"
+              ]
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Three pre-launch visitors praise Elysium's 30,000 sq ft clubhouse and nature-inspired masterplan, while one reviewer disputes the promised CDP infrastructure will ever materialize."
+          },
           "Epitome": {
             "negative": [
               "The month's only GMB activity is an 11PM construction-noise complaint citing a nearby waste-dump yard, railway-track vibration and an accusation that the project's positive reviews are fake — and unlike nearly every other review logged this month across all projects, it still shows no response."
@@ -1201,16 +1223,24 @@
             "keyTakeaway": "Somashekhar again drew detailed praise, but a new Jul 20 round-the-clock construction-noise complaint threatens legal escalation if unresolved."
           },
           "Z-hub": {
+            "positive": [
+              "Two new investor-minded reviews (Jul 23) praise Z-Hub's mixed-use footfall — one owner of other retail spaces calls out the non-seasonal demand from residents, office workers and visitors together as the key fundamental behind adding a unit to their portfolio, while a first-time retail investor cites steady foot traffic even on a Tuesday morning and rent \"coming in every month like clockwork\" after putting in retirement savings."
+            ],
             "negative": [
-              "The month's only GMB activity is a bare 1-star rating with no accompanying review text — no qualitative complaint is actually on record this month."
+              "The month's only critical entry remains a bare 1-star rating with no accompanying review text — no specific complaint is actually on record."
             ],
             "topKeywords": {
+              "positive": [
+                "mixed-use footfall (residents/workers/visitors)",
+                "non-seasonal demand fundamental",
+                "steady monthly rental income"
+              ],
               "negative": [
                 "bare 1-star rating, no text"
               ]
             },
-            "verdict": "Negative",
-            "keyTakeaway": "Only GMB activity this month is a bare 1-star rating with no review text — no specific complaint is actually on record."
+            "verdict": "Mixed",
+            "keyTakeaway": "Two new Jul 23 investor reviews praise Z-Hub's non-seasonal, mixed-use foot traffic and clockwork rental income; the month's one critical rating still carries no explanatory text."
           }
         }
       },
