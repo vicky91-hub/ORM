@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T06:15:42+05:30",
+  "generated_at": "2026-07-24T06:16:36+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -1314,8 +1314,8 @@
         "projects": {
           "Folium": {
             "positive": [
-              "July engagement doubles down on RWA and build-quality due-diligence signals for Folium: residents report the RWA already formally handed over, an active notice board, a clean parking basement, and a minor power-trip issue from months back that was resolved quickly; a Phase 2 possession-taker (posted 7 Jul) separately confirms handover roughly on the committed date, e-Khata further along than Phase 1, and two minor PDI snags (a scratched window pane, a bathroom fitting) fixed within a week before keys were handed over.",
-              "Yield and due-diligence threads keep landing on a realistic ~2.8-2.9% net rental yield, a full-cost comparison where Folium beats a higher-profile competitor on per-carpet-sqft value and livability (water source, lift ratio, open space), and a BWSSB water connection plus borewell backup versus a nearby project still ~80% tanker-dependent.",
+              "July engagement doubles down on RWA and build-quality due-diligence signals for Folium: residents report the RWA already formally handed over, an active notice board, a clean parking basement, and a minor power-trip issue from months back that was resolved quickly; a Phase 2 possession-taker (posted 7 Jul) separately confirms handover roughly on the committed date, e-Khata further along than Phase 1, and two minor PDI snags (a scratched window pane, a bathroom fitting) fixed within a week before keys were handed over. A separate commenter describes the resident WhatsApp/Facebook group as \"a mix — some happy with delivery, a couple with pending minor issues,\" a more tempered read than the headline handover story.",
+              "Yield and due-diligence threads keep landing on a realistic ~2.8-2.9% net rental yield, a full-cost comparison where Folium beats a higher-profile competitor on per-carpet-sqft value and livability (water source, lift ratio, open space), and a BWSSB water connection plus borewell backup versus a nearby project still ~80% tanker-dependent. Concrete numbers back the yield case: a furnished-unit breakeven around month 28 on a 15-18 lakh fit-out, a real vacancy example of about seven weeks between tenants, and maintenance running roughly ₹4-5k/month.",
               "The open cancellation-refund thread drew organic counter-testimonials describing smooth, if not instant, refunds for Folium bookings cancelled over a relocation and a loan-decline case."
             ],
             "negative": [
@@ -1342,16 +1342,22 @@
               "A self-identified Edition owner confirms the EOI-phase price (~₹13,500/sqft) was worth it, and another shortlist-stage buyer credits the payment structure — 20% upfront then a genuine EMI holiday, not a discount — as a real cash-flow advantage.",
               "Builder due-diligence threads rate Edition's sample-flat finish as tight (tile hollow-sound test came out noticeably better than another project checked the same week) and place it in a reasonable ₹13-17k/sqft band for the corridor, with rental demand depth comparable to Folium's."
             ],
+            "negative": [
+              "One buyer using a written 5-criteria evaluation checklist says it \"stopped me from getting swayed by a beautiful sample flat\" after Edition's sample flat scored poorly on two of the five criteria — a rare buyer-side caution amid an otherwise strongly positive thread."
+            ],
             "topKeywords": {
               "positive": [
                 "EOI price ~₹13,500/sqft worth it",
                 "genuine EMI holiday, not a discount",
                 "tight sample-flat finish",
                 "₹13-17k/sqft in line with corridor"
+              ],
+              "negative": [
+                "sample flat scored poorly on 2/5 checklist criteria"
               ]
             },
-            "verdict": "Strong Positive",
-            "keyTakeaway": "An owner confirms EOI pricing (~₹13,500/sqft) was worth it, and buyers credit the EMI-holiday payment plan and tight sample-flat finish."
+            "verdict": "Positive",
+            "keyTakeaway": "An owner confirms EOI pricing (~₹13,500/sqft) was worth it and buyers credit the EMI-holiday plan and tight finish, though one buyer's checklist flagged the sample flat on two criteria."
           },
           "Capitol Residences": {
             "positive": [
@@ -1382,22 +1388,28 @@
           },
           "Panorama": {
             "positive": [
-              "A later Phase 2/Devanahalli site-visit thread reports genuine groundwork underway — roads being laid, boundary marking across most of the plotted area — rather than only renders, and credits an established developer's plotted launch with cleaner RERA/DC-conversion paperwork than a smaller local layout."
+              "A later Phase 2/Devanahalli site-visit thread reports genuine groundwork underway — roads being laid, boundary marking across most of the plotted area — rather than only renders, and credits an established developer's plotted launch with cleaner RERA/DC-conversion paperwork than a smaller local layout; the same thread names Orchid Nirvana and Brigade Oasis as the direct competing plotted launches buyers are actually weighing it against."
             ],
             "negative": [
-              "One commenter cautions against judging the site only from a sales-arranged visit — some internal access-road stretches near the layout are still under development."
+              "One commenter cautions against judging the site only from a sales-arranged visit — some internal access-road stretches near the layout are still under development.",
+              "Due-diligence threads add sharper cautions: Phase 2 plots run 1,200-2,400 sqft at prices already above Phase 1's launch numbers, resale activity on Phase 1 has stayed thin this early in the project's life, and buyers are advised to verify DC-conversion status specifically for Phase 2 rather than assume it carries over from Phase 1, and confirm whether clubhouse/amenities are funded or still only on paper — with one reviewer suggesting buyers wait a few months post-launch to see how Phase 1 owners' experience develops first."
             ],
             "topKeywords": {
               "positive": [
                 "visible groundwork: roads + boundary marking",
-                "cleaner RERA/DC-conversion paperwork"
+                "cleaner RERA/DC-conversion paperwork",
+                "named vs. Orchid Nirvana/Brigade Oasis"
               ],
               "negative": [
-                "internal access roads still under development"
+                "internal access roads still under development",
+                "pricing above Phase 1 launch levels",
+                "thin Phase 1 resale activity",
+                "DC-conversion status needs Phase-2-specific check",
+                "wait-and-watch on Phase 1 owner experience"
               ]
             },
             "verdict": "Mixed",
-            "keyTakeaway": "Site-visit thread confirms real groundwork and clean paperwork, but internal access roads near the layout are still under development."
+            "keyTakeaway": "Site visits confirm real groundwork and cleaner paperwork than rivals, but new threads flag above-Phase-1 pricing, thin resale, and urge verifying Phase 2's DC-conversion status separately."
           },
           "Elysium": {
             "positive": [
@@ -1450,14 +1462,20 @@
             "positive": [
               "A site-visit answer to a Phase 2/Devanahalli question describes visible groundwork — roads being laid, boundary marking across most of the plotted area — rather than only renders, and a separate answer credits an established developer's plotted launch with cleaner RERA/DC-conversion paperwork and clearer title than a smaller local layout."
             ],
+            "negative": [
+              "The same site-visit answer adds a caution: wait a few months post-launch to see how Phase 1 owners' actual experience develops before assuming Phase 2 will execute the same way."
+            ],
             "topKeywords": {
               "positive": [
                 "visible groundwork on site visit",
                 "cleaner RERA/DC-conversion paperwork"
+              ],
+              "negative": [
+                "wait-and-watch on Phase 1 owner experience"
               ]
             },
-            "verdict": "Positive",
-            "keyTakeaway": "Site-visit answer confirms real groundwork underway and credits the launch with cleaner RERA/DC-conversion paperwork than smaller local layouts."
+            "verdict": "Mixed",
+            "keyTakeaway": "Site-visit answer confirms real groundwork and cleaner paperwork than rivals, but adds a caution to watch Phase 1 owners' experience before judging Phase 2."
           },
           "Capitol Residences": {
             "positive": [
