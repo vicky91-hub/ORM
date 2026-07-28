@@ -487,8 +487,8 @@
 
     <div class="grid-2" data-platform="social" style="margin-bottom:20px;">
       <div class="card">
-        <h3>Social (IG/FB/LinkedIn)</h3>
-        <p class="card-sub" id="socialPieSub">Social sentiment across Instagram, Facebook and LinkedIn in the current window.</p>
+        <h3 id="socialPieHeading">Social — Instagram</h3>
+        <p class="card-sub" id="socialPieSub">Instagram sentiment in the current window.</p>
         <div class="pie-chart-shell"><canvas id="pieSocial"></canvas></div>
         <div class="pie-window-bar" data-pie-platform="social"></div>
       </div>
@@ -503,6 +503,7 @@
           <thead><tr><th>Project</th><th>Sentiment</th><th>Key Takeaway</th></tr></thead>
           <tbody id="socialThemeBody"></tbody>
         </table>
+        <div id="socialPlatformNotes" style="margin-top:14px;"></div>
       </div>
     </div>
 
@@ -511,14 +512,6 @@
       <p class="card-sub">Week-on-week comment volume across Instagram, Facebook and LinkedIn — pick a sentiment to focus the chart</p>
       <div class="filter-bar" id="socialTrendFilter"></div>
       <div style="max-width:50%;margin:0 auto;"><canvas id="chartSocialTrend" height="230"></canvas></div>
-    </div>
-
-    <div class="card" style="margin-top:20px;" data-platform="social">
-      <h3>Sentiment by Platform</h3>
-      <p class="card-sub" id="platformPieSub">Breakdown by platform for the same window, with platform-level notes below for data quality context.</p>
-      <div class="pie-window-bar" data-pie-platform="socialMini"></div>
-      <div class="grid-3" id="platformPieGrid" style="margin-top:16px;"></div>
-      <p class="card-sub" style="margin-top:12px;" id="platformPieFootnote">The platform-level split is directional and should be read alongside the message-level notes above for data-quality context.</p>
     </div>
   </section>
 
@@ -1689,13 +1682,8 @@ function applyDateRange(){
 const PIE_WINDOW_PLATFORMS = ['overall','reddit','gmb','quora','social'];
 const PIE_CANVAS_ID = {overall:'pieOverall', reddit:'pieReddit', gmb:'pieGMB', quora:'pieQuora', social:'pieSocial'};
 const PIE_CACHE_KEY = {overall:'Overall', reddit:'Reddit', gmb:'GMB', quora:'Quora', social:'Social'};
-const MINI_PIE_PLATFORMS = ['Instagram','Facebook','LinkedIn']; // Sentiment-by-Platform mini pies (Social tab)
 let pieWindowState = {}; // platform -> {type:'month'|'weekly', key, range}
-// The 3 mini-pies (Instagram/Facebook/LinkedIn) share ONE window control ("socialMini")
-// rather than one each — they're small side-by-side comparisons of the same window, so an
-// independent picker per pie was more confusing than useful (each could end up showing a
-// different week at a glance). The 5 main pies keep their own independent pickers.
-[...PIE_WINDOW_PLATFORMS, 'socialMini'].forEach(p=> pieWindowState[p] = {type:'global', key:null, range:'This Month'});
+PIE_WINDOW_PLATFORMS.forEach(p=> pieWindowState[p] = {type:'global', key:null, range:'This Month'});
 
 // Every Monday-Sunday week from WEEK1_START through the last one that has fully elapsed —
 // same boundary the precompute script uses, so "This Month" + these weeks never overlap in
@@ -1765,6 +1753,22 @@ function liveSocialCounts(start,end){
   return allSocialRows.filter(r=>r.platform && r.platform!=='GMB' && r.date && isDateInRange(r.date,start,end))
     .reduce((acc,r)=>{ if(acc[r.sentiment]!==undefined) acc[r.sentiment]++; return acc; }, {positive:0,negative:0,neutral:0});
 }
+function activeSocialPlatform(){
+  return document.querySelector('#socialThemePlatformToggle .filter-btn.active')?.dataset.platformSel || 'Instagram';
+}
+// Single-platform (Instagram/Facebook/LinkedIn) or combined ('Social') counts for a window —
+// shared by the Social tab's main pie (follows the Instagram/Facebook/LinkedIn toggle, see
+// activeSocialPlatform()) and the Sentiment-by-Platform mini pies, so both use the exact
+// same lookup instead of two parallel implementations that could drift out of sync.
+function platformCountsForWindow(name, sel){
+  const {type, key} = resolveWindowSel(sel);
+  const frozen = (type && key) ? (themeCache?.sentimentCounts?.[type]?.[key]?.[name] || null) : null;
+  if(frozen) return frozen;
+  const {start,end} = pieWindowBounds(sel);
+  if(name === 'Social') return liveSocialCounts(start,end);
+  return allSocialRows.filter(r=>r.platform===name && r.date && isDateInRange(r.date,start,end))
+    .reduce((acc,r)=>{ if(acc[r.sentiment]!==undefined) acc[r.sentiment]++; return acc; }, {positive:0,negative:0,neutral:0});
+}
 function computeCountsForWindow(platform, sel){
   const frozen = frozenCountsFor(platform, sel);
   if(frozen) return frozen;
@@ -1772,9 +1776,15 @@ function computeCountsForWindow(platform, sel){
   if(platform==='quora') return quoraSentiment; // sheet has no populated date column — always the full-period total
   if(platform==='reddit') return liveRedditCounts(start,end);
   if(platform==='gmb') return liveGmbCounts(start,end);
-  if(platform==='social') return liveSocialCounts(start,end);
-  // overall = reddit + gmb + social (matches overallSentiment's existing convention — Quora excluded)
-  const r = computeCountsForWindow('reddit', sel), g = computeCountsForWindow('gmb', sel), s = computeCountsForWindow('social', sel);
+  // The Social tab's pie follows whichever platform is selected in the Executive Snapshot
+  // toggle right next to it (Instagram/Facebook/LinkedIn) — previously this always showed
+  // the 3-platform combined total regardless of the toggle, which looked like a data bug
+  // when compared against the single-platform mini-pies further down the page.
+  if(platform==='social') return platformCountsForWindow(activeSocialPlatform(), sel);
+  // overall = reddit + gmb + (combined) social (matches overallSentiment's existing
+  // convention — Quora excluded). Uses the true combined total regardless of whichever
+  // single platform the Social tab's own toggle happens to be showing.
+  const r = computeCountsForWindow('reddit', sel), g = computeCountsForWindow('gmb', sel), s = platformCountsForWindow('Social', sel);
   return {positive:r.positive+g.positive+s.positive, negative:r.negative+g.negative+s.negative, neutral:r.neutral+g.neutral+s.neutral};
 }
 function computeThemeRowsForWindow(platform, sel){
@@ -1794,7 +1804,7 @@ function computeThemeRowsForWindow(platform, sel){
     return bucket?.GMB?.projects ? cacheToThemeRows(bucket.GMB.projects) : buildGmbThemeRowsFromDaily(rows);
   }
   if(platform==='social'){
-    const activePlat = document.querySelector('#socialThemePlatformToggle .filter-btn.active')?.dataset.platformSel || 'Instagram';
+    const activePlat = activeSocialPlatform();
     return bucket?.[activePlat]?.projects ? cacheToThemeRows(bucket[activePlat].projects) : (socialThemeData[activePlat] || []);
   }
   // overall
@@ -1804,20 +1814,24 @@ function computeThemeRowsForWindow(platform, sel){
   ]);
 }
 const PIE_TBODY_ID = {overall:'overallThemeBody', reddit:'redditThemeBody', gmb:'gmbThemeBody', quora:'quoraThemeBody', social:'socialThemeBody'};
+function updateSocialPieHeading(){
+  const activePlat = activeSocialPlatform();
+  const heading = document.getElementById('socialPieHeading');
+  const sub = document.getElementById('socialPieSub');
+  if(heading) heading.textContent = `Social — ${activePlat}`;
+  if(sub) sub.textContent = `${activePlat} sentiment in the current window.`;
+}
 function renderPieWindow(platform){
   const sel = pieWindowState[platform];
+  if(platform==='social'){ updateSocialPieHeading(); renderSocialPlatformNotes(); }
   const counts = computeCountsForWindow(platform, sel);
   pie(PIE_CANVAS_ID[platform], counts);
   const rows = computeThemeRowsForWindow(platform, sel);
   renderExecTable(PIE_TBODY_ID[platform], platform==='overall' ? rows.slice(0,6) : rows);
 }
-function renderAllMiniPieWindows(){
-  MINI_PIE_PLATFORMS.forEach(renderMiniPieWindow);
-}
 function renderAllPieWindows(){
   refreshAllPieWindowBars(); // keep "This Month" pill labels in sync with the header before rendering
   PIE_WINDOW_PLATFORMS.forEach(renderPieWindow);
-  renderAllMiniPieWindows();
 }
 function updatePieWindowCaption(platform){
   const caption = document.querySelector(`.pie-window-caption[data-pie-platform-caption="${platform}"]`);
@@ -1874,13 +1888,11 @@ function buildPieWindowBar(platform, renderFn){
 }
 function buildAllPieWindowBars(){
   PIE_WINDOW_PLATFORMS.forEach(p=>buildPieWindowBar(p));
-  buildPieWindowBar('socialMini', renderAllMiniPieWindows); // one shared control for all 3 mini-pies
 }
 // Keeps every "This Month" pill's label in sync with the header — called on every
 // renderDashboard() pass (including header range changes), not just at first build.
 function refreshAllPieWindowBars(){
   PIE_WINDOW_PLATFORMS.forEach(refreshPieWindowBar);
-  refreshPieWindowBar('socialMini');
 }
 
 // ---------- Range model: Latest Week / Last Week / Month(Jun 2026 →) ----------
@@ -2106,31 +2118,20 @@ const platformPointers = {
     ]
   }
 };
-function renderPlatformPointersOnce(){
-  if(document.getElementById('platformPointersBlock')) return;
-  const platformPointersEl = document.createElement('div');
-  platformPointersEl.id = 'platformPointersBlock';
-  platformPointersEl.className = 'grid-3';
-  platformPointersEl.style.marginTop = '16px';
-  Object.keys(platformPointers).forEach(name=>{
-    platformPointersEl.innerHTML += `
-      <div class="card" style="box-shadow:none;">
-        <h3 style="font-size:13px;">${name}</h3>
-        <div id="platformNotes_${name}"></div>
-      </div>`;
-  });
-  document.getElementById('platformPieGrid').after(platformPointersEl);
-}
-// Renders whichever window (This Month / a specific week) is currently selected for this
-// platform's mini-pie. Notes are curated narrative (same "requires reading real message
-// text" category as the per-project Executive Snapshot themes) — theme_cache.json's
-// platformNotes only has genuine content seeded for the current month today; any other
-// window shows an honest "not curated yet" message rather than silently repeating this
-// month's notes under a different week's label.
-function renderMiniPieNotes(name){
-  const el = document.getElementById(`platformNotes_${name}`);
+// Renders the platform-tone notes for whichever platform is selected in the Instagram/
+// Facebook/LinkedIn toggle and whichever window (This Month / a specific week) is selected
+// for the Social pie — both live in the same card now (the old separate "Sentiment by
+// Platform" section with 3 duplicate mini-pies was removed; these notes are the only part
+// of it that wasn't already shown elsewhere). Notes are curated narrative (same "requires
+// reading real message text" category as the per-project Executive Snapshot themes) —
+// theme_cache.json's platformNotes only has genuine content seeded for the current month
+// today; any other window shows an honest "not curated yet" message rather than silently
+// repeating this month's notes under a different week's label.
+function renderSocialPlatformNotes(){
+  const el = document.getElementById('socialPlatformNotes');
   if(!el) return;
-  const sel = pieWindowState.socialMini;
+  const name = activeSocialPlatform();
+  const sel = pieWindowState.social;
   const {type, key} = resolveWindowSel(sel);
   const cached = themeCache?.platformNotes?.[type]?.[key]?.[name];
   const data = cached || (sel.type==='global' && type==='monthly' && key===REPORT_MONTH ? platformPointers[name] : null);
@@ -2141,32 +2142,6 @@ function renderMiniPieNotes(name){
   const flagHtml = data.flag ? `<p style="font-size:12px;color:var(--gold-deep);font-weight:bold;background:rgba(184,146,58,0.08);border:1px solid rgba(184,146,58,0.25);border-radius:6px;padding:8px 10px;margin:0 0 10px;">⚠ ${escapeHtml(data.flag)}</p>` : '';
   const items = data.points.map(p=>`<li style="margin-bottom:6px;">${p}</li>`).join('');
   el.innerHTML = `${flagHtml}<ul style="margin:0; padding-left:18px; font-size:12.5px; color:var(--atlas); line-height:1.6;">${items}</ul>`;
-}
-function renderMiniPieWindow(name){
-  const sel = pieWindowState.socialMini;
-  const {type, key} = resolveWindowSel(sel);
-  const frozen = (type && key) ? themeCache?.sentimentCounts?.[type]?.[key]?.[name] : null;
-  let counts = frozen;
-  if(!counts){
-    const {start,end} = pieWindowBounds(sel);
-    counts = allSocialRows.filter(r=>r.platform===name && r.date && isDateInRange(r.date,start,end))
-      .reduce((acc,r)=>{ if(acc[r.sentiment]!==undefined) acc[r.sentiment]++; return acc; }, {positive:0,negative:0,neutral:0});
-  }
-  pie(`piePlat_${name}`, counts);
-  renderMiniPieNotes(name);
-}
-
-function renderPlatformPieCardsOnce(){
-  const platGrid = document.getElementById('platformPieGrid');
-  if(platGrid.dataset.built) return;
-  platGrid.dataset.built = '1';
-  ['Instagram','Facebook','LinkedIn'].forEach(name=>{
-    platGrid.innerHTML += `
-    <div style="text-align:center;">
-      <div style="font-size:12px;font-weight:bold;color:var(--constellation);margin-bottom:6px;">${name}</div>
-      <div class="pie-chart-shell"><canvas id="piePlat_${name}"></canvas></div>
-    </div>`;
-  });
 }
 
 function renderHistoryButtonsOnce(){
@@ -2390,14 +2365,9 @@ function populateStaticCardCopy(){
   const gmbPieSub = document.getElementById('gmbPieSub');
   if(gmbPieSub) gmbPieSub.textContent = 'Current + prior-month GMB review sentiment across the locked project list.';
 
-  const socialPieSub = document.getElementById('socialPieSub');
-  if(socialPieSub) socialPieSub.textContent = 'Social sentiment across Instagram, Facebook and LinkedIn in the current window.';
-
-  const platformPieSub = document.getElementById('platformPieSub');
-  if(platformPieSub) platformPieSub.textContent = 'Breakdown by platform for the same window, with platform-level notes below for data quality context.';
-
-  const platformPieFootnote = document.getElementById('platformPieFootnote');
-  if(platformPieFootnote) platformPieFootnote.textContent = 'The platform-level split is directional and should be read alongside the message-level notes above for data-quality context.';
+  // socialPieSub/socialPieHeading are now dynamic — set by updateSocialPieHeading(),
+  // called from renderPieWindow('social') — since this pie follows whichever platform is
+  // selected in the Instagram/Facebook/LinkedIn toggle next to it, not a fixed combined view.
 
   const quoraPieSub = document.getElementById('quoraPieSub');
   if(quoraPieSub) quoraPieSub.textContent = 'Quora sentiment on published answers within the current tracking window.';
@@ -2460,8 +2430,6 @@ function renderDashboard(){
       socialTrendFilterBar.appendChild(btn);
     });
 
-    renderPlatformPointersOnce();
-    renderPlatformPieCardsOnce();
     renderHistoryButtonsOnce();
     buildAllPieWindowBars();
     dashboardBuilt = true;
