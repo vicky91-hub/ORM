@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T06:20:05+05:30",
+  "generated_at": "2026-07-28T23:16:36.777020+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -1471,6 +1471,384 @@
             "verdict": "Positive",
             "keyTakeaway": "Cited for visibly active weekend occupancy — a busy play area and courts in use — as proof of a genuinely lived-in community."
           }
+        }
+      }
+    }
+  },
+  "sentimentCounts": {
+    "weekly": {
+      "2026-06-22": {
+        "GMB": {
+          "positive": 7,
+          "negative": 1,
+          "neutral": 0
+        },
+        "Reddit": {
+          "positive": 12,
+          "negative": 3,
+          "neutral": 8
+        },
+        "Quora": {
+          "positive": 34.0,
+          "negative": 0.0,
+          "neutral": 9.0
+        },
+        "Social": {
+          "positive": 124,
+          "negative": 6,
+          "neutral": 106
+        },
+        "Overall": {
+          "positive": 143,
+          "negative": 10,
+          "neutral": 114
+        },
+        "Instagram": {
+          "positive": 74,
+          "negative": 2,
+          "neutral": 48
+        },
+        "Facebook": {
+          "positive": 24,
+          "negative": 1,
+          "neutral": 42
+        },
+        "LinkedIn": {
+          "positive": 26,
+          "negative": 3,
+          "neutral": 16
+        }
+      },
+      "2026-06-29": {
+        "GMB": {
+          "positive": 4,
+          "negative": 1,
+          "neutral": 1
+        },
+        "Reddit": {
+          "positive": 12,
+          "negative": 4,
+          "neutral": 18
+        },
+        "Quora": {
+          "positive": 34.0,
+          "negative": 0.0,
+          "neutral": 9.0
+        },
+        "Social": {
+          "positive": 12,
+          "negative": 4,
+          "neutral": 48
+        },
+        "Overall": {
+          "positive": 28,
+          "negative": 9,
+          "neutral": 67
+        },
+        "Instagram": {
+          "positive": 6,
+          "negative": 1,
+          "neutral": 18
+        },
+        "Facebook": {
+          "positive": 4,
+          "negative": 3,
+          "neutral": 18
+        },
+        "LinkedIn": {
+          "positive": 2,
+          "negative": 0,
+          "neutral": 12
+        }
+      },
+      "2026-07-06": {
+        "GMB": {
+          "positive": 1,
+          "negative": 0,
+          "neutral": 0
+        },
+        "Reddit": {
+          "positive": 14,
+          "negative": 5,
+          "neutral": 13
+        },
+        "Quora": {
+          "positive": 34.0,
+          "negative": 0.0,
+          "neutral": 9.0
+        },
+        "Social": {
+          "positive": 19,
+          "negative": 0,
+          "neutral": 21
+        },
+        "Overall": {
+          "positive": 34,
+          "negative": 5,
+          "neutral": 34
+        },
+        "Instagram": {
+          "positive": 6,
+          "negative": 0,
+          "neutral": 7
+        },
+        "Facebook": {
+          "positive": 3,
+          "negative": 0,
+          "neutral": 11
+        },
+        "LinkedIn": {
+          "positive": 10,
+          "negative": 0,
+          "neutral": 3
+        }
+      },
+      "2026-07-13": {
+        "GMB": {
+          "positive": 11,
+          "negative": 6,
+          "neutral": 0
+        },
+        "Reddit": {
+          "positive": 4,
+          "negative": 5,
+          "neutral": 8
+        },
+        "Quora": {
+          "positive": 34.0,
+          "negative": 0.0,
+          "neutral": 9.0
+        },
+        "Social": {
+          "positive": 46,
+          "negative": 4,
+          "neutral": 75
+        },
+        "Overall": {
+          "positive": 61,
+          "negative": 15,
+          "neutral": 83
+        },
+        "Instagram": {
+          "positive": 24,
+          "negative": 4,
+          "neutral": 32
+        },
+        "Facebook": {
+          "positive": 5,
+          "negative": 0,
+          "neutral": 22
+        },
+        "LinkedIn": {
+          "positive": 17,
+          "negative": 0,
+          "neutral": 21
+        }
+      },
+      "2026-07-20": {
+        "GMB": {
+          "positive": 29,
+          "negative": 6,
+          "neutral": 0
+        },
+        "Reddit": {
+          "positive": 18,
+          "negative": 3,
+          "neutral": 10
+        },
+        "Quora": {
+          "positive": 34.0,
+          "negative": 0.0,
+          "neutral": 9.0
+        },
+        "Social": {
+          "positive": 38,
+          "negative": 9,
+          "neutral": 89
+        },
+        "Overall": {
+          "positive": 85,
+          "negative": 18,
+          "neutral": 99
+        },
+        "Instagram": {
+          "positive": 22,
+          "negative": 4,
+          "neutral": 42
+        },
+        "Facebook": {
+          "positive": 2,
+          "negative": 5,
+          "neutral": 22
+        },
+        "LinkedIn": {
+          "positive": 14,
+          "negative": 0,
+          "neutral": 25
+        }
+      }
+    },
+    "monthly": {
+      "2026-06": {
+        "GMB": {
+          "positive": 66,
+          "negative": 17,
+          "neutral": 2
+        },
+        "Reddit": {
+          "positive": 12,
+          "negative": 3,
+          "neutral": 8
+        },
+        "Quora": {
+          "positive": 34.0,
+          "negative": 0.0,
+          "neutral": 9.0
+        },
+        "Social": {
+          "positive": 244,
+          "negative": 15,
+          "neutral": 272
+        },
+        "Overall": {
+          "positive": 322,
+          "negative": 35,
+          "neutral": 282
+        },
+        "Instagram": {
+          "positive": 121,
+          "negative": 6,
+          "neutral": 117
+        },
+        "Facebook": {
+          "positive": 59,
+          "negative": 5,
+          "neutral": 82
+        },
+        "LinkedIn": {
+          "positive": 64,
+          "negative": 4,
+          "neutral": 73
+        }
+      }
+    }
+  },
+  "platformNotes": {
+    "weekly": {
+      "2026-06-22": {
+        "Instagram": {
+          "flag": null,
+          "points": [
+            "Only 2 negative comments all week, but both are substantive: a buyer disputing a builder clause that blocks putting the AC compressor outside (beam-cutting/copper-piping workaround), and a separate commenter making the case for walk-through-able unfinished units before purchase.",
+            "Positive volume (74) is almost entirely driven by reactions to the \"Real View\" showflat/finished-home-experience campaign — genuine goodwill, but shallow (emojis, one-word praise) rather than detailed feedback.",
+            "A large share of the neutral bucket (48) is low-content noise — single characters, garbled/non-Latin script fragments, a stray phone number — not real sentiment signal."
+          ]
+        },
+        "Facebook": {
+          "flag": null,
+          "points": [
+            "The week's one negative comment is an unrelated spam/promotional message, not a genuine brand complaint.",
+            "Positive comments (24) are brief greetings and reactions (\"Good morning\", \"Very nice\") with no substantive feedback.",
+            "Neutral (42) is dominated by loan-solicitation spam and religious/chain messages unrelated to Sumadhura — the same low-signal pattern flagged for This Month."
+          ]
+        },
+        "LinkedIn": {
+          "flag": "Negative-tagged items this week were mostly unrelated commentary (a harsh resume critique, general AI/supply-chain industry posts), not criticism of Sumadhura specifically.",
+          "points": [
+            "Positive engagement (26) centered on a new-hire announcement (Manager, Asset Acquisitions & Business Development) and a genuine compliment on amenities management quality.",
+            "Neutral volume includes a jobseeker's direct outreach and general real-estate industry commentary, not Sumadhura-specific sentiment."
+          ]
+        }
+      },
+      "2026-06-29": {
+        "Instagram": {
+          "flag": null,
+          "points": [
+            "The one negative comment this week is a direct fraud accusation (\"don't purchase premium\") — low volume, but worth a closer look given the severity of the claim.",
+            "Positive comments were driven by a Capitol Towers \"zero-mile commute\" promotional post, which drew genuine enthusiastic replies rather than generic reactions.",
+            "Neutral bucket is mostly low-content emoji/noise, with one organic brand-comparison comment naming only larger competitors (Raheja, Rustomjee, Lodha, Kalpataru) as reference points."
+          ]
+        },
+        "Facebook": {
+          "flag": null,
+          "points": [
+            "3 negative comments, the most substantive of which is a real unresolved-email service complaint (\"expecting someone to take a look and reply\") — a genuine response-time miss worth following up on.",
+            "The other two negatives are a roads/infrastructure complaint and an abusive/profane comment aimed at the brand (paraphrased here, not reproduced).",
+            "Neutral (18) is dominated by loan-solicitation spam and repeated religious chain messages, not brand commentary."
+          ]
+        },
+        "LinkedIn": {
+          "flag": null,
+          "points": [
+            "No negative comments this week.",
+            "Positive and neutral activity is generic congratulations plus one on-brand post referencing the pre-construction walkthrough concept — low volume, nothing notable either way."
+          ]
+        }
+      },
+      "2026-07-06": {
+        "Instagram": {
+          "flag": null,
+          "points": [
+            "Quietest week in the tracked period (13 total comments) — a genuine lull, not a data gap.",
+            "No negative comments. Neutral includes one real infrastructure ask (\"Get a road sanctioned first\") and a genuine 2BHK rental-pricing query worth routing to sales."
+          ]
+        },
+        "Facebook": {
+          "flag": null,
+          "points": [
+            "Also a quiet week (14 total, 0 negative) — mostly short low-content replies (\"Hii\") with no substantive brand commentary either way."
+          ]
+        },
+        "LinkedIn": {
+          "flag": "Most of this week's LinkedIn activity is congratulatory networking noise on a named individual's new venture, not Sumadhura brand sentiment — consistent with the data-quality caveat already flagged for This Month.",
+          "points": [
+            "No negative comments. 10 of 13 total comments are congratulations on one person's new venture announcement, plus one unsolicited job application."
+          ]
+        }
+      },
+      "2026-07-13": {
+        "Instagram": {
+          "flag": null,
+          "points": [
+            "4 negative comments: a real fraud/scam accusation tied to a rental-deposit dispute (\"Complete fraud\"), and an unrelated Housing.com subscription-lead complaint that isn't actually about Sumadhura (likely mis-tagged).",
+            "Positive volume (24) was lifted by the Sumadhura Panorama Phase 2 villa-plot launch promotional post, alongside the usual short reactions.",
+            "Neutral (32) mixes genuine buyer questions (high-rise status, a cemetery-view complaint framed neutrally) with promotional spam from unrelated brokers and a competitor project ad (Godrej Regent Park) — worth excluding the latter from any brand-sentiment read."
+          ]
+        },
+        "Facebook": {
+          "flag": null,
+          "points": [
+            "No negative comments this week. Volume is low-content: location/pricing queries and a handful of genuine short compliments."
+          ]
+        },
+        "LinkedIn": {
+          "flag": "This week's LinkedIn volume is dominated by CII Real Estate Learning Mission event coverage and general job-seeking/recruiter exchanges — employer-branding and industry-networking content, not Sumadhura customer sentiment.",
+          "points": [
+            "No negative comments. Positive/neutral activity centers on the CII Real Estate Learning Mission (Bengaluru site visits, PR coverage) and unrelated hiring conversations."
+          ]
+        }
+      },
+      "2026-07-20": {
+        "Instagram": {
+          "flag": null,
+          "points": [
+            "4 negative comments: a real affordability complaint about a 2BHK's pricing (harsh phrasing, paraphrased here rather than quoted), and a comment criticizing the use of AI-generated imagery in ads — a genuine creative/brand-perception concern worth noting to the content team.",
+            "Positive engagement (22) was driven by CII Real Estate Learning Mission coverage and a Capitol Towers shout-out, plus the usual short reactions to an Onam festival post."
+          ]
+        },
+        "Facebook": {
+          "flag": "Highest-negative-volume week in the tracked period for Facebook (5 of 29) — the pattern is substantive, not noise.",
+          "points": [
+            "Real, repeated complaint (in both Hindi and English) that the 3BHK \"Smart\" unit at ~₹2.70–3.33Cr has no dedicated dining-table space — the same complaint appears twice independently, which is a pattern worth raising with the design/sales team, not a one-off.",
+            "A separate real complaint about poor road conditions and long-standing connectivity concerns from Panathur-area owners (\"invested 6 years back... leaving properties\").",
+            "One abusive/profane comment aimed at the brand (paraphrased, not reproduced) alongside the above."
+          ]
+        },
+        "LinkedIn": {
+          "flag": "Dominated by internal GET/DET training-program completions and congratulations — employer-branding content, not customer sentiment.",
+          "points": [
+            "No negative comments. Volume centers on a Graduate/Diploma Engineer Trainee program wrap-up and related congratulations, plus routine event coverage."
+          ]
         }
       }
     }

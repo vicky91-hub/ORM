@@ -182,6 +182,11 @@
   .filter-btn.active{ background:var(--constellation); color:#fff; border-color:var(--constellation); }
   .filter-btn:hover:not(.active){ background:var(--cloud); }
 
+  .pie-window-bar{ display:flex; gap:6px; flex-wrap:wrap; justify-content:center; margin-top:14px; }
+  .pie-window-bar .filter-btn{ padding:5px 11px; font-size:11px; }
+  .pie-window-caption{ text-align:center; margin-top:8px; margin-bottom:0; font-weight:bold; color:var(--dusk); }
+  .pie-window-note{ text-align:center; font-style:italic; margin-top:8px; }
+
   .project-btn-bar{ display:flex; gap:6px; margin-bottom:16px; flex-wrap:wrap; }
   .project-btn{
     background:#fff; border:1px solid var(--cloud); color:var(--atlas); font-family:Arial;
@@ -385,10 +390,11 @@
     <div class="grid-2">
       <div class="card" style="max-width:420px;">
         <div class="pie-chart-shell"><canvas id="pieOverall"></canvas></div>
+        <div class="pie-window-bar" data-pie-platform="overall"></div>
       </div>
       <div class="card">
         <h3>Executive Snapshot</h3>
-        <p class="card-sub">Combined GMB + Reddit, top projects by mention volume</p>
+        <p class="card-sub" id="overallThemeSub">Combined GMB + Reddit, top projects by mention volume</p>
         <table class="theme-table exec-table">
           <thead><tr><th>Project</th><th>Sentiment</th><th>Key Takeaway</th></tr></thead>
           <tbody id="overallThemeBody"></tbody>
@@ -433,6 +439,7 @@
         <h3>Reddit — Overall</h3>
         <p class="card-sub" id="redditPieSub">Reddit sentiment split for the current tracking window, using seeded-thread replies and existing-thread engagement.</p>
         <div class="pie-chart-shell"><canvas id="pieReddit"></canvas></div>
+        <div class="pie-window-bar" data-pie-platform="reddit"></div>
       </div>
       <div class="card">
         <h3>Executive Snapshot</h3>
@@ -449,6 +456,8 @@
         <h3>Quora — Comment Sentiment</h3>
         <p class="card-sub" id="quoraPieSub">Quora sentiment on published answers within the current tracking window.</p>
         <div class="pie-chart-shell"><canvas id="pieQuora"></canvas></div>
+        <div class="pie-window-bar" data-pie-platform="quora"></div>
+        <p class="card-sub pie-window-note" id="quoraWindowNote">Quora threads aren't dated in the source sheet — every window currently shows the same full-period totals.</p>
       </div>
       <div class="card">
         <h3>Executive Snapshot</h3>
@@ -465,6 +474,7 @@
         <h3 id="gmbPieHeading">GMB — Reviews</h3>
         <p class="card-sub" id="gmbPieSub">Current + prior-month GMB review sentiment across the locked project list.</p>
         <div class="pie-chart-shell"><canvas id="pieGMB"></canvas></div>
+        <div class="pie-window-bar" data-pie-platform="gmb"></div>
       </div>
       <div class="card">
         <h3>Executive Snapshot</h3>
@@ -480,6 +490,7 @@
         <h3>Social (IG/FB/LinkedIn)</h3>
         <p class="card-sub" id="socialPieSub">Social sentiment across Instagram, Facebook and LinkedIn in the current window.</p>
         <div class="pie-chart-shell"><canvas id="pieSocial"></canvas></div>
+        <div class="pie-window-bar" data-pie-platform="social"></div>
       </div>
       <div class="card">
         <h3>Executive Snapshot</h3>
@@ -505,7 +516,8 @@
     <div class="card" style="margin-top:20px;" data-platform="social">
       <h3>Sentiment by Platform</h3>
       <p class="card-sub" id="platformPieSub">Breakdown by platform for the same window, with platform-level notes below for data quality context.</p>
-      <div class="grid-3" id="platformPieGrid"></div>
+      <div class="pie-window-bar" data-pie-platform="socialMini"></div>
+      <div class="grid-3" id="platformPieGrid" style="margin-top:16px;"></div>
       <p class="card-sub" style="margin-top:12px;" id="platformPieFootnote">The platform-level split is directional and should be read alongside the message-level notes above for data-quality context.</p>
     </div>
   </section>
@@ -734,6 +746,27 @@ async function fetchSheetObjects(sheetId, tabName, forceHeaders){
     headers.forEach((h,i)=>{ obj[h] = (r[i]||'').trim(); });
     return obj;
   });
+}
+// Same as fetchSheetObjects, but locates the header row by content instead of assuming it's
+// row 1 — some tabs (e.g. "Reddit - New Seeds") have a stray formula/count row sitting above
+// the real header in the live sheet, which would otherwise get read as the header itself and
+// silently zero out every column match below it.
+async function fetchSheetObjectsAutoHeader(sheetId, tabName, headerHint){
+  const rows = await fetchSheetRows(sheetId, tabName);
+  if(!rows.length) return [];
+  const idx = rows.findIndex(r => r.some(c => c.trim() === headerHint));
+  const headerRow = idx >= 0 ? idx : 0;
+  const headers = rows[headerRow].map(h=>h.trim());
+  return rows.slice(headerRow+1).map(r=>{
+    const obj = {};
+    headers.forEach((h,i)=>{ obj[h] = (r[i]||'').trim(); });
+    return obj;
+  });
+}
+// A row only counts as a real, published comment if the column immediately after "Comment
+// Status" ("Comment Link") holds an actual URL — unpublished/placeholder rows leave this blank.
+function hasCommentLink(row){
+  return !!sanitizeUrl(getMatchingRowValue(row, ['Comment Link'], []));
 }
 // The gviz CSV endpoint (fetchSheetRows/fetchSheetObjects above) silently respects any active
 // Google Sheets filter on the tab — a filter hides rows from every reader, not just the person
@@ -1131,7 +1164,7 @@ function buildPlatformProgressRows(){
 async function loadRedditQuora(){
   const [summaryRaw, seedRows, existingRows, quoraRows] = await Promise.all([
     fetchSheetRows(SHEET_IDS.redditQuora, 'Summary'),
-    fetchSheetObjects(SHEET_IDS.redditQuora, 'Reddit - New Seeds'),
+    fetchSheetObjectsAutoHeader(SHEET_IDS.redditQuora, 'Reddit - New Seeds', 'Title / Question'),
     fetchSheetObjects(SHEET_IDS.redditQuora, 'Reddit - Existing Threads'),
     fetchSheetObjects(SHEET_IDS.redditQuora, 'Quora - New + Existing'),
   ]);
@@ -1148,8 +1181,12 @@ async function loadRedditQuora(){
   const neutralKpi = lastN(kpiRow('Neutral comments'), 3).map(Number);
   const redditSentiment = {positive: positiveKpi[2]||0, negative: negativeKpi[2]||0, neutral: neutralKpi[2]||0};
 
-  const threadRows = seedRows.filter(r => r['Title / Question'] && r['Total Upvotes']);
-  const existingThreadRows = existingRows.filter(r=>getMatchingRowValue(r,['Thread Title','Thread Title ','Thread title'], []));
+  // A row (in either tab) only counts if it has a real, published comment — the "Comment
+  // Link" column immediately after "Comment Status" holds an actual URL. New Seeds has no
+  // per-row Total Upvotes/Comments columns at all, so the old Title+Upvotes check could
+  // never match a New Seeds row regardless of the header-detection fix above.
+  const threadRows = seedRows.filter(hasCommentLink);
+  const existingThreadRows = existingRows.filter(hasCommentLink);
   const redditPosts = buildRedditPosts([...threadRows, ...existingThreadRows]);
 
   // Previously required a non-empty "Total Comments" to count a row at all — but that column
@@ -1517,7 +1554,10 @@ function mergeThemeSources(sources){
       m.mentions += row.mentions;
       ['positive','negative'].forEach(sent=>{
         m[sent].count += row[sent].count;
-        if(row[sent].theme) m[sent].parts.push(`<b>${label}:</b> ${row[sent].theme}`);
+        // Plain text, no HTML — renderExecTable() escapeHtml()'s this field before display
+        // (correctly, since it can carry sheet-derived text), so literal <b> tags here would
+        // show up as visible "<b>Reddit:</b>" instead of rendering bold.
+        if(row[sent].theme) m[sent].parts.push(`${label}: ${row[sent].theme}`);
       });
       if(row.keyTakeaway) m.candidates.push({verdict: row.verdict, text: `${label}: ${row.keyTakeaway}`});
     });
@@ -1635,6 +1675,214 @@ function applyDateRange(){
     deltaEl.className = 'delta ' + s[key].deltaClass;
   });
 }
+
+// ---------- Per-chart sentiment window pickers (independent of the header's range picker) ----------
+// Each of the 5 sentiment pies (Overall/Reddit/GMB/Quora/Social) gets its own "This Month" /
+// weekly pill row, decoupled from the shared `selectedRange` above — clicking a pill only
+// re-renders that one pie + its own Executive Snapshot table. "This Month" always means
+// REPORT_MONTH (today's real calendar month), same as the header picker's own default.
+// Frozen counts for completed weeks/months are read from theme_cache.json's
+// `sentimentCounts` (written by scripts/refresh_sentiment_cache.py, run every Monday) so a
+// past week always shows the same numbers even if the underlying sheet is edited later. Any
+// window not yet in that cache (the current in-progress week/month) falls back to a live
+// recompute from the rows already loaded for this session.
+const PIE_WINDOW_PLATFORMS = ['overall','reddit','gmb','quora','social'];
+const PIE_CANVAS_ID = {overall:'pieOverall', reddit:'pieReddit', gmb:'pieGMB', quora:'pieQuora', social:'pieSocial'};
+const PIE_CACHE_KEY = {overall:'Overall', reddit:'Reddit', gmb:'GMB', quora:'Quora', social:'Social'};
+const MINI_PIE_PLATFORMS = ['Instagram','Facebook','LinkedIn']; // Sentiment-by-Platform mini pies (Social tab)
+let pieWindowState = {}; // platform -> {type:'month'|'weekly', key, range}
+// The 3 mini-pies (Instagram/Facebook/LinkedIn) share ONE window control ("socialMini")
+// rather than one each — they're small side-by-side comparisons of the same window, so an
+// independent picker per pie was more confusing than useful (each could end up showing a
+// different week at a glance). The 5 main pies keep their own independent pickers.
+[...PIE_WINDOW_PLATFORMS, 'socialMini'].forEach(p=> pieWindowState[p] = {type:'global', key:null, range:'This Month'});
+
+// Every Monday-Sunday week from WEEK1_START through the last one that has fully elapsed —
+// same boundary the precompute script uses, so "This Month" + these weeks never overlap in
+// a way that shows the same day twice under two different labels.
+let trackedWeeksCache = null;
+function getTrackedWeeks(){
+  if(trackedWeeksCache) return trackedWeeksCache;
+  const weeks = [];
+  let monday = new Date(WEEK1_START);
+  const today = new Date();
+  let n = 0;
+  while(true){
+    const sunday = new Date(monday); sunday.setDate(monday.getDate()+6);
+    if(sunday >= today) break;
+    n++;
+    // `type:'weekly'` is required here — pieWindowBounds()/frozenCountsFor() branch on it,
+    // and a week object missing it silently falls through to the month branch instead
+    // (monthBounds() then just reads the "YYYY-MM" prefix off the week's own date key,
+    // so every week in the same calendar month collapses to that whole month's data).
+    weeks.push({type:'weekly', index:n, key: isoDate(monday), start: new Date(monday), end: new Date(sunday), label: `${fmtShort(monday)}–${fmtShort(sunday)}`});
+    monday.setDate(monday.getDate()+7);
+  }
+  trackedWeeksCache = weeks.slice().reverse(); // most recent first — index still counts up from tracking start, so the most recent week always carries the highest number (W5, W4, W3…)
+  return trackedWeeksCache;
+}
+// "This Month" is a sentinel ({type:'global'}), not a hardcoded month — it always means
+// "whatever window the header's own range picker is currently set to" (a specific month,
+// or All Time), so switching the header actually moves every chart still on "This Month".
+// A chart only stops following the header once a specific week pill is clicked for it.
+function resolveWindowSel(sel){
+  if(sel.type === 'global') return {type: activeRangeMode.type, key: activeRangeMode.key};
+  return sel;
+}
+function pieWindowBounds(sel){
+  if(sel.type === 'global') return normalizeRange(selectedRange.start, selectedRange.end);
+  if(sel.type === 'weekly'){
+    const wk = getTrackedWeeks().find(w=>w.key===sel.key);
+    return wk ? normalizeRange(wk.start, wk.end) : normalizeRange(null,null);
+  }
+  const b = monthBounds(sel.key);
+  return normalizeRange(b.start, b.end);
+}
+function frozenCountsFor(platform, sel){
+  const {type, key} = resolveWindowSel(sel);
+  if(!type || !key) return null; // All Time (or no header selection yet) has no single cache bucket
+  const store = themeCache?.sentimentCounts?.[type];
+  return store?.[key]?.[PIE_CACHE_KEY[platform]] || null;
+}
+function frozenBucketFor(sel){
+  const {type, key} = resolveWindowSel(sel);
+  if(!type || !key) return null;
+  return themeCache?.[type]?.[key] || null;
+}
+function liveRedditCounts(start,end){
+  return allRedditRows.filter(r=>{ const d=getRowDate(r); return d && isDateInRange(d,start,end); })
+    .reduce((acc,r)=>({
+      positive: acc.positive + numOr(getMatchingRowValue(r, ['Total Positive comments'], []), 0),
+      negative: acc.negative + numOr(getMatchingRowValue(r, ['Total Nagative comments','Total Negative comments'], []), 0),
+      neutral: acc.neutral + numOr(getMatchingRowValue(r, ['Total Neutral comments'], []), 0),
+    }), {positive:0,negative:0,neutral:0});
+}
+function liveGmbCounts(start,end){
+  return allSocialRows.filter(r=>r.platform==='GMB' && r.project && r.date && isDateInRange(r.date,start,end))
+    .reduce((acc,r)=>{ if(acc[r.sentiment]!==undefined) acc[r.sentiment]++; return acc; }, {positive:0,negative:0,neutral:0});
+}
+function liveSocialCounts(start,end){
+  return allSocialRows.filter(r=>r.platform && r.platform!=='GMB' && r.date && isDateInRange(r.date,start,end))
+    .reduce((acc,r)=>{ if(acc[r.sentiment]!==undefined) acc[r.sentiment]++; return acc; }, {positive:0,negative:0,neutral:0});
+}
+function computeCountsForWindow(platform, sel){
+  const frozen = frozenCountsFor(platform, sel);
+  if(frozen) return frozen;
+  const {start,end} = pieWindowBounds(sel);
+  if(platform==='quora') return quoraSentiment; // sheet has no populated date column — always the full-period total
+  if(platform==='reddit') return liveRedditCounts(start,end);
+  if(platform==='gmb') return liveGmbCounts(start,end);
+  if(platform==='social') return liveSocialCounts(start,end);
+  // overall = reddit + gmb + social (matches overallSentiment's existing convention — Quora excluded)
+  const r = computeCountsForWindow('reddit', sel), g = computeCountsForWindow('gmb', sel), s = computeCountsForWindow('social', sel);
+  return {positive:r.positive+g.positive+s.positive, negative:r.negative+g.negative+s.negative, neutral:r.neutral+g.neutral+s.neutral};
+}
+function computeThemeRowsForWindow(platform, sel){
+  const bucket = frozenBucketFor(sel);
+  const {start,end} = pieWindowBounds(sel);
+  if(platform==='reddit'){
+    const rows = allRedditRows.filter(r=>{ const d=getRowDate(r); return d && isDateInRange(d,start,end); });
+    return bucket?.Reddit?.projects ? cacheToThemeRows(bucket.Reddit.projects) : buildMentionThemes(rows,
+      [ ['Title / Question','Title','Question'], ['Body','Body / Context'], ['Thread Title','Thread Title ','Thread title'], ['Comments (Seeded)','Comment/Answer','Comment/Answer 1','Comments','Answers'] ],
+      row => ({positive:numOr(getMatchingRowValue(row,['Total Positive comments','Positive comments'], []),0), negative:numOr(getMatchingRowValue(row,['Total Nagative Comments','Nagative Comments','Negative comments'], []),0)}));
+  }
+  if(platform==='quora'){
+    return bucket?.Quora?.projects ? cacheToThemeRows(bucket.Quora.projects) : quoraThemeData;
+  }
+  if(platform==='gmb'){
+    const rows = allSocialRows.filter(r=>r.platform==='GMB' && r.project && r.date && isDateInRange(r.date,start,end));
+    return bucket?.GMB?.projects ? cacheToThemeRows(bucket.GMB.projects) : buildGmbThemeRowsFromDaily(rows);
+  }
+  if(platform==='social'){
+    const activePlat = document.querySelector('#socialThemePlatformToggle .filter-btn.active')?.dataset.platformSel || 'Instagram';
+    return bucket?.[activePlat]?.projects ? cacheToThemeRows(bucket[activePlat].projects) : (socialThemeData[activePlat] || []);
+  }
+  // overall
+  return mergeThemeSources([
+    {label:'GMB', data: bucket?.GMB?.projects ? cacheToThemeRows(bucket.GMB.projects) : computeThemeRowsForWindow('gmb', sel)},
+    {label:'Reddit', data: bucket?.Reddit?.projects ? cacheToThemeRows(bucket.Reddit.projects) : computeThemeRowsForWindow('reddit', sel)},
+  ]);
+}
+const PIE_TBODY_ID = {overall:'overallThemeBody', reddit:'redditThemeBody', gmb:'gmbThemeBody', quora:'quoraThemeBody', social:'socialThemeBody'};
+function renderPieWindow(platform){
+  const sel = pieWindowState[platform];
+  const counts = computeCountsForWindow(platform, sel);
+  pie(PIE_CANVAS_ID[platform], counts);
+  const rows = computeThemeRowsForWindow(platform, sel);
+  renderExecTable(PIE_TBODY_ID[platform], platform==='overall' ? rows.slice(0,6) : rows);
+}
+function renderAllMiniPieWindows(){
+  MINI_PIE_PLATFORMS.forEach(renderMiniPieWindow);
+}
+function renderAllPieWindows(){
+  refreshAllPieWindowBars(); // keep "This Month" pill labels in sync with the header before rendering
+  PIE_WINDOW_PLATFORMS.forEach(renderPieWindow);
+  renderAllMiniPieWindows();
+}
+function updatePieWindowCaption(platform){
+  const caption = document.querySelector(`.pie-window-caption[data-pie-platform-caption="${platform}"]`);
+  if(caption) caption.textContent = `Showing: ${pieWindowState[platform].range}`;
+}
+// "This Month" pill's display text/tooltip tracks the header's live selection (e.g. shows
+// "Jun 2026" if that's what the header is set to, "All Time" if that's selected) — computed
+// fresh every call, never baked in, since the header can change after the pill was built.
+function globalPillDescriptor(){
+  const label = activeRangeMode?.label || dateRangeLabel(selectedRange.start, selectedRange.end) || 'This Month';
+  return {type:'global', key:null, display:label, range:label};
+}
+function pieWindowPillDescriptors(){
+  const weeks = getTrackedWeeks();
+  return [globalPillDescriptor(), ...weeks.map(w=>({type:'weekly', key:w.key, display:`W${w.index}`, range:w.label}))];
+}
+// Rebuilds a pill row's buttons/labels/active-state from current data — safe to call on
+// every render pass (header change, refresh, etc.), unlike buildPieWindowBar's one-time
+// listener wiring below.
+function refreshPieWindowBar(platform){
+  const bar = document.querySelector(`.pie-window-bar[data-pie-platform="${platform}"]`);
+  if(!bar) return;
+  const pills = pieWindowPillDescriptors();
+  const sel = pieWindowState[platform];
+  const activePill = pills.find(p=>p.type===sel.type && p.key===sel.key);
+  if(activePill) sel.range = activePill.range;
+  bar.innerHTML = pills.map(p=>{
+    const active = sel.type===p.type && sel.key===p.key;
+    return `<button class="filter-btn${active?' active':''}" title="${escapeHtml(p.range)}" data-window-type="${p.type}" data-window-key="${p.key===null?'':p.key}" data-window-range="${escapeHtml(p.range)}">${escapeHtml(p.display)}</button>`;
+  }).join('');
+  updatePieWindowCaption(platform);
+}
+function buildPieWindowBar(platform, renderFn){
+  renderFn = renderFn || renderPieWindow;
+  const bar = document.querySelector(`.pie-window-bar[data-pie-platform="${platform}"]`);
+  if(!bar) return;
+  refreshPieWindowBar(platform);
+  if(!document.querySelector(`.pie-window-caption[data-pie-platform-caption="${platform}"]`)){
+    const caption = document.createElement('p');
+    caption.className = 'card-sub pie-window-caption';
+    caption.setAttribute('data-pie-platform-caption', platform);
+    bar.insertAdjacentElement('afterend', caption);
+    updatePieWindowCaption(platform);
+  }
+  bar.addEventListener('click', e=>{
+    if(!e.target.classList.contains('filter-btn')) return;
+    bar.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    e.target.classList.add('active');
+    const key = e.target.dataset.windowKey === '' ? null : e.target.dataset.windowKey;
+    pieWindowState[platform] = {type:e.target.dataset.windowType, key, range:e.target.dataset.windowRange};
+    updatePieWindowCaption(platform);
+    renderFn(platform);
+  });
+}
+function buildAllPieWindowBars(){
+  PIE_WINDOW_PLATFORMS.forEach(p=>buildPieWindowBar(p));
+  buildPieWindowBar('socialMini', renderAllMiniPieWindows); // one shared control for all 3 mini-pies
+}
+// Keeps every "This Month" pill's label in sync with the header — called on every
+// renderDashboard() pass (including header range changes), not just at first build.
+function refreshAllPieWindowBars(){
+  PIE_WINDOW_PLATFORMS.forEach(refreshPieWindowBar);
+  refreshPieWindowBar('socialMini');
+}
+
 // ---------- Range model: Latest Week / Last Week / Month(Jun 2026 →) ----------
 // Every window maps to exactly one theme_cache.json lookup key (weekly Monday-ISO or
 // monthly YYYY-MM) — no free-form dates, so narrative/keyword lookup is always an exact
@@ -1864,17 +2112,48 @@ function renderPlatformPointersOnce(){
   platformPointersEl.id = 'platformPointersBlock';
   platformPointersEl.className = 'grid-3';
   platformPointersEl.style.marginTop = '16px';
-  Object.entries(platformPointers).forEach(([name, data])=>{
-    const flagHtml = data.flag ? `<p style="font-size:12px;color:var(--gold-deep);font-weight:bold;background:rgba(184,146,58,0.08);border:1px solid rgba(184,146,58,0.25);border-radius:6px;padding:8px 10px;margin:0 0 10px;">⚠ ${data.flag}</p>` : '';
-    const items = data.points.map(p=>`<li style="margin-bottom:6px;">${p}</li>`).join('');
+  Object.keys(platformPointers).forEach(name=>{
     platformPointersEl.innerHTML += `
       <div class="card" style="box-shadow:none;">
         <h3 style="font-size:13px;">${name}</h3>
-        ${flagHtml}
-        <ul style="margin:0; padding-left:18px; font-size:12.5px; color:var(--atlas); line-height:1.6;">${items}</ul>
+        <div id="platformNotes_${name}"></div>
       </div>`;
   });
   document.getElementById('platformPieGrid').after(platformPointersEl);
+}
+// Renders whichever window (This Month / a specific week) is currently selected for this
+// platform's mini-pie. Notes are curated narrative (same "requires reading real message
+// text" category as the per-project Executive Snapshot themes) — theme_cache.json's
+// platformNotes only has genuine content seeded for the current month today; any other
+// window shows an honest "not curated yet" message rather than silently repeating this
+// month's notes under a different week's label.
+function renderMiniPieNotes(name){
+  const el = document.getElementById(`platformNotes_${name}`);
+  if(!el) return;
+  const sel = pieWindowState.socialMini;
+  const {type, key} = resolveWindowSel(sel);
+  const cached = themeCache?.platformNotes?.[type]?.[key]?.[name];
+  const data = cached || (sel.type==='global' && type==='monthly' && key===REPORT_MONTH ? platformPointers[name] : null);
+  if(!data){
+    el.innerHTML = `<p class="card-sub" style="margin:0;">No curated notes for ${escapeHtml(sel.range)} yet — ask Claude to review this period's ${escapeHtml(name)} messages and add them to theme_cache.json's platformNotes.</p>`;
+    return;
+  }
+  const flagHtml = data.flag ? `<p style="font-size:12px;color:var(--gold-deep);font-weight:bold;background:rgba(184,146,58,0.08);border:1px solid rgba(184,146,58,0.25);border-radius:6px;padding:8px 10px;margin:0 0 10px;">⚠ ${escapeHtml(data.flag)}</p>` : '';
+  const items = data.points.map(p=>`<li style="margin-bottom:6px;">${p}</li>`).join('');
+  el.innerHTML = `${flagHtml}<ul style="margin:0; padding-left:18px; font-size:12.5px; color:var(--atlas); line-height:1.6;">${items}</ul>`;
+}
+function renderMiniPieWindow(name){
+  const sel = pieWindowState.socialMini;
+  const {type, key} = resolveWindowSel(sel);
+  const frozen = (type && key) ? themeCache?.sentimentCounts?.[type]?.[key]?.[name] : null;
+  let counts = frozen;
+  if(!counts){
+    const {start,end} = pieWindowBounds(sel);
+    counts = allSocialRows.filter(r=>r.platform===name && r.date && isDateInRange(r.date,start,end))
+      .reduce((acc,r)=>{ if(acc[r.sentiment]!==undefined) acc[r.sentiment]++; return acc; }, {positive:0,negative:0,neutral:0});
+  }
+  pie(`piePlat_${name}`, counts);
+  renderMiniPieNotes(name);
 }
 
 function renderPlatformPieCardsOnce(){
@@ -2025,16 +2304,24 @@ const sentimentColors = { Positive: COLORS.meridian, Negative: COLORS.goldDeep, 
 function renderSocialTrendChart(sentiment){
   if(typeof Chart === 'undefined') return;
   if(socialTrendChart) socialTrendChart.destroy();
+  // Short "29 Jun" tick labels instead of the full "29 Jun–5 Jul (partial)" range — the full
+  // range was forcing Chart.js to rotate ticks diagonally to fit, which read as messy with
+  // 4-5 weeks on a half-width chart. The full range (+ partial-week flag) still shows on
+  // hover via the tooltip title, same "short label, hover for detail" pattern used for the
+  // per-chart week pills elsewhere on this page.
   socialTrendChart = new Chart(document.getElementById('chartSocialTrend'), {
     type:'bar',
     data:{
-      labels: socialWeekly.map(w=> w.label + (w.partial ? ' (partial)' : '')),
+      labels: socialWeekly.map(w=> fmtShort(w.monday) + (w.partial ? '*' : '')),
       datasets:[{ label:sentiment, data:socialWeekly.map(w=>w[sentiment.toLowerCase()]), backgroundColor:sentimentColors[sentiment], borderColor: sentiment==='Neutral' ? COLORS.fog : sentimentColors[sentiment], borderWidth: sentiment==='Neutral' ? 1.5 : 0 }]
     },
     options:{
       responsive:true,
-      plugins:{ legend:{display:false} },
-      scales:{ x:{grid:{display:false}}, y:{grid:{color:COLORS.cloud}, beginAtZero:true} },
+      plugins:{
+        legend:{display:false},
+        tooltip:{ callbacks:{ title: items => { const w = socialWeekly[items[0].dataIndex]; return w.label + (w.partial ? ' (partial week)' : ''); } } }
+      },
+      scales:{ x:{grid:{display:false}, ticks:{maxRotation:0, minRotation:0}}, y:{grid:{color:COLORS.cloud}, beginAtZero:true} },
       layout:{ padding:{top:16} }
     },
     plugins:[barLabelPlugin]
@@ -2089,7 +2376,9 @@ function renderAllCharts(){
     pie('pieGMB', gmbSentiment);
     pie('pieSocial', socialSentiment);
     pie('pieQuora', quoraSentiment);
-    ['Instagram','Facebook','LinkedIn'].forEach(name=> pie(`piePlat_${name}`, socialByPlatform[name]));
+    // Instagram/Facebook/LinkedIn mini-pies are rendered per their own window pill by
+    // renderAllPieWindows() (called right after renderAllCharts() in renderDashboard()) —
+    // not here, so a selected week isn't immediately clobbered back to "This Month".
     renderTopProjectsChart();
   } catch(e){ console.error('Chart rendering failed:', e); }
 }
@@ -2174,6 +2463,7 @@ function renderDashboard(){
     renderPlatformPointersOnce();
     renderPlatformPieCardsOnce();
     renderHistoryButtonsOnce();
+    buildAllPieWindowBars();
     dashboardBuilt = true;
   }
 
@@ -2247,6 +2537,7 @@ function renderDashboard(){
   autoSaveMonthEndSnapshots();
 
   renderAllCharts();
+  renderAllPieWindows();
 }
 
 function renderSocialThemeTable(){
@@ -2257,7 +2548,7 @@ document.getElementById('socialThemePlatformToggle').addEventListener('click', e
   if(!e.target.classList.contains('filter-btn')) return;
   document.getElementById('socialThemePlatformToggle').querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   e.target.classList.add('active');
-  renderSocialThemeTable();
+  renderPieWindow('social'); // re-render honoring whichever week/month is currently picked for Social
 });
 
 // ---------- BOOTSTRAP ----------
