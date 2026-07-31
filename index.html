@@ -807,7 +807,7 @@
 
     <div class="card" style="margin-top:20px;">
       <h3>Rating History — Month on Month</h3>
-      <p class="card-sub" id="ratingHistorySub">Month-by-month history for the selected project, with monthly snapshots persisted automatically on month-end.</p>
+      <p class="card-sub" id="ratingHistorySub">Month-by-month history for the selected project, sourced from the GMB Escalation Tracker.</p>
       <div class="project-btn-bar" id="historyProjectButtons"></div>
       <canvas id="chartRatingHistory" height="170"></canvas>
       <div id="historyEmptyNote" class="card-sub" style="margin-top:10px;"></div>
@@ -925,8 +925,23 @@ if(typeof Chart !== 'undefined'){
   Chart.defaults.color = COLORS.atlas;
 }
 
-// Live month, not hardcoded — the dashboard tracks whatever "now" is on each visit.
-const REPORT_MONTH = (()=>{ const n=new Date(); return `${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,'0')}`; })();
+// Live month, not hardcoded — but with a 7-day grace period at the start of each new
+// calendar month. GMB/Reddit/Quora/Social data for a month isn't fully tracked/reconciled
+// the instant the calendar flips (the sheets/reports lag a few days), so the dashboard keeps
+// showing the PREVIOUS month as "This Month" through the 7th — e.g. on 1 Aug it still shows
+// July, and only switches to August starting the 8th. Everything that reads REPORT_MONTH
+// (header default range, GMB rating-history baseline, the platform-notes "This Month"
+// fallback, the header's selectable month list) inherits this automatically.
+const REPORT_GRACE_DAYS = 7;
+const REPORT_MONTH = (()=>{
+  const n = new Date();
+  let year = n.getFullYear(), month = n.getMonth(); // month is 0-indexed
+  if(n.getDate() <= REPORT_GRACE_DAYS){
+    month -= 1;
+    if(month < 0){ month = 11; year -= 1; }
+  }
+  return `${year}-${String(month+1).padStart(2,'0')}`;
+})();
 function monthLabel(monthStr){
   const [y,m] = monthStr.split('-').map(Number);
   return new Date(y, m-1, 1).toLocaleDateString('en-GB', {month:'short', year:'numeric'});
@@ -1004,6 +1019,7 @@ const SHEET_IDS = {
   summary: '1w-KzhMosrUQvxhRPMrk5YggJ_Dwi3ibsWv5kNqifC7c',            // Summary tab (weekly activity)
   redditQuora: '1pEp5zMru4ZqF339rb_glcbWe-XrAufiH5mUOgcQKPCs',        // Reddit & Quora Content Plan
   daily: '1IjbMN2n2n2xPNmLFifmM5yNYoxyPKi-TPTjdUa3Dbo0',              // Sumadhura Daily Tracker
+  gmbEscalation: '1PsBz-XXb-862vNES8WEgmtorVh7_stqaP6YbmAnUC14',      // GMB Escalation Tracker — "Project Ratings" tab
 };
 
 // forceHeaders=true pins row 1 as the header row (needed for the Daily Tracker's
@@ -1602,6 +1618,46 @@ async function loadDailyTracker(){
   return {socialByPlatform, gmbMessageLevelSentiment, socialSentiment, socialTrend, socialRows};
 }
 
+// ---------- GMB Escalation Tracker — real month-on-month ratings ("Project Ratings" tab) ----------
+// Replaces the old window.storage-based month-end snapshot mechanism for Rating History, which
+// never actually worked in production (window.storage only exists inside the Claude artifact
+// runtime, never on the deployed site) — every project's history chart silently showed just one
+// point forever. This sheet is hand-updated with real per-project averages per month (columns
+// "Jun 26", "Jul 26", "Aug 26", ...) and is the genuine source of truth going forward. Any month
+// column left blank (e.g. Aug 26 before it's filled in) is skipped, not plotted as zero — new
+// months pick up automatically here the moment that column gets a value, no code change needed.
+function parseTrackerMonthHeader(header){
+  const m = header.trim().match(/^([A-Za-z]{3})\s*'?(\d{2,4})$/);
+  if(!m) return null;
+  const months = {jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
+  const mon = months[m[1].toLowerCase()];
+  if(!mon) return null;
+  const yr = m[2].length===2 ? 2000+Number(m[2]) : Number(m[2]);
+  return `${yr}-${String(mon).padStart(2,'0')}`;
+}
+async function loadGmbRatingHistory(){
+  const rows = await fetchSheetObjects(SHEET_IDS.gmbEscalation, 'Project Ratings');
+  if(!rows.length) return {};
+  const monthCols = Object.keys(rows[0]).filter(h => parseTrackerMonthHeader(h))
+    .map(h => ({header:h, month:parseTrackerMonthHeader(h)}));
+  const history = {};
+  rows.forEach(row=>{
+    const nameCol = Object.keys(row).find(k => k.toLowerCase().startsWith('project name'));
+    const project = normalizeGmbProject(row[nameCol]);
+    if(!project) return; // not on the locked GMB_PROJECTS list (e.g. head office rows, "Sarang")
+    monthCols.forEach(({header, month})=>{
+      const raw = (row[header]||'').trim();
+      if(!raw) return; // blank column (future month not filled in yet) — skip, don't plot as 0
+      const val = parseFloat(raw);
+      if(Number.isFinite(val)){
+        if(!history[project]) history[project] = {};
+        history[project][month] = val;
+      }
+    });
+  });
+  return history;
+}
+
 function computeRangeView(){
   const {start, end} = selectedRange;
   const allWeeks = Array.from({length:visibleWeekCount}, (_,i)=>i+1);
@@ -1710,6 +1766,10 @@ async function loadAllData(){
     const d = await loadDailyTracker();
     ({socialByPlatform, gmbMessageLevelSentiment, socialSentiment, socialTrend, socialRows: allSocialRows} = d);
   } catch(e){ errors.push('Sumadhura Daily Tracker: '+e.message); }
+
+  try {
+    gmbRatingHistoryData = await loadGmbRatingHistory();
+  } catch(e){ errors.push('GMB Escalation Tracker: '+e.message); }
 
   // theme_cache.json is only fetched here; which period's entry gets *displayed* is decided
   // per range change inside applyDateRange() via themeCacheBucket(), keyed off activeRangeMode
@@ -2479,39 +2539,28 @@ function renderHistoryButtonsOnce(){
   });
 }
 
+let gmbRatingHistoryData = {}; // {project: {'2026-06':4.1, '2026-07':4.1, ...}} — from loadGmbRatingHistory()
 let ratingHistoryChart = null;
 async function loadHistoryFor(project){
   const emptyNote = document.getElementById('historyEmptyNote');
+  // Real month-on-month history from the GMB Escalation Tracker's "Project Ratings" tab
+  // (loadGmbRatingHistory, fetched in loadAllData) — this is the genuine source of truth now.
+  // liveRatings only fills in for the current REPORT_MONTH if the tracker hasn't been updated
+  // for it yet (e.g. August still blank there) — the moment that column is filled in on the
+  // sheet, it takes over automatically and the liveRatings fallback stops being used.
+  const tracked = gmbRatingHistoryData[project] || {};
+  const merged = {...tracked};
   const live = liveRatings[project];
-  // No prior-month baseline source anymore (the GMB Escalation Tracker that used to supply
-  // it is retired) — history starts from the current live snapshot and builds forward via
-  // window.storage month-end snapshots (autoSaveMonthEndSnapshots).
-  const baseline = {};
-  if(live) baseline[REPORT_MONTH] = {month:REPORT_MONTH, rating:live.rating, count:live.count, source:'live'};
-
-  let stored = {};
-  if(window.storage){
-    try{
-      const list = await window.storage.list(`gmb_rating_history:${project}:`, true);
-      const keys = (list && list.keys) ? list.keys : [];
-      for(const key of keys){
-        try{
-          const res = await window.storage.get(key, true);
-          if(res && res.value){ const val = JSON.parse(res.value); stored[val.month] = val; }
-        } catch(e){}
-      }
-    } catch(e){}
-  }
-  const merged = {...baseline, ...stored};
-  const points = Object.values(merged).sort((a,b)=> a.month.localeCompare(b.month));
+  if(live && merged[REPORT_MONTH] === undefined) merged[REPORT_MONTH] = live.rating;
+  const points = Object.entries(merged).map(([month,rating])=>({month,rating})).sort((a,b)=> a.month.localeCompare(b.month));
 
   const canvas = document.getElementById('chartRatingHistory');
   if(ratingHistoryChart) ratingHistoryChart.destroy();
 
-  if(!window.storage){
-    emptyNote.textContent = 'Persistent storage isn\'t available in this preview environment — history tracking works when this dashboard is opened as a Claude artifact.';
-  } else if(points.length <= 1){
-    emptyNote.textContent = `Showing the ${REPORT_MONTH} baseline for ${project} — this is the first tracked point. It'll auto-extend on the last day of each month.`;
+  if(!points.length){
+    emptyNote.textContent = `No rating history found for ${project} yet — check it's listed in the GMB Escalation Tracker's "Project Ratings" tab.`;
+  } else if(points.length === 1){
+    emptyNote.textContent = `Only ${points[0].month} is tracked for ${project} so far — more months will appear here as the tracker sheet is updated.`;
   } else {
     emptyNote.textContent = '';
   }
@@ -2520,7 +2569,7 @@ async function loadHistoryFor(project){
   ratingHistoryChart = new Chart(canvas, {
     type:'line',
     data:{
-      labels: points.map(p=>p.month),
+      labels: points.map(p=>monthLabel(p.month)),
       datasets:[{ label:`${project} — Google rating`, data:points.map(p=>p.rating), borderColor:COLORS.meridian, backgroundColor:'rgba(26,82,118,0.1)', fill:true, tension:0.2, pointBackgroundColor:COLORS.gold, pointRadius:6 }]
     },
     options:{ responsive:true, plugins:{legend:{display:false}}, layout:{padding:{top:18}}, scales:{ y:{ suggestedMin:1, suggestedMax:5, grid:{color:COLORS.cloud} }, x:{grid:{display:false}} } },
@@ -2532,34 +2581,12 @@ function isLastDayOfMonth(d){
   const tomorrow = new Date(d.getFullYear(), d.getMonth(), d.getDate()+1);
   return tomorrow.getMonth() !== d.getMonth();
 }
-async function autoSaveMonthEndSnapshots(){
+// Kept as a stub (rather than deleted) since renderDashboard() still calls it — the real
+// history mechanism is now loadGmbRatingHistory()/gmbRatingHistoryData (see loadHistoryFor),
+// sourced live from the GMB Escalation Tracker sheet rather than an auto-save snapshot.
+function autoSaveMonthEndSnapshots(){
   const noteEl = document.getElementById('autoSaveNote');
-  if(!window.storage){
-    noteEl.textContent = 'Persistent storage isn\'t available in this preview environment — month-end auto-save runs when this dashboard is opened as a Claude artifact.';
-    return;
-  }
-  const now = new Date();
-  if(!isLastDayOfMonth(now)){
-    noteEl.textContent = `Auto-save runs on the last calendar date of each month. Today isn't month-end, so no automatic snapshot was taken this visit.`;
-    return;
-  }
-  const monthKey = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
-  let savedCount = 0, skippedCount = 0;
-  for(const [project, live] of Object.entries(liveRatings)){
-    if(!live) continue;
-    const key = `gmb_rating_history:${project}:${monthKey}`;
-    try{
-      const existing = await window.storage.get(key, true);
-      if(existing){ skippedCount++; continue; }
-    } catch(e){}
-    try{
-      await window.storage.set(key, JSON.stringify({month:monthKey, rating:live.rating, count:live.count, autoSaved:true}), true);
-      savedCount++;
-    } catch(e){}
-  }
-  noteEl.textContent = `Month-end auto-save ran for ${monthKey}: ${savedCount} project snapshot${savedCount===1?'':'s'} saved${skippedCount?`, ${skippedCount} already had one`:''}.`;
-  const activeBtn = document.querySelector('.project-btn.active');
-  if(activeBtn) loadHistoryFor(activeBtn.dataset.project);
+  if(noteEl) noteEl.textContent = 'Sourced from the GMB Escalation Tracker\'s "Project Ratings" tab — update that sheet each month and new points appear here automatically.';
 }
 
 // ---------- CHARTS ----------
@@ -2703,7 +2730,7 @@ function populateStaticCardCopy(){
   if(topProjectsSub) topProjectsSub.textContent = 'Review volume for the selected window, tracked via the Daily Tracker.';
 
   const ratingHistorySub = document.getElementById('ratingHistorySub');
-  if(ratingHistorySub) ratingHistorySub.textContent = 'Month-by-month history for the selected project, with monthly snapshots persisted automatically on month-end.';
+  if(ratingHistorySub) ratingHistorySub.textContent = 'Month-by-month history for the selected project, sourced from the GMB Escalation Tracker.';
 }
 
 // ---------- MASTER RENDER: runs after every successful/partial data load ----------
