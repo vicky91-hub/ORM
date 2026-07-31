@@ -187,6 +187,228 @@
   .pie-window-caption{ text-align:center; margin-top:8px; margin-bottom:0; font-weight:bold; color:var(--dusk); }
   .pie-window-note{ text-align:center; font-style:italic; margin-top:8px; }
 
+  /* ============================================================
+     MONTHLY REPORT — "drawing sheet" system
+     Sumadhura is a property developer, so the report borrows its visual
+     grammar from architectural drawing sets: hairline dimension rules with
+     tick ends, corner registration marks, a title-block cover, monospace
+     "measured" numerals against the dashboard's own serif/navy/gold system.
+     Signature is spent once (the cover + sheet dividers) — everything below
+     stays quiet and disciplined.
+     ============================================================ */
+  #monthlyReportSection{ --report-mono: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace; }
+  #monthlyReportSection .card{ animation: reportRise 0.5s cubic-bezier(.2,.7,.2,1) both; }
+  @media (prefers-reduced-motion: reduce){ #monthlyReportSection .card{ animation:none; } }
+  @keyframes reportRise{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:none; } }
+
+  /* Cover — the one bold moment */
+  .report-cover{
+    position:relative; overflow:hidden;
+    background:
+      radial-gradient(ellipse 60% 55% at 50% 38%, rgba(201,169,110,0.14) 0%, transparent 70%),
+      repeating-linear-gradient(0deg, rgba(201,169,110,0.055) 0 1px, transparent 1px 28px),
+      repeating-linear-gradient(90deg, rgba(201,169,110,0.055) 0 1px, transparent 1px 28px),
+      linear-gradient(160deg, #1A1F36 0%, #12162A 100%);
+    border:1px solid rgba(201,169,110,0.35);
+    border-radius:6px;
+    padding:56px 40px 40px;
+    text-align:center;
+    box-shadow:0 18px 44px rgba(11,13,26,0.28), 0 2px 0 rgba(201,169,110,0.15) inset;
+    margin-bottom:34px;
+  }
+  .report-cover::before, .report-cover::after{
+    content:''; position:absolute; width:22px; height:22px; border:1.5px solid var(--gold); opacity:0.85;
+  }
+  .report-cover::before{ top:14px; left:14px; border-right:none; border-bottom:none; }
+  .report-cover::after{ top:14px; right:14px; border-left:none; border-bottom:none; }
+  .report-cover .tick-bl, .report-cover .tick-br{
+    position:absolute; bottom:14px; width:22px; height:22px; border:1.5px solid var(--gold); opacity:0.85;
+  }
+  .report-cover .tick-bl{ left:14px; border-right:none; border-top:none; }
+  .report-cover .tick-br{ right:14px; border-left:none; border-top:none; }
+  .report-eyebrow{
+    font-family:var(--report-mono); font-size:11px; letter-spacing:3px; text-transform:uppercase;
+    color:var(--gold); font-weight:600;
+  }
+  .report-cover h2{
+    color:#fff; font-size:38px; line-height:1.15; margin:16px 0 8px; font-weight:600;
+    max-width:640px; margin-left:auto; margin-right:auto;
+  }
+  .report-cover .report-sub{ color:#9aa0b8; font-size:14px; margin:0 0 26px; }
+  .report-titleblock{
+    display:flex; justify-content:center; gap:0; flex-wrap:wrap;
+    border-top:1px solid rgba(201,169,110,0.3); padding-top:18px; margin-top:6px;
+  }
+  .report-titleblock .tb-cell{
+    padding:0 22px; text-align:left; border-left:1px solid rgba(201,169,110,0.25);
+  }
+  .report-titleblock .tb-cell:first-child{ border-left:none; }
+  .report-titleblock .tb-label{
+    font-family:var(--report-mono); font-size:9.5px; letter-spacing:1.5px; text-transform:uppercase; color:#7a80a0;
+  }
+  .report-titleblock .tb-value{ font-family:var(--report-mono); font-size:13px; color:#e8e9f0; margin-top:3px; font-weight:600; }
+
+  /* Sheet dividers — index tabs for each platform section, not a numbered "process" */
+  .report-platform-header{
+    display:flex; align-items:center; gap:14px;
+    margin:36px 0 16px;
+  }
+  .report-platform-header .sheet-no{
+    font-family:var(--report-mono); font-size:12px; font-weight:700; color:var(--constellation);
+    border:1.5px solid var(--gold); border-radius:3px; padding:4px 9px; flex-shrink:0; letter-spacing:0.5px;
+  }
+  .report-platform-header .sheet-title{
+    font-family:var(--font-display); font-size:21px; font-weight:600; color:var(--constellation); flex-shrink:0;
+  }
+  .report-platform-header .sheet-rule{
+    flex:1; height:1px; background:linear-gradient(90deg, var(--gold), rgba(201,169,110,0.15));
+    position:relative;
+  }
+  .report-platform-header .sheet-rule::after{
+    content:''; position:absolute; right:0; top:-3px; width:1px; height:7px; background:var(--gold);
+  }
+
+  /* KPI values inside the report read as measured data, not marketing numbers */
+  #monthlyReportSection .kpi-card .value{ font-family:var(--report-mono); font-variant-numeric:tabular-nums; font-size:30px; letter-spacing:-0.5px; }
+  #monthlyReportSection .kpi-card{ border-top:2px solid var(--gold); }
+
+  .win-item{ display:flex; gap:14px; align-items:flex-start; background:#fff; border:1px solid var(--cloud); border-radius:8px; padding:16px 18px; font-size:13.5px; color:var(--atlas); line-height:1.55; transition:border-color .15s ease; }
+  .win-item:hover{ border-color:var(--gold); }
+  .win-icon{ flex-shrink:0; width:32px; height:32px; border-radius:50%; border:1.5px solid var(--gold); background:var(--constellation); color:var(--gold); display:flex; align-items:center; justify-content:center; font-size:14px; }
+  .insight-box{
+    display:flex; gap:10px; align-items:flex-start;
+    background:rgba(26,82,118,0.05); border:1px solid rgba(26,82,118,0.15); border-left:3px solid var(--meridian);
+    border-radius:4px; padding:13px 15px; font-size:13px; color:var(--atlas); line-height:1.55;
+  }
+  .insight-box::before{ content:'▸'; color:var(--meridian); font-weight:bold; flex-shrink:0; }
+  .report-omitted-note{ margin-top:16px; font-size:12.5px; color:var(--fog); background:var(--mist); border:1px dashed var(--cloud); }
+  .report-omitted-note strong{ color:var(--dusk); }
+  .data-flag{
+    display:flex; gap:10px; align-items:flex-start;
+    margin-top:14px; font-size:12.5px; color:#8a5a00; background:rgba(184,146,58,0.10);
+    border:1px solid rgba(184,146,58,0.3); border-radius:4px; padding:11px 13px; line-height:1.55;
+  }
+  .data-flag::before{ content:'⚠'; flex-shrink:0; font-size:14px; }
+  .report-list{ margin:0; padding-left:18px; font-size:12.5px; color:var(--atlas); line-height:1.8; }
+  .not-reported{ font-size:11px; font-weight:bold; text-transform:uppercase; color:var(--fog); background:var(--mist); padding:2px 8px; border-radius:999px; }
+  .sow-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+  .sow-card{ background:#fff; border:1px solid var(--cloud); border-radius:8px; padding:14px 16px; border-top:2px solid var(--constellation); }
+  #monthlyReportSection .theme-table thead th, #monthlyReportSection table thead th{
+    font-family:var(--report-mono); font-size:10.5px; letter-spacing:0.8px;
+  }
+  #monthlyReportSection td, #monthlyReportSection .table-scroll td{ font-variant-numeric:tabular-nums; }
+
+  .report-download-btn{
+    display:inline-flex; align-items:center; gap:9px;
+    margin-top:26px; padding:13px 26px; border-radius:3px;
+    background:var(--gold); border:1.5px solid var(--gold); color:var(--constellation);
+    font-size:13.5px; font-weight:700; letter-spacing:0.4px; text-decoration:none;
+    box-shadow:0 6px 18px rgba(201,169,110,0.22);
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .report-download-btn:hover{ background:#dcb87e; transform:translateY(-1px); box-shadow:0 8px 22px rgba(201,169,110,0.32); }
+  .report-download-btn:active{ transform:translateY(0); }
+  .report-download-btn svg{ width:16px; height:16px; }
+  .report-download-meta{ margin-top:12px; font-family:var(--report-mono); font-size:10.5px; letter-spacing:0.5px; color:#7a80a0; }
+
+  /* Quick-nav layout — sidebar on desktop, collapses to a horizontal pill row on narrow screens */
+  .report-layout{ display:grid; grid-template-columns:190px 1fr; gap:28px; align-items:start; }
+  .report-toc{
+    position:sticky; top:96px;
+    display:flex; flex-direction:column; gap:2px;
+    border-left:2px solid var(--cloud);
+  }
+  .report-toc button{
+    all:unset; cursor:pointer; box-sizing:border-box;
+    padding:8px 0 8px 16px; margin-left:-2px; border-left:2px solid transparent;
+    font-size:12.5px; color:var(--fog); line-height:1.4; transition:color .15s ease, border-color .15s ease;
+  }
+  .report-toc button:hover{ color:var(--atlas); }
+  .report-toc button.active{ color:var(--constellation); font-weight:700; border-left-color:var(--gold); }
+  @media (max-width: 900px){
+    .report-layout{ display:block; }
+    .report-toc{
+      position:sticky; top:0; z-index:50; flex-direction:row; overflow-x:auto;
+      border-left:none; border-bottom:1px solid var(--cloud);
+      background:var(--arctic); margin:0 -5vw 20px; padding:10px 5vw; gap:4px;
+    }
+    .report-toc button{
+      padding:6px 12px; margin-left:0; border-left:none; border-bottom:2px solid transparent;
+      white-space:nowrap; background:#fff; border-radius:999px; border:1px solid var(--cloud);
+    }
+    .report-toc button.active{ background:var(--constellation); color:#fff; border-color:var(--constellation); }
+  }
+
+  /* Real report pages — the actual delivered PDF, rendered page by page */
+  .report-pages{ display:flex; flex-direction:column; align-items:center; gap:22px; margin-top:20px; }
+  .report-page{
+    margin:0; position:relative; max-width:900px; width:100%;
+    background:#fff; border:1px solid var(--cloud); border-radius:4px;
+    box-shadow:0 2px 10px rgba(26,31,54,0.06);
+    overflow:hidden;
+  }
+  .report-page img{ display:block; width:100%; height:auto; }
+  .report-page-no{
+    position:absolute; bottom:10px; left:12px; z-index:1;
+    font-family:var(--report-mono); font-size:10px; letter-spacing:0.5px;
+    color:#fff; background:rgba(26,31,54,0.72); padding:3px 8px; border-radius:3px;
+  }
+  .report-page{ cursor:zoom-in; opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease; }
+  .report-page.in-view{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){ .report-page{ opacity:1; transform:none; transition:none; } }
+  .report-page:hover img{ filter:brightness(1.02); }
+
+  /* Floating page nav — appears once the page gallery is in view */
+  .report-nav{
+    position:fixed; left:50%; bottom:24px; transform:translateX(-50%) translateY(120%);
+    z-index:200; display:flex; align-items:center; gap:2px;
+    background:var(--constellation); border:1px solid rgba(201,169,110,0.4); border-radius:999px;
+    padding:6px; box-shadow:0 10px 30px rgba(11,13,26,0.35);
+    transition:transform .3s cubic-bezier(.2,.8,.2,1);
+  }
+  .report-nav.show{ transform:translateX(-50%) translateY(0); }
+  .report-nav button{
+    display:flex; align-items:center; justify-content:center; width:34px; height:34px;
+    border-radius:50%; border:none; background:transparent; color:#fff; cursor:pointer;
+  }
+  .report-nav button:hover:not(:disabled){ background:rgba(255,255,255,0.1); }
+  .report-nav button:disabled{ opacity:0.3; cursor:default; }
+  .report-nav button svg{ width:17px; height:17px; }
+  .report-nav .report-nav-count{
+    font-family:var(--report-mono); font-size:12px; color:#e8e9f0; padding:0 12px; min-width:74px; text-align:center; letter-spacing:0.3px;
+  }
+
+  /* Lightbox — click any page to view it larger */
+  .report-lightbox{
+    position:fixed; inset:0; z-index:300; background:rgba(10,11,20,0.92);
+    display:flex; align-items:center; justify-content:center; padding:5vh 4vw;
+    opacity:0; pointer-events:none; transition:opacity .2s ease;
+  }
+  .report-lightbox.show{ opacity:1; pointer-events:auto; }
+  .report-lightbox img{ max-width:100%; max-height:90vh; border-radius:4px; box-shadow:0 20px 60px rgba(0,0,0,0.5); }
+  .report-lightbox .lb-close{
+    position:absolute; top:22px; right:26px; width:40px; height:40px; border-radius:50%;
+    background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); color:#fff;
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+  }
+  .report-lightbox .lb-close:hover{ background:rgba(255,255,255,0.16); }
+  .report-lightbox .lb-arrow{
+    position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; border-radius:50%;
+    background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); color:#fff;
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+  }
+  .report-lightbox .lb-arrow:hover{ background:rgba(255,255,255,0.16); }
+  .report-lightbox .lb-prev{ left:20px; }
+  .report-lightbox .lb-next{ right:20px; }
+  .report-lightbox .lb-count{
+    position:absolute; bottom:18px; left:50%; transform:translateX(-50%);
+    font-family:var(--report-mono); font-size:12px; color:#c7c9d6; letter-spacing:0.5px;
+  }
+  .sow-card h4{ margin:0 0 4px; font-size:13.5px; }
+  .table-scroll{ overflow-x:auto; }
+  a.thread-link{ color:var(--meridian); text-decoration:none; font-weight:600; }
+  a.thread-link:hover{ text-decoration:underline; }
+
   .project-btn-bar{ display:flex; gap:6px; margin-bottom:16px; flex-wrap:wrap; }
   .project-btn{
     background:#fff; border:1px solid var(--cloud); color:var(--atlas); font-family:Arial;
@@ -301,8 +523,14 @@
       <button class="tab-btn" data-target="reddit"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1.2" fill="currentColor" stroke="none"/><path d="M8.5 15.5c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2"/></svg>Reddit</button>
       <button class="tab-btn" data-target="quora"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.8" y2="15.8"/></svg>Quora</button>
       <button class="tab-btn" data-target="social"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Social</button>
+      <button class="tab-btn" data-target="report"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>Monthly Report</button>
     </nav>
     <div class="header-actions">
+      <button class="icon-btn" id="reportNotifyBtn" type="button" title="Monthly report is ready to view" style="position:relative;">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="sr-only">Monthly report notifications</span>
+        <span id="reportNotifyDot" class="hidden" style="position:absolute; top:4px; right:4px; width:8px; height:8px; border-radius:50%; background:var(--gold); border:1.5px solid var(--constellation);"></span>
+      </button>
       <button class="icon-btn" id="refreshDataBtn" type="button" title="Re-fetch all sheets now">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
         <span class="sr-only" id="metaRefreshLabel">Refresh data</span>
@@ -329,6 +557,7 @@
         <button class="tab-btn" data-target="reddit"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1.2" fill="currentColor" stroke="none"/><path d="M8.5 15.5c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2"/></svg>Reddit</button>
         <button class="tab-btn" data-target="quora"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.8" y2="15.8"/></svg>Quora</button>
         <button class="tab-btn" data-target="social"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Social</button>
+        <button class="tab-btn" data-target="report"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>Monthly Report</button>
       </nav>
     </div>
     <div class="mobile-menu-section" id="mobileRangeSection">
@@ -586,6 +815,78 @@
     </div>
   </section>
 
+  <!-- MONTHLY REPORT — infographic view of the delivered PPT deck (static snapshot, not
+       live-sheet-driven; hidden by default, shown only via the "Monthly Report" nav tab or
+       the bell notification). Charts are lazily built on first open (renderMonthlyReport()),
+       not on every page load. -->
+  <section id="monthlyReportSection" class="hidden">
+  <div class="report-layout">
+  <nav class="report-toc" id="reportToc" aria-label="Report sections"></nav>
+  <div class="report-main">
+    <div class="report-cover">
+      <span class="tick-bl"></span><span class="tick-br"></span>
+      <div class="report-eyebrow">Sumadhura Group · Confidential</div>
+      <h2>Online Reputation Management<br>Monthly Report</h2>
+      <p class="report-sub">GMB · Reddit · Quora · Social Media — every channel, one read</p>
+      <div class="report-titleblock">
+        <div class="tb-cell"><div class="tb-label">Period</div><div class="tb-value" id="reportCoverPeriod">Jul 2026</div></div>
+        <div class="tb-cell"><div class="tb-label">Prepared by</div><div class="tb-value">Northstar Digital</div></div>
+        <div class="tb-cell"><div class="tb-label">Channels</div><div class="tb-value">4 tracked</div></div>
+        <div class="tb-cell"><div class="tb-label">Status</div><div class="tb-value">Final</div></div>
+      </div>
+      <a class="report-download-btn" id="reportDownloadBtn" href="report-assets/2026-07/Sumadhura-ORM-Report-July-2026.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download full report (PDF)
+      </a>
+      <div class="report-download-meta" id="reportDownloadMeta">35 pages</div>
+    </div>
+
+    <div class="report-month-picker-wrap hidden" style="margin-top:20px; text-align:center;">
+      <div class="filter-bar" id="reportMonthPicker" style="justify-content:center;"></div>
+    </div>
+
+    <div class="report-month-content" data-report-month="2026-07">
+    <div class="report-pages">
+      <figure class="report-page"><span class="report-page-no">01 / 35</span><img src="report-assets/2026-07/page-01.png" alt="Report page 1" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">02 / 35</span><img src="report-assets/2026-07/page-02.png" alt="Report page 2" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">03 / 35</span><img src="report-assets/2026-07/page-03.png" alt="Report page 3" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">04 / 35</span><img src="report-assets/2026-07/page-04.png" alt="Report page 4" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">05 / 35</span><img src="report-assets/2026-07/page-05.png" alt="Report page 5" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">06 / 35</span><img src="report-assets/2026-07/page-06.png" alt="Report page 6" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">07 / 35</span><img src="report-assets/2026-07/page-07.png" alt="Report page 7" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">08 / 35</span><img src="report-assets/2026-07/page-08.png" alt="Report page 8" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">09 / 35</span><img src="report-assets/2026-07/page-09.png" alt="Report page 9" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">10 / 35</span><img src="report-assets/2026-07/page-10.png" alt="Report page 10" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">11 / 35</span><img src="report-assets/2026-07/page-11.png" alt="Report page 11" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">12 / 35</span><img src="report-assets/2026-07/page-12.png" alt="Report page 12" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">13 / 35</span><img src="report-assets/2026-07/page-13.png" alt="Report page 13" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">14 / 35</span><img src="report-assets/2026-07/page-14.png" alt="Report page 14" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">15 / 35</span><img src="report-assets/2026-07/page-15.png" alt="Report page 15" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">16 / 35</span><img src="report-assets/2026-07/page-16.png" alt="Report page 16" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">17 / 35</span><img src="report-assets/2026-07/page-17.png" alt="Report page 17" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">18 / 35</span><img src="report-assets/2026-07/page-18.png" alt="Report page 18" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">19 / 35</span><img src="report-assets/2026-07/page-19.png" alt="Report page 19" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">20 / 35</span><img src="report-assets/2026-07/page-20.png" alt="Report page 20" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">21 / 35</span><img src="report-assets/2026-07/page-21.png" alt="Report page 21" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">22 / 35</span><img src="report-assets/2026-07/page-22.png" alt="Report page 22" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">23 / 35</span><img src="report-assets/2026-07/page-23.png" alt="Report page 23" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">24 / 35</span><img src="report-assets/2026-07/page-24.png" alt="Report page 24" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">25 / 35</span><img src="report-assets/2026-07/page-25.png" alt="Report page 25" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">26 / 35</span><img src="report-assets/2026-07/page-26.png" alt="Report page 26" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">27 / 35</span><img src="report-assets/2026-07/page-27.png" alt="Report page 27" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">28 / 35</span><img src="report-assets/2026-07/page-28.png" alt="Report page 28" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">29 / 35</span><img src="report-assets/2026-07/page-29.png" alt="Report page 29" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">30 / 35</span><img src="report-assets/2026-07/page-30.png" alt="Report page 30" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">31 / 35</span><img src="report-assets/2026-07/page-31.png" alt="Report page 31" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">32 / 35</span><img src="report-assets/2026-07/page-32.png" alt="Report page 32" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">33 / 35</span><img src="report-assets/2026-07/page-33.png" alt="Report page 33" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">34 / 35</span><img src="report-assets/2026-07/page-34.png" alt="Report page 34" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">35 / 35</span><img src="report-assets/2026-07/page-35.png" alt="Report page 35" loading="lazy" width="1440" height="810"></figure>
+    </div>
+    </div><!-- /.report-month-content[2026-07] -->
+  </div><!-- /.report-main -->
+  </div><!-- /.report-layout -->
+  </section>
 
 </main>
 
@@ -600,6 +901,20 @@
     <div class="theme-modal-project" id="themeModalProject"></div>
     <div class="theme-modal-text" id="themeModalText"></div>
   </div>
+</div>
+
+<!-- Monthly Report — floating page nav + zoom lightbox (built for the .report-page gallery) -->
+<div class="report-nav" id="reportNav">
+  <button type="button" id="reportNavPrev" aria-label="Previous page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+  <span class="report-nav-count" id="reportNavCount">Page 1 / 35</span>
+  <button type="button" id="reportNavNext" aria-label="Next page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+</div>
+<div class="report-lightbox" id="reportLightbox">
+  <button type="button" class="lb-close" id="reportLightboxClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  <button type="button" class="lb-arrow lb-prev" id="reportLightboxPrev" aria-label="Previous page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+  <img id="reportLightboxImg" src="" alt="">
+  <button type="button" class="lb-arrow lb-next" id="reportLightboxNext" aria-label="Next page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+  <div class="lb-count" id="reportLightboxCount"></div>
 </div>
 
 <script>
@@ -2538,6 +2853,10 @@ buttons.forEach(btn=>{
     buttons.forEach(b=>b.classList.toggle('active', b.dataset.target===target));
     document.querySelectorAll('section[data-platform]').forEach(sec=>{
       const plat = sec.dataset.platform;
+      // "report" is a dedicated standalone view — none of the regular rolling-dashboard
+      // sections belong there, including "all" sections that otherwise stay visible on
+      // every real platform tab because they carry their own inner filters.
+      if(target === 'report'){ sec.classList.add('hidden'); return; }
       if(plat === 'all'){
         const hasInnerFilters = !!sec.querySelector('[data-platform]');
         sec.classList.toggle('hidden', !hasInnerFilters && target !== 'all');
@@ -2545,17 +2864,237 @@ buttons.forEach(btn=>{
         sec.classList.toggle('hidden', !(target==='all' || plat===target));
       }
     });
-    document.querySelectorAll(':not(section)[data-platform]').forEach(el=>{
-      if(el.closest('section') && el.closest('section').dataset.platform==='all'){
-        el.classList.toggle('hidden', !(target==='all' || el.dataset.platform===target));
-      }
-    });
+    if(target !== 'report'){
+      document.querySelectorAll(':not(section)[data-platform]').forEach(el=>{
+        if(el.closest('section') && el.closest('section').dataset.platform==='all'){
+          el.classList.toggle('hidden', !(target==='all' || el.dataset.platform===target));
+        }
+      });
+    }
+    // Monthly Report has no data-platform (deliberately outside the generic loop above —
+    // it must never show on "Overview"/"all" the way other platform sections do, since it's
+    // a heavy one-off snapshot, not part of the live rolling dashboard).
+    const reportSection = document.getElementById('monthlyReportSection');
+    if(reportSection){
+      reportSection.classList.toggle('hidden', target !== 'report');
+      if(target === 'report') renderMonthlyReport();
+    }
     if(btn.closest('#mobileMenu')){
       document.getElementById('mobileMenu').hidden = true;
       document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'false');
     }
   });
 });
+
+// ---------- MONTHLY REPORT NOTIFICATION ----------
+// Bell icon in the header — click jumps straight to the Monthly Report tab (same as clicking
+// it directly) and dismisses the badge dot. The badge re-appears automatically whenever
+// REPORT_NOTIFY_ID below is bumped to a new value (e.g. a new month's report replaces this
+// one) — localStorage remembers which id the viewer has already dismissed, per browser.
+const REPORT_NOTIFY_ID = 'sumadhura-orm-report-2026-07';
+function markReportSeen(){
+  try{ localStorage.setItem('orm_report_seen', REPORT_NOTIFY_ID); } catch(e){}
+  document.getElementById('reportNotifyDot')?.classList.add('hidden');
+}
+(function initReportNotify(){
+  let seen = null;
+  try{ seen = localStorage.getItem('orm_report_seen'); } catch(e){}
+  if(seen !== REPORT_NOTIFY_ID) document.getElementById('reportNotifyDot')?.classList.remove('hidden');
+})();
+document.getElementById('reportNotifyBtn')?.addEventListener('click', ()=>{
+  markReportSeen();
+  document.querySelector('.tab-btn[data-target="report"]')?.click();
+  history.replaceState(null, '', '#report');
+});
+
+// ---------- MONTHLY REPORT — archive of one infographic per delivered PPT deck ----------
+// Each entry is a static snapshot (hardcoded on purpose, not live-sheet data) — its own
+// <div class="report-month-content" data-report-month="KEY"> block in the HTML above, plus
+// a buildCharts() function here. To add a new month: (1) add its HTML block, suffixing every
+// canvas id with "_KEY" the same way "_2026_07" is done below, (2) add a buildCharts function
+// for it, (3) add one line to REPORT_MONTHS (newest first — the picker and default view both
+// read this order), (4) bump REPORT_NOTIFY_ID above so the bell badge reappears.
+// `sections` = {label, page} pairs marking which page (1-based, matching the actual PDF page
+// numbers) each part of the report starts on — used to build the left quick-nav. Re-derive
+// these by opening the new PDF's section-divider pages when adding a future month; page
+// numbers shift between decks (July's divider pages don't line up with the source PPTX's
+// slide numbers, since the PDF has an extra "Spotlight" page inserted after the KPI page).
+const REPORT_MONTHS = [
+  { key:'2026-07', label:'July 2026', buildCharts:buildReportCharts_2026_07, sections:[
+    {label:'Overview', page:1},
+    {label:'GMB Performance', page:6},
+    {label:'Reddit Performance', page:15},
+    {label:'Quora Performance', page:22},
+    {label:'Social Performance', page:28},
+    {label:'Appendix', page:35},
+  ]},
+];
+const reportChartsBuiltFor = new Set();
+function selectReportMonth(key){
+  document.querySelectorAll('.report-month-content').forEach(el=>{
+    el.classList.toggle('hidden', el.dataset.reportMonth !== key);
+  });
+  document.querySelectorAll('#reportMonthPicker .filter-btn').forEach(b=>{
+    b.classList.toggle('active', b.dataset.reportMonth === key);
+  });
+  if(typeof Chart !== 'undefined' && !reportChartsBuiltFor.has(key)){
+    const month = REPORT_MONTHS.find(m=>m.key===key);
+    if(month){ month.buildCharts(); reportChartsBuiltFor.add(key); }
+  }
+  buildReportToc(key);
+}
+function buildReportToc(key){
+  const toc = document.getElementById('reportToc');
+  if(!toc) return;
+  const sections = REPORT_MONTHS.find(m=>m.key===key)?.sections || [];
+  toc.innerHTML = sections.map(s => `<button type="button" data-page="${s.page}">${s.label}</button>`).join('');
+  toc.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const pages = activeReportPages();
+      const target = pages[+btn.dataset.page - 1];
+      if(target) scrollToReportPage(target);
+    });
+  });
+}
+function updateReportToc(){
+  const pages = activeReportPages();
+  const activeMonth = document.querySelector('.report-month-content:not(.hidden)');
+  if(!pages.length || !activeMonth) return;
+  const currentPageNum = currentReportPageIndex(pages) + 1;
+  const sections = REPORT_MONTHS.find(m=>m.key===activeMonth.dataset.reportMonth)?.sections || [];
+  let activeIdx = 0;
+  sections.forEach((s,i)=>{ if(s.page <= currentPageNum) activeIdx = i; });
+  document.querySelectorAll('#reportToc button').forEach((b,i)=> b.classList.toggle('active', i===activeIdx));
+}
+function renderMonthlyReport(){
+  const picker = document.getElementById('reportMonthPicker');
+  if(picker && !picker.dataset.built){
+    picker.dataset.built = '1';
+    picker.innerHTML = REPORT_MONTHS.map((m,i)=>
+      `<button class="filter-btn${i===0?' active':''}" data-report-month="${m.key}">${m.label}</button>`
+    ).join('');
+    picker.addEventListener('click', e=>{
+      if(!e.target.classList.contains('filter-btn')) return;
+      selectReportMonth(e.target.dataset.reportMonth);
+    });
+  }
+  // Only one archived month exists yet — hide the picker until there's an actual choice to make.
+  if(picker) picker.closest('.report-month-picker-wrap')?.classList.toggle('hidden', REPORT_MONTHS.length < 2);
+  selectReportMonth(REPORT_MONTHS[0].key);
+  initReportGallery();
+  updateReportNav();
+}
+
+// ---------- MONTHLY REPORT — page gallery navigation (progress pill, prev/next, zoom) ----------
+// Re-queries the currently-visible month's pages each time rather than caching a fixed list,
+// so switching months (once the archive has more than one) picks up the new set automatically.
+let reportGalleryInit = false;
+function activeReportPages(){
+  return Array.from(document.querySelectorAll('.report-month-content:not(.hidden) .report-page'));
+}
+function scrollToReportPage(page){
+  page.scrollIntoView({ behavior:'smooth', block:'center' });
+}
+function currentReportPageIndex(pages){
+  const viewportMid = window.innerHeight / 2;
+  let idx = 0;
+  pages.forEach((p,i)=>{ if(p.getBoundingClientRect().top <= viewportMid) idx = i; });
+  return idx;
+}
+function updateReportNav(){
+  const pages = activeReportPages();
+  const nav = document.getElementById('reportNav');
+  if(!pages.length){ nav.classList.remove('show'); return; }
+  const idx = currentReportPageIndex(pages);
+  document.getElementById('reportNavCount').textContent = `Page ${idx+1} / ${pages.length}`;
+  document.getElementById('reportNavPrev').disabled = idx <= 0;
+  document.getElementById('reportNavNext').disabled = idx >= pages.length-1;
+  // Show the pill only once the gallery has actually scrolled into view (not while still on
+  // the cover), and only while the Report tab itself is the active one.
+  const sectionVisible = !document.getElementById('monthlyReportSection').classList.contains('hidden');
+  const firstPageRect = pages[0].getBoundingClientRect();
+  nav.classList.toggle('show', sectionVisible && firstPageRect.top < window.innerHeight);
+  updateReportToc();
+}
+function openReportLightbox(index){
+  const pages = activeReportPages();
+  const page = pages[index];
+  if(!page) return;
+  const img = page.querySelector('img');
+  const lb = document.getElementById('reportLightbox');
+  lb.dataset.index = index;
+  document.getElementById('reportLightboxImg').src = img.src;
+  document.getElementById('reportLightboxImg').alt = img.alt;
+  document.getElementById('reportLightboxCount').textContent = `${index+1} / ${pages.length}`;
+  document.getElementById('reportLightboxPrev').disabled = index <= 0;
+  document.getElementById('reportLightboxNext').disabled = index >= pages.length-1;
+  lb.classList.add('show');
+}
+function closeReportLightbox(){ document.getElementById('reportLightbox').classList.remove('show'); }
+function initReportGallery(){
+  if(reportGalleryInit) return;
+  reportGalleryInit = true;
+
+  // Reveal-on-scroll: fade+rise each page as it enters the viewport (skipped entirely under
+  // prefers-reduced-motion via the CSS transition rule, not duplicated here).
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in-view'); });
+  }, { threshold:0.12 });
+  document.querySelectorAll('.report-page').forEach(p=>io.observe(p));
+
+  window.addEventListener('scroll', updateReportNav, { passive:true });
+  window.addEventListener('resize', updateReportNav);
+  updateReportNav();
+
+  document.getElementById('reportNavPrev').addEventListener('click', ()=>{
+    const pages = activeReportPages();
+    const idx = currentReportPageIndex(pages);
+    scrollToReportPage(pages[Math.max(0, idx-1)]);
+  });
+  document.getElementById('reportNavNext').addEventListener('click', ()=>{
+    const pages = activeReportPages();
+    const idx = currentReportPageIndex(pages);
+    scrollToReportPage(pages[Math.min(pages.length-1, idx+1)]);
+  });
+
+  document.querySelectorAll('.report-page').forEach((p,i)=>{
+    p.addEventListener('click', ()=> openReportLightbox(activeReportPages().indexOf(p)));
+  });
+  document.getElementById('reportLightboxClose').addEventListener('click', closeReportLightbox);
+  document.getElementById('reportLightbox').addEventListener('click', e=>{ if(e.target.id === 'reportLightbox') closeReportLightbox(); });
+  document.getElementById('reportLightboxPrev').addEventListener('click', ()=>{
+    const lb = document.getElementById('reportLightbox');
+    openReportLightbox(Math.max(0, +lb.dataset.index - 1));
+  });
+  document.getElementById('reportLightboxNext').addEventListener('click', ()=>{
+    const lb = document.getElementById('reportLightbox');
+    const pages = activeReportPages();
+    openReportLightbox(Math.min(pages.length-1, +lb.dataset.index + 1));
+  });
+  document.addEventListener('keydown', e=>{
+    const lb = document.getElementById('reportLightbox');
+    if(!lb.classList.contains('show')) return;
+    if(e.key === 'Escape') closeReportLightbox();
+    if(e.key === 'ArrowLeft') document.getElementById('reportLightboxPrev').click();
+    if(e.key === 'ArrowRight') document.getElementById('reportLightboxNext').click();
+  });
+}
+
+function buildReportCharts_2026_07(){
+  // No charts to build — July's report is now rendered as real PDF pages (see .report-pages
+  // above), not hand-built Chart.js reconstructions. Kept as a no-op so REPORT_MONTHS'
+  // buildCharts contract stays uniform for future months that might still use live charts.
+}
+
+// #report deep link — lets the bell (or a shared URL) open straight to the report tab. Must
+// stay at the very end of the script, after every Monthly Report const/function it touches
+// (REPORT_MONTHS, renderMonthlyReport, etc.) — firing this earlier hits the exact TDZ bug
+// already documented above for socialTrendChart: a `const` isn't readable until its own
+// declaration line has executed, regardless of function-hoisting.
+if(location.hash === '#report'){
+  markReportSeen();
+  document.querySelector('.tab-btn[data-target="report"]')?.click();
+}
 </script>
 </body>
 </html>
