@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-31T06:10:00+05:30",
+  "generated_at": "2026-08-02T06:13:48.805856+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -1853,6 +1853,27 @@
             "verdict": "Positive",
             "keyTakeaway": "Capitol's only July Quora mention flags a better lift ratio and full backup-power coverage versus two comparably priced rival projects, in a single seeded comparison answer.",
             "_note": "Source text refers only to 'Sumadhura Capitol' without distinguishing Residences from Towers; mapped here to Capitol Residences per the dashboard's established convention since nothing in this month's data disambiguates. No separate Capitol Towers mention exists this month, so no entry is produced for it. Single seeded mention — thin data."
+          }
+        }
+      }
+    },
+    "2026-08": {
+      "GMB": {
+        "projects": {
+          "Folium": {
+            "positive": [
+              "The only GMB activity in the first two days of August is a bare 5-star rating from Ronak Patel on Aug 1 (Folium), with no accompanying review text — Sumadhura's team replied with a standard thank-you message."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "bare 5-star rating (Ronak Patel)"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "August opened with just one GMB touchpoint — a bare 5-star rating from Ronak Patel with no review text — too early in the month for a meaningful read.",
+            "_note": "Only 2 days into August; the GMB Escalation Tracker, Daily Tracker (raw/specific data), and Reddit/Quora Content Plan all show no other August-dated activity yet (latest content elsewhere is still late July) — this is a single data point, not a representative monthly signal."
           }
         }
       }
