@@ -2402,8 +2402,11 @@ function renderDeliveryTable(filter){
   });
 
   const footRow = document.getElementById('deliveryTableFoot');
-  const weekTotals = Array.from({length:visibleWeekCount}, (_,i)=> filteredRows.reduce((s,row)=>s+(row['w'+(i+1)]||0),0));
-  const grandTotal = filteredRows.reduce((s,row)=>s+row.total,0);
+  // "New positive reviews seeded" is a subset of "New positive reviews received" (seeded
+  // reviews still land as received GMB reviews), so it's excluded here to avoid double-counting.
+  const totalRows = filteredRows.filter(row=> !row.metric.toLowerCase().includes('reviews seeded'));
+  const weekTotals = Array.from({length:visibleWeekCount}, (_,i)=> totalRows.reduce((s,row)=>s+(row['w'+(i+1)]||0),0));
+  const grandTotal = totalRows.reduce((s,row)=>s+row.total,0);
   footRow.innerHTML = `<tr><td>Total</td><td></td>${weekTotals.map(v=>`<td class="num">${v}</td>`).join('')}<td class="num">${grandTotal}</td></tr>`;
 }
 function renderProgress(containerId, rows){
