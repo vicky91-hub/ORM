@@ -1747,8 +1747,11 @@ async function loadAllData(){
   } catch(e){ errors.push('Summary sheet: '+e.message); }
   // currentWeekIdx must be computed after totalWeekCount is refreshed from the sheet — it
   // clamps against totalWeekCount, and clamping against a stale default understates it.
+  // currentWeekIdx here is actually the index of the last COMPLETE week (weekStart comes from
+  // getLastCompleteWeek); +1 below extends visibleWeekCount to also include the in-progress
+  // week so its partial-so-far column shows instead of waiting for it to fully elapse.
   currentWeekIdx = Math.max(1, Math.min(totalWeekCount, Math.round((weekStart-WEEK1_START)/(7*86400000))+1));
-  visibleWeekCount = Math.min(totalWeekCount, currentWeekIdx);
+  visibleWeekCount = Math.min(totalWeekCount, currentWeekIdx + 1);
   fullPlatformWeekly = {
     labels: fullPlatformWeekly.labels.slice(0, visibleWeekCount),
     Reddit: fullPlatformWeekly.Reddit.slice(0, visibleWeekCount),
@@ -2084,6 +2087,20 @@ function getTrackedWeeks(){
   trackedWeeksCache = weeks.slice().reverse(); // most recent first — index still counts up from tracking start, so the most recent week always carries the highest number (W5, W4, W3…)
   return trackedWeeksCache;
 }
+// The in-progress week (its Monday through today) — deliberately kept separate from
+// getTrackedWeeks(), which only returns weeks that have fully elapsed. This window's data
+// changes hour to hour, so it's never in theme_cache.json's frozen sentimentCounts/weekly
+// buckets by design (see refresh_sentiment_cache.py) — frozenCountsFor()/frozenBucketFor()
+// naturally miss it and fall back to live computation, same as they already do for "This Month".
+function getCurrentWeek(){
+  const weeks = getTrackedWeeks(); // reversed — weeks[0] is the last COMPLETE week, if any
+  const lastIndex = weeks.length ? weeks[0].index : 0;
+  const monday = new Date(WEEK1_START); monday.setDate(monday.getDate() + lastIndex*7);
+  const today = new Date();
+  if(monday > today) return null; // tracking hasn't reached a new week yet
+  return {type:'weekly', index: lastIndex+1, key: isoDate(monday), start: new Date(monday), end: new Date(today),
+    label: `${fmtShort(monday)}–${fmtShort(today)} (in progress)`};
+}
 // "This Month" is a sentinel ({type:'global'}), not a hardcoded month — it always means
 // "whatever window the header's own range picker is currently set to" (a specific month,
 // or All Time), so switching the header actually moves every chart still on "This Month".
@@ -2095,7 +2112,8 @@ function resolveWindowSel(sel){
 function pieWindowBounds(sel){
   if(sel.type === 'global') return normalizeRange(selectedRange.start, selectedRange.end);
   if(sel.type === 'weekly'){
-    const wk = getTrackedWeeks().find(w=>w.key===sel.key);
+    const current = getCurrentWeek();
+    const wk = getTrackedWeeks().find(w=>w.key===sel.key) || (current && current.key===sel.key ? current : null);
     return wk ? normalizeRange(wk.start, wk.end) : normalizeRange(null,null);
   }
   const b = monthBounds(sel.key);
@@ -2221,7 +2239,13 @@ function globalPillDescriptor(){
 }
 function pieWindowPillDescriptors(){
   const weeks = getTrackedWeeks();
-  return [globalPillDescriptor(), ...weeks.map(w=>({type:'weekly', key:w.key, display:`W${w.index}`, range:w.label}))];
+  const current = getCurrentWeek();
+  const pills = [globalPillDescriptor()];
+  // The in-progress week's pill sits right after "This Month" (most recent first) — its
+  // display carries a "*" so it reads distinctly from the fully-elapsed W1-W6 pills.
+  if(current) pills.push({type:'weekly', key:current.key, display:`W${current.index}*`, range:current.label});
+  pills.push(...weeks.map(w=>({type:'weekly', key:w.key, display:`W${w.index}`, range:w.label})));
+  return pills;
 }
 // Rebuilds a pill row's buttons/labels/active-state from current data — safe to call on
 // every render pass (header change, refresh, etc.), unlike buildPieWindowBar's one-time
