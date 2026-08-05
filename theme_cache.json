@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T06:10:14+05:30",
+  "generated_at": "2026-08-05T06:20:00+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -1862,108 +1862,213 @@
         "projects": {
           "Folium": {
             "positive": [
-              "Three bare 5-star GMB ratings opened August for Folium -- Ronak Patel (Aug 1), Naveen Nani (Aug 2) and Arjun Kumar (Aug 3) -- each logged simply as 'Just a Rating' with no review text, but every one acknowledged with a same-day agency reply."
+              "August opened with three bare 5-star GMB ratings for Folium -- Ronak Patel (Aug 1), Naveen Nani (Aug 2), and Arjun Kumar (Aug 3) -- none left any review text, and each got Sumadhura's standard templated thank-you reply."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "three bare 5-star ratings",
-                "same-day agency replies",
-                "no accompanying text"
+                "bare 5-star ratings (Ronak Patel, Naveen Nani, Arjun Kumar)",
+                "no review text"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Three bare 5-star GMB ratings (Ronak Patel, Naveen Nani, Arjun Kumar) opened August for Folium, with no review text or complaints in the month's first four days."
+            "keyTakeaway": "Folium's first days of August GMB activity were three bare 5-star ratings from Ronak Patel, Naveen Nani, and Arjun Kumar, with no review text to analyze.",
+            "_note": "Only the first 3-4 days of August have flowed into the GMB Escalation Tracker's Aug-2026 tab as of this run; too early in the month for a representative read."
           },
           "Capitol Towers": {
             "positive": [
-              "Capitol Towers' only August GMB entry so far is Molaka Jagadeeshwara Reddy's 5-star 'Nice' rating on Aug 2, acknowledged with a same-day agency reply."
+              "Capitol Towers picked up two 5-star GMB ratings in early August -- Molaka Jagadeeshwara Reddy left a one-word 'Nice' (Aug 2) and a reviewer tagged 'Photography' left a bare rating (Aug 4) -- both answered with Sumadhura's standard reply."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "single 5-star \"Nice\" rating",
-                "same-day reply"
+                "\"Nice\" (Molaka Jagadeeshwara Reddy)",
+                "bare 5-star rating (Photography)"
               ],
               "negative": []
             },
             "verdict": "Positive",
-            "keyTakeaway": "Capitol Towers' only August GMB entry so far is a single 5-star 'Nice' rating from Molaka Jagadeeshwara Reddy on Aug 2, acknowledged the same day."
+            "keyTakeaway": "Capitol Towers logged two thin 5-star GMB ratings this month, including a one-word 'Nice' from Molaka Jagadeeshwara Reddy -- too little text for deeper signal.",
+            "_note": "Only the first 3-4 days of August have flowed into the GMB Escalation Tracker's Aug-2026 tab as of this run; too early in the month for a representative read."
           }
         }
       },
       "Reddit": {
         "projects": {
           "Edition": {
-            "_note": "The only Reddit activity this month is a single self-seeded comparison thread ('Which Sumadhura project makes more sense based on office location?', r/indianrealestate, posted Aug 3) carrying ten planted comparison comments that favorably position Edition, Folium and Capitol Residences by commute persona (ITPL, Whitefield Main Road, Kadugodi). All ten are still marked 'Waiting Feedback' with zero organic replies, so there is no genuine inbound sentiment to score yet.",
-            "positive": [],
+            "positive": [
+              "The same Whitefield commute-comparison seeding named Edition repeatedly -- as the pick for ITPL/EPIP-adjacent buyers and for proximity to Nallurhalli Metro -- across an Aug 3 'zero commute' thread and an Aug 3 project-comparison thread."
+            ],
             "negative": [],
             "topKeywords": {
-              "positive": [],
+              "positive": [
+                "ITPL/EPIP office-proximity pick",
+                "Nallurhalli Metro access"
+              ],
               "negative": []
             },
-            "verdict": "No data",
-            "keyTakeaway": "August's only Reddit mention is a same-day seeded comparison thread favorably positioning Edition for ITPL commuters, still awaiting any organic reply."
+            "verdict": "Positive",
+            "keyTakeaway": "Edition kept surfacing in the same seeded Reddit commute-comparison campaign as Folium and Capitol Residences, credited for ITPL/EPIP proximity and Nallurhalli Metro access.",
+            "_note": "Same seeded commute/metro-proximity campaign as Folium and Capitol Residences -- the framing repeats near-verbatim across nominally different commenters within a two-day window. These planted comments have since moved from 'Waiting Feedback' to 'Published' status but still show no organic reply engagement."
           },
           "Folium": {
-            "_note": "The only Reddit activity this month is a single self-seeded comparison thread ('Which Sumadhura project makes more sense based on office location?', r/indianrealestate, posted Aug 3) carrying ten planted comparison comments that favorably position Edition, Folium and Capitol Residences by commute persona (ITPL, Whitefield Main Road, Kadugodi). All ten are still marked 'Waiting Feedback' with zero organic replies, so there is no genuine inbound sentiment to score yet.",
-            "positive": [],
+            "positive": [
+              "The same commute-comparison seeding campaign that ran in July continued into August: an Aug 3 'zero commute' Whitefield thread cited Folium's location as reducing office-route travel time, and a reply credited 'friends staying at Folium' for giving more realistic commute timings than sales presentations."
+            ],
             "negative": [],
             "topKeywords": {
-              "positive": [],
+              "positive": [
+                "commute-time comparison seeding",
+                "\"friends staying at Folium\""
+              ],
               "negative": []
             },
-            "verdict": "No data",
-            "keyTakeaway": "August's only Reddit mention is a same-day seeded comparison thread favorably positioning Folium for Whitefield Main Road commuters, still awaiting any organic reply."
+            "verdict": "Positive",
+            "keyTakeaway": "August's Reddit activity for Folium was more of the same seeded commute-comparison content as July -- realistic office-travel-time claims, not organic sentiment.",
+            "_note": "Same seeded reference-visit/commute-comparison operation flagged in July -- near-identical phrasing ('zero commute', named metro stations, 'friends staying at') recurs across dozens of nominally different accounts within a two-day window. These planted comments have since moved from 'Waiting Feedback' to 'Published' status but still show no organic reply engagement."
           },
           "Capitol Residences": {
-            "_note": "The only Reddit activity this month is a single self-seeded comparison thread ('Which Sumadhura project makes more sense based on office location?', r/indianrealestate, posted Aug 3) carrying ten planted comparison comments that favorably position Edition, Folium and Capitol Residences by commute persona (ITPL, Whitefield Main Road, Kadugodi). All ten are still marked 'Waiting Feedback' with zero organic replies, so there is no genuine inbound sentiment to score yet.",
-            "positive": [],
+            "positive": [
+              "Capitol Residences was the most-cited project in the Aug 3 seeding wave, repeatedly credited for its 'about a minute' proximity to Kadugodi Tree Park Metro across four separate comments in two different threads."
+            ],
             "negative": [],
             "topKeywords": {
-              "positive": [],
+              "positive": [
+                "Kadugodi Tree Park Metro proximity",
+                "\"about a minute\" walk"
+              ],
               "negative": []
             },
-            "verdict": "No data",
-            "keyTakeaway": "August's only Reddit mention is a same-day seeded comparison thread favorably positioning Capitol Residences for Kadugodi commuters near Kadugodi Tree Park Metro, still awaiting any organic reply."
+            "verdict": "Positive",
+            "keyTakeaway": "Capitol Residences dominated August's seeded Reddit commute campaign, repeatedly praised for near-walking-distance access to Kadugodi Tree Park Metro.",
+            "_note": "Part of the same seeded commute/metro-proximity campaign as Folium and Edition -- the Kadugodi Tree Park Metro framing repeats near-verbatim across four 'different' commenters within one day, a seeding signature rather than four independent voices. These planted comments have since moved from 'Waiting Feedback' to 'Published' status but still show no organic reply engagement."
           }
         }
       },
       "Quora": {
         "projects": {
           "Edition": {
-            "_note": "The only Quora activity this month is a single self-seeded comparison thread ('Is it better to buy a home near a metro station or closer to your office in Bangalore?', posted Aug 3) carrying ten planted answers that favorably position Edition, Folium and Capitol Residences by commute persona, mirroring the same-day Reddit seeding push. All ten are still marked 'Waiting Feedback' with zero organic replies, so there is no genuine inbound sentiment to score yet.",
-            "positive": [],
+            "positive": [
+              "Edition was cited across three separate Aug 3-4 Quora answers as the pick for ITPL/EPIP-corridor buyers, once specifically for balancing office access with 'good connectivity.'"
+            ],
             "negative": [],
             "topKeywords": {
-              "positive": [],
+              "positive": [
+                "ITPL/EPIP office-proximity pick",
+                "\"balances office access with connectivity\""
+              ],
               "negative": []
             },
-            "verdict": "No data",
-            "keyTakeaway": "August's only Quora mention is a same-day seeded comparison thread favorably positioning Edition for ITPL commuters, still awaiting any organic reply."
+            "verdict": "Positive",
+            "keyTakeaway": "Edition was repeatedly named across three Aug 3-4 Quora answers as the go-to pick for ITPL/EPIP-corridor buyers weighing office proximity.",
+            "_note": "Same seeded commute-comparison operation as the Reddit entries -- template phrasing and near-identical claims recur across nominally different Quora answerers within the same 48 hours. These planted answers have since moved from 'Waiting Feedback' to 'Published' status but still show no organic reply engagement."
           },
           "Folium": {
-            "_note": "The only Quora activity this month is a single self-seeded comparison thread ('Is it better to buy a home near a metro station or closer to your office in Bangalore?', posted Aug 3) carrying ten planted answers that favorably position Edition, Folium and Capitol Residences by commute persona, mirroring the same-day Reddit seeding push. All ten are still marked 'Waiting Feedback' with zero organic replies, so there is no genuine inbound sentiment to score yet.",
-            "positive": [],
+            "positive": [
+              "The same commute-seeding campaign appeared on Quora too -- Aug 4 answers on a 'zero-commute Whitefield' question cited a Folium resident's real commute time to ITPL as more trustworthy than sales collateral."
+            ],
             "negative": [],
             "topKeywords": {
-              "positive": [],
+              "positive": [
+                "resident commute-time testimony",
+                "\"ask a resident, not the brochure\""
+              ],
               "negative": []
             },
-            "verdict": "No data",
-            "keyTakeaway": "August's only Quora mention is a same-day seeded comparison thread favorably positioning Folium for Whitefield Main Road commuters, still awaiting any organic reply."
+            "verdict": "Positive",
+            "keyTakeaway": "Folium's only August Quora mentions repeated the same seeded 'ask a resident, not the brochure' commute-time narrative used in parallel on Reddit.",
+            "_note": "Same seeded commute-comparison operation as the Reddit entries -- template phrasing and near-identical claims recur across nominally different Quora answerers within the same 48 hours. These planted answers have since moved from 'Waiting Feedback' to 'Published' status but still show no organic reply engagement."
           },
           "Capitol Residences": {
-            "_note": "The only Quora activity this month is a single self-seeded comparison thread ('Is it better to buy a home near a metro station or closer to your office in Bangalore?', posted Aug 3) carrying ten planted answers that favorably position Edition, Folium and Capitol Residences by commute persona, mirroring the same-day Reddit seeding push. All ten are still marked 'Waiting Feedback' with zero organic replies, so there is no genuine inbound sentiment to score yet.",
-            "positive": [],
+            "positive": [
+              "Capitol Residences again anchored the Kadugodi Tree Park Metro proximity pitch across two Aug 3-4 Quora answers, this time framed around post-Purple-Line reliability and resale flexibility if a buyer's office later changes."
+            ],
             "negative": [],
             "topKeywords": {
-              "positive": [],
+              "positive": [
+                "Kadugodi Tree Park Metro proximity",
+                "post-Purple-Line reliability",
+                "resale/flexibility framing"
+              ],
               "negative": []
             },
-            "verdict": "No data",
-            "keyTakeaway": "August's only Quora mention is a same-day seeded comparison thread favorably positioning Capitol Residences for Kadugodi commuters near Kadugodi Tree Park Metro, still awaiting any organic reply."
+            "verdict": "Positive",
+            "keyTakeaway": "Capitol Residences' Quora mentions repeated the Kadugodi Tree Park Metro pitch, now framed around Purple Line reliability and resale flexibility if a buyer's office changes.",
+            "_note": "Same seeded commute-comparison operation as the Reddit entries -- template phrasing and near-identical claims recur across nominally different Quora answerers within the same 48 hours. These planted answers have since moved from 'Waiting Feedback' to 'Published' status but still show no organic reply engagement."
+          }
+        }
+      },
+      "Instagram": {
+        "projects": {
+          "Infracon": {
+            "positive": [
+              "Beyond a handful of generic heart and fire-emoji reactions and a devotional greeting spam comment, there was no substantive positive commentary on Infracon's Instagram in the first days of August."
+            ],
+            "negative": [
+              "The AI-generated-ad skepticism that first surfaced in July resurfaced Aug 3 -- 'Ai ads looks so artifical and hard to trust. Is this a legit brand' -- mislabeled Positive by the auto-sentiment engine but plainly skeptical in substance.",
+              "A separate Aug 3 comment accused Infracon of 'hoarding space that could otherwise be used by the thousands of people to commute easier,' echoing the recurring roads/infrastructure friction seen in prior months."
+            ],
+            "topKeywords": {
+              "positive": [
+                "generic heart/fire emoji reactions",
+                "greeting spam"
+              ],
+              "negative": [
+                "\"is this a legit brand\" AI-ad skepticism (recurring)",
+                "\"hoarding space\" commute complaint"
+              ]
+            },
+            "verdict": "Mixed",
+            "keyTakeaway": "Instagram engagement stayed mostly generic emoji reactions, but two Aug 3 comments echoed recurring friction -- AI-generated-ad skepticism and a public-space commute complaint.",
+            "_note": "Only 3 days of August Instagram activity had flowed into the Daily Tracker as of this run; volume is far below July's levels, so this is a thin read."
+          }
+        }
+      },
+      "Facebook": {
+        "projects": {
+          "Infracon": {
+            "positive": [
+              "Aside from a single 'Good initiative Anna' and a scatter of heart/rocket emoji and thank-you replies, positive comments carried no specifics on staff, amenities, or projects."
+            ],
+            "negative": [
+              "An unelaborated 'Fraud this is lake' accusation (Aug 2) continues the same content-free scam-accusation pattern flagged on this page in July.",
+              "A sarcastic 'Bcuz of their developments the roads and that underground passage is fced up' (Aug 2) repeats the recurring roads/infrastructure complaint thread from prior months."
+            ],
+            "topKeywords": {
+              "positive": [
+                "\"Good initiative\" generic praise",
+                "heart/rocket emoji reactions"
+              ],
+              "negative": [
+                "\"Fraud this is lake\" accusation (recurring pattern)",
+                "roads/underground-passage infrastructure gripe (recurring)"
+              ]
+            },
+            "verdict": "Mixed",
+            "keyTakeaway": "Facebook saw the same recurring complaint pair as July -- an unsubstantiated fraud accusation and a roads/underground-passage infrastructure gripe -- amid otherwise generic engagement.",
+            "_note": "Only 3 days of August Facebook activity had flowed into the Daily Tracker as of this run; volume is far below July's levels, so this is a thin read."
+          }
+        }
+      },
+      "LinkedIn": {
+        "projects": {
+          "Infracon": {
+            "positive": [
+              "Generic post-level praise ran through early August -- 'Amazing!!', 'Great Efforts', a 'memorable example of customer centric thinking done right' -- none naming a specific project or staffer.",
+              "The heaviest engagement was congratulatory comments on a reposted CMTI training-milestone announcement (21,420 training man-hours), directed at CMTI's Ashok Kumar rather than at Sumadhura itself."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "generic post praise (\"Amazing!!\", \"Great Efforts\")",
+                "CMTI training-milestone congratulations (third-party)"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "LinkedIn engagement cooled sharply from July's RealView-driven wave to generic congratulations, much of it directed at partner org CMTI rather than Sumadhura itself.",
+            "_note": "Comment volume is a small fraction of July's 100+-comment RealView surge. One commenter compared Sumadhura's 'ready experience homes' concept unfavorably to DLF's longstanding practice ('concept selling for a future delivery') -- informed skepticism rather than a complaint, so not counted as negative."
           }
         }
       }
