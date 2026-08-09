@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T06:17:31+05:30",
+  "generated_at": "2026-08-09T06:09:44+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -2051,7 +2051,7 @@
             },
             "verdict": "No data",
             "keyTakeaway": "No Instagram messages have flowed into the Daily Tracker's 'specific data' tab for August as of this run -- its most recent row is dated 6 Jul 2026, roughly three weeks before this pull.",
-            "_note": "The Daily Tracker's 'specific data' tab (the source for message-level social sentiment) has not been backfilled past 6 Jul 2026 as of this run; the tracker's separate volume/case pivot shows nonzero case counts for Aug 1-6 (11, 19, 14, 12, 62, 27), so activity exists but hasn't been logged with message text or sentiment yet. Revisit on the next run."
+            "_note": "The Daily Tracker's 'specific data' tab (the source for message-level social sentiment) has not been backfilled past 6 Jul 2026 as of this run; the tracker's separate volume/case pivot shows nonzero case counts for Aug 1-7 (11, 19, 14, 12, 62, 27, 21) but zero logged for Aug 8-9, so activity exists but hasn't been logged with message text or sentiment yet. Revisit on the next run."
           }
         }
       },
@@ -2066,7 +2066,7 @@
             },
             "verdict": "No data",
             "keyTakeaway": "No Facebook messages have flowed into the Daily Tracker's 'specific data' tab for August as of this run -- its most recent row is dated 6 Jul 2026, roughly three weeks before this pull.",
-            "_note": "The Daily Tracker's 'specific data' tab (the source for message-level social sentiment) has not been backfilled past 6 Jul 2026 as of this run; the tracker's separate volume/case pivot shows nonzero case counts for Aug 1-6 (11, 19, 14, 12, 62, 27), so activity exists but hasn't been logged with message text or sentiment yet. Revisit on the next run."
+            "_note": "The Daily Tracker's 'specific data' tab (the source for message-level social sentiment) has not been backfilled past 6 Jul 2026 as of this run; the tracker's separate volume/case pivot shows nonzero case counts for Aug 1-7 (11, 19, 14, 12, 62, 27, 21) but zero logged for Aug 8-9, so activity exists but hasn't been logged with message text or sentiment yet. Revisit on the next run."
           }
         }
       },
@@ -2081,7 +2081,7 @@
             },
             "verdict": "No data",
             "keyTakeaway": "No LinkedIn messages have flowed into the Daily Tracker's 'specific data' tab for August as of this run -- its most recent row is dated 6 Jul 2026, roughly three weeks before this pull.",
-            "_note": "The Daily Tracker's 'specific data' tab (the source for message-level social sentiment) has not been backfilled past 6 Jul 2026 as of this run; the tracker's separate volume/case pivot shows nonzero case counts for Aug 1-6 (11, 19, 14, 12, 62, 27), so activity exists but hasn't been logged with message text or sentiment yet. Revisit on the next run."
+            "_note": "The Daily Tracker's 'specific data' tab (the source for message-level social sentiment) has not been backfilled past 6 Jul 2026 as of this run; the tracker's separate volume/case pivot shows nonzero case counts for Aug 1-7 (11, 19, 14, 12, 62, 27, 21) but zero logged for Aug 8-9, so activity exists but hasn't been logged with message text or sentiment yet. Revisit on the next run."
           }
         }
       }
