@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T06:16:17.974239+05:30",
+  "generated_at": "2026-08-12T06:14:45.200114+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -1862,73 +1862,107 @@
         "projects": {
           "Folium": {
             "positive": [
-              "Three of Folium's four August GMB reviews were bare 5-star ratings with no accompanying text (Ronak, Naveen, and Arjun), continuing the clean-rating pattern seen in the opening days of the month."
+              "Three of Folium's five August GMB reviews were bare 5-star ratings with no accompanying text (Ronak Patel, Naveen Nani, and Arjun Kumar, Aug 1-3), continuing the clean-rating pattern.",
+              "Deepak G Harlalka's 4-star review (Aug 10) called it a 'well-planned residential community' with a 'pleasant layout' and 'good green spaces,' feeling 'peaceful despite being in a busy part of Bengaluru.'"
             ],
             "negative": [
-              "Apexa filed a detailed 1-star complaint calling the handover experience the 'worst' and the issue-resolution process 'very very slow,' citing multiple unresolved flat-level issues (Aug 7)."
+              "Apexakumari Patel filed a detailed 1-star complaint calling the handover experience the 'worst' and issue-resolution 'very very slow,' citing multiple unresolved flat-level issues (Aug 7).",
+              "Deepak's otherwise-positive 4-star review flagged that 'maintenance and internal infrastructure could be better managed' (Aug 10)."
             ],
             "topKeywords": {
               "positive": [
-                "bare 5-star ratings"
+                "bare 5-star ratings",
+                "peaceful green layout",
+                "well-planned community"
               ],
               "negative": [
                 "worst handover experience",
                 "slow issue resolution",
-                "multiple flat-level issues"
+                "maintenance/infrastructure gaps"
               ]
             },
             "verdict": "Positive",
-            "keyTakeaway": "Apexa's detailed 1-star complaint calling the handover 'the worst' and issue resolution 'very very slow' stood out against three bare 5-star ratings this month.",
-            "_note": "Sourced from the Daily Tracker's message-level log rather than the full GMB Escalation Tracker, which could not be reached this run (see report) -- likely undercounts the month's true GMB review volume."
+            "keyTakeaway": "Apexa's 1-star complaint calling the handover 'the worst' and resolution 'very very slow' was joined by Deepak Harlalka's more measured 4-star review flagging maintenance gaps, against four clean positive ratings."
           },
           "Capitol Towers": {
             "positive": [
-              "All three of Capitol Towers' August GMB reviews were 5-star, including Molaka's explicit 'Nice' alongside two bare ratings (Maria and one unnamed reviewer), with zero negative feedback."
+              "All three of Capitol Towers' August GMB reviews were bare 5-star ratings with no accompanying text -- Molaka Jagadeeshwara Reddy ('Nice,' Aug 2), an anonymous 'Photography' handle (Aug 4), and Maria Joseph Praveen ('Just a rating,' Aug 9)."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "clean 5-star ratings",
-                "zero negative reviews"
+                "bare 5-star ratings",
+                "no substantive text"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Capitol Towers' three August GMB reviews were uniformly 5-star with no negative feedback, continuing its clean rating record from prior months.",
-            "_note": "Sourced from the Daily Tracker's message-level log rather than the full GMB Escalation Tracker, which could not be reached this run (see report) -- likely undercounts the month's true GMB review volume."
-          },
-          "Edition": {
-            "positive": [],
-            "negative": [
-              "Tushar posted a detailed 1-star review describing a post-booking reversal on promised flooring customization, being penalized for using an external home lender instead of Sumadhura's in-house option, a needlessly slow sale-agreement process, and Sales/CRM teams blaming each other for unresolved issues -- concluding he 'would not recommend Sumadhura to anyone' (Aug 6)."
-            ],
-            "topKeywords": {
-              "positive": [],
-              "negative": [
-                "flooring customization reversed post-booking",
-                "penalized for external home loan",
-                "Sales vs CRM finger-pointing",
-                "\"would not recommend\""
-              ]
-            },
-            "verdict": "Negative",
-            "keyTakeaway": "Tushar's detailed 1-star review described promised flooring customization being reversed post-booking, penalization for using an external lender, and Sales/CRM teams blaming each other.",
-            "_note": "Sourced from the Daily Tracker's message-level log rather than the full GMB Escalation Tracker, which could not be reached this run (see report) -- likely undercounts the month's true GMB review volume."
+            "keyTakeaway": "Capitol Towers' three August GMB reviews (Molaka, an anonymous 'Photography' handle, and Maria Joseph Praveen) were all clean 5-star ratings with no complaints attached."
           },
           "Epitome": {
             "positive": [
-              "Upendra left a positive 5-star rating calling the Yelahanka project's progress 'good' (Aug 6), the only Epitome GMB signal this month."
+              "Upendra UPPI2's 5-star review praised the project's progress, calling it 'Good project going on in Yelahanka' (Aug 6) -- Epitome's only GMB mention this month."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "\"good project going on\" -- Yelahanka progress"
+                "progress praise",
+                "Yelahanka location"
               ],
               "negative": []
             },
             "verdict": "Positive",
-            "keyTakeaway": "Epitome's only August GMB review was a positive 5-star rating praising the Yelahanka project's ongoing progress.",
-            "_note": "Sourced from the Daily Tracker's message-level log rather than the full GMB Escalation Tracker, which could not be reached this run (see report) -- likely undercounts the month's true GMB review volume."
+            "keyTakeaway": "Epitome's sole August GMB review, a 5-star from Upendra UPPI2, praised the project's ongoing progress in Yelahanka."
+          },
+          "Edition": {
+            "positive": [],
+            "negative": [
+              "Tushar Gupta filed a detailed 1-star complaint (Aug 6) alleging the sales team penalised him for using an outside-bank home loan, reversed a verbal promise to allow custom flooring, and blamed Sales-vs-CRM infighting for unresolved issues, having booked on 31 January 2026.",
+              "The same reviewer posted a second, differently-worded 1-star review against Edition on Aug 10 ('DO NOT BUY FROM SUMADHURA. FALSE PROMISES TO SELL FLATS.') repeating the identical underlying complaint."
+            ],
+            "topKeywords": {
+              "positive": [],
+              "negative": [
+                "loan-lender penalty",
+                "reversed flooring promise",
+                "Sales vs CRM blame-shifting",
+                "repeat 1-star complaint"
+              ]
+            },
+            "verdict": "Negative",
+            "keyTakeaway": "Tushar Gupta's detailed complaint about a loan-lender penalty and a reversed flooring promise (Aug 6) was followed by a second, reworded 1-star review from the same reviewer (Aug 10)."
+          },
+          "Capitol Residences": {
+            "positive": [],
+            "negative": [
+              "The same Tushar Gupta complaint that hit Edition was cross-posted to Capitol Residences' GMB listing under the heading 'WARNING - DO NOT BUY!!! FALSE PROMISES!!!!' -- identical wording, still describing his original Sumadhura Edition booking."
+            ],
+            "topKeywords": {
+              "positive": [],
+              "negative": [
+                "cross-posted Edition complaint",
+                "not project-specific"
+              ]
+            },
+            "verdict": "Negative",
+            "keyTakeaway": "Capitol Residences' only August GMB review was the same cross-posted 'WARNING - DO NOT BUY' complaint Tushar Gupta filed against Edition, not an organic project-specific gripe.",
+            "_note": "This reviewer's complaint was cross-posted across at least three Sumadhura GMB listings this month (Edition, Capitol Residences, Solace) rather than reflecting distinct, organic incidents at each project."
+          },
+          "Solace": {
+            "positive": [],
+            "negative": [
+              "The identical Tushar Gupta 'WARNING - DO NOT BUY!!! FALSE PROMISES!!!!' complaint was also cross-posted to Solace's GMB listing, again still describing his original Sumadhura Edition booking rather than anything specific to Solace."
+            ],
+            "topKeywords": {
+              "positive": [],
+              "negative": [
+                "cross-posted Edition complaint",
+                "not project-specific"
+              ]
+            },
+            "verdict": "Negative",
+            "keyTakeaway": "Solace's only August GMB review was the same reviewer's cross-posted Edition complaint, not organic feedback about Solace itself.",
+            "_note": "Same cross-posted-complaint pattern as Capitol Residences -- see note there."
           }
         }
       },
@@ -1941,6 +1975,7 @@
             ],
             "negative": [
               "A commenter on the new East Bengaluru project announcement warned the access road is 'already extremely congested, especially near the railway bridge' and that Prestige Park Grove residents haven't even moved in yet, contrasting 'public infrastructure ❌ skyline ✅✅' (Aug 6).",
+              "A new-launch pricing complaint called the marketing a 'gimmick,' saying the narrow access road 'will not allow you to get out' and that a nearby 2 BHK priced ₹1-1.8 Cr is being charged '1 crore extra for much smaller matchbox apartments' here (Aug 10), alongside a separate gripe that residents are being asked to 'pay in for half' of amenities being sold to buyers (Aug 10).",
               "Scattered complaints recurred through the month: 'No water in whitefield major crisis' (Aug 6), an accusation that showcasing a sample space amounts to 'hoarding space that could otherwise be used by...thousands of people to commute easier' (Aug 3), a bare 'Fake alert' (Aug 5), and skepticism that AI-generated ad visuals look 'artificial and hard to trust' (Aug 3)."
             ],
             "topKeywords": {
@@ -1951,13 +1986,14 @@
               ],
               "negative": [
                 "congested access road near railway bridge",
+                "new-launch pricing \"gimmick\" (₹1Cr markup claim)",
+                "amenities cost-sharing complaint",
                 "\"no water in whitefield\" crisis claim",
-                "hoarding-space accusation",
                 "AI-ad skepticism"
               ]
             },
             "verdict": "Positive",
-            "keyTakeaway": "The 17-acre, ₹3,500 Cr East Bengaluru JDA announcement dominated the month, though one commenter warned the access road near the site is already congested by Prestige Park Grove traffic.",
+            "keyTakeaway": "The 17-acre East Bengaluru JDA drew mostly positive reaction, but a new-launch pricing 'gimmick' complaint (a ₹1Cr markup claim) and an access-road/Prestige Park Grove congestion warning were the month's sharpest complaints.",
             "_note": "Most volume this month is low-content noise (single characters, emoji-only, garbled text) rather than substantive sentiment, similar to prior months."
           },
           "Solace": {
@@ -1992,7 +2028,8 @@
             ],
             "negative": [
               "A blunt 'Fraud this is lake' accusation (Aug 2) and a sarcastic jab that Sumadhura's development 'fced up' the local roads and underground passage (Aug 2) were joined by a Kannada-language 'fake news' accusation posted twice on the same day (Aug 7): 'Fake news yaru nabbedi mosa madthare fake news bakra agbedi.'",
-              "A one-line pricing complaint said prices are 'on the higher side' (Aug 5), with no further detail given."
+              "A one-line pricing complaint said prices are 'on the higher side' (Aug 5), with no further detail given.",
+              "A terse 'Another green belt to be screwed' (Aug 10) voiced environmental concern without elaboration."
             ],
             "topKeywords": {
               "positive": [
@@ -2002,11 +2039,28 @@
                 "\"fraud this is lake\" accusation",
                 "road/underpass damage jab",
                 "\"fake news\" accusation (posted twice)",
-                "pricing \"on the higher side\""
+                "pricing \"on the higher side\"",
+                "\"green belt\" environmental jab"
               ]
             },
             "verdict": "Mixed",
-            "keyTakeaway": "A blunt 'fraud' accusation and an underpass-damage jab were joined by a Kannada 'fake news' accusation posted twice on the same day, offsetting thin generic praise."
+            "keyTakeaway": "A blunt 'fraud' accusation and an underpass-damage jab were joined by a Kannada 'fake news' accusation posted twice on the same day and a terse green-belt environmental jab, offsetting thin generic praise."
+          },
+          "Elysium": {
+            "positive": [],
+            "negative": [
+              "A comment on Elysium's Panathur micro-market post argued the area 'is not much better than Munakolel' and predicted worse traffic congestion once more large projects complete, since there is 'no good wide road' (Aug 10)."
+            ],
+            "topKeywords": {
+              "positive": [],
+              "negative": [
+                "Panathur traffic congestion concern",
+                "narrow roads vs. upcoming supply"
+              ]
+            },
+            "verdict": "Negative",
+            "keyTakeaway": "The only project-specific Facebook comment on Elysium's Panathur post warned the micro-market isn't much better than nearby Munakolel and will see worse traffic as more large projects complete.",
+            "_note": "Sole project-specific Facebook mention this month; general Infracon-channel activity is tracked separately under Infracon."
           }
         }
       },
