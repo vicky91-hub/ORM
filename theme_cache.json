@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12T06:14:45.200114+05:30",
+  "generated_at": "2026-08-13T06:16:15+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -1882,7 +1882,7 @@
               ]
             },
             "verdict": "Positive",
-            "keyTakeaway": "Apexa's 1-star complaint calling the handover 'the worst' and resolution 'very very slow' was joined by Deepak Harlalka's more measured 4-star review flagging maintenance gaps, against four clean positive ratings."
+            "keyTakeaway": "Apexa's 1-star complaint calling the handover 'the worst' and resolution 'very very slow' was the month's outlier against Deepak Harlalka's largely positive 4-star review and three clean 5-star ratings."
           },
           "Capitol Towers": {
             "positive": [
@@ -1917,41 +1917,41 @@
           "Edition": {
             "positive": [],
             "negative": [
-              "Tushar Gupta filed a detailed 1-star complaint (Aug 6) alleging the sales team penalised him for using an outside-bank home loan, reversed a verbal promise to allow custom flooring, and blamed Sales-vs-CRM infighting for unresolved issues, having booked on 31 January 2026.",
-              "The same reviewer posted a second, differently-worded 1-star review against Edition on Aug 10 ('DO NOT BUY FROM SUMADHURA. FALSE PROMISES TO SELL FLATS.') repeating the identical underlying complaint."
+              "Tushar Gupta filed a detailed 1-star complaint (Aug 6) alleging the sales team penalised him for using an outside-bank home loan, reversed a verbal promise to allow custom flooring, and blamed Sales-vs-CRM infighting for unresolved issues, having booked on 31 January 2026 -- Edition's only August GMB review."
             ],
             "topKeywords": {
               "positive": [],
               "negative": [
                 "loan-lender penalty",
                 "reversed flooring promise",
-                "Sales vs CRM blame-shifting",
-                "repeat 1-star complaint"
+                "Sales vs CRM blame-shifting"
               ]
             },
             "verdict": "Negative",
-            "keyTakeaway": "Tushar Gupta's detailed complaint about a loan-lender penalty and a reversed flooring promise (Aug 6) was followed by a second, reworded 1-star review from the same reviewer (Aug 10)."
+            "keyTakeaway": "Tushar Gupta's sole August review detailed a loan-lender penalty, a reversed flooring promise, and Sales-vs-CRM infighting -- the same reviewer cross-posted a shorter version of this complaint to Capitol Residences and Solace.",
+            "_note": "This reviewer's complaint was cross-posted across at least three Sumadhura GMB listings this month (Edition, Capitol Residences x2, Solace) -- see the Capitol Residences and Solace notes."
           },
           "Capitol Residences": {
             "positive": [],
             "negative": [
-              "The same Tushar Gupta complaint that hit Edition was cross-posted to Capitol Residences' GMB listing under the heading 'WARNING - DO NOT BUY!!! FALSE PROMISES!!!!' -- identical wording, still describing his original Sumadhura Edition booking."
+              "The same Tushar Gupta complaint that hit Edition was cross-posted to Capitol Residences' GMB listing twice on Aug 3, once under a 'Capitol Residency' GMB handle and once under an 'Edition' handle -- both times headlined 'WARNING - DO NOT BUY!!! FALSE PROMISES!!!!' and still describing his original Sumadhura Edition booking."
             ],
             "topKeywords": {
               "positive": [],
               "negative": [
                 "cross-posted Edition complaint",
+                "duplicate Aug 3 posting",
                 "not project-specific"
               ]
             },
             "verdict": "Negative",
-            "keyTakeaway": "Capitol Residences' only August GMB review was the same cross-posted 'WARNING - DO NOT BUY' complaint Tushar Gupta filed against Edition, not an organic project-specific gripe.",
-            "_note": "This reviewer's complaint was cross-posted across at least three Sumadhura GMB listings this month (Edition, Capitol Residences, Solace) rather than reflecting distinct, organic incidents at each project."
+            "keyTakeaway": "Capitol Residences' only August GMB activity was Tushar Gupta's cross-posted Edition complaint, posted twice on Aug 3 under two different GMB handles, not an organic project-specific issue.",
+            "_note": "This reviewer's complaint was cross-posted across at least three Sumadhura GMB listings this month (Edition, Capitol Residences x2, Solace) rather than reflecting distinct, organic incidents at each project."
           },
           "Solace": {
             "positive": [],
             "negative": [
-              "The identical Tushar Gupta 'WARNING - DO NOT BUY!!! FALSE PROMISES!!!!' complaint was also cross-posted to Solace's GMB listing, again still describing his original Sumadhura Edition booking rather than anything specific to Solace."
+              "The identical Tushar Gupta 'WARNING - DO NOT BUY!!! FALSE PROMISES!!!!' complaint was also cross-posted to Solace's GMB listing (Aug 3), again still describing his original Sumadhura Edition booking rather than anything specific to Solace."
             ],
             "topKeywords": {
               "positive": [],
@@ -1967,207 +1967,57 @@
         }
       },
       "Instagram": {
-        "projects": {
-          "Infracon": {
-            "positive": [
-              "The month's dominant story was Sumadhura's 17-acre, ₹3,500 Cr GDV Joint Development Agreement for a new East Bengaluru project in the Whitefield-Kannamangala corridor (announced Aug 6), which drew broadly positive reaction alongside scattered heart/fire emoji reactions on generic brand posts.",
-              "A rare specific compliment praised the brand's community-living content as 'a lifestyle where families can live, grow, and thrive together... truly an excellent initiative' (Aug 7)."
-            ],
-            "negative": [
-              "A commenter on the new East Bengaluru project announcement warned the access road is 'already extremely congested, especially near the railway bridge' and that Prestige Park Grove residents haven't even moved in yet, contrasting 'public infrastructure ❌ skyline ✅✅' (Aug 6).",
-              "A new-launch pricing complaint called the marketing a 'gimmick,' saying the narrow access road 'will not allow you to get out' and that a nearby 2 BHK priced ₹1-1.8 Cr is being charged '1 crore extra for much smaller matchbox apartments' here (Aug 10), alongside a separate gripe that residents are being asked to 'pay in for half' of amenities being sold to buyers (Aug 10).",
-              "Scattered complaints recurred through the month: 'No water in whitefield major crisis' (Aug 6), an accusation that showcasing a sample space amounts to 'hoarding space that could otherwise be used by...thousands of people to commute easier' (Aug 3), a bare 'Fake alert' (Aug 5), and skepticism that AI-generated ad visuals look 'artificial and hard to trust' (Aug 3)."
-            ],
-            "topKeywords": {
-              "positive": [
-                "17-acre East Bengaluru JDA, ₹3,500 Cr GDV",
-                "heart/fire emoji reactions",
-                "\"excellent initiative\" community praise"
-              ],
-              "negative": [
-                "congested access road near railway bridge",
-                "new-launch pricing \"gimmick\" (₹1Cr markup claim)",
-                "amenities cost-sharing complaint",
-                "\"no water in whitefield\" crisis claim",
-                "AI-ad skepticism"
-              ]
-            },
-            "verdict": "Positive",
-            "keyTakeaway": "The 17-acre East Bengaluru JDA drew mostly positive reaction, but a new-launch pricing 'gimmick' complaint (a ₹1Cr markup claim) and an access-road/Prestige Park Grove congestion warning were the month's sharpest complaints.",
-            "_note": "Most volume this month is low-content noise (single characters, emoji-only, garbled text) rather than substantive sentiment, similar to prior months."
-          },
-          "Solace": {
-            "positive": [],
-            "negative": [],
-            "topKeywords": {
-              "positive": [],
-              "negative": []
-            },
-            "verdict": "No data",
-            "keyTakeaway": "Solace's only August Instagram appearance was Sumadhura's own promotional caption describing the project's low-density layout, with no organic audience reaction attached.",
-            "_note": "Sole Solace mention was Sumadhura's own promotional caption (11+ acres, 777 residences, 80%+ open space) rather than organic customer commentary."
-          },
-          "Elysium": {
-            "positive": [],
-            "negative": [],
-            "topKeywords": {
-              "positive": [],
-              "negative": []
-            },
-            "verdict": "No data",
-            "keyTakeaway": "Elysium's only August Instagram appearance was a brand-authored Panathur micro-market explainer post, with no organic audience commentary attached.",
-            "_note": "Sole Elysium/Panathur mention was a brand-authored micro-market explainer post (crediting Anarock) rather than organic commentary."
-          }
-        }
+        "projects": {},
+        "_note": "No August message-level rows found in the Sumadhura Daily Tracker's 'specific data' tab as of this run (last dated entry: 6 Jul 2026, confirmed via Date, Date Reported, Case Start Date columns and the sheet's own COUNTA-by-month pivot). Project-level sentiment could not be synthesized from source text this month; left empty rather than fabricated. Needs a fresh export into that tab to restore coverage."
       },
       "Facebook": {
-        "projects": {
-          "Infracon": {
-            "positive": [
-              "Generic short-form praise trickled in through the month -- 'Very good,' 'Good,' 'Hi' -- with no specifics on staff or projects, mirroring prior months' pattern."
-            ],
-            "negative": [
-              "A blunt 'Fraud this is lake' accusation (Aug 2) and a sarcastic jab that Sumadhura's development 'fced up' the local roads and underground passage (Aug 2) were joined by a Kannada-language 'fake news' accusation posted twice on the same day (Aug 7): 'Fake news yaru nabbedi mosa madthare fake news bakra agbedi.'",
-              "A one-line pricing complaint said prices are 'on the higher side' (Aug 5), with no further detail given.",
-              "A terse 'Another green belt to be screwed' (Aug 10) voiced environmental concern without elaboration."
-            ],
-            "topKeywords": {
-              "positive": [
-                "generic \"Good\"/\"Very good\" praise"
-              ],
-              "negative": [
-                "\"fraud this is lake\" accusation",
-                "road/underpass damage jab",
-                "\"fake news\" accusation (posted twice)",
-                "pricing \"on the higher side\"",
-                "\"green belt\" environmental jab"
-              ]
-            },
-            "verdict": "Mixed",
-            "keyTakeaway": "A blunt 'fraud' accusation and an underpass-damage jab were joined by a Kannada 'fake news' accusation posted twice on the same day and a terse green-belt environmental jab, offsetting thin generic praise."
-          },
-          "Elysium": {
-            "positive": [],
-            "negative": [
-              "A comment on Elysium's Panathur micro-market post argued the area 'is not much better than Munakolel' and predicted worse traffic congestion once more large projects complete, since there is 'no good wide road' (Aug 10)."
-            ],
-            "topKeywords": {
-              "positive": [],
-              "negative": [
-                "Panathur traffic congestion concern",
-                "narrow roads vs. upcoming supply"
-              ]
-            },
-            "verdict": "Negative",
-            "keyTakeaway": "The only project-specific Facebook comment on Elysium's Panathur post warned the micro-market isn't much better than nearby Munakolel and will see worse traffic as more large projects complete.",
-            "_note": "Sole project-specific Facebook mention this month; general Infracon-channel activity is tracked separately under Infracon."
-          }
-        }
+        "projects": {},
+        "_note": "No August message-level rows found in the Sumadhura Daily Tracker's 'specific data' tab as of this run (last dated entry: 6 Jul 2026, confirmed via Date, Date Reported, Case Start Date columns and the sheet's own COUNTA-by-month pivot). Project-level sentiment could not be synthesized from source text this month; left empty rather than fabricated. Needs a fresh export into that tab to restore coverage."
       },
       "LinkedIn": {
+        "projects": {},
+        "_note": "No August message-level rows found in the Sumadhura Daily Tracker's 'specific data' tab as of this run (last dated entry: 6 Jul 2026, confirmed via Date, Date Reported, Case Start Date columns and the sheet's own COUNTA-by-month pivot). Project-level sentiment could not be synthesized from source text this month; left empty rather than fabricated. Needs a fresh export into that tab to restore coverage."
+      },
+      "Reddit": {
         "projects": {
-          "Infracon": {
+          "Edition": {
             "positive": [
-              "A 'seeing before committing' trust-and-transparency post triggered a sustained wave of over 40 genuinely positive comments on Aug 5 -- 'authentic leadership always creates lasting impact,' 'this is the kind of customer-centric thinking that builds long-term confidence,' and repeated praise for trust 'earned through actions and transparency.'",
-              "The CII Bengaluru Learning Mission recap (Aug 5) drew a detailed, admiring first-person account from a delegate who called out staffer Kajal Malik by name for bringing 'the Sumadhura story to life with humility, clarity, and genuine passion,' and praised CMD Srinivas Moramchetty's account of the company's journey as inspiring.",
-              "The 17-acre, ₹3,500 Cr East Bengaluru JDA (Aug 6-8) drew multiple congratulatory comments -- 'Congratulations on this strategic milestone,' 'can't wait to see your new landmark taking shape soon' -- plus wide press pickup (RealtyNXT, PTI, TycoonWorld)."
+              "Edition was the most-cited project across two seeded 'Whitefield commute' and 'metro vs office proximity' threads (3-7 Aug), repeatedly named for sitting near Nallurhalli Metro and for balancing ITPL/EPIP office access with future flexibility if a commenter's employer changes.",
+              "A dedicated 'Which Sumadhura project makes more sense based on office location?' post (3 Aug, comments through 10 Aug) positioned Edition as the pick for buyers working around ITPL, with several replies naming it alongside Capitol Residences and Folium as the three projects worth cross-comparing."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "\"seeing before committing\" trust wave (40+ comments)",
-                "CII Learning Mission -- Kajal Malik named",
-                "17-acre JDA, ₹3,500 Cr GDV congratulations"
+                "near Nallurhalli Metro",
+                "ITPL/EPIP office access",
+                "project-comparison thread anchor"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "A trust/transparency post drove 40+ positive comments and the 17-acre East Bengaluru JDA announcement drew wide press pickup and congratulations, with no negative signal on the corporate page.",
-            "_note": "One commenter raised a serious, detailed complaint about being unable to sell or leverage a paid-off unit at 'Sawan MTB' -- an older Sumadhura community outside this dashboard's tracked project list -- so it is not attributed to any of the 11 tracked projects here."
-          },
-          "Folium": {
-            "positive": [
-              "Folium was named among the 'Top 7 Best Gated Communities in Bengaluru for Luxury Homebuyers' by industry publication RealtyNxt, alongside Capitol Residences (Aug 4) -- independent editorial recognition rather than a Sumadhura-authored claim."
-            ],
-            "negative": [],
-            "topKeywords": {
-              "positive": [
-                "RealtyNxt \"Top 7 Gated Communities\" recognition"
-              ],
-              "negative": []
-            },
-            "verdict": "Positive",
-            "keyTakeaway": "Folium was named among RealtyNxt's 'Top 7 Best Gated Communities in Bengaluru for Luxury Homebuyers,' independent editorial recognition rather than a brand claim."
+            "keyTakeaway": "Edition was the most-referenced project across August's seeded commute/metro-access threads, consistently framed as the pick for ITPL-area office workers.",
+            "_note": "This is Sumadhura's own seeded Reddit content -- generic locality/commute questions answered by near-identical 'comparison' comments that name Edition, Folium and Capitol Residences -- rather than organic buyer discussion; no negative or critical commentary appeared."
           },
           "Capitol Residences": {
             "positive": [
-              "Capitol Residences shared the same RealtyNxt 'Top 7 Best Gated Communities in Bengaluru for Luxury Homebuyers' recognition as Folium (Aug 4)."
-            ],
-            "negative": [],
-            "topKeywords": {
-              "positive": [
-                "RealtyNxt \"Top 7 Gated Communities\" recognition"
-              ],
-              "negative": []
-            },
-            "verdict": "Positive",
-            "keyTakeaway": "Capitol Residences was named alongside Folium in RealtyNxt's 'Top 7 Best Gated Communities in Bengaluru for Luxury Homebuyers' list this month."
-          },
-          "Capitol Towers": {
-            "positive": [
-              "The CII Bengaluru Learning Mission recap singled out Capitol Towers by name: 'Walking through Capitol Towers and their beautifully designed office further reinforced this philosophy' (Aug 5), echoing a similar mention last month."
-            ],
-            "negative": [],
-            "topKeywords": {
-              "positive": [
-                "\"beautifully designed office\" -- CII delegate praise"
-              ],
-              "negative": []
-            },
-            "verdict": "Positive",
-            "keyTakeaway": "Capitol Towers again drew a brief but positive mention in a CII Learning Mission delegate's recap, calling its office 'beautifully designed.'"
-          }
-        }
-      },
-      "Reddit": {
-        "projects": {
-          "Capitol Residences": {
-            "positive": [
-              "Multiple seeded threads on Whitefield commute/metro trade-offs repeatedly cited Capitol Residences' proximity to Kadugodi Tree Park Metro -- 'about a minute' away -- with commenters claiming residents 'barely use their cars during weekdays' and that its walkability to the station was 'noticeably better' than nearby alternatives."
+              "Capitol Residences was the second most-cited project in the same seeded commute/metro threads, consistently framed around its walk-to-metro distance from Kadugodi Tree Park Metro, with one comment (3 Aug) claiming it's 'just about a minute' from the station."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
                 "Kadugodi Tree Park Metro proximity",
-                "walkability vs. rivals",
-                "reduced car dependence"
+                "walkable to station",
+                "low car dependency"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Capitol Residences' proximity to Kadugodi Tree Park Metro was the most repeated selling point across August's seeded commute-comparison threads, with residents reportedly relying less on cars.",
-            "_note": "All Reddit activity this month comes from the content plan's seeded 'New Seeds' comments; no Existing-Threads engagement fell in August."
-          },
-          "Edition": {
-            "positive": [
-              "Edition was repeatedly positioned as the pick for ITPL/EPIP-based commuters and praised for offering 'flexibility if your workplace changes,' plus one comment noting a monsoon site visit gave 'much more confidence in the location' after checking approach roads and drainage in heavy rain."
-            ],
-            "negative": [],
-            "topKeywords": {
-              "positive": [
-                "ITPL/EPIP commuter fit",
-                "job-change flexibility",
-                "monsoon drainage check"
-              ],
-              "negative": []
-            },
-            "verdict": "Strong Positive",
-            "keyTakeaway": "Edition was repeatedly recommended for ITPL/EPIP commuters and long-term flexibility, with one seeded comment citing a monsoon site visit that checked drainage and approach roads.",
-            "_note": "All Reddit activity this month comes from the content plan's seeded 'New Seeds' comments; no Existing-Threads engagement fell in August."
+            "keyTakeaway": "Capitol Residences' August Reddit mentions consistently centered on its close walk to Kadugodi Tree Park Metro, cited as a reason residents barely use their cars on weekdays.",
+            "_note": "Same seeded-content pattern as Edition above -- generic metro/commute questions answered by comments repeatedly naming Capitol Residences' metro proximity."
           },
           "Folium": {
             "positive": [
-              "Folium was cited for its established Whitefield Main Road infrastructure and daily conveniences already in place, with one seeded comment relaying that 'friends staying at Sumadhura Folium shared much more realistic commute timings than what we heard during sales presentations.'"
+              "Folium was cited for its established Whitefield Main Road infrastructure and daily conveniences already in place, with one seeded comment relaying that 'friends staying at Sumadhura Folium shared much more realistic commute timings than what we heard during sales presentations' (3 Aug)."
             ],
             "negative": [],
             "topKeywords": {
@@ -2185,53 +2035,55 @@
       },
       "Quora": {
         "projects": {
-          "Capitol Residences": {
-            "positive": [
-              "Capitol Residences' Kadugodi Tree Park Metro proximity recurred as the key differentiator across two seeded threads on metro-vs-office trade-offs, with one answer noting its walkability to the station was 'noticeably better' than nearby comparisons."
-            ],
-            "negative": [],
-            "topKeywords": {
-              "positive": [
-                "Kadugodi Tree Park Metro proximity",
-                "walkability advantage"
-              ],
-              "negative": []
-            },
-            "verdict": "Positive",
-            "keyTakeaway": "Capitol Residences' Kadugodi Tree Park Metro proximity and above-average walkability to the station were the recurring draws across August's seeded Quora threads.",
-            "_note": "Sumadhura's own seeded Q&A content across two threads (zero-commute lifestyle; metro vs. office proximity)."
-          },
           "Edition": {
             "positive": [
-              "Edition was repeatedly recommended for ITPL-corridor commuters and cited for offering flexibility 'if your workplace changes,' balancing access to multiple employment hubs (ITPL, Whitefield Main Road, Kadugodi)."
+              "Edition was the most-cited project across two seeded 'zero-commute' and 'metro vs office proximity' Quora threads (3-7 Aug), repeatedly named for balancing ITPL-area office access with connectivity to multiple employment hubs.",
+              "One answer (7 Aug) grouped Edition, Capitol Residences and Folium together as the three worth comparing 'since they each balance office access and connectivity differently depending on where you work.'"
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "ITPL corridor fit",
-                "multi-hub flexibility"
+                "ITPL office access",
+                "balances multiple employment hubs",
+                "comparison-thread anchor"
               ],
               "negative": []
             },
-            "verdict": "Positive",
-            "keyTakeaway": "Edition was repeatedly recommended for ITPL-corridor commuters and praised for balancing access to multiple employment hubs rather than just one.",
-            "_note": "Sumadhura's own seeded Q&A content across two threads (zero-commute lifestyle; metro vs. office proximity)."
+            "verdict": "Strong Positive",
+            "keyTakeaway": "Edition was the most-referenced project across August's seeded Quora commute-comparison threads, positioned as the ITPL-area office pick with room to switch jobs later.",
+            "_note": "Sumadhura's own seeded Q&A -- near-identical answers to generic Whitefield commute questions repeatedly name Edition, Folium and Capitol Residences; no negative or critical commentary appeared."
+          },
+          "Capitol Residences": {
+            "positive": [
+              "Capitol Residences was consistently cited for its walk to Kadugodi Tree Park Metro, with answers calling it more practical than 'a few projects that technically had metro access but weren't really walkable' and noting it may help resale by appealing to a wider pool of tenants."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "Kadugodi Tree Park Metro walkability",
+                "resale/tenant appeal"
+              ],
+              "negative": []
+            },
+            "verdict": "Strong Positive",
+            "keyTakeaway": "Capitol Residences' August Quora mentions repeatedly cited its genuinely walkable distance to Kadugodi Tree Park Metro as a practical edge over nearby alternatives.",
+            "_note": "Same seeded-content pattern as Edition above."
           },
           "Folium": {
             "positive": [
-              "Folium was cited for its established Whitefield infrastructure and for a homeowner's real-world commute account that 'turned out to be far more useful than any brochure or sales presentation.'"
+              "Folium was cited for its already-established Whitefield infrastructure and daily conveniences, with one answer (5 Aug) saying the surrounding area 'already feels well established' versus newer layouts still building out amenities."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
                 "established Whitefield infrastructure",
-                "resident commute account beat sales pitch"
+                "daily conveniences nearby"
               ],
               "negative": []
             },
             "verdict": "Positive",
-            "keyTakeaway": "Folium's established Whitefield infrastructure and a homeowner's real commute account -- called more useful than any sales presentation -- anchored its August Quora mentions.",
-            "_note": "Sumadhura's own seeded Q&A content across two threads (zero-commute lifestyle; metro vs. office proximity)."
+            "keyTakeaway": "Folium's August Quora mentions leaned on its already-established Whitefield infrastructure as a practical edge over newer, still-developing layouts.",
+            "_note": "Sumadhura's own seeded Q&A content inside generic commute-comparison threads."
           }
         }
       }
