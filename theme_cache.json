@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T06:16:15+05:30",
+  "generated_at": "2026-08-14T06:17:33+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -1886,7 +1886,7 @@
           },
           "Capitol Towers": {
             "positive": [
-              "All three of Capitol Towers' August GMB reviews were bare 5-star ratings with no accompanying text -- Molaka Jagadeeshwara Reddy ('Nice,' Aug 2), an anonymous 'Photography' handle (Aug 4), and Maria Joseph Praveen ('Just a rating,' Aug 9)."
+              "All four of Capitol Towers' August GMB reviews were bare 5-star ratings with no accompanying text -- Molaka Jagadeeshwara Reddy ('Nice,' Aug 2), an anonymous 'Photography' handle (Aug 4), Maria Joseph Praveen ('Just a rating,' Aug 9), and Anusha V ('Just a rating,' Aug 13)."
             ],
             "negative": [],
             "topKeywords": {
@@ -1897,7 +1897,39 @@
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Capitol Towers' three August GMB reviews (Molaka, an anonymous 'Photography' handle, and Maria Joseph Praveen) were all clean 5-star ratings with no complaints attached."
+            "keyTakeaway": "Capitol Towers' four August GMB reviews (Molaka, 'Photography', Maria Joseph Praveen, and Anusha V) were all clean 5-star ratings with no complaints attached."
+          },
+          "Z-hub": {
+            "positive": [
+              "Yash Jaiswal's detailed 5-star review (Aug 12) described putting his retirement savings into a small unit after being convinced by the foot traffic he observed on-site, and said his agent walked him through the co-living/office rental model -- Z-hub's only August GMB review."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "retirement-savings investment",
+                "high observed foot traffic",
+                "co-living/office rental income"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Z-hub's only August GMB review, a 5-star from Yash Jaiswal, cited high on-site foot traffic and steady co-living/office rental income as reasons he trusted it with his retirement savings."
+          },
+          "Elysium": {
+            "positive": [
+              "Madhav's detailed 5-star review (Aug 12) described a curiosity site visit to Panathur where the sales team walked him through the masterplan; he singled out the nature-inspired design over a typical glass-and-concrete tower and said he's now considering pre-launch pricing -- Elysium's only August GMB review."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "nature-inspired design",
+                "Panathur site visit",
+                "pre-launch pricing interest"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Elysium's sole August GMB review, a 5-star from Madhav after a Panathur site visit, praised the nature-inspired masterplan and flagged interest in pre-launch pricing."
           },
           "Epitome": {
             "positive": [
