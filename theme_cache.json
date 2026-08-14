@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T06:17:33+05:30",
+  "generated_at": "2026-08-14T06:19:06+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -2015,20 +2015,22 @@
           "Edition": {
             "positive": [
               "Edition was the most-cited project across two seeded 'Whitefield commute' and 'metro vs office proximity' threads (3-7 Aug), repeatedly named for sitting near Nallurhalli Metro and for balancing ITPL/EPIP office access with future flexibility if a commenter's employer changes.",
-              "A dedicated 'Which Sumadhura project makes more sense based on office location?' post (3 Aug, comments through 10 Aug) positioned Edition as the pick for buyers working around ITPL, with several replies naming it alongside Capitol Residences and Folium as the three projects worth cross-comparing."
+              "A dedicated 'Which Sumadhura project makes more sense based on office location?' post (3 Aug, comments through 10 Aug) positioned Edition as the pick for buyers working around ITPL, with several replies naming it alongside Capitol Residences and Folium as the three projects worth cross-comparing.",
+              "A separate seeded comment (11 Aug) on a 'Thinking of buying a home this monsoon?' thread name-dropped the 'Monsoon Homecoming Fest at Sumadhura Edition' as 'interesting,' though it was framed as one data point in a value comparison rather than a reason to buy on its own."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
                 "near Nallurhalli Metro",
                 "ITPL/EPIP office access",
-                "project-comparison thread anchor"
+                "project-comparison thread anchor",
+                "Monsoon Homecoming Fest mention"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Edition was the most-referenced project across August's seeded commute/metro-access threads, consistently framed as the pick for ITPL-area office workers.",
-            "_note": "This is Sumadhura's own seeded Reddit content -- generic locality/commute questions answered by near-identical 'comparison' comments that name Edition, Folium and Capitol Residences -- rather than organic buyer discussion; no negative or critical commentary appeared."
+            "keyTakeaway": "Edition was the most-referenced project across August's seeded commute/metro-access threads, consistently framed as the pick for ITPL-area office workers, plus a passing 11 Aug mention of its Monsoon Homecoming Fest.",
+            "_note": "This is Sumadhura's own seeded Reddit content -- generic locality/commute and monsoon-buying questions answered by near-identical 'comparison' comments that name Edition, Folium and Capitol Residences -- rather than organic buyer discussion; no negative or critical commentary appeared."
           },
           "Capitol Residences": {
             "positive": [
@@ -2049,18 +2051,20 @@
           },
           "Folium": {
             "positive": [
-              "Folium was cited for its established Whitefield Main Road infrastructure and daily conveniences already in place, with one seeded comment relaying that 'friends staying at Sumadhura Folium shared much more realistic commute timings than what we heard during sales presentations' (3 Aug)."
+              "Folium was cited for its established Whitefield Main Road infrastructure and daily conveniences already in place, with one seeded comment relaying that 'friends staying at Sumadhura Folium shared much more realistic commute timings than what we heard during sales presentations' (3 Aug).",
+              "The same comparison thread kept getting fresh seeded replies well past its original window -- a 12 Aug comment cited a resident's advice to 'compare your weekday routine' (commute, groceries, schools, metro) rather than brochures, calling it 'more useful than any sales presentation.'"
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
                 "established Whitefield Main Road infrastructure",
-                "resident-sourced commute timings"
+                "resident-sourced commute timings",
+                "compare weekday routine, not brochures"
               ],
               "negative": []
             },
             "verdict": "Positive",
-            "keyTakeaway": "Folium was recommended for its already-established Whitefield Main Road infrastructure, with residents said to give more realistic commute timings than sales presentations.",
+            "keyTakeaway": "Folium was recommended for its already-established Whitefield infrastructure, with a fresh 12 Aug seeded comment again urging buyers to trust resident routines over sales presentations.",
             "_note": "All Reddit activity this month comes from the content plan's seeded 'New Seeds' comments; no Existing-Threads engagement fell in August."
           }
         }
@@ -2116,6 +2120,28 @@
             "verdict": "Positive",
             "keyTakeaway": "Folium's August Quora mentions leaned on its already-established Whitefield infrastructure as a practical edge over newer, still-developing layouts.",
             "_note": "Sumadhura's own seeded Q&A content inside generic commute-comparison threads."
+          },
+          "Solace": {
+            "positive": [],
+            "negative": [],
+            "topKeywords": {
+              "positive": [],
+              "negative": []
+            },
+            "verdict": "No data",
+            "keyTakeaway": "A 13 Aug Quora question comparing Thanisandra/Manyata life to Whitefield for 'Sumadhura Solea' (likely a misspelling of Solace) and Epitome had nine seeded answers drafted but none published or live yet.",
+            "_note": "9 seeded answers exist in the content plan for this 13 Aug 'Thanisandra vs Whitefield' comparison question but all are still marked 'Waiting Feedback' with no answer link or engagement -- nothing is publicly visible yet, so no real sentiment signal exists for this month. The question spells the project 'Solea'; treated as Solace per the canonical project list."
+          },
+          "Epitome": {
+            "positive": [],
+            "negative": [],
+            "topKeywords": {
+              "positive": [],
+              "negative": []
+            },
+            "verdict": "No data",
+            "keyTakeaway": "The same 13 Aug Quora question paired Epitome with 'Solea' as North Bangalore alternatives to Whitefield, but its nine seeded answers remain unpublished drafts.",
+            "_note": "Same unpublished nine-answer batch noted under Solace above -- all still 'Waiting Feedback,' no live answers, no public sentiment to report yet."
           }
         }
       }
