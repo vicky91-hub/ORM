@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T06:19:06+05:30",
+  "generated_at": "2026-08-15T06:15:00+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -1862,7 +1862,7 @@
         "projects": {
           "Folium": {
             "positive": [
-              "Three of Folium's five August GMB reviews were bare 5-star ratings with no accompanying text (Ronak Patel, Naveen Nani, and Arjun Kumar, Aug 1-3), continuing the clean-rating pattern.",
+              "Four of Folium's six August GMB reviews were bare 5-star ratings with no accompanying text (Ronak Patel, Naveen Nani, and Arjun Kumar, Aug 1-3, plus Maneesh H, Aug 13), continuing the clean-rating pattern.",
               "Deepak G Harlalka's 4-star review (Aug 10) called it a 'well-planned residential community' with a 'pleasant layout' and 'good green spaces,' feeling 'peaceful despite being in a busy part of Bengaluru.'"
             ],
             "negative": [
@@ -1882,7 +1882,7 @@
               ]
             },
             "verdict": "Positive",
-            "keyTakeaway": "Apexa's 1-star complaint calling the handover 'the worst' and resolution 'very very slow' was the month's outlier against Deepak Harlalka's largely positive 4-star review and three clean 5-star ratings."
+            "keyTakeaway": "Apexa's 1-star complaint calling the handover 'the worst' and resolution 'very very slow' was the month's outlier against Deepak Harlalka's largely positive 4-star review and four clean 5-star ratings."
           },
           "Capitol Towers": {
             "positive": [
@@ -1901,35 +1901,39 @@
           },
           "Z-hub": {
             "positive": [
-              "Yash Jaiswal's detailed 5-star review (Aug 12) described putting his retirement savings into a small unit after being convinced by the foot traffic he observed on-site, and said his agent walked him through the co-living/office rental model -- Z-hub's only August GMB review."
+              "Yash Jaiswal's detailed 5-star review (Aug 12) described putting his retirement savings into a small unit after being convinced by the foot traffic he observed on-site, and said his agent walked him through the co-living/office rental model -- Z-hub's only August GMB review.",
+              "Deepika Mishra's 5-star review (Aug 13) described buying her first commercial unit after months comparing options with her father, citing the mixed-use design (commercial, co-living, and retail together) as reducing dependence on outside foot traffic, with loan paperwork the only friction point."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
                 "retirement-savings investment",
                 "high observed foot traffic",
+                "mixed-use tenant diversification",
                 "co-living/office rental income"
               ],
               "negative": []
             },
             "verdict": "Positive",
-            "keyTakeaway": "Z-hub's only August GMB review, a 5-star from Yash Jaiswal, cited high on-site foot traffic and steady co-living/office rental income as reasons he trusted it with his retirement savings."
+            "keyTakeaway": "Z-hub's two August GMB reviews were both 5-star investor endorsements -- Yash Jaiswal citing on-site foot traffic and rental income, Deepika Mishra citing the mixed-use design's reduced reliance on outside footfall for her first commercial purchase."
           },
           "Elysium": {
             "positive": [
-              "Madhav's detailed 5-star review (Aug 12) described a curiosity site visit to Panathur where the sales team walked him through the masterplan; he singled out the nature-inspired design over a typical glass-and-concrete tower and said he's now considering pre-launch pricing -- Elysium's only August GMB review."
+              "Madhav's detailed 5-star review (Aug 12) described a curiosity site visit to Panathur where the sales team walked him through the masterplan; he singled out the nature-inspired design over a typical glass-and-concrete tower and said he's now considering pre-launch pricing -- Elysium's only August GMB review.",
+              "Tarun Singh's 5-star review (Aug 13) described a nearly hour-long walkthrough of the Elite and Regal 3BHK floor plans -- down to wooden flooring and floor-to-ceiling glazing specs -- calling it reassuring for a project barely two weeks into construction."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
                 "nature-inspired design",
                 "Panathur site visit",
+                "detailed Elite/Regal 3BHK floor plans",
                 "pre-launch pricing interest"
               ],
               "negative": []
             },
             "verdict": "Positive",
-            "keyTakeaway": "Elysium's sole August GMB review, a 5-star from Madhav after a Panathur site visit, praised the nature-inspired masterplan and flagged interest in pre-launch pricing."
+            "keyTakeaway": "Elysium's two August GMB reviews were both 5-star pre-launch impressions -- Madhav praising the nature-inspired masterplan after a Panathur visit, Tarun Singh reassured by detailed Elite/Regal 3BHK specs despite construction being only two weeks in."
           },
           "Epitome": {
             "positive": [
@@ -1995,6 +1999,41 @@
             "verdict": "Negative",
             "keyTakeaway": "Solace's only August GMB review was the same reviewer's cross-posted Edition complaint, not organic feedback about Solace itself.",
             "_note": "Same cross-posted-complaint pattern as Capitol Residences -- see note there."
+          },
+          "Infracon": {
+            "positive": [],
+            "negative": [
+              "Flovie Martins filed a detailed 1-star complaint (Aug 14) calling it 'the worst post sale customer experience,' alleging the CRM team charged over Rs.50,000 in disputed 'interest payments' after sending an agreement with someone else's name to sign -- Infracon's only August GMB review."
+            ],
+            "topKeywords": {
+              "positive": [],
+              "negative": [
+                "worst post-sale experience",
+                "wrong-name agreement sent",
+                "disputed Rs.50K interest charge",
+                "unresponsive CRM team"
+              ]
+            },
+            "verdict": "Negative",
+            "keyTakeaway": "Infracon's sole August GMB review, a 1-star from Flovie Martins, detailed a wrong-name agreement and a disputed Rs.50,000-plus interest charge from an unresponsive CRM team."
+          },
+          "Hive and Thrive": {
+            "positive": [
+              "Yashika Jaiswal's 5-star review (Aug 13) said Hive and Thrive's Whitefield IT-tenant profile appealed to her as she diversified out of a pure-retail commercial portfolio, citing 2,500-3,800 sq ft floor plates flexible enough to split between two smaller tenants.",
+              "SUJAL Rana's 5-star review (Aug 13), an overseas investor, cited the co-living component's assured-returns structure with a 5% annual rental escalation and confirmed RERA registration as reasons it was the allocation they worried about least."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "IT-tenant lease stability",
+                "flexible floor plates (2,500-3,800 sq ft)",
+                "5% annual rental escalation",
+                "RERA-confirmed assured returns"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Hive and Thrive's only August GMB activity was two 5-star investor reviews (Aug 13) citing its IT-tenant lease stability and a RERA-confirmed 5% annual rental-escalation structure as reasons for their commercial and co-living allocations."
           }
         }
       },
