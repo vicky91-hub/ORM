@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T06:10:00+05:30",
+  "generated_at": "2026-08-18T06:14:01+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -1862,12 +1862,12 @@
         "projects": {
           "Folium": {
             "positive": [
-              "Four of Folium's six August GMB reviews were bare 5-star ratings with no accompanying text (Ronak Patel, Naveen Nani, and Arjun Kumar, Aug 1-3, plus Maneesh H, Aug 13), continuing the clean-rating pattern.",
+              "Five of Folium's seven August GMB reviews were positive: bare 5-star ratings from Ronak Patel (Aug 1), Naveen Nani and Arjun Kumar (Aug 2-3), and Manoj T R and Maneesh H (4- and 5-star, Aug 16 and Aug 13), continuing the clean-rating pattern with no accompanying text.",
               "Deepak G Harlalka's 4-star review (Aug 10) called it a 'well-planned residential community' with a 'pleasant layout' and 'good green spaces,' feeling 'peaceful despite being in a busy part of Bengaluru.'"
             ],
             "negative": [
               "Apexakumari Patel filed a detailed 1-star complaint calling the handover experience the 'worst' and issue-resolution 'very very slow,' citing multiple unresolved flat-level issues (Aug 7).",
-              "Deepak's otherwise-positive 4-star review flagged that 'maintenance and internal infrastructure could be better managed' (Aug 10)."
+              "Deepak's otherwise-positive review flagged that 'maintenance and internal infrastructure could be better managed' (Aug 10)."
             ],
             "topKeywords": {
               "positive": [
@@ -1882,7 +1882,7 @@
               ]
             },
             "verdict": "Positive",
-            "keyTakeaway": "Apexa's 1-star complaint calling the handover 'the worst' and resolution 'very very slow' was the month's outlier against Deepak Harlalka's largely positive 4-star review and four clean 5-star ratings."
+            "keyTakeaway": "Apexa's 1-star complaint calling the handover 'the worst' and resolution 'very very slow' was the month's outlier against six positive ratings, including Deepak Harlalka's detailed praise for the community's layout and greenery."
           },
           "Capitol Towers": {
             "positive": [
@@ -1903,28 +1903,30 @@
             "positive": [
               "Yash Jaiswal's detailed 5-star review (Aug 12) described putting his retirement savings into a small unit after being convinced by the foot traffic he observed on-site, and said his agent walked him through the co-living/office rental model.",
               "Deepika Mishra's 5-star review (Aug 13) described buying her first commercial unit after months comparing options with her father, citing the mixed-use design (commercial, co-living, and retail together) as reducing dependence on outside foot traffic, with loan paperwork the only friction point.",
-              "Tanvi's 5-star review (Aug 16), a longtime resident of the surrounding neighbourhood, said buying a retail unit felt like \"betting on something I'd watched grow,\" though registration took longer than she expected.",
-              "Neha's 5-star review (Aug 16), an owner of other retail spaces diversifying her portfolio, called Z-hub's non-seasonal demand -- spanning residents, office workers and visitors -- \"the best decision I've ever made.\""
+              "Syed Zara's 5-star review (Aug 17) said a background check on the developer's past delivery timelines and financial standing 'checked out clean,' and that construction has stayed on schedule -- Z-hub's most recent review this month.",
+              "Tanvi and Neha also posted 5-star reviews on Aug 15 -- a longtime area resident calling the purchase a bet on neighbourhood growth, and a multi-property investor calling it 'the best decision I've ever made' for its non-seasonal resident/office/visitor demand -- but both were later marked 'Review was deleted' in the tracker."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
                 "retirement-savings & long-term investment",
                 "mixed-use tenant diversification",
-                "non-seasonal demand (residents/office/visitors)",
-                "high observed foot traffic",
-                "co-living/office rental income"
+                "clean developer background check",
+                "construction on schedule",
+                "Aug 15 reviews later deleted"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Z-hub's four straight 5-star August GMB reviews grew from Yash's foot-traffic-driven retirement investment to Neha calling its non-seasonal resident/office/visitor demand \"the best decision I've ever made.\""
+            "keyTakeaway": "Z-hub's newest review (Syed Zara, Aug 17) cited a clean developer background check and on-schedule construction, capping a month where two of five positive reviews (Tanvi and Neha, Aug 15) were later marked 'deleted' in the tracker.",
+            "_note": "Aug 15's Tanvi and Neha reviews are marked 'Review was deleted' in the tracker; Yash Jaiswal (Aug 12), Deepika Mishra (Aug 13) and Syed Zara (Aug 17) remain live."
           },
           "Elysium": {
             "positive": [
               "Madhav's detailed 5-star review (Aug 12) described a curiosity site visit to Panathur where the sales team walked him through the masterplan; he singled out the nature-inspired design over a typical glass-and-concrete tower and said he's now considering pre-launch pricing.",
               "Tarun Singh's 5-star review (Aug 13) described a nearly hour-long walkthrough of the Elite and Regal 3BHK floor plans -- down to wooden flooring and floor-to-ceiling glazing specs -- calling it reassuring for a project barely two weeks into construction.",
-              "Isha's 5-star review (Aug 16), who had toured several early-launch Panathur projects, called Elysium's amenity plan the most thorough she'd seen -- a 30,000 sq ft clubhouse split across seven zones including a dedicated yoga/wellness area -- based on a sales-gallery walkthrough video, since construction has barely started."
+              "Isha and Vanya each posted 5-star reviews on Aug 15 -- Isha, who'd toured several early-launch Panathur projects, called Elysium's amenity plan the most thorough she'd seen (a 30,000 sq ft clubhouse split across seven zones including a dedicated wellness area), and Vanya cited the same seven-zone wellness design after an early scouting visit -- but both were later marked 'Review was deleted' in the tracker.",
+              "Haidar Khan added a bare 5-star rating (Aug 16)."
             ],
             "negative": [],
             "topKeywords": {
@@ -1932,13 +1934,13 @@
                 "nature-inspired design",
                 "30,000 sq ft clubhouse (7 zones)",
                 "detailed Elite/Regal 3BHK floor plans",
-                "Panathur site visits",
-                "pre-launch pricing interest"
+                "Aug 15 reviews later deleted"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Elysium's third straight 5-star August GMB review (Isha, Aug 16) called its 30,000 sq ft seven-zone clubhouse plan the most thorough amenity setup among early-launch Panathur projects she'd toured."
+            "keyTakeaway": "Elysium's August reviews leaned on detailed early-stage praise -- Tarun Singh's Elite/Regal floor-plan walkthrough and Isha/Vanya's seven-zone clubhouse plan -- though the Isha and Vanya reviews (Aug 15) were later marked 'deleted' in the tracker.",
+            "_note": "Aug 15's Isha and Vanya reviews are marked 'Review was deleted' in the tracker; Madhav (Aug 12), Tarun Singh (Aug 13) and Haidar Khan (Aug 16) remain live."
           },
           "Epitome": {
             "positive": [
@@ -2009,7 +2011,7 @@
             "positive": [],
             "negative": [
               "Flovie Martins filed a detailed 1-star complaint (Aug 14) calling it 'the worst post sale customer experience,' alleging the CRM team charged over Rs.50,000 in disputed 'interest payments' after sending an agreement with someone else's name to sign.",
-              "Kishore M filed a separate 1-star complaint (Aug 15) alleging sales rep Anurag turned abusive when told Kishore wasn't interested in a Whitefield-area project, despite Kishore never having enquired about Infracon in the first place."
+              "Kishore M filed a separate 1-star complaint the same day (Aug 14) alleging sales rep Anurag turned abusive when told Kishore wasn't interested in a Whitefield-area project, despite Kishore never having enquired about Infracon in the first place."
             ],
             "topKeywords": {
               "positive": [],
@@ -2021,14 +2023,13 @@
               ]
             },
             "verdict": "Negative",
-            "keyTakeaway": "Infracon's two August GMB reviews were both 1-star: Flovie Martins detailed a disputed Rs.50,000-plus interest charge on a wrong-name agreement, while Kishore M reported sales rep Anurag turning abusive on an unsolicited call."
+            "keyTakeaway": "Infracon's two August GMB reviews were both 1-star and both filed Aug 14: Flovie Martins detailed a disputed Rs.50,000-plus interest charge on a wrong-name agreement, while Kishore M reported sales rep Anurag turning abusive on an unsolicited call."
           },
           "Hive and Thrive": {
             "positive": [
               "Yashika Jaiswal's 5-star review (Aug 13) said Hive and Thrive's Whitefield IT-tenant profile appealed to her as she diversified out of a pure-retail commercial portfolio, citing 2,500-3,800 sq ft floor plates flexible enough to split between two smaller tenants.",
               "SUJAL Rana's 5-star review (Aug 13), an overseas investor, cited the co-living component's assured-returns structure with a 5% annual rental escalation and confirmed RERA registration as reasons it was the allocation they worried about least.",
-              "Sanvi Thakur's 5-star review (Aug 16), an IT-industry buyer, said Hive and Thrive's adaptable floor plates, HVAC and natural-light glazing meet the standards corporate tenants look for, with proximity to ITPL and GR Tech Park guaranteeing a ready tenant pool.",
-              "Madhav's 5-star review (Aug 16) offered the tenant-side view as a retail business owner planning to lease rather than buy, citing Hoodi Metro and Thrive Shantiniketan mall foot traffic and calling a toured 1,200 sq ft retail unit \"genuinely usable, not an awkward shell.\""
+              "Sanvi Thakur and Madhav each posted 5-star reviews on Aug 15 -- an IT-industry buyer praising the adaptable floor plates, HVAC and glazing corporate tenants look for, and a retail business owner citing Hoodi Metro foot traffic and calling a toured 1,200 sq ft unit 'genuinely usable' -- but both were later marked 'Review was deleted' in the tracker."
             ],
             "negative": [],
             "topKeywords": {
@@ -2036,13 +2037,29 @@
                 "IT-tenant lease stability",
                 "5% annual rental escalation, RERA-confirmed",
                 "flexible floor plates (2,500-3,800 sq ft)",
-                "ITPL/GR Tech Park tenant pool",
-                "Hoodi Metro retail foot traffic"
+                "Aug 15 reviews later deleted"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Hive and Thrive's four straight 5-star August GMB reviews grew from investor endorsements (Yashika, Sujal) to Aug 16 tenant-side praise for its IT-grade specs and Hoodi Metro retail foot traffic."
+            "keyTakeaway": "Two of Hive and Thrive's four positive August reviews (Sanvi Thakur and Madhav, both Aug 15) were later marked 'deleted' in the tracker, alongside live 5-star praise from Yashika Jaiswal and Sujal Rana for its IT-tenant fit and assured-returns structure.",
+            "_note": "Aug 13's Yashika Jaiswal and Sujal Rana reviews remain live; Aug 15's Sanvi Thakur and Madhav reviews are marked 'Review was deleted' in the tracker, so only two of the four positive mentions are currently visible on GMB."
+          },
+          "Panorama": {
+            "positive": [],
+            "negative": [
+              "Kallayya Mathapati left a 3-star review (Aug 16) flagging that land adjacent to the project is agricultural and warning prospective buyers to verify paperwork carefully, alleging some parcels 'in the middle of this property' do not belong to the registered owner."
+            ],
+            "topKeywords": {
+              "positive": [],
+              "negative": [
+                "land title/boundary concern",
+                "agricultural land adjacency",
+                "paperwork verification warning"
+              ]
+            },
+            "verdict": "Negative",
+            "keyTakeaway": "Panorama's only August GMB review was a 3-star land-title caution from Kallayya Mathapati, warning buyers to verify paperwork after spotting adjacent agricultural parcels he says don't belong to the registered owner."
           }
         }
       },
