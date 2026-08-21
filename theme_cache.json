@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T06:19:56+05:30",
+  "generated_at": "2026-08-21T06:10:00+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -1960,36 +1960,43 @@
           "Edition": {
             "positive": [],
             "negative": [
-              "Tushar Gupta filed a detailed 1-star complaint (Aug 6) alleging the sales team penalised him for using an outside-bank home loan, reversed a verbal promise to allow custom flooring, and blamed Sales-vs-CRM infighting for unresolved issues, having booked on 31 January 2026 -- Edition's only August GMB review."
+              "Tushar Gupta filed a detailed 1-star complaint (Aug 6) alleging the sales team penalised him for using an outside-bank home loan, reversed a verbal promise to allow custom flooring, and blamed Sales-vs-CRM infighting for unresolved issues, having booked on 31 January 2026.",
+              "Adi P filed a separate 1-star review (Aug 17) calling the SumAdhura app \"buggy,\" contrasting the crores charged for the flat with the thousands charged for late payment, and complaining there is no proper email address for customer support."
             ],
             "topKeywords": {
               "positive": [],
               "negative": [
                 "loan-lender penalty",
                 "reversed flooring promise",
-                "Sales vs CRM blame-shifting"
+                "Sales vs CRM blame-shifting",
+                "buggy app / no support email"
               ]
             },
             "verdict": "Negative",
-            "keyTakeaway": "Tushar Gupta's sole August review detailed a loan-lender penalty, a reversed flooring promise, and Sales-vs-CRM infighting -- the same reviewer cross-posted a shorter version of this complaint to Capitol Residences and Solace.",
-            "_note": "This reviewer's complaint was cross-posted across at least three Sumadhura GMB listings this month (Edition, Capitol Residences x2, Solace) -- see the Capitol Residences and Solace notes."
+            "keyTakeaway": "Edition's two August GMB reviews were both 1-star: Tushar Gupta's Aug 6 complaint detailed a loan-lender penalty and a reversed flooring promise, while Adi P's Aug 17 review blasted the \"buggy\" SumAdhura app and its missing customer-support email.",
+            "_note": "Tushar Gupta's Aug 6 complaint was separately cross-posted to Capitol Residences (x2) and Solace's GMB listings on Aug 3 -- see those notes. Adi P's Aug 17 complaint is a distinct, Edition-specific issue."
           },
           "Capitol Residences": {
-            "positive": [],
+            "positive": [
+              "Anita Paul's 5-star review (Aug 17) credited the project's great metro connectivity and thanked staffer Rehan by name for patiently walking her through the site and making the booking process \"completely smooth and hassle-free.\""
+            ],
             "negative": [
               "The same Tushar Gupta complaint that hit Edition was cross-posted to Capitol Residences' GMB listing twice on Aug 3, once under a 'Capitol Residency' GMB handle and once under an 'Edition' handle -- both times headlined 'WARNING - DO NOT BUY!!! FALSE PROMISES!!!!' and still describing his original Sumadhura Edition booking."
             ],
             "topKeywords": {
-              "positive": [],
+              "positive": [
+                "metro connectivity",
+                "Rehan -- smooth booking experience"
+              ],
               "negative": [
                 "cross-posted Edition complaint",
                 "duplicate Aug 3 posting",
                 "not project-specific"
               ]
             },
-            "verdict": "Negative",
-            "keyTakeaway": "Capitol Residences' only August GMB activity was Tushar Gupta's cross-posted Edition complaint, posted twice on Aug 3 under two different GMB handles, not an organic project-specific issue.",
-            "_note": "This reviewer's complaint was cross-posted across at least three Sumadhura GMB listings this month (Edition, Capitol Residences x2, Solace) rather than reflecting distinct, organic incidents at each project."
+            "verdict": "Mixed",
+            "keyTakeaway": "Capitol Residences split this month between Anita Paul's Aug 17 praise for staffer Rehan's smooth booking process and a cross-posted Tushar Gupta complaint (Aug 3, filed twice) that was actually about his original Edition booking, not Capitol Residences.",
+            "_note": "The negative mentions are the same reviewer's Edition complaint cross-posted twice on Aug 3 under two different GMB handles, not distinct organic incidents at Capitol Residences -- see the Edition and Solace notes. Anita Paul's Aug 17 review is the only genuinely project-specific mention this month."
           },
           "Solace": {
             "positive": [],
@@ -2072,8 +2079,26 @@
         "_note": "August's 'specific data' tab in the Sumadhura Daily Tracker has ~550 dated rows this month (fetched via a full xlsx export after the standard text conversion truncated before reaching August), but essentially none carry genuine project-specific buyer or resident sentiment. The dominant signal is generic engagement -- emoji comments, spam, hiring posts, unrelated real-estate news -- posted to the corporate 'Sumadhura Infracon Pvt. Ltd' page/handle, whose name collides with the unrelated 'Infracon' project and would inflate false matches if taken at face value. After filtering those out, the only project-adjacent items were: an 11 Aug post using 'edition' as an ordinal ('3rd edition of India PropTech Demo Day', unrelated to the Edition project), a 5 Aug Instagram caption about Solace that reads as Sumadhura's own promotional copy rather than audience sentiment, and a 16 Aug Instagram comment from a vendor complaining about unpaid invoices for Solace/Epitome marketing videos (a B2B payment dispute, not resident/buyer feedback). None of these rose to genuine per-project sentiment; left empty rather than fabricated."
       },
       "LinkedIn": {
-        "projects": {},
-        "_note": "August's 'specific data' tab in the Sumadhura Daily Tracker has ~550 dated rows this month (fetched via a full xlsx export after the standard text conversion truncated before reaching August), but essentially none carry genuine project-specific buyer or resident sentiment. The dominant signal is generic engagement -- emoji comments, spam, hiring posts, unrelated real-estate news -- posted to the corporate 'Sumadhura Infracon Pvt. Ltd' page/handle, whose name collides with the unrelated 'Infracon' project and would inflate false matches if taken at face value. After filtering those out, the only project-adjacent items were: an 11 Aug post using 'edition' as an ordinal ('3rd edition of India PropTech Demo Day', unrelated to the Edition project), a 5 Aug Instagram caption about Solace that reads as Sumadhura's own promotional copy rather than audience sentiment, and a 16 Aug Instagram comment from a vendor complaining about unpaid invoices for Solace/Epitome marketing videos (a B2B payment dispute, not resident/buyer feedback). None of these rose to genuine per-project sentiment; left empty rather than fabricated."
+        "projects": {
+          "Capitol Towers": {
+            "positive": [
+              "A 5 Aug LinkedIn post by Rajiv Kumar Raheja, recapping a CII Bengaluru Learning Mission site visit to Sumadhura's office, singled out \"walking through Capitol Towers and their beautifully designed office\" as reinforcing the developer's trust-building philosophy."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "CII Learning Mission site visit",
+                "beautifully designed office",
+                "industry/B2B post, not resident feedback"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Capitol Towers' only August LinkedIn mention was an industry visitor's 5 Aug recap of a CII Learning Mission site tour, praising the building's design rather than resident or buyer experience.",
+            "_note": "This is a B2B/industry LinkedIn post from a corporate site-visit attendee, not organic resident or buyer sentiment."
+          }
+        },
+        "_note": "August's 'specific data' tab in the Sumadhura Daily Tracker has ~620 dated rows this month (fetched via a full xlsx export after the standard text conversion truncated before reaching August), but almost none carry genuine project-specific buyer or resident sentiment. The dominant signal is generic engagement -- emoji comments, spam, hiring posts, unrelated real-estate news -- posted to the corporate 'Sumadhura Infracon Pvt. Ltd' page/handle, whose name collides with the unrelated 'Infracon' project and would inflate false matches if taken at face value. After filtering those out, the project-adjacent items were: an 11 Aug post using 'edition' as an ordinal ('3rd edition of India PropTech Demo Day', unrelated to the Edition project), a 5 Aug Instagram caption about Solace that reads as Sumadhura's own promotional copy rather than audience sentiment, a 16 Aug Instagram comment from a vendor complaining about unpaid invoices for Solace/Epitome marketing videos (a B2B payment dispute, not resident/buyer feedback), and a 5 Aug LinkedIn post from a CII Learning Mission attendee genuinely praising Capitol Towers' office design (now captured under Capitol Towers above) -- an industry/B2B mention, not resident or buyer sentiment either."
       },
       "Reddit": {
         "projects": {
@@ -2133,6 +2158,44 @@
             "verdict": "Strong Positive",
             "keyTakeaway": "Folium was pitched as the established, ready-infrastructure choice, capped by a 12 Aug comment urging buyers to judge it on \"weekday routine\" rather than brochures.",
             "_note": "All mentions are Sumadhura's own seeded comments recurring almost verbatim across four comparison-style threads (3-12 Aug), not organic Reddit sentiment; the separate Existing-Threads tab logged zero August engagement of any kind."
+          },
+          "Solace": {
+            "positive": [
+              "A 13-14 Aug seeded thread comparing \"Solea vs Epitome in Thanisandra\" (the sheet spells Solace \"Solea\") pitched both as viable North Bengaluru alternatives to Whitefield, citing better airport connectivity and improving daily convenience -- groceries, hospitals, schools -- despite Thanisandra still being an earlier-stage residential area.",
+              "A second 13 Aug comment specifically recommended the pair for buyers commuting to Manyata or Hebbal, calling the area \"less hectic\" than an already-congested Whitefield and urging a peak-hour drive of the access roads before deciding."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "Thanisandra vs Whitefield comparison",
+                "airport connectivity edge",
+                "Manyata/Hebbal commute fit",
+                "peak-hour access-road check"
+              ],
+              "negative": []
+            },
+            "verdict": "Strong Positive",
+            "keyTakeaway": "Solace (spelled \"Solea\" in the sheet) was pitched across a 13-14 Aug seeded thread as the calmer, airport-connected North Bengaluru alternative to Whitefield for buyers commuting to Manyata or Hebbal.",
+            "_note": "All mentions are Sumadhura's own seeded comments on one comparison thread (\"Sumadhura Solea vs Epitome in Thanisandra -- how different is daily life from Whitefield?\", 13-14 Aug), not organic Reddit sentiment; the sheet spells the project \"Solea\" throughout (matched to Solace) and every comment discusses Solace and Epitome jointly rather than distinguishing between them."
+          },
+          "Epitome": {
+            "positive": [
+              "The same 13-14 Aug seeded thread paired Epitome with Solace as a North Bengaluru alternative to Whitefield, citing better airport connectivity and improving daily convenience -- groceries, hospitals, schools -- despite Thanisandra still being an earlier-stage residential area.",
+              "A second 13 Aug comment recommended the pair specifically for Manyata/Hebbal commuters, calling the area \"less hectic\" than Whitefield and urging a peak-hour drive of the access roads before deciding."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "Thanisandra vs Whitefield comparison",
+                "airport connectivity edge",
+                "Manyata/Hebbal commute fit",
+                "peak-hour access-road check"
+              ],
+              "negative": []
+            },
+            "verdict": "Strong Positive",
+            "keyTakeaway": "Epitome, paired with Solace throughout, was pitched across the same 13-14 Aug seeded thread as a calmer, airport-connected North Bengaluru alternative to Whitefield for Manyata/Hebbal commuters.",
+            "_note": "All mentions are Sumadhura's own seeded comments on one comparison thread (\"Sumadhura Solea vs Epitome in Thanisandra -- how different is daily life from Whitefield?\", 13-14 Aug), not organic Reddit sentiment; the sheet spells the project \"Solea\" throughout (matched to Solace) and every comment discusses Solace and Epitome jointly rather than distinguishing between them."
           }
         }
       },
