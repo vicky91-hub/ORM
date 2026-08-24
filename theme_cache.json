@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T06:15:09+05:30",
+  "generated_at": "2026-08-24T06:18:20+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -1862,7 +1862,7 @@
         "projects": {
           "Folium": {
             "positive": [
-              "Six of Folium's eight August GMB reviews were positive: bare 5-star ratings from Ronak Patel (Aug 1), Naveen Nani and Arjun Kumar (Aug 2-3), Maneesh H (Aug 13), Manoj T R (4-star, Aug 16), and Sreedharan Veterans (Aug 21), continuing the clean-rating pattern with no accompanying text.",
+              "Seven of Folium's nine August GMB reviews were positive: bare 5-star ratings from Ronak Patel (Aug 1), Naveen Nani and Arjun Kumar (Aug 2-3), Maneesh H (Aug 13), Manoj T R (4-star, Aug 16), Sreedharan Veterans (Aug 21) and PD (Aug 23), continuing the clean-rating pattern with no accompanying text.",
               "Deepak G Harlalka's 4-star review (Aug 10) called it a 'well-planned residential community' with a 'pleasant layout' and 'good green spaces,' feeling 'peaceful despite being in a busy part of Bengaluru.'"
             ],
             "negative": [
@@ -1882,7 +1882,7 @@
               ]
             },
             "verdict": "Positive",
-            "keyTakeaway": "Apexa's 1-star complaint calling the handover 'the worst' and resolution 'very very slow' was the month's outlier against seven positive ratings, including Deepak Harlalka's detailed praise for the community's layout and greenery and a fresh bare 5-star from Sreedharan Veterans on Aug 21."
+            "keyTakeaway": "Apexa's 1-star complaint calling the handover 'the worst' and resolution 'very very slow' was the month's outlier against eight positive ratings, including Deepak Harlalka's detailed praise for the community's layout and greenery and fresh bare 5-stars from Sreedharan Veterans (Aug 21) and PD (Aug 23)."
           },
           "Capitol Towers": {
             "positive": [
@@ -1931,7 +1931,9 @@
               "Haidar Khan added a bare 5-star rating (Aug 16).",
               "Isha and Vanya each posted 5-star reviews on Aug 15 -- Isha, who'd toured several early-launch Panathur projects, called Elysium's amenity plan the most thorough she'd seen (a 30,000 sq ft clubhouse split across seven zones including a dedicated wellness area), and Vanya cited the same seven-zone wellness design after an early scouting visit -- but both were later marked 'Review was deleted' in the tracker."
             ],
-            "negative": [],
+            "negative": [
+              "Anindhya Sankhla's 2-star review (Aug 23) alleged the promised CDP road is no longer coming, claiming the protected forest land earmarked for it was instead turned into a tree park, and dismissed the location's value given its reliance on the railway-adjacent Dinne Road."
+            ],
             "topKeywords": {
               "positive": [
                 "nature-inspired design",
@@ -1940,11 +1942,15 @@
                 "well-explained sales walkthrough",
                 "Aug 15 reviews later deleted"
               ],
-              "negative": []
+              "negative": [
+                "CDP road allegedly abandoned",
+                "forest land converted to tree park",
+                "Dinne Road location concern"
+              ]
             },
-            "verdict": "Strong Positive",
-            "keyTakeaway": "Elysium's August reviews leaned on detailed early-stage praise -- Tarun Singh's Elite/Regal floor-plan walkthrough and Isha/Vanya's seven-zone clubhouse plan -- though the Isha and Vanya reviews (Aug 15) were later marked 'deleted' in the tracker, with riya kumari's Aug 20 review the most recent live entry.",
-            "_note": "Aug 15's Isha and Vanya reviews are marked 'Review was deleted' in the tracker; Madhav (Aug 12), Tarun Singh (Aug 13), Haidar Khan (Aug 16) and riya kumari (Aug 20) remain live."
+            "verdict": "Positive",
+            "keyTakeaway": "Elysium's early-stage praise -- Tarun Singh's Elite/Regal floor-plan walkthrough and Isha/Vanya's since-deleted seven-zone clubhouse reviews -- was capped by Anindhya Sankhla's Aug 23 warning that the promised CDP road was scrapped in favor of a tree park.",
+            "_note": "Aug 15's Isha and Vanya reviews are marked 'Review was deleted' in the tracker; Madhav (Aug 12), Tarun Singh (Aug 13), Haidar Khan (Aug 16), riya kumari (Aug 20) and Anindhya Sankhla (Aug 23) remain live."
           },
           "Epitome": {
             "positive": [
