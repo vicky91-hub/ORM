@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T06:18:20+05:30",
+  "generated_at": "2026-08-25T06:20:00+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -1867,7 +1867,8 @@
             ],
             "negative": [
               "Apexakumari Patel filed a detailed 1-star complaint calling the handover experience the 'worst' and issue-resolution 'very very slow,' citing multiple unresolved flat-level issues (Aug 7).",
-              "Deepak's otherwise-positive review flagged that 'maintenance and internal infrastructure could be better managed' (Aug 10)."
+              "Deepak's otherwise-positive review flagged that 'maintenance and internal infrastructure could be better managed' (Aug 10).",
+              "House Stark filed a scathing 1-star warning (Aug 24) that Folium's Phase 4 has a “delayed handover” and “lot of quality issues,” calling builder promises “100% fake” and dismissing positive reviews as written by employees or investors trying to sell at inflated prices."
             ],
             "topKeywords": {
               "positive": [
@@ -1878,11 +1879,12 @@
               "negative": [
                 "worst handover experience",
                 "slow issue resolution",
-                "maintenance/infrastructure gaps"
+                "maintenance/infrastructure gaps",
+                "Phase 4 delay/quality trust warning"
               ]
             },
             "verdict": "Positive",
-            "keyTakeaway": "Apexa's 1-star complaint calling the handover 'the worst' and resolution 'very very slow' was the month's outlier against eight positive ratings, including Deepak Harlalka's detailed praise for the community's layout and greenery and fresh bare 5-stars from Sreedharan Veterans (Aug 21) and PD (Aug 23)."
+            "keyTakeaway": "House Stark's Aug 24 warning that Folium's Phase 4 has delays and “fake” builder promises joined Apexa's “worst handover” complaint as August's two negative reviews among ten, mostly bare 5-stars."
           },
           "Capitol Towers": {
             "positive": [
@@ -1968,32 +1970,39 @@
             "keyTakeaway": "Epitome's sole August GMB review, a 5-star from Upendra UPPI2, praised the project's ongoing progress in Yelahanka."
           },
           "Edition": {
-            "positive": [],
+            "positive": [
+              "Santosh Sahu added a bare 5-star rating (Aug 23) with no accompanying text, Edition's only positive GMB review this month."
+            ],
             "negative": [
               "Tushar Gupta filed a detailed 1-star complaint (Aug 6) alleging the sales team penalised him for using an outside-bank home loan, reversed a verbal promise to allow custom flooring, and blamed Sales-vs-CRM infighting for unresolved issues, having booked on 31 January 2026.",
               "Adi P filed a separate 1-star review (Aug 17) calling the SumAdhura app \"buggy,\" contrasting the crores charged for the flat with the thousands charged for late payment, and complaining there is no proper email address for customer support.",
-              "VinodhReddi added a third 1-star rating (Aug 21) with no accompanying text, making it three-for-three negative GMB reviews for Edition this month."
+              "VinodhReddi added a third 1-star rating (Aug 21) with no accompanying text, making it three-for-three negative GMB reviews for Edition this month.",
+              "Two identical cross-posted complaints landed Aug 24: Janardhan Reddy's stalled refund (nearly four months since an Apr 28 confirmation to fully refund his cancelled flat with bank interest and MODT charges, after he agreed to vacate so the unit could be rebuilt as a duplex) and Bhavana Basani's one-line “Third grade builder” -- both were also filed against Capitol Residences and, for Janardhan Reddy, Solace on the same day."
             ],
             "topKeywords": {
-              "positive": [],
+              "positive": [
+                "bare 5-star (Aug 23)"
+              ],
               "negative": [
                 "loan-lender penalty",
                 "reversed flooring promise",
                 "Sales vs CRM blame-shifting",
                 "buggy app / no support email",
-                "third bare 1-star (Aug 21)"
+                "third bare 1-star (Aug 21)",
+                "cross-posted refund/duplex complaint (Aug 24)"
               ]
             },
-            "verdict": "Strong Negative",
-            "keyTakeaway": "Edition went three-for-three negative on GMB in August: Tushar Gupta's Aug 6 complaint detailed a loan-lender penalty and a reversed flooring promise, Adi P's Aug 17 review blasted the \"buggy\" app and missing support email, and VinodhReddi added a bare 1-star on Aug 21.",
-            "_note": "Tushar Gupta's Aug 6 complaint was separately cross-posted to Capitol Residences (x2) and Solace's GMB listings on Aug 3 -- see those notes. Adi P's and VinodhReddi's reviews are distinct, Edition-specific entries."
+            "verdict": "Negative",
+            "keyTakeaway": "Edition's run of four negative GMB reviews (Aug 6, 17, 21) grew Aug 24 with a cross-posted stalled-refund complaint and a “third grade builder” one-liner, offset only by a single bare 5-star on Aug 23.",
+            "_note": "Tushar Gupta's Aug 6 complaint was separately cross-posted to Capitol Residences (x2) and Solace's GMB listings on Aug 3 -- see those notes. Adi P's and VinodhReddi's reviews are distinct, Edition-specific entries. The Aug 24 Janardhan Reddy and Bhavana Basani reviews are identical cross-posts also filed against Capitol Residences (both) and Solace (Janardhan Reddy only) -- see those notes."
           },
           "Capitol Residences": {
             "positive": [
               "Anita Paul's 5-star review (Aug 17) credited the project's great metro connectivity and thanked staffer Rehan by name for patiently walking her through the site and making the booking process \"completely smooth and hassle-free.\""
             ],
             "negative": [
-              "The same Tushar Gupta complaint that hit Edition was cross-posted to Capitol Residences' GMB listing twice on Aug 3, once under a 'Capitol Residency' GMB handle and once under an 'Edition' handle -- both times headlined 'WARNING - DO NOT BUY!!! FALSE PROMISES!!!!' and still describing his original Sumadhura Edition booking."
+              "The same Tushar Gupta complaint that hit Edition was cross-posted to Capitol Residences' GMB listing twice on Aug 3, once under a 'Capitol Residency' GMB handle and once under an 'Edition' handle -- both times headlined 'WARNING - DO NOT BUY!!! FALSE PROMISES!!!!' and still describing his original Sumadhura Edition booking.",
+              "Two more identical cross-posts landed Aug 24 under the 'Capitol Residency' GMB handle: Janardhan Reddy's stalled-refund complaint (also filed against Edition and Solace) and Bhavana Basani's “Third grade builder” one-liner (also filed against Edition)."
             ],
             "topKeywords": {
               "positive": [
@@ -2003,28 +2012,31 @@
               "negative": [
                 "cross-posted Edition complaint",
                 "duplicate Aug 3 posting",
-                "not project-specific"
+                "not project-specific",
+                "cross-posted stalled-refund complaint (Aug 24)"
               ]
             },
-            "verdict": "Mixed",
-            "keyTakeaway": "Capitol Residences split this month between Anita Paul's Aug 17 praise for staffer Rehan's smooth booking process and a cross-posted Tushar Gupta complaint (Aug 3, filed twice) that was actually about his original Edition booking, not Capitol Residences.",
-            "_note": "The negative mentions are the same reviewer's Edition complaint cross-posted twice on Aug 3 under two different GMB handles, not distinct organic incidents at Capitol Residences -- see the Edition and Solace notes. Anita Paul's Aug 17 review is the only genuinely project-specific mention this month."
+            "verdict": "Negative",
+            "keyTakeaway": "Capitol Residences turned negative in late August as two more cross-posted complaints (Janardhan Reddy's stalled refund, Bhavana Basani's “third grade builder,” both Aug 24) joined the earlier duplicate Tushar Gupta post, outweighing Anita Paul's Aug 17 praise for staffer Rehan.",
+            "_note": "Four of five negative mentions are cross-posted complaints not specific to Capitol Residences: the same reviewer's Edition complaint posted twice on Aug 3, plus Janardhan Reddy's and Bhavana Basani's identical Aug 24 reviews also filed against Edition (and, for Janardhan Reddy, Solace) -- see the Edition and Solace notes. Anita Paul's Aug 17 review is the only genuinely project-specific mention this month."
           },
           "Solace": {
             "positive": [],
             "negative": [
-              "The identical Tushar Gupta 'WARNING - DO NOT BUY!!! FALSE PROMISES!!!!' complaint was also cross-posted to Solace's GMB listing (Aug 3), again still describing his original Sumadhura Edition booking rather than anything specific to Solace."
+              "The identical Tushar Gupta 'WARNING - DO NOT BUY!!! FALSE PROMISES!!!!' complaint was also cross-posted to Solace's GMB listing (Aug 3), again still describing his original Sumadhura Edition booking rather than anything specific to Solace.",
+              "Janardhan Reddy's stalled-refund complaint (Aug 24) -- also cross-posted identically to Edition and Capitol Residences -- was added to Solace's listing, again describing a flat-cancellation dispute rather than anything specific to Solace."
             ],
             "topKeywords": {
               "positive": [],
               "negative": [
                 "cross-posted Edition complaint",
-                "not project-specific"
+                "not project-specific",
+                "cross-posted stalled-refund complaint (Aug 24)"
               ]
             },
             "verdict": "Negative",
-            "keyTakeaway": "Solace's only August GMB review was the same reviewer's cross-posted Edition complaint, not organic feedback about Solace itself.",
-            "_note": "Same cross-posted-complaint pattern as Capitol Residences -- see note there."
+            "keyTakeaway": "Solace's two August GMB reviews were both cross-posted complaints originating elsewhere: Tushar Gupta's Edition dispute (Aug 3) and Janardhan Reddy's stalled-refund complaint (Aug 24), neither genuinely about Solace.",
+            "_note": "Same cross-posted-complaint pattern as Capitol Residences and Edition -- see notes there. Solace has no organic, project-specific GMB review this month."
           },
           "Infracon": {
             "positive": [],
@@ -2084,7 +2096,7 @@
       },
       "Instagram": {
         "projects": {},
-        "_note": "August's 'specific data' tab in the Sumadhura Daily Tracker logs 210 Instagram rows this month (through 21 Aug, the sheet's latest dated rows), but every one is tagged to the corporate 'sumadhurainfracon' handle rather than a per-project Channel Name, so genuine complaints can't be confidently attributed to a specific project. The bulk of the volume (especially 19 Aug) is emoji/one-word engagement ('Details😍', 'Location', 'Price?') on a promotional carousel post. Three comments read as substantive but unattributable: an 18 Aug complaint about seepage, water leakage, a breaking door handle, poor grouting and 'substandard floor tiles ... cheap quality in the name of Luxury and Technology'; a 20 Aug 'gimmick ... water leaking ... substandard construction ... cheap materials' complaint; and a 20 Aug 'Panthur is a Lost land with 10-15 ft roads, stop selling matchboxed apartments' complaint that plausibly concerns Elysium (the only Sumadhura project sited in Panathur) but can't be confirmed since the sheet carries no project tag for Instagram rows. Also confirmed unrelated to specific-project sentiment: an 11 Aug post using 'edition' as an ordinal number, a 5 Aug Solace caption that reads as Sumadhura's own promotional copy, and a 16 Aug vendor complaint about unpaid invoices for Solace/Epitome marketing videos (a B2B payment dispute). Left empty rather than fabricating a project attribution for the genuine-sounding but untaggable complaints above."
+        "_note": "August's 'specific data' tab in the Sumadhura Daily Tracker logs 221 Instagram rows this month (through 23 Aug, the sheet's latest dated rows), but every one is tagged to the corporate 'sumadhurainfracon' handle rather than a per-project Channel Name, so genuine complaints can't be confidently attributed to a specific project. The bulk of the volume (especially 19 Aug) is emoji/one-word engagement ('Details😍', 'Location', 'Price?') on a promotional carousel post. Three comments read as substantive but unattributable: an 18 Aug complaint about seepage, water leakage, a breaking door handle, poor grouting and 'substandard floor tiles ... cheap quality in the name of Luxury and Technology'; a 20 Aug 'gimmick ... water leaking ... substandard construction ... cheap materials' complaint; and a 20 Aug 'Panthur is a Lost land with 10-15 ft roads, stop selling matchboxed apartments' complaint that plausibly concerns Elysium (the only Sumadhura project sited in Panathur) but can't be confirmed since the sheet carries no project tag for Instagram rows. A cluster of unattributable negative comments also landed 23 Aug on a payment-related post: two flagging it as 'Fraud'/'just fraud' and one questioning why an unlock would proceed 'if the remaining amount is not started to be paid after 18 months,' alongside a skeptical comment about celebrity-driven marketing masking maintenance and traffic costs. Also confirmed unrelated to specific-project sentiment: an 11 Aug post using 'edition' as an ordinal number, a 5 Aug Solace caption that reads as Sumadhura's own promotional copy, and a 16 Aug vendor complaint about unpaid invoices for Solace/Epitome marketing videos (a B2B payment dispute). Left empty rather than fabricating a project attribution for the genuine-sounding but untaggable complaints above."
       },
       "Facebook": {
         "projects": {},
@@ -2208,6 +2220,23 @@
             "verdict": "Strong Positive",
             "keyTakeaway": "Epitome, paired with Solace throughout, was pitched across the same 13-14 Aug seeded thread as a calmer, airport-connected North Bengaluru alternative to Whitefield for Manyata/Hebbal commuters.",
             "_note": "All mentions are Sumadhura's own seeded comments on one comparison thread (\"Sumadhura Solea vs Epitome in Thanisandra -- how different is daily life from Whitefield?\", 13-14 Aug), not organic Reddit sentiment; the sheet spells the project \"Solea\" throughout (matched to Solace) and every comment discusses Solace and Epitome jointly rather than distinguishing between them."
+          },
+          "Elysium": {
+            "positive": [
+              "A 17 Aug seeded comment in a “boutique community or large township” thread positioned Elysium as the calmer, quieter-residential-feel choice versus Folium's larger community setup, framed as the better fit for buyers who want to unwind after a hectic workday."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "quieter residential feel",
+                "boutique-vs-township framing",
+                "post-workday calm"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Elysium's only August Reddit mention (17 Aug) pitched it as the calmer, boutique alternative to Folium's larger community setup for buyers who prioritize a quiet, low-activity environment.",
+            "_note": "A single Sumadhura-seeded comment on one comparison thread, not organic Reddit sentiment."
           }
         }
       },
