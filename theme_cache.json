@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T06:15:00+05:30",
+  "generated_at": "2026-08-27T10:30:00+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -1862,7 +1862,7 @@
         "projects": {
           "Folium": {
             "positive": [
-              "Eight of Folium's eleven August GMB reviews were positive: bare 5-star ratings from Ronak Patel (Aug 1), Naveen Nani and Arjun Kumar (Aug 2-3), Maneesh H (Aug 13), Manoj T R (4-star, Aug 16), Sreedharan Veterans (Aug 21), PD (Aug 23) and Akarsh Agarwal (Aug 24), continuing the clean-rating pattern with no accompanying text.",
+              "Twelve of Folium's August GMB entries were mostly bare 5-star ratings (Ronak Patel, Naveen Nani, Arjun Kumar, Maneesh H, Sreedharan Veterans, PD, Akarsh Agarwal, Surya Kumar) plus a bare 4-star from Manoj T R, continuing the clean-rating pattern with no accompanying text.",
               "Deepak G Harlalka's 4-star review (Aug 10) called it a 'well-planned residential community' with a 'pleasant layout' and 'good green spaces,' feeling 'peaceful despite being in a busy part of Bengaluru.'"
             ],
             "negative": [
@@ -1884,213 +1884,204 @@
               ]
             },
             "verdict": "Positive",
-            "keyTakeaway": "House Stark's Aug 24 warning that Folium's Phase 4 has delays and “fake” builder promises joined Apexa's “worst handover” complaint as August's two negative reviews among eleven, mostly bare 5-stars."
+            "keyTakeaway": "House Stark's Aug 24 warning that Folium's Phase 4 has delays and “fake” builder promises joined Apexa's “worst handover” complaint as August's two negative reviews among twelve, mostly bare 5-stars."
           },
           "Capitol Towers": {
             "positive": [
-              "Four of Capitol Towers' five August GMB reviews were bare 5-star ratings with no accompanying text -- Molaka Jagadeeshwara Reddy ('Nice,' Aug 2), an anonymous 'Photography' handle (Aug 4), Maria Joseph Praveen ('Just a rating,' Aug 9), and Anusha V ('Just a rating,' Aug 13).",
-              "Vijayakumar Manickavasagamopen's 5-star review (Aug 21) broke from that pattern to specifically praise the project's night-time LED light shows, calling them 'bliss to watch.'"
+              "All six of Capitol Towers' August GMB entries were 5-star, from bare ratings (Molaka Jagadeeshwara Reddy, Photography, Maria Joseph Praveen, Anusha V, Vishnu WacKy) to Vijayakumar Manickavasagamopen's Aug 21 shout-out for the night-time LED light shows ('bliss to watch')."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "bare 5-star ratings",
-                "night-time LED light shows"
+                "zero complaints, six 5-stars",
+                "night-time LED light shows",
+                "consistently rated experience"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Capitol Towers' five August GMB reviews were all 5-star, capped by Vijayakumar Manickavasagamopen's Aug 21 review specifically praising the project's night-time LED light shows as 'bliss to watch.'"
+            "keyTakeaway": "Capitol Towers logged a clean sweep of six 5-star August GMB ratings, with Vijayakumar singling out the night-time LED light shows as a standout touch and zero complaints logged."
           },
           "Z-hub": {
             "positive": [
-              "Yash Jaiswal's detailed 5-star review (Aug 12) described putting his retirement savings into a small unit after being convinced by the foot traffic he observed on-site, and said his agent walked him through the co-living/office rental model.",
-              "Deepika Mishra's 5-star review (Aug 13) described buying her first commercial unit after months comparing options with her father, citing the mixed-use design (commercial, co-living, and retail together) as reducing dependence on outside foot traffic, with loan paperwork the only friction point.",
-              "Syed Zara's 5-star review (Aug 17) said a background check on the developer's past delivery timelines and financial standing 'checked out clean,' and that construction has stayed on schedule.",
-              "Nisha Ganguly's 4-star review (Aug 20) praised the interiors, calling the layout 'practical' with 'enough space for a family without making the rooms feel cramped' -- Z-hub's most recent review this month.",
-              "Tanvi and Neha also posted 5-star reviews on Aug 15 -- a longtime area resident calling the purchase a bet on neighbourhood growth, and a multi-property investor calling it 'the best decision I've ever made' for its non-seasonal resident/office/visitor demand -- but both were later marked 'Review was deleted' in the tracker."
+              "Seven straight positive Z-hub reviews spanned investor and resident angles: Yash Jaiswal (Aug 12) put retirement savings into a unit citing steady foot traffic and clockwork rent; Deepika Mishra (Aug 13) bought her first commercial unit for the mixed-use commercial/co-living/retail model; Syed Zara (Aug 17) cited a clean developer background check and on-schedule construction.",
+              "Tanvi and Neha (both Aug 15) framed it as portfolio diversification from a long-time-resident and multi-property-owner perspective respectively, while Nisha Ganguly (Aug 20) praised the practical, non-cramped interior layout and Rasmita Sahoo (Aug 25) left a bare 5-star."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "retirement-savings & long-term investment",
-                "mixed-use tenant diversification",
+                "steady foot traffic, clockwork rent",
+                "mixed-use model (commercial/co-living/retail)",
                 "clean developer background check",
-                "construction on schedule",
-                "Aug 15 reviews later deleted"
+                "portfolio diversification pitch",
+                "practical interior layout"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Z-hub's newest review (Nisha Ganguly, Aug 20) praised the practical interior layout, extending a month where two of six positive reviews (Tanvi and Neha, Aug 15) were later marked 'deleted' in the tracker.",
-            "_note": "Aug 15's Tanvi and Neha reviews are marked 'Review was deleted' in the tracker; Yash Jaiswal (Aug 12), Deepika Mishra (Aug 13), Syed Zara (Aug 17) and Nisha Ganguly (Aug 20) remain live."
+            "keyTakeaway": "Z-hub earned seven straight positive August GMB reviews from investors citing steady foot traffic, on-schedule construction (Syed Zara) and its mixed-use commercial/co-living/retail model -- zero complaints.",
+            "_note": "Two of the seven (Tanvi, Neha -- both Aug 15) were later marked 'Review was deleted' in the response log, part of a same-day batch of six polished, testimonial-style reviews removed across Z-hub, Hive and Thrive, and Elysium -- possibly flagged as promotional rather than organic."
           },
           "Elysium": {
             "positive": [
-              "Madhav's detailed 5-star review (Aug 12) described a curiosity site visit to Panathur where the sales team walked him through the masterplan; he singled out the nature-inspired design over a typical glass-and-concrete tower and said he's now considering pre-launch pricing.",
-              "Tarun Singh's 5-star review (Aug 13) described a nearly hour-long walkthrough of the Elite and Regal 3BHK floor plans -- down to wooden flooring and floor-to-ceiling glazing specs -- calling it reassuring for a project barely two weeks into construction.",
-              "riya kumari's 4-star review (Aug 20) called the sales walkthrough 'really convenient' and 'well explained.'",
-              "Haidar Khan added a bare 5-star rating (Aug 16).",
-              "Isha and Vanya each posted 5-star reviews on Aug 15 -- Isha, who'd toured several early-launch Panathur projects, called Elysium's amenity plan the most thorough she'd seen (a 30,000 sq ft clubhouse split across seven zones including a dedicated wellness area), and Vanya cited the same seven-zone wellness design after an early scouting visit -- but both were later marked 'Review was deleted' in the tracker."
+              "Early-stage groundwork visits drove most of the praise: Madhav (Aug 12) liked the nature-inspired masterplan and is 'seriously considering' pre-launch pricing, while Tarun Singh (Aug 13) credited a patient sales manager for walking him through Elite/Regal 3BHK floor-plan detail 'barely two weeks into construction.'",
+              "Isha and Vanya (both Aug 15) praised the 30,000 sq ft, seven-zone clubhouse and wellness-focused amenity plan; riya kumari (Aug 20) called the walkthrough 'really convenient.'"
             ],
             "negative": [
-              "Anindhya Sankhla's 2-star review (Aug 23) alleged the promised CDP road is no longer coming, claiming the protected forest land earmarked for it was instead turned into a tree park, and dismissed the location's value given its reliance on the railway-adjacent Dinne Road."
+              "Anindhya Sankhla's Aug 23 2-star disputed the promised CDP road, alleging protected forest land was quietly converted to a 'tree park' and that the project has 'no value' due to the adjacent railway (Dinne Road)."
             ],
             "topKeywords": {
               "positive": [
-                "nature-inspired design",
-                "30,000 sq ft clubhouse (7 zones)",
-                "detailed Elite/Regal 3BHK floor plans",
-                "well-explained sales walkthrough",
-                "Aug 15 reviews later deleted"
+                "nature-inspired masterplan",
+                "Elite/Regal 3BHK floor-plan detail",
+                "30,000 sq ft 7-zone clubhouse",
+                "patient sales manager"
               ],
               "negative": [
-                "CDP road allegedly abandoned",
-                "forest land converted to tree park",
-                "Dinne Road location concern"
+                "CDP road / forest-land dispute",
+                "railway (Dinne Road) devaluation claim"
               ]
             },
             "verdict": "Positive",
-            "keyTakeaway": "Elysium's early-stage praise -- Tarun Singh's Elite/Regal floor-plan walkthrough and Isha/Vanya's since-deleted seven-zone clubhouse reviews -- was capped by Anindhya Sankhla's Aug 23 warning that the promised CDP road was scrapped in favor of a tree park.",
-            "_note": "Aug 15's Isha and Vanya reviews are marked 'Review was deleted' in the tracker; Madhav (Aug 12), Tarun Singh (Aug 13), Haidar Khan (Aug 16), riya kumari (Aug 20) and Anindhya Sankhla (Aug 23) remain live."
+            "keyTakeaway": "Elysium's pre-launch site-visit reviews praised the nature-inspired masterplan and 30,000 sq ft clubhouse, but Anindhya Sankhla's Aug 23 review disputed the promised CDP road over alleged forest-land conversion.",
+            "_note": "Isha and Vanya's Aug 15 reviews were later marked 'Review was deleted' in the response log, part of a same-day batch of six polished, testimonial-style reviews removed across Elysium, Z-hub, and Hive and Thrive -- possibly flagged as promotional rather than organic."
           },
           "Epitome": {
             "positive": [
-              "Upendra UPPI2's 5-star review praised the project's progress, calling it 'Good project going on in Yelahanka' (Aug 6) -- Epitome's only GMB mention this month."
+              "Epitome's only August GMB review, from Upendra UPPI2 (Aug 6), called progress on the Yelahanka project 'good' -- brief but the sole data point this month."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "progress praise",
-                "Yelahanka location"
+                "Yelahanka progress praised"
               ],
               "negative": []
             },
             "verdict": "Positive",
-            "keyTakeaway": "Epitome's sole August GMB review, a 5-star from Upendra UPPI2, praised the project's ongoing progress in Yelahanka."
+            "keyTakeaway": "Epitome's single August GMB review, from Upendra UPPI2, called progress on the Yelahanka project good -- the only feedback logged this month, with no complaints."
           },
           "Edition": {
             "positive": [
-              "Santosh Sahu added a bare 5-star rating (Aug 23) with no accompanying text, Edition's only positive GMB review this month."
+              "Santosh Sahu's Aug 23 5-star was the month's only positive Edition review, with no accompanying detail."
             ],
             "negative": [
-              "Tushar Gupta filed a detailed 1-star complaint (Aug 6) alleging the sales team penalised him for using an outside-bank home loan, reversed a verbal promise to allow custom flooring, and blamed Sales-vs-CRM infighting for unresolved issues, having booked on 31 January 2026.",
-              "Adi P filed a separate 1-star review (Aug 17) calling the SumAdhura app \"buggy,\" contrasting the crores charged for the flat with the thousands charged for late payment, and complaining there is no proper email address for customer support.",
-              "VinodhReddi added a third 1-star rating (Aug 21) with no accompanying text, making it three-for-three negative GMB reviews for Edition this month.",
-              "Two identical cross-posted complaints landed Aug 24: Janardhan Reddy's stalled refund (nearly four months since an Apr 28 confirmation to fully refund his cancelled flat with bank interest and MODT charges, after he agreed to vacate so the unit could be rebuilt as a duplex) and Bhavana Basani's one-line “Third grade builder” -- both were also filed against Capitol Residences and, for Janardhan Reddy, Solace on the same day."
+              "Tushar Gupta's detailed Aug 6 1-star (also cross-posted to Capitol Residences and Solace) accused the team of reversing a promised flooring-customization allowance post-booking, penalizing him for using his own bank's home loan over Sumadhura's in-house option, and letting sales and CRM blame each other with no resolution.",
+              "Adi P (Aug 17) called the resident app 'buggy,' criticized late-payment charges, and flagged no proper customer-support email address.",
+              "VinodhReddi (Aug 21) argued Edition's specifications are barely improved from Sumadhura Soham a decade ago, calling ₹15k/sq.ft. poor value against better-specified competitors.",
+              "Bhavana Basani and Janardhan Reddy both filed 1-star reviews on Aug 24 -- Bhavana's a blunt 'third grade builder,' Janardhan's a repeat of his nearly four-month-old, still-unpaid refund/MODT dispute (also cross-posted to Capitol Residences and Solace)."
             ],
             "topKeywords": {
               "positive": [
-                "bare 5-star (Aug 23)"
+                "single 5-star (Santosh Sahu)"
               ],
               "negative": [
-                "loan-lender penalty",
-                "reversed flooring promise",
-                "Sales vs CRM blame-shifting",
-                "buggy app / no support email",
-                "third bare 1-star (Aug 21)",
-                "cross-posted refund/duplex complaint (Aug 24)"
+                "flooring promise reversed",
+                "in-house loan pressure",
+                "buggy resident app / no support email",
+                "dated specs vs ₹15k/sqft",
+                "cross-posted refund dispute (Janardhan Reddy)"
               ]
             },
             "verdict": "Negative",
-            "keyTakeaway": "Edition's run of four negative GMB reviews (Aug 6, 17, 21) grew Aug 24 with a cross-posted stalled-refund complaint and a “third grade builder” one-liner, offset only by a single bare 5-star on Aug 23.",
-            "_note": "Tushar Gupta's Aug 6 complaint was separately cross-posted to Capitol Residences (x2) and Solace's GMB listings on Aug 3 -- see those notes. Adi P's and VinodhReddi's reviews are distinct, Edition-specific entries. The Aug 24 Janardhan Reddy and Bhavana Basani reviews are identical cross-posts also filed against Capitol Residences (both) and Solace (Janardhan Reddy only) -- see those notes."
+            "keyTakeaway": "Edition's worst GMB month among Sumadhura projects: five 1-star complaints (flooring reversal, buggy app, dated specs, a four-month refund dispute) against a single 5-star rating."
           },
           "Capitol Residences": {
             "positive": [
-              "Anita Paul's 5-star review (Aug 17) credited the project's great metro connectivity and thanked staffer Rehan by name for patiently walking her through the site and making the booking process \"completely smooth and hassle-free.\""
+              "Anita Paul's Aug 17 review credited booking agent Rehan by name for a smooth, hassle-free process and praised the project's metro connectivity."
             ],
             "negative": [
-              "The same Tushar Gupta complaint that hit Edition was cross-posted to Capitol Residences' GMB listing twice on Aug 3, once under a 'Capitol Residency' GMB handle and once under an 'Edition' handle -- both times headlined 'WARNING - DO NOT BUY!!! FALSE PROMISES!!!!' and still describing his original Sumadhura Edition booking.",
-              "Two more identical cross-posts landed Aug 24 under the 'Capitol Residency' GMB handle: Janardhan Reddy's stalled-refund complaint (also filed against Edition and Solace) and Bhavana Basani's “Third grade builder” one-liner (also filed against Edition)."
+              "Tushar Gupta's Edition-originated flooring/loan/CRM complaint (Aug 3) was cross-posted here twice under separate review links, both landing as 1-star.",
+              "Janardhan Reddy (Aug 24) repeated his nearly four-month-old unpaid refund and MODT-charge dispute, also cross-posted to Edition and Solace.",
+              "Bhavana Basani's blunt 'third grade builder' 1-star (Aug 24) was likewise cross-posted to Edition."
             ],
             "topKeywords": {
               "positive": [
-                "metro connectivity",
-                "Rehan -- smooth booking experience"
+                "Rehan-led smooth booking",
+                "metro connectivity praised"
               ],
               "negative": [
-                "cross-posted Edition complaint",
-                "duplicate Aug 3 posting",
-                "not project-specific",
-                "cross-posted stalled-refund complaint (Aug 24)"
+                "cross-posted flooring/loan rant (Tushar Gupta x2)",
+                "4-month unpaid refund dispute",
+                "\"third grade builder\""
               ]
             },
             "verdict": "Negative",
-            "keyTakeaway": "Capitol Residences turned negative in late August as two more cross-posted complaints (Janardhan Reddy's stalled refund, Bhavana Basani's “third grade builder,” both Aug 24) joined the earlier duplicate Tushar Gupta post, outweighing Anita Paul's Aug 17 praise for staffer Rehan.",
-            "_note": "Four of five negative mentions are cross-posted complaints not specific to Capitol Residences: the same reviewer's Edition complaint posted twice on Aug 3, plus Janardhan Reddy's and Bhavana Basani's identical Aug 24 reviews also filed against Edition (and, for Janardhan Reddy, Solace) -- see the Edition and Solace notes. Anita Paul's Aug 17 review is the only genuinely project-specific mention this month."
+            "keyTakeaway": "Capitol Residences absorbed four cross-posted 1-star complaints (a duplicated Tushar Gupta rant, Janardhan Reddy's stalled refund, Bhavana Basani's 'third grade builder') against Anita Paul's lone praise for booking agent Rehan."
           },
           "Solace": {
             "positive": [],
             "negative": [
-              "The identical Tushar Gupta 'WARNING - DO NOT BUY!!! FALSE PROMISES!!!!' complaint was also cross-posted to Solace's GMB listing (Aug 3), again still describing his original Sumadhura Edition booking rather than anything specific to Solace.",
-              "Janardhan Reddy's stalled-refund complaint (Aug 24) -- also cross-posted identically to Edition and Capitol Residences -- was added to Solace's listing, again describing a flat-cancellation dispute rather than anything specific to Solace."
+              "Solace's only two August GMB reviews were both cross-posted complaints originally aimed at other projects: Tushar Gupta's flooring/loan/CRM rant (Aug 3) and Janardhan Reddy's nearly four-month unpaid refund and MODT dispute (Aug 24), both 1-star."
             ],
             "topKeywords": {
               "positive": [],
               "negative": [
-                "cross-posted Edition complaint",
-                "not project-specific",
-                "cross-posted stalled-refund complaint (Aug 24)"
+                "cross-posted complaints only",
+                "unpaid refund dispute",
+                "flooring/loan/CRM rant"
               ]
             },
             "verdict": "Negative",
-            "keyTakeaway": "Solace's two August GMB reviews were both cross-posted complaints originating elsewhere: Tushar Gupta's Edition dispute (Aug 3) and Janardhan Reddy's stalled-refund complaint (Aug 24), neither genuinely about Solace.",
-            "_note": "Same cross-posted-complaint pattern as Capitol Residences and Edition -- see notes there. Solace has no organic, project-specific GMB review this month."
+            "keyTakeaway": "Solace's only two August GMB entries were both cross-posted 1-star complaints originally about other projects -- no organic Solace-specific feedback logged this month.",
+            "_note": "Both reviews (Tushar Gupta's flooring/loan rant and Janardhan Reddy's refund dispute) were also filed against Edition and/or Capitol Residences the same day, suggesting cross-posting rather than Solace-specific experience."
           },
           "Infracon": {
             "positive": [],
             "negative": [
-              "Flovie Martins filed a detailed 1-star complaint (Aug 14) calling it 'the worst post sale customer experience,' alleging the CRM team charged over Rs.50,000 in disputed 'interest payments' after sending an agreement with someone else's name to sign.",
-              "Kishore M filed a separate 1-star complaint the same day (Aug 14) alleging sales rep Anurag turned abusive when told Kishore wasn't interested in a Whitefield-area project, despite Kishore never having enquired about Infracon in the first place."
+              "Flovie Martins (Aug 14) called it the 'worst post sale customer experience,' describing being sent an agreement with someone else's name and then charged over ₹50,000 in 'interest' for the resulting delay.",
+              "Kishore M (Aug 14) said a sales rep named Anurag used abusive language on a cold call after being told he wasn't interested.",
+              "Veera Venkatesh Vedurumudi (Aug 25) described registration-day 'utter chaos' with no SOP, an unresponsive CRM team, and no email or WhatsApp support channel -- only the mobile app.",
+              "Ashish Anand (Aug 26) addressed 'Madhusudan ji' by name directly, warning that CRM dysfunction is lagging behind the brand's growth into premium projects."
             ],
             "topKeywords": {
               "positive": [],
               "negative": [
-                "worst post-sale experience",
-                "wrong-name agreement sent",
-                "disputed Rs.50K interest charge",
-                "abusive sales call (Anurag)"
+                "worst post-sale CRM experience",
+                "abusive sales call (Anurag)",
+                "registration-day chaos, no SOP",
+                "named appeal to leadership (Madhusudan ji)"
               ]
             },
-            "verdict": "Negative",
-            "keyTakeaway": "Infracon's two August GMB reviews were both 1-star and both filed Aug 14: Flovie Martins detailed a disputed Rs.50,000-plus interest charge on a wrong-name agreement, while Kishore M reported sales rep Anurag turning abusive on an unsolicited call."
+            "verdict": "Strong Negative",
+            "keyTakeaway": "Infracon logged four straight negative August reviews -- an abusive cold-call complaint, a wrong-name agreement plus ₹50K+ interest charge, and registration-day chaos -- with Ashish Anand naming 'Madhusudan ji' directly in his warning."
           },
           "Hive and Thrive": {
             "positive": [
-              "Yashika Jaiswal's 5-star review (Aug 13) said Hive and Thrive's Whitefield IT-tenant profile appealed to her as she diversified out of a pure-retail commercial portfolio, citing 2,500-3,800 sq ft floor plates flexible enough to split between two smaller tenants.",
-              "SUJAL Rana's 5-star review (Aug 13), an overseas investor, cited the co-living component's assured-returns structure with a 5% annual rental escalation and confirmed RERA registration as reasons it was the allocation they worried about least.",
-              "Sanvi Thakur and Madhav each posted 5-star reviews on Aug 15 -- an IT-industry buyer praising the adaptable floor plates, HVAC and glazing corporate tenants look for, and a retail business owner citing Hoodi Metro foot traffic and calling a toured 1,200 sq ft unit 'genuinely usable' -- but both were later marked 'Review was deleted' in the tracker."
+              "Yashika Jaiswal (Aug 13) praised the Whitefield tenant profile (IT companies signing longer leases) and flexible 2,500-3,800 sq ft floor plates; SUJAL Rana (Aug 13), investing from overseas, cited the 5% annual rental escalation and confirmed RERA registration as reasons for confidence.",
+              "Sanvi Thakur and Madhav (both Aug 15) reviewed from a tenant-side lens -- Sanvi liked the HVAC/glazing specs and ITPL/GR Tech Park proximity, Madhav the Hoodi Metro and Thrive Shantiniketan mall foot traffic for a planned retail lease."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "IT-tenant lease stability",
-                "5% annual rental escalation, RERA-confirmed",
-                "flexible floor plates (2,500-3,800 sq ft)",
-                "Aug 15 reviews later deleted"
+                "Whitefield IT tenant profile",
+                "5% annual rental escalation, RERA confirmed",
+                "flexible 2,500-3,800 sq ft floor plates",
+                "Hoodi Metro / Thrive Shantiniketan proximity"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Two of Hive and Thrive's four positive August reviews (Sanvi Thakur and Madhav, both Aug 15) were later marked 'deleted' in the tracker, alongside live 5-star praise from Yashika Jaiswal and Sujal Rana for its IT-tenant fit and assured-returns structure.",
-            "_note": "Aug 13's Yashika Jaiswal and Sujal Rana reviews remain live; Aug 15's Sanvi Thakur and Madhav reviews are marked 'Review was deleted' in the tracker, so only two of the four positive mentions are currently visible on GMB."
+            "keyTakeaway": "Hive and Thrive's four August reviews were all investor/tenant-side praise -- RERA-backed 5% rental escalation, Whitefield's IT tenant pool, and Hoodi Metro proximity -- though two were later flagged 'Review was deleted.'",
+            "_note": "Sanvi Thakur and Madhav's Aug 15 reviews were later marked 'Review was deleted' in the response log, part of a same-day batch of six polished, testimonial-style reviews removed across Hive and Thrive, Z-hub, and Elysium -- possibly flagged as promotional rather than organic."
           },
           "Panorama": {
-            "positive": [],
+            "positive": [
+              "sharan chaitanya left a bare Aug 25 5-star with no detail."
+            ],
             "negative": [
-              "Kallayya Mathapati left a 3-star review (Aug 16) flagging that land adjacent to the project is agricultural and warning prospective buyers to verify paperwork carefully, alleging some parcels 'in the middle of this property' do not belong to the registered owner."
+              "Kallayya Mathapati (Aug 16, 3-star) warned that adjacent agricultural land visible from the property may overlap with the project's registered boundaries, urging buyers to 'check all of the paper works.'"
             ],
             "topKeywords": {
-              "positive": [],
+              "positive": [
+                "bare 5-star"
+              ],
               "negative": [
-                "land title/boundary concern",
-                "agricultural land adjacency",
-                "paperwork verification warning"
+                "land-ownership boundary dispute",
+                "\"check all paper works\" warning"
               ]
             },
-            "verdict": "Negative",
-            "keyTakeaway": "Panorama's only August GMB review was a 3-star land-title caution from Kallayya Mathapati, warning buyers to verify paperwork after spotting adjacent agricultural parcels he says don't belong to the registered owner."
+            "verdict": "Mixed",
+            "keyTakeaway": "Panorama's two August reviews split evenly: Kallayya Mathapati's land-boundary warning about overlapping agricultural plots against a single unadorned 5-star rating."
           }
         }
       },
@@ -2128,60 +2119,58 @@
         "projects": {
           "Edition": {
             "positive": [
-              "Consistently the first project recommended for ITPL/EPIP commuters across the 3-7 Aug \"zero-commute\" and \"metro vs office\" threads, credited with Nallurhalli Metro proximity and route flexibility for buyers who might switch jobs later.",
-              "A 3 Aug \"which Sumadhura project makes more sense based on office location\" post and its comment chain (running through 10 Aug) repeatedly positioned Edition as the balanced ITPL pick, and an 11 Aug comment specifically flagged its \"Monsoon Homecoming Fest\" promotion as worth negotiating beyond the headline offer."
+              "Edition was the most-recommended ITPL/EPIP-corridor pick across four seeded comparison threads running 3-15 Aug, credited for keeping multiple employment hubs (ITPL, Kadugodi, ORR) reasonably accessible rather than optimizing for one office.",
+              "A 15 Aug comment on the 'monsoon offers' thread named Edition alongside Folium and Capitol Residences as projects worth requesting a written, all-inclusive quotation from before comparing festive-season pricing."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "ITPL/EPIP commute pick",
-                "Nallurhalli Metro proximity",
-                "job-change route flexibility",
-                "Monsoon Homecoming Fest negotiation"
+                "ITPL/EPIP corridor pick",
+                "multi-hub commute flexibility",
+                "written-quotation comparison mention"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Edition was the most-recommended project for ITPL/EPIP commuters in seeded Reddit threads running 3-11 Aug, capped by an 11 Aug Monsoon Homecoming Fest mention.",
-            "_note": "All mentions are Sumadhura's own seeded comments recurring almost verbatim across four comparison-style threads (3-12 Aug), not organic Reddit sentiment."
+            "keyTakeaway": "Edition was the recurring ITPL/EPIP commute pick across four seeded Reddit comparison threads (3-15 Aug), including a 15 Aug mention urging buyers to get a written quote before any festive discount.",
+            "_note": "All mentions are Sumadhura's own seeded comments on generic comparison/advice threads, not organic Reddit sentiment about the project specifically; no dedicated Edition thread ran in August."
           },
           "Capitol Residences": {
             "positive": [
-              "The single most-repeated claim is being \"just about a minute\" from Kadugodi Tree Park Metro (3 Aug), reinforced through 10 Aug by comments about residents barely using their cars on weekdays and about its walkability beating nearby competitors that only technically have metro access.",
-              "A 10 Aug comment also cites a site visit made after a monsoon shower as evidence the project handles real weather well, going beyond the usual dry-weekend impression."
+              "Capitol Residences drew the heaviest seeded comment volume of any project, repeatedly anchored to Kadugodi Tree Park Metro proximity across the 3-7 Aug 'zero-commute' and 'metro vs office' threads -- comments cited residents 'barely using their cars on weekdays' and metro-adjacent homes being easier to resell or rent later.",
+              "A 10 Aug comment on a separate connectivity thread singled out 'Sumadhura Capitol' specifically, arguing surrounding road connectivity mattered more than in-community amenities when compared against nearby developments."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "\"a minute\" from Kadugodi Tree Park Metro",
+                "Kadugodi Tree Park Metro proximity",
                 "car-free weekday routine",
-                "best walkability among peers",
-                "post-monsoon drainage check"
+                "resale/rental flexibility",
+                "connectivity over amenities"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Capitol Residences' \"just about a minute from Kadugodi Tree Park Metro\" claim (3 Aug) anchored the heaviest seeded comment volume of any project on Reddit this month.",
-            "_note": "All mentions are Sumadhura's own seeded comments recurring almost verbatim across four comparison-style threads (3-12 Aug), not organic Reddit sentiment."
+            "keyTakeaway": "Capitol Residences' Kadugodi Tree Park Metro proximity anchored the heaviest seeded Reddit comment volume of any project this month, repeated across four comparison threads (3-10 Aug).",
+            "_note": "All mentions are Sumadhura's own seeded comments on generic comparison/advice threads, not organic Reddit sentiment about the project specifically; no dedicated Capitol Residences thread ran in August."
           },
           "Folium": {
             "positive": [
-              "Framed as the safe, already-livable choice thanks to established Whitefield Main Road infrastructure and daily conveniences (3-6 Aug), with resident-sourced commute timings cited as more trustworthy than sales figures.",
-              "A 12 Aug comment recounts a resident telling a site-visitor to \"compare your weekday routine\" against grocery stores, schools and the metro rather than brochures -- the most quoted single line for the project this window."
+              "Folium was framed as the safe, already-livable Whitefield choice in the 3-7 Aug 'zero-commute' thread, with a 4 Aug comment recounting a resident explaining their actual ITPL commute time to a site-visitor as more trustworthy than sales figures.",
+              "A 5 Aug comment credited the surrounding Whitefield Main Road infrastructure (supermarkets, gyms, metro) already being in place, and a 15 Aug comment on the monsoon-offers thread again named Folium alongside Edition and Capitol Residences as worth a written quotation."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
                 "established Whitefield Main Road infrastructure",
-                "resident-sourced commute times",
-                "\"compare your weekday routine\"",
-                "daily conveniences already in place"
+                "resident-sourced commute testimony",
+                "written-quotation comparison mention"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Folium was pitched as the established, ready-infrastructure choice, capped by a 12 Aug comment urging buyers to judge it on \"weekday routine\" rather than brochures.",
-            "_note": "All mentions are Sumadhura's own seeded comments recurring almost verbatim across four comparison-style threads (3-12 Aug), not organic Reddit sentiment; the separate Existing-Threads tab logged zero August engagement of any kind."
+            "keyTakeaway": "Folium was pitched as the established, ready-infrastructure Whitefield choice, anchored by a 4 Aug comment citing a resident's actual commute time over sales claims.",
+            "_note": "All mentions are Sumadhura's own seeded comments on generic comparison/advice threads, not organic Reddit sentiment about the project specifically; no dedicated Folium thread ran in August."
           },
           "Solace": {
             "positive": [
