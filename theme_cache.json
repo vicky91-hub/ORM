@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T06:15:26+05:30",
+  "generated_at": "2026-08-29T06:17:05.067500+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -1925,10 +1925,11 @@
           "Elysium": {
             "positive": [
               "Early-stage groundwork visits drove most of the praise: Madhav (Aug 12) liked the nature-inspired masterplan and is 'seriously considering' pre-launch pricing, while Tarun Singh (Aug 13) credited a patient sales manager for walking him through Elite/Regal 3BHK floor-plan detail 'barely two weeks into construction.'",
-              "Isha and Vanya (both Aug 15) praised the 30,000 sq ft, seven-zone clubhouse and wellness-focused amenity plan; riya kumari (Aug 20) called the walkthrough 'really convenient.'"
+              "Isha and Vanya (both Aug 15) praised the 30,000 sq ft, seven-zone clubhouse and wellness-focused amenity plan; riya kumari (Aug 20) called the walkthrough 'really convenient,' and Haidar Khan (Aug 16) added a bare 5-star."
             ],
             "negative": [
-              "Anindhya Sankhla's Aug 23 2-star disputed the promised CDP road, alleging protected forest land was quietly converted to a 'tree park' and that the project has 'no value' due to the adjacent railway (Dinne Road)."
+              "Anindhya Sankhla's Aug 23 2-star disputed the promised CDP road, alleging protected forest land was quietly converted to a 'tree park' and that the project has 'no value' due to the adjacent railway (Dinne Road).",
+              "Rajeev Ranjan Shaw's Aug 26 1-star warned of a 'very bad road' that 'will remain like this,' flagged an unsecured dumpyard behind the project, and called the area accident-prone."
             ],
             "topKeywords": {
               "positive": [
@@ -1939,11 +1940,11 @@
               ],
               "negative": [
                 "CDP road / forest-land dispute",
-                "railway (Dinne Road) devaluation claim"
+                "dumpyard / accident-prone road (Aug 26)"
               ]
             },
             "verdict": "Positive",
-            "keyTakeaway": "Elysium's pre-launch site-visit reviews praised the nature-inspired masterplan and 30,000 sq ft clubhouse, but Anindhya Sankhla's Aug 23 review disputed the promised CDP road over alleged forest-land conversion.",
+            "keyTakeaway": "Elysium's pre-launch reviews stayed mostly positive on the masterplan and clubhouse, but Aug 26 brought a fresh 1-star warning about a 'very bad road' and an accident-prone dumpyard behind the project.",
             "_note": "Isha and Vanya's Aug 15 reviews were later marked 'Review was deleted' in the response log, part of a same-day batch of six polished, testimonial-style reviews removed across Elysium, Z-hub, and Hive and Thrive -- possibly flagged as promotional rather than organic."
           },
           "Epitome": {
@@ -1962,7 +1963,7 @@
           },
           "Edition": {
             "positive": [
-              "Santosh Sahu's Aug 23 5-star was the month's only positive Edition review, with no accompanying detail."
+              "Santosh Sahu's Aug 23 5-star carried no detail, and Deepak K's Aug 26 5-star specifically credited staffer Francis for 'taking time to explain the projects in details' -- the month's only two unqualified positives."
             ],
             "negative": [
               "Tushar Gupta's detailed Aug 6 1-star (also cross-posted to Capitol Residences and Solace) accused the team of reversing a promised flooring-customization allowance post-booking, penalizing him for using his own bank's home loan over Sumadhura's in-house option, and letting sales and CRM blame each other with no resolution.",
@@ -1972,7 +1973,8 @@
             ],
             "topKeywords": {
               "positive": [
-                "single 5-star (Santosh Sahu)"
+                "Francis-led site explanation (Aug 26)",
+                "two 5-stars only"
               ],
               "negative": [
                 "flooring promise reversed",
@@ -1983,7 +1985,7 @@
               ]
             },
             "verdict": "Negative",
-            "keyTakeaway": "Edition's worst GMB month among Sumadhura projects: five 1-star complaints (flooring reversal, buggy app, dated specs, a four-month refund dispute) against a single 5-star rating."
+            "keyTakeaway": "Edition split five 1-star complaints (flooring reversal, buggy app, dated specs, a four-month refund dispute) against two 5-stars, the latest praising staffer Francis's site guidance (Aug 26)."
           },
           "Capitol Residences": {
             "positive": [
@@ -2119,113 +2121,52 @@
         "projects": {
           "Edition": {
             "positive": [
-              "Edition was the most-recommended ITPL/EPIP-corridor pick across four seeded comparison threads running 3-15 Aug, credited for keeping multiple employment hubs (ITPL, Kadugodi, ORR) reasonably accessible rather than optimizing for one office.",
-              "A 15 Aug comment on the 'monsoon offers' thread named Edition alongside Folium and Capitol Residences as projects worth requesting a written, all-inclusive quotation from before comparing festive-season pricing."
+              "A 4 Aug Sumadhura-seeded comment on the 'which project by office location' thread (posted 3 Aug) named Edition first for ITPL/EPIP commuters, arguing a 15-minute commute reduction matters more than clubhouse amenities.",
+              "A separate 6 Aug seeded comment on the monsoon home-buying thread said visiting Edition specifically during heavy rain to check approach roads and drainage 'gave us much more confidence in the location.'"
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "ITPL/EPIP corridor pick",
-                "multi-hub commute flexibility",
-                "written-quotation comparison mention"
-              ],
-              "negative": []
-            },
-            "verdict": "Strong Positive",
-            "keyTakeaway": "Edition was the recurring ITPL/EPIP commute pick across four seeded Reddit comparison threads (3-15 Aug), including a 15 Aug mention urging buyers to get a written quote before any festive discount.",
-            "_note": "All mentions are Sumadhura's own seeded comments on generic comparison/advice threads, not organic Reddit sentiment about the project specifically; no dedicated Edition thread ran in August."
-          },
-          "Capitol Residences": {
-            "positive": [
-              "Capitol Residences drew the heaviest seeded comment volume of any project, repeatedly anchored to Kadugodi Tree Park Metro proximity across the 3-7 Aug 'zero-commute' and 'metro vs office' threads -- comments cited residents 'barely using their cars on weekdays' and metro-adjacent homes being easier to resell or rent later.",
-              "A 10 Aug comment on a separate connectivity thread singled out 'Sumadhura Capitol' specifically, arguing surrounding road connectivity mattered more than in-community amenities when compared against nearby developments."
-            ],
-            "negative": [],
-            "topKeywords": {
-              "positive": [
-                "Kadugodi Tree Park Metro proximity",
-                "car-free weekday routine",
-                "resale/rental flexibility",
-                "connectivity over amenities"
-              ],
-              "negative": []
-            },
-            "verdict": "Strong Positive",
-            "keyTakeaway": "Capitol Residences' Kadugodi Tree Park Metro proximity anchored the heaviest seeded Reddit comment volume of any project this month, repeated across four comparison threads (3-10 Aug).",
-            "_note": "All mentions are Sumadhura's own seeded comments on generic comparison/advice threads, not organic Reddit sentiment about the project specifically; no dedicated Capitol Residences thread ran in August."
-          },
-          "Folium": {
-            "positive": [
-              "Folium was framed as the safe, already-livable Whitefield choice in the 3-7 Aug 'zero-commute' thread, with a 4 Aug comment recounting a resident explaining their actual ITPL commute time to a site-visitor as more trustworthy than sales figures.",
-              "A 5 Aug comment credited the surrounding Whitefield Main Road infrastructure (supermarkets, gyms, metro) already being in place, and a 15 Aug comment on the monsoon-offers thread again named Folium alongside Edition and Capitol Residences as worth a written quotation."
-            ],
-            "negative": [],
-            "topKeywords": {
-              "positive": [
-                "established Whitefield Main Road infrastructure",
-                "resident-sourced commute testimony",
-                "written-quotation comparison mention"
-              ],
-              "negative": []
-            },
-            "verdict": "Strong Positive",
-            "keyTakeaway": "Folium was pitched as the established, ready-infrastructure Whitefield choice, anchored by a 4 Aug comment citing a resident's actual commute time over sales claims.",
-            "_note": "All mentions are Sumadhura's own seeded comments on generic comparison/advice threads, not organic Reddit sentiment about the project specifically; no dedicated Folium thread ran in August."
-          },
-          "Solace": {
-            "positive": [
-              "A 13-14 Aug seeded thread comparing \"Solea vs Epitome in Thanisandra\" (the sheet spells Solace \"Solea\") pitched both as viable North Bengaluru alternatives to Whitefield, citing better airport connectivity and improving daily convenience -- groceries, hospitals, schools -- despite Thanisandra still being an earlier-stage residential area.",
-              "A second 13 Aug comment specifically recommended the pair for buyers commuting to Manyata or Hebbal, calling the area \"less hectic\" than an already-congested Whitefield and urging a peak-hour drive of the access roads before deciding."
-            ],
-            "negative": [],
-            "topKeywords": {
-              "positive": [
-                "Thanisandra vs Whitefield comparison",
-                "airport connectivity edge",
-                "Manyata/Hebbal commute fit",
-                "peak-hour access-road check"
-              ],
-              "negative": []
-            },
-            "verdict": "Strong Positive",
-            "keyTakeaway": "Solace (spelled \"Solea\" in the sheet) was pitched across a 13-14 Aug seeded thread as the calmer, airport-connected North Bengaluru alternative to Whitefield for buyers commuting to Manyata or Hebbal.",
-            "_note": "All mentions are Sumadhura's own seeded comments on one comparison thread (\"Sumadhura Solea vs Epitome in Thanisandra -- how different is daily life from Whitefield?\", 13-14 Aug), not organic Reddit sentiment; the sheet spells the project \"Solea\" throughout (matched to Solace) and every comment discusses Solace and Epitome jointly rather than distinguishing between them."
-          },
-          "Epitome": {
-            "positive": [
-              "The same 13-14 Aug seeded thread paired Epitome with Solace as a North Bengaluru alternative to Whitefield, citing better airport connectivity and improving daily convenience -- groceries, hospitals, schools -- despite Thanisandra still being an earlier-stage residential area.",
-              "A second 13 Aug comment recommended the pair specifically for Manyata/Hebbal commuters, calling the area \"less hectic\" than Whitefield and urging a peak-hour drive of the access roads before deciding."
-            ],
-            "negative": [],
-            "topKeywords": {
-              "positive": [
-                "Thanisandra vs Whitefield comparison",
-                "airport connectivity edge",
-                "Manyata/Hebbal commute fit",
-                "peak-hour access-road check"
-              ],
-              "negative": []
-            },
-            "verdict": "Strong Positive",
-            "keyTakeaway": "Epitome, paired with Solace throughout, was pitched across the same 13-14 Aug seeded thread as a calmer, airport-connected North Bengaluru alternative to Whitefield for Manyata/Hebbal commuters.",
-            "_note": "All mentions are Sumadhura's own seeded comments on one comparison thread (\"Sumadhura Solea vs Epitome in Thanisandra -- how different is daily life from Whitefield?\", 13-14 Aug), not organic Reddit sentiment; the sheet spells the project \"Solea\" throughout (matched to Solace) and every comment discusses Solace and Epitome jointly rather than distinguishing between them."
-          },
-          "Elysium": {
-            "positive": [
-              "A 17 Aug seeded comment in a “boutique community or large township” thread positioned Elysium as the calmer, quieter-residential-feel choice versus Folium's larger community setup, framed as the better fit for buyers who want to unwind after a hectic workday."
-            ],
-            "negative": [],
-            "topKeywords": {
-              "positive": [
-                "quieter residential feel",
-                "boutique-vs-township framing",
-                "post-workday calm"
+                "ITPL/EPIP commute pick",
+                "monsoon drainage/approach-road due diligence",
+                "commute-over-amenities framing"
               ],
               "negative": []
             },
             "verdict": "Positive",
-            "keyTakeaway": "Elysium's only August Reddit mention (17 Aug) pitched it as the calmer, boutique alternative to Folium's larger community setup for buyers who prioritize a quiet, low-activity environment.",
-            "_note": "A single Sumadhura-seeded comment on one comparison thread, not organic Reddit sentiment."
+            "keyTakeaway": "Edition drew two Sumadhura-seeded Reddit comments in August: an ITPL/EPIP commute recommendation (4 Aug) and a monsoon site-visit endorsement of its drainage and approach roads (6 Aug).",
+            "_note": "Both mentions are Sumadhura's own seeded comments on generic comparison/advice threads, not organic Reddit sentiment about the project specifically."
+          },
+          "Folium": {
+            "positive": [
+              "The same 4 Aug seeded comment recommended Folium alongside Edition for ITPL/EPIP-based commuters, prioritizing commute time over amenities."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "ITPL/EPIP commute pick",
+                "commute-over-amenities framing"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Folium's only August Reddit mention was a 4 Aug Sumadhura-seeded comment recommending it to ITPL/EPIP commuters alongside Edition, prioritizing commute time over amenities.",
+            "_note": "This is Sumadhura's own seeded comment on a generic project-comparison thread, not organic Reddit sentiment about the project specifically."
+          },
+          "Capitol Residences": {
+            "positive": [
+              "The same 4 Aug seeded comment recommended Capitol Residences to Kadugodi-based commuters specifically for its metro connectivity."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "Kadugodi metro connectivity"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Capitol Residences' only August Reddit mention was a 4 Aug Sumadhura-seeded comment recommending it to Kadugodi commuters for its metro connectivity.",
+            "_note": "This is Sumadhura's own seeded comment on a generic project-comparison thread, not organic Reddit sentiment about the project specifically."
           }
         }
       },
@@ -2233,59 +2174,19 @@
         "projects": {
           "Edition": {
             "positive": [
-              "Most-cited project across the seeded \"zero-commute\" and \"metro vs office\" answer threads (3-7 Aug), routinely recommended for ITPL/EPIP-based buyers and paired with Nallurhalli Metro access.",
-              "A 7 Aug answer bundles Edition with Capitol Residences and Folium as the three worth cross-comparing, and a 15 Aug answer on monsoon-vs-festive pricing recommends getting \"a written quotation\" from Edition, Folium or Capitol Residences before waiting for festive discounts."
+              "A 3 Aug Sumadhura-seeded Quora answer on 'metro station vs. office commute' recommended Edition first for ITPL-based buyers, arguing a short daily commute matters more than metro access."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "zero-commute / metro-vs-office pick",
-                "Nallurhalli Metro access",
-                "grouped with Capitol Residences + Folium (7 Aug)",
-                "written quotation before festive pricing (15 Aug)"
+                "ITPL commute pick",
+                "commute-over-metro framing"
               ],
               "negative": []
             },
-            "verdict": "Strong Positive",
-            "keyTakeaway": "Edition led seeded Quora answers on zero-commute and metro-vs-office questions (3-7 Aug) and anchored a 15 Aug answer urging written quotations ahead of festive pricing.",
-            "_note": "Seeded answers recurring across four question threads (3-15 Aug) with near-identical comparison language, not organic Quora sentiment."
-          },
-          "Capitol Residences": {
-            "positive": [
-              "Repeatedly tied to Kadugodi Tree Park Metro walkability and resale/tenant appeal across 3-6 Aug answers, with a 10 Aug answer specifically praising its \"surrounding connectivity\" over nearby developments' amenity lists.",
-              "Also named in the 15 Aug written-quotation answer alongside Edition and Folium."
-            ],
-            "negative": [],
-            "topKeywords": {
-              "positive": [
-                "Kadugodi Tree Park Metro walkability",
-                "resale/tenant appeal",
-                "10 Aug connectivity comparison",
-                "written quotation grouping (15 Aug)"
-              ],
-              "negative": []
-            },
-            "verdict": "Strong Positive",
-            "keyTakeaway": "Capitol Residences' Kadugodi Tree Park Metro walkability drove a 10 Aug connectivity-comparison answer and repeated resale/tenant-appeal framing through the month.",
-            "_note": "Seeded answers recurring across four question threads (3-15 Aug) with near-identical comparison language, not organic Quora sentiment."
-          },
-          "Folium": {
-            "positive": [
-              "Positioned as the pick for buyers prioritizing established Whitefield infrastructure and daily conveniences (5 Aug), with lighter overall volume than Edition or Capitol Residences.",
-              "Included in the 15 Aug written-quotation recommendation alongside Edition and Capitol Residences."
-            ],
-            "negative": [],
-            "topKeywords": {
-              "positive": [
-                "established Whitefield infrastructure (5 Aug)",
-                "daily conveniences",
-                "written quotation grouping (15 Aug)"
-              ],
-              "negative": []
-            },
-            "verdict": "Strong Positive",
-            "keyTakeaway": "Folium's case rested on established Whitefield infrastructure (5 Aug) and its place in the 15 Aug written-quotation recommendation, with the lightest volume of the three projects.",
-            "_note": "Seeded answers recurring across four question threads (3-15 Aug) with near-identical comparison language, not organic Quora sentiment."
+            "verdict": "Positive",
+            "keyTakeaway": "Edition's only August Quora mention was a 3 Aug Sumadhura-seeded answer recommending it to ITPL-based buyers, arguing daily commute time outweighs metro proximity.",
+            "_note": "This is Sumadhura's own seeded answer to a generic Quora question, not organic sentiment about the project specifically."
           },
           "Solace": {
             "positive": [],
@@ -2295,8 +2196,8 @@
               "negative": []
             },
             "verdict": "No data",
-            "keyTakeaway": "A 13 Aug question comparing Solace (misspelled \"Solea\" in the sheet) and Epitome to Whitefield/Thanisandra drew 9 seeded answers, but all remain unpublished (\"Waiting Feedback\") with no comment dates.",
-            "_note": "No published comments exist for this thread as of 19 Aug -- treat as no real engagement signal, not as neutral/negative sentiment."
+            "keyTakeaway": "A 13 Aug question comparing Solace (misspelled 'Solea' in the sheet) and Epitome to Whitefield/Thanisandra has a seeded answer drafted, but it remains unpublished ('Waiting Feedback') with no comment date.",
+            "_note": "The seeded answer text exists in the sheet but its Status is still 'Waiting Feedback' -- it has not gone live on Quora, so this is not a real August engagement signal."
           },
           "Epitome": {
             "positive": [],
@@ -2306,8 +2207,8 @@
               "negative": []
             },
             "verdict": "No data",
-            "keyTakeaway": "Epitome appears only in the same unpublished 13 Aug Solace-comparison question; none of its 9 seeded answers had gone live as of 19 Aug, so there is no real August signal.",
-            "_note": "No published comments exist for this thread as of 19 Aug -- treat as no real engagement signal, not as neutral/negative sentiment."
+            "keyTakeaway": "Epitome appears only in the same unpublished 13 Aug Solace-comparison question; its seeded answer is still 'Waiting Feedback' with no comment date, so there is no real August signal.",
+            "_note": "The seeded answer text exists in the sheet but its Status is still 'Waiting Feedback' -- it has not gone live on Quora, so this is not a real August engagement signal."
           }
         }
       }
