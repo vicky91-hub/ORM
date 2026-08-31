@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T06:25:11.125477+05:30",
+  "generated_at": "2026-08-31T06:14:59.792196+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -2245,7 +2245,8 @@
           "Folium": {
             "positive": [
               "Sumadhura-seeded comments ran across three separate threads through the month -- the 'zero commute Whitefield' thread (28 Jul), the 'which Sumadhura project by office location' thread (3 Aug), and the monsoon home-buying thread (6 Aug) -- consistently steering Whitefield Main Road/ITPL commuters toward Folium over competing projects.",
-              "Several comments leaned on resident-experience framing rather than sales pitch: a 12 Aug comment relayed a completed-community resident's advice to 'compare your weekday routine' instead of brochures, and a 6 Aug comment claimed friends living at Folium gave 'much more realistic commute timings than what we heard during sales presentations.'"
+              "Several comments leaned on resident-experience framing rather than sales pitch: a 12 Aug comment relayed a completed-community resident's advice to 'compare your weekday routine' instead of brochures, and a 6 Aug comment claimed friends living at Folium gave 'much more realistic commute timings than what we heard during sales presentations.'",
+              "A 29 Aug 'sports coaching' thread drew five seeded comments naming Club Sumadhura's branded Tennis (Mahesh Bhupati) and Swimming (Michael Phelps) academies at Folium as a genuine differentiator for parents choosing between projects, framed around cutting the commute to outside coaching."
             ],
             "negative": [],
             "topKeywords": {
@@ -2253,12 +2254,13 @@
                 "Whitefield Main Road/ITPL commute pick",
                 "realistic resident commute timings",
                 "\"compare weekday routine, not brochures\"",
-                "seeded across 3 threads"
+                "seeded across 3 threads",
+                "Club Sumadhura branded sports coaching (Mahesh Bhupati/Michael Phelps)"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Folium's August Reddit presence was entirely Sumadhura-seeded commute-time advocacy across three threads, steering Whitefield/ITPL commuters toward it over brochure comparisons.",
+            "keyTakeaway": "Folium's Sumadhura-seeded Reddit posts pivoted from Whitefield/ITPL commute advocacy across three August threads to branded Tennis and Swimming coaching pitches by 29 Aug.",
             "_note": "All quotes are Sumadhura's own seeded comments on generic commute/monsoon-advice threads, not organic Reddit sentiment about Folium specifically."
           },
           "Edition": {
@@ -2298,6 +2300,56 @@
             "verdict": "Strong Positive",
             "keyTakeaway": "Capitol Residences' August Reddit seeding leaned hardest on Kadugodi Tree Park Metro walkability, repeating the claim that residents 'barely use their cars during weekdays.'",
             "_note": "All quotes are Sumadhura's own seeded comments on generic comparison/advice threads, not organic Reddit sentiment about Capitol Residences specifically."
+          },
+          "Solace": {
+            "positive": [
+              "A 14 Aug seeded Reddit comment framed Solace (spelled 'Solea' in the thread) alongside Epitome as a Thanisandra alternative to Whitefield, citing better airport connectivity, improving daily convenience, and access to Hennur/Kalyan Nagar dining while still flagging Whitefield's more mature ecosystem."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "Thanisandra vs Whitefield comparison",
+                "airport connectivity edge",
+                "Hennur/Kalyan Nagar dining access"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Solace's sole Reddit mention was a 14 Aug seeded comment pitching Thanisandra's airport connectivity and convenience over Whitefield, not organic buyer sentiment.",
+            "_note": "This is a Sumadhura-seeded comment on a generic Thanisandra-vs-Whitefield question, not organic Reddit sentiment about Solace specifically."
+          },
+          "Epitome": {
+            "positive": [
+              "The same 14 Aug seeded comment paired Epitome with Solace as a Thanisandra option worth considering for North Bengaluru commuters, pointing to improving local convenience and airport access as the case for the area over Whitefield."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "Thanisandra vs Whitefield comparison",
+                "North Bengaluru commute pitch",
+                "airport connectivity edge"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Epitome's only Reddit mention was the same 14 Aug seeded comment paired with Solace, pitching Thanisandra's airport connectivity for North Bengaluru commuters.",
+            "_note": "This is a Sumadhura-seeded comment on a generic Thanisandra-vs-Whitefield question, not organic Reddit sentiment about Epitome specifically."
+          },
+          "Elysium": {
+            "positive": [
+              "A 17 Aug Reddit comment comparing 'boutique' vs 'township' living cited Elysium as the calmer, quieter-community alternative to Folium's larger amenity-heavy setup, framed as a genuine lifestyle preference rather than a sales pitch."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "quieter boutique-community framing",
+                "Elysium vs Folium lifestyle comparison"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Elysium's single August Reddit mention framed it as the calmer, boutique-community alternative to Folium's larger amenity-driven setup, in a lifestyle-preference thread.",
+            "_note": "Only one passing mention this month, inside a generic boutique-vs-township comparison thread -- too thin to draw a broader read from."
           }
         }
       },
