@@ -62,6 +62,24 @@
   nav.tabs button.active{ color:var(--constellation); background:var(--gold); }
   nav.tabs button:hover:not(.active){ color:#fff; background:rgba(255,255,255,0.06); }
 
+  /* Monthly Report nav tab — hovering reveals every archived month (built at runtime from
+     REPORT_MONTHS by buildReportNavDropdown()). Panel is position:fixed and placed via JS on
+     hover so it always escapes nav.tabs' own overflow-x:auto instead of being clipped by it. */
+  .tab-btn-dropdown{ position:relative; display:flex; }
+  .report-nav-months{
+    display:none; position:fixed; z-index:200; min-width:170px; padding:6px;
+    background:#1b2138; border:1px solid rgba(255,255,255,0.14); border-radius:10px;
+    box-shadow:0 14px 32px rgba(0,0,0,0.4);
+  }
+  .report-nav-months.open{ display:block; }
+  .report-nav-months button{
+    display:block; width:100%; text-align:left; background:transparent; border:none;
+    color:#cbd2e6; font-family:var(--font-body); font-size:13px; font-weight:600;
+    padding:9px 12px; border-radius:6px; cursor:pointer; white-space:nowrap;
+  }
+  .report-nav-months button:hover{ background:rgba(255,255,255,0.08); color:#fff; }
+  .report-nav-months button.active{ color:var(--gold); }
+
   .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
   .header-actions{ display:flex; align-items:center; gap:8px; flex-shrink:0; }
   .icon-btn{ display:flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:7px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14); cursor:pointer; flex-shrink:0; transition:background .2s ease; }
@@ -523,7 +541,13 @@
       <button class="tab-btn" data-target="reddit"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1.2" fill="currentColor" stroke="none"/><path d="M8.5 15.5c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2"/></svg>Reddit</button>
       <button class="tab-btn" data-target="quora"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.8" y2="15.8"/></svg>Quora</button>
       <button class="tab-btn" data-target="social"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Social</button>
-      <button class="tab-btn" data-target="report"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>Monthly Report</button>
+      <div class="tab-btn-dropdown" id="reportNavDropdown">
+        <button class="tab-btn" data-target="report"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>Monthly Report</button>
+        <!-- Populated from REPORT_MONTHS by buildReportNavDropdown() — hovering the tab reveals
+             every archived month so a past report is one click away without first landing on
+             the tab and using its in-page month picker. -->
+        <div class="report-nav-months" id="reportNavMonths"></div>
+      </div>
     </nav>
     <div class="header-actions">
       <button class="icon-btn" id="reportNotifyBtn" type="button" title="Monthly report is ready to view" style="position:relative;">
@@ -829,12 +853,12 @@
       <h2>Online Reputation Management<br>Monthly Report</h2>
       <p class="report-sub">GMB · Reddit · Quora · Social Media — every channel, one read</p>
       <div class="report-titleblock">
-        <div class="tb-cell"><div class="tb-label">Period</div><div class="tb-value" id="reportCoverPeriod">Jul 2026</div></div>
+        <div class="tb-cell"><div class="tb-label">Period</div><div class="tb-value" id="reportCoverPeriod">Aug 2026</div></div>
         <div class="tb-cell"><div class="tb-label">Prepared by</div><div class="tb-value">Northstar Digital</div></div>
         <div class="tb-cell"><div class="tb-label">Channels</div><div class="tb-value">4 tracked</div></div>
-        <div class="tb-cell"><div class="tb-label">Status</div><div class="tb-value">Final</div></div>
+        <div class="tb-cell"><div class="tb-label">Status</div><div class="tb-value" id="reportCoverStatus">Draft</div></div>
       </div>
-      <a class="report-download-btn" id="reportDownloadBtn" data-href="report-assets/2026-07/Sumadhura-ORM-Report-July-2026.pdf" download>
+      <a class="report-download-btn" id="reportDownloadBtn" data-href="report-assets/2026-08/Sumadhura-ORM-Report-August-2026.pdf" download>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download full report (PDF)
       </a>
@@ -845,6 +869,43 @@
       <div class="filter-bar" id="reportMonthPicker" style="justify-content:center;"></div>
     </div>
 
+    <div class="report-month-content" data-report-month="2026-08">
+    <div class="report-pages">
+      <figure class="report-page"><span class="report-page-no">01 / 33</span><img data-src="report-assets/2026-08/page-01.png" alt="Report page 1" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">02 / 33</span><img data-src="report-assets/2026-08/page-02.png" alt="Report page 2" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">03 / 33</span><img data-src="report-assets/2026-08/page-03.png" alt="Report page 3" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">04 / 33</span><img data-src="report-assets/2026-08/page-04.png" alt="Report page 4" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">05 / 33</span><img data-src="report-assets/2026-08/page-05.png" alt="Report page 5" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">06 / 33</span><img data-src="report-assets/2026-08/page-06.png" alt="Report page 6" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">07 / 33</span><img data-src="report-assets/2026-08/page-07.png" alt="Report page 7" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">08 / 33</span><img data-src="report-assets/2026-08/page-08.png" alt="Report page 8" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">09 / 33</span><img data-src="report-assets/2026-08/page-09.png" alt="Report page 9" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">10 / 33</span><img data-src="report-assets/2026-08/page-10.png" alt="Report page 10" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">11 / 33</span><img data-src="report-assets/2026-08/page-11.png" alt="Report page 11" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">12 / 33</span><img data-src="report-assets/2026-08/page-12.png" alt="Report page 12" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">13 / 33</span><img data-src="report-assets/2026-08/page-13.png" alt="Report page 13" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">14 / 33</span><img data-src="report-assets/2026-08/page-14.png" alt="Report page 14" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">15 / 33</span><img data-src="report-assets/2026-08/page-15.png" alt="Report page 15" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">16 / 33</span><img data-src="report-assets/2026-08/page-16.png" alt="Report page 16" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">17 / 33</span><img data-src="report-assets/2026-08/page-17.png" alt="Report page 17" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">18 / 33</span><img data-src="report-assets/2026-08/page-18.png" alt="Report page 18" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">19 / 33</span><img data-src="report-assets/2026-08/page-19.png" alt="Report page 19" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">20 / 33</span><img data-src="report-assets/2026-08/page-20.png" alt="Report page 20" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">21 / 33</span><img data-src="report-assets/2026-08/page-21.png" alt="Report page 21" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">22 / 33</span><img data-src="report-assets/2026-08/page-22.png" alt="Report page 22" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">23 / 33</span><img data-src="report-assets/2026-08/page-23.png" alt="Report page 23" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">24 / 33</span><img data-src="report-assets/2026-08/page-24.png" alt="Report page 24" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">25 / 33</span><img data-src="report-assets/2026-08/page-25.png" alt="Report page 25" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">26 / 33</span><img data-src="report-assets/2026-08/page-26.png" alt="Report page 26" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">27 / 33</span><img data-src="report-assets/2026-08/page-27.png" alt="Report page 27" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">28 / 33</span><img data-src="report-assets/2026-08/page-28.png" alt="Report page 28" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">29 / 33</span><img data-src="report-assets/2026-08/page-29.png" alt="Report page 29" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">30 / 33</span><img data-src="report-assets/2026-08/page-30.png" alt="Report page 30" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">31 / 33</span><img data-src="report-assets/2026-08/page-31.png" alt="Report page 31" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">32 / 33</span><img data-src="report-assets/2026-08/page-32.png" alt="Report page 32" loading="lazy" width="1440" height="810"></figure>
+      <figure class="report-page"><span class="report-page-no">33 / 33</span><img data-src="report-assets/2026-08/page-33.png" alt="Report page 33" loading="lazy" width="1440" height="810"></figure>
+    </div>
+    </div><!-- /.report-month-content[2026-08] -->
     <div class="report-month-content" data-report-month="2026-07">
     <div class="report-pages">
       <figure class="report-page"><span class="report-page-no">01 / 35</span><img data-src="report-assets/2026-07/page-01.png" alt="Report page 1" loading="lazy" width="1440" height="810"></figure>
@@ -2945,7 +3006,7 @@ buttons.forEach(btn=>{
 // it directly) and dismisses the badge dot. The badge re-appears automatically whenever
 // REPORT_NOTIFY_ID below is bumped to a new value (e.g. a new month's report replaces this
 // one) — localStorage remembers which id the viewer has already dismissed, per browser.
-const REPORT_NOTIFY_ID = 'sumadhura-orm-report-2026-07';
+const REPORT_NOTIFY_ID = 'sumadhura-orm-report-2026-08';
 function markReportSeen(){
   try{ localStorage.setItem('orm_report_seen', REPORT_NOTIFY_ID); } catch(e){}
   document.getElementById('reportNotifyDot')?.classList.add('hidden');
@@ -2974,7 +3035,19 @@ document.getElementById('reportNotifyBtn')?.addEventListener('click', ()=>{
 // numbers shift between decks (July's divider pages don't line up with the source PPTX's
 // slide numbers, since the PDF has an extra "Spotlight" page inserted after the KPI page).
 const REPORT_MONTHS = [
-  { key:'2026-07', label:'July 2026', buildCharts:buildReportCharts_2026_07, sections:[
+  { key:'2026-08', label:'August 2026', periodLabel:'Aug 2026', status:'Final',
+    pdfHref:'report-assets/2026-08/Sumadhura-ORM-Report-August-2026.pdf',
+    buildCharts:buildReportCharts_2026_08, sections:[
+    {label:'Overview', page:1},
+    {label:'GMB Performance', page:5},
+    {label:'Reddit Performance', page:13},
+    {label:'Quora Performance', page:20},
+    {label:'Social Performance', page:26},
+    {label:'Appendix', page:33},
+  ]},
+  { key:'2026-07', label:'July 2026', periodLabel:'Jul 2026', status:'Final',
+    pdfHref:'report-assets/2026-07/Sumadhura-ORM-Report-July-2026.pdf',
+    buildCharts:buildReportCharts_2026_07, sections:[
     {label:'Overview', page:1},
     {label:'GMB Performance', page:6},
     {label:'Reddit Performance', page:15},
@@ -2984,6 +3057,33 @@ const REPORT_MONTHS = [
   ]},
 ];
 const reportChartsBuiltFor = new Set();
+// Header nav dropdown — separate from #reportMonthPicker (the in-page picker shown once
+// you're already on the report tab): this one lets a hover from ANY tab jump straight to a
+// specific past month's report. Built once at load since REPORT_MONTHS is static; if it ever
+// becomes async, call this after REPORT_MONTHS is populated instead.
+function buildReportNavDropdown(){
+  const wrap = document.getElementById('reportNavDropdown');
+  const panel = document.getElementById('reportNavMonths');
+  if(!wrap || !panel) return;
+  if(REPORT_MONTHS.length < 2){ panel.innerHTML = ''; return; } // nothing archived to browse yet
+  panel.innerHTML = REPORT_MONTHS.map(m=>`<button type="button" data-report-month="${m.key}">${m.label}</button>`).join('');
+  panel.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click', e=>{
+      e.stopPropagation();
+      document.querySelector('.tab-btn[data-target="report"]')?.click();
+      selectReportMonth(btn.dataset.reportMonth);
+      panel.classList.remove('open');
+    });
+  });
+  wrap.addEventListener('mouseenter', ()=>{
+    const r = wrap.getBoundingClientRect();
+    panel.style.top = `${r.bottom + 6}px`;
+    panel.style.left = `${r.left}px`;
+    panel.classList.add('open');
+  });
+  wrap.addEventListener('mouseleave', ()=> panel.classList.remove('open'));
+}
+buildReportNavDropdown();
 function selectReportMonth(key){
   document.querySelectorAll('.report-month-content').forEach(el=>{
     el.classList.toggle('hidden', el.dataset.reportMonth !== key);
@@ -2991,9 +3091,28 @@ function selectReportMonth(key){
   document.querySelectorAll('#reportMonthPicker .filter-btn').forEach(b=>{
     b.classList.toggle('active', b.dataset.reportMonth === key);
   });
-  if(typeof Chart !== 'undefined' && !reportChartsBuiltFor.has(key)){
-    const month = REPORT_MONTHS.find(m=>m.key===key);
-    if(month){ month.buildCharts(); reportChartsBuiltFor.add(key); }
+  document.querySelectorAll('#reportNavMonths button').forEach(b=>{
+    b.classList.toggle('active', b.dataset.reportMonth === key);
+  });
+  const month = REPORT_MONTHS.find(m=>m.key===key);
+  if(month){
+    // Cover title-block (period/status) and the download button/meta are shared across every
+    // month's content, unlike the .report-month-content divs below — re-synced here on every
+    // switch instead of being baked into each month's HTML.
+    const periodEl = document.getElementById('reportCoverPeriod');
+    if(periodEl) periodEl.textContent = month.periodLabel;
+    const statusEl = document.getElementById('reportCoverStatus');
+    if(statusEl) statusEl.textContent = month.status;
+    const dl = document.getElementById('reportDownloadBtn');
+    if(dl){ dl.dataset.href = month.pdfHref; dl.href = assetUrl(month.pdfHref); }
+    const metaEl = document.getElementById('reportDownloadMeta');
+    if(metaEl){
+      const pageCount = document.querySelectorAll(`.report-month-content[data-report-month="${key}"] .report-page`).length;
+      metaEl.textContent = `${pageCount} pages${month.status === 'Draft' ? ' · Draft — subject to change' : ''}`;
+    }
+    if(typeof Chart !== 'undefined' && !reportChartsBuiltFor.has(key)){
+      month.buildCharts(); reportChartsBuiltFor.add(key);
+    }
   }
   buildReportToc(key);
 }
@@ -3155,6 +3274,10 @@ function buildReportCharts_2026_07(){
   // No charts to build — July's report is now rendered as real PDF pages (see .report-pages
   // above), not hand-built Chart.js reconstructions. Kept as a no-op so REPORT_MONTHS'
   // buildCharts contract stays uniform for future months that might still use live charts.
+}
+
+function buildReportCharts_2026_08(){
+  // No charts to build — same real-PDF-pages approach as July (see buildReportCharts_2026_07).
 }
 
 // #report deep link — lets the bell (or a shared URL) open straight to the report tab. Must
