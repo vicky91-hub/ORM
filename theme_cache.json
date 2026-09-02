@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T06:14:59.792196+05:30",
+  "generated_at": "2026-09-02T06:13:06.395638+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -2429,6 +2429,60 @@
             "_note": "The seeded answer text exists in the sheet but every draft's Status is still 'Waiting Feedback' -- none have gone live on Quora, so this is not a real August engagement signal."
           }
         }
+      }
+    },
+    "2026-09": {
+      "GMB": {
+        "projects": {
+          "Folium": {
+            "positive": [
+              "Folium's only September GMB entry so far, from Manish Nishad (Sep 1), was a bare 5-star rating with the one-word comment 'Very good' -- the sole data point this early in the month."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "bare 5-star rating"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Folium's only September GMB review so far is a bare 5-star, one-line 'Very good' from Manish Nishad (Sep 1) -- just two days into the month, with no complaints logged yet."
+          },
+          "Capitol Towers": {
+            "positive": [
+              "Capitol Towers' only September GMB entry so far, from Anup Deka (Sep 1), was a bare 5-star rating with the one-word comment 'Good' -- the sole data point this early in the month."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "bare 5-star rating"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Capitol Towers' only September GMB review so far is a bare 5-star, one-word 'Good' from Anup Deka (Sep 1), with no detailed feedback or complaints logged this early in the month."
+          }
+        }
+      },
+      "Instagram": {
+        "projects": {},
+        "_note": "No September rows exist yet in the Sumadhura Daily Tracker's 'specific data' tab as of this refresh (data runs through 31 Aug 26) -- only two days into the month, so there is no Instagram sentiment to report yet."
+      },
+      "Facebook": {
+        "projects": {},
+        "_note": "No September rows exist yet in the Sumadhura Daily Tracker's 'specific data' tab as of this refresh (data runs through 31 Aug 26) -- only two days into the month, so there is no Facebook sentiment to report yet."
+      },
+      "LinkedIn": {
+        "projects": {},
+        "_note": "No September rows exist yet in the Sumadhura Daily Tracker's 'specific data' tab as of this refresh (data runs through 31 Aug 26) -- only two days into the month, so there is no LinkedIn sentiment to report yet."
+      },
+      "Reddit": {
+        "projects": {},
+        "_note": "No September entries exist yet in either the 'Reddit - New Seeds' or 'Reddit - Existing Threads' tabs of the Reddit & Quora Content Plan sheet as of this refresh (latest dated rows run through 31 Aug 26 and 10 Jul 26 respectively) -- no Reddit activity to report yet this month."
+      },
+      "Quora": {
+        "projects": {},
+        "_note": "No September entries exist yet in the 'Quora - New + Existing' tab of the Reddit & Quora Content Plan sheet as of this refresh (latest dated rows run through 17 Aug 26) -- no Quora activity to report yet this month."
       }
     }
   },
