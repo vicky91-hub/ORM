@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T06:13:06.395638+05:30",
+  "generated_at": "2026-09-03T06:10:59.354504+05:30",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -2436,17 +2436,19 @@
         "projects": {
           "Folium": {
             "positive": [
-              "Folium's only September GMB entry so far, from Manish Nishad (Sep 1), was a bare 5-star rating with the one-word comment 'Very good' -- the sole data point this early in the month."
+              "Folium logged three straight 5-star September GMB reviews so far -- Manish Nishad's bare 'Very good' (Sep 1), rahul kapale's specific praise for the CRM team ('CRM team awesome, very helpful', Sep 1), and Velixa Health's compliment on the property's infrastructure and decoration (Sep 2) -- with no complaints logged this early in the month."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "bare 5-star rating"
+                "CRM team praise (rahul kapale)",
+                "infrastructure & decoration compliment",
+                "3 straight 5-star ratings"
               ],
               "negative": []
             },
-            "verdict": "Positive",
-            "keyTakeaway": "Folium's only September GMB review so far is a bare 5-star, one-line 'Very good' from Manish Nishad (Sep 1) -- just two days into the month, with no complaints logged yet."
+            "verdict": "Strong Positive",
+            "keyTakeaway": "Folium opened September with three 5-star GMB reviews and zero complaints -- rahul kapale singled out the CRM team as 'awesome, very helpful' and Velixa Health praised the infrastructure and decoration."
           },
           "Capitol Towers": {
             "positive": [
@@ -2461,24 +2463,52 @@
             },
             "verdict": "Positive",
             "keyTakeaway": "Capitol Towers' only September GMB review so far is a bare 5-star, one-word 'Good' from Anup Deka (Sep 1), with no detailed feedback or complaints logged this early in the month."
+          },
+          "Epitome": {
+            "positive": [
+              "Epitome's only September GMB entry so far, from ramesh (Sep 1), was a bare 5-star rating logged as 'Just a Rating' with no written comment -- the sole data point this early in the month."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "bare 5-star rating"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Epitome's only September GMB review so far is a bare 5-star rating from ramesh (Sep 1), with no written feedback or complaints logged yet this month."
+          },
+          "Elysium": {
+            "positive": [
+              "Elysium's only September GMB entry so far, from Sourav Jahed (Sep 2), was a bare 5-star rating logged as 'Just a Rating' with no written comment -- the sole data point this early in the month."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "bare 5-star rating"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Elysium's only September GMB review so far is a bare 5-star rating from Sourav Jahed (Sep 2), with no written feedback or complaints logged yet this month."
           }
         }
       },
       "Instagram": {
         "projects": {},
-        "_note": "No September rows exist yet in the Sumadhura Daily Tracker's 'specific data' tab as of this refresh (data runs through 31 Aug 26) -- only two days into the month, so there is no Instagram sentiment to report yet."
+        "_note": "The Sumadhura Daily Tracker's 'specific data' tab has 10 September rows on the sumadhurainfracon Instagram Business account so far, but all are generic brand-page engagement -- follower tags, emoji reactions, a Raksha Bandhan story repost, and a corporate PR post about the new Chennai industrial & logistics park -- with none naming any of the 11 tracked residential projects, so there is no project-level Instagram sentiment to report yet this month."
       },
       "Facebook": {
         "projects": {},
-        "_note": "No September rows exist yet in the Sumadhura Daily Tracker's 'specific data' tab as of this refresh (data runs through 31 Aug 26) -- only two days into the month, so there is no Facebook sentiment to report yet."
+        "_note": "The Sumadhura Daily Tracker's 'specific data' tab has 9 September rows on the Sumadhura Infracon Private Limited Facebook Page plus one inbound Facebook Mail lead so far, but all are generic brand-page engagement -- one-word comments, a retail-space lead inquiry, tag mentions, and Raksha Bandhan story reposts -- with none naming any of the 11 tracked residential projects, so there is no project-level Facebook sentiment to report yet this month."
       },
       "LinkedIn": {
         "projects": {},
-        "_note": "No September rows exist yet in the Sumadhura Daily Tracker's 'specific data' tab as of this refresh (data runs through 31 Aug 26) -- only two days into the month, so there is no LinkedIn sentiment to report yet."
+        "_note": "No September rows exist yet on any LinkedIn source in the Sumadhura Daily Tracker's 'specific data' tab as of this refresh -- no LinkedIn activity to report yet this month."
       },
       "Reddit": {
         "projects": {},
-        "_note": "No September entries exist yet in either the 'Reddit - New Seeds' or 'Reddit - Existing Threads' tabs of the Reddit & Quora Content Plan sheet as of this refresh (latest dated rows run through 31 Aug 26 and 10 Jul 26 respectively) -- no Reddit activity to report yet this month."
+        "_note": "No September entries exist yet in either the 'Reddit - New Seeds' or 'Reddit - Existing Threads' tabs of the Reddit & Quora Content Plan sheet as of this refresh (latest dated rows run through 12 Aug 26 for New Seeds; Existing Threads' most recent entries run only through early Jul 26) -- no Reddit activity to report yet this month."
       },
       "Quora": {
         "projects": {},
