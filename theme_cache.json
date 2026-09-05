@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T00:43:11.417832+00:00",
+  "generated_at": "2026-09-05T00:45:12.224289+00:00",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -2511,19 +2511,94 @@
       },
       "Instagram": {
         "projects": {},
-        "_note": "The Sumadhura Daily Tracker's 'specific data' tab has 12 September rows on the sumadhurainfracon Instagram Business account so far (through Sep 2), but all are generic brand-page engagement -- Raksha Bandhan/childhood-memory story reposts, follower tags and emoji reactions, and corporate PR posts about the ₹400 crore Chennai logistics-park investment and the India PropTech Demo Day event -- with none naming any of the 11 tracked residential projects, so there is no project-level Instagram sentiment to report yet this month."
+        "_note": "The Sumadhura Daily Tracker's 'specific data' tab has 22 September rows on the sumadhurainfracon Instagram Business account through 3 Sep (the sheet's latest dated rows as of this refresh) -- Raksha Bandhan/childhood-memory story reposts, follower tags and emoji reactions, corporate PR reposts of the ₹400 crore Chennai logistics-park investment and the India PropTech Demo Day event, plus two content-free 'Where is this place'/'Price?' inquiries mistagged positive -- with none naming any of the 11 tracked residential projects, so there is no project-level Instagram sentiment to report yet this month."
       },
       "Facebook": {
-        "projects": {},
-        "_note": "The Sumadhura Daily Tracker's 'specific data' tab has 22 September rows on the Sumadhura Infracon Private Limited Facebook Page plus 3 inbound Facebook Mail leads so far (through Sep 2) -- mostly one-word or generic comments, Raksha Bandhan story reposts, and the same Chennai logistics-park PR repost, plus three retail-space investment leads for 'Hive by Sumadhura' in Whitefield and one unelaborated complaint ('roads are not good... worst location') not tied to a specific project -- with none naming any of the 11 tracked residential projects by name, so there is no project-level Facebook sentiment to report yet this month."
+        "projects": {
+          "Infracon": {
+            "positive": [
+              "Generic short-form acknowledgments carried what little positive signal there was this month -- 'Nice 👍,' 'Hii,' 'super adds,' and an 'Interested to be part of samudra' inquiry -- none naming a specific project or amenity, in keeping with prior months' generic brand-page engagement."
+            ],
+            "negative": [
+              "The month's one substantive complaint was blunt and unattributed to any specific project -- 'Dnt fake people... Roads are not good... Worst location to communicate on anything' -- echoing the roads/infrastructure grievance that has recurred on this page since July."
+            ],
+            "topKeywords": {
+              "positive": [
+                "generic \"nice\"/\"hii\" acknowledgments",
+                "investment-interest inquiry (\"samudra\")"
+              ],
+              "negative": [
+                "roads & location complaint"
+              ]
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "September's thin three-day Facebook Page activity stayed net positive despite one blunt complaint calling the roads 'not good' and the location 'worst' -- the same infrastructure grievance recurring since July.",
+            "_note": "All comments landed on the corporate 'Sumadhura Infracon Private Limited' page rather than a per-project Channel Name, and the positive one-liners carry no real specificity."
+          }
+        },
+        "_note": "September's 'specific data' tab logs 24 Facebook Page rows and 8 Facebook Mail rows through 3 Sep (the sheet's latest dated rows as of this refresh). Most volume was non-sentiment noise excluded from the bullets above: Raksha Bandhan family-memory story reposts, a repost of the ₹400 crore Chennai logistics-park announcement, one-word/emoji replies ('Xx,' 'Congratulations 💐' x2, 'Good morning'), assorted gibberish, and all 8 Facebook Mail rows being near-identical 'interested to invest in a Retail Space in Hive by Sumadhura, Whitefield' lead-gen form fills (sales leads, not sentiment)."
       },
       "LinkedIn": {
         "projects": {},
         "_note": "No September rows exist yet on any LinkedIn source in the Sumadhura Daily Tracker's 'specific data' tab as of this refresh -- no LinkedIn activity to report yet this month."
       },
       "Reddit": {
-        "projects": {},
-        "_note": "No September entries exist yet in either the 'Reddit - New Seeds' or 'Reddit - Existing Threads' tabs of the Reddit & Quora Content Plan sheet as of this refresh (latest dated rows run through 12 Aug 26 for New Seeds; Existing Threads' most recent entries run only through early Jul 26) -- no Reddit activity to report yet this month."
+        "projects": {
+          "Folium": {
+            "positive": [
+              "Six seeded Reddit comments (1-3 Sep) built out a family-livability narrative for Folium: in-community sports and coaching cut down on after-school logistics, post-possession residents said they noticed natural light, window placement and room proportions more than showflat décor, and both a young parent and a Hindi-language comment about elderly parents' evening walks praised pedestrian-first planning, benches and shade.",
+              "One post-possession comment struck a more practical note -- 'you definitely notice switches, hardware and bathroom fittings more after moving in than you expect during booking' -- read as a mild fit-and-finish observation rather than a complaint."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "in-community sports & coaching",
+                "pedestrian-first / child & elder safety",
+                "natural light & room proportions",
+                "post-possession fit & finish"
+              ],
+              "negative": []
+            },
+            "verdict": "Strong Positive",
+            "keyTakeaway": "Six seeded September Reddit comments cast Folium residents praising in-community sports coaching, pedestrian-first walkways for kids and elderly parents, and post-possession livability over showflat décor.",
+            "_note": "All six mentions are Sumadhura's own seeded Reddit comments (posed as residents and parents) across generic family-safety and post-possession threads, not organic buyer feedback."
+          },
+          "Capitol Residences": {
+            "positive": [
+              "Three seeded comments (1-2 Sep) promoted Capitol Residences' still-under-construction design: its planned vehicle-free landscaped ground plane was called 'one of the strongest family-friendly ideas in the current lineup,' alongside buyer-diligence talking points wanting the finish package and the tower-facing/balcony outlook confirmed before booking."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "vehicle-free ground plane",
+                "family-friendly design pitch",
+                "finish-package documentation ask",
+                "tower-facing / balcony outlook"
+              ],
+              "negative": []
+            },
+            "verdict": "Strong Positive",
+            "keyTakeaway": "Three seeded September Reddit comments pitched Capitol Residences' under-construction vehicle-free ground plane as 'one of the strongest family-friendly ideas' in the current lineup.",
+            "_note": "All three mentions are Sumadhura-seeded comments on generic Whitefield/family-buyer threads, not organic Capitol Residences feedback -- the project remains under construction."
+          },
+          "Epitome": {
+            "positive": [
+              "The month's only Epitome mention was a seeded comment favoring its planned corner-home layout, emphasizing actual room dimensions over sample-flat styling."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "corner-home layout",
+                "dimensions over showflat styling"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Epitome's lone September Reddit mention was a seeded comment favoring its corner-home layout's actual dimensions over sample-flat styling.",
+            "_note": "This is a single Sumadhura-seeded comment on a generic Whitefield-buyer thread, not organic Epitome feedback."
+          }
+        },
+        "_note": "September's 'Reddit - New Seeds' tab logs 19 rows through 3 Sep plus one fresh seed post published 4 Sep awaiting its first comment (a generic elderly-friendly clubhouse-sizing question, no project named) -- all comments are Sumadhura's own seeded content, not organic Reddit sentiment. One seeded comment (2 Sep) referenced 'Sumadhura Pramoda,' a project outside the 11 tracked in this dashboard, so it was excluded from the buckets above. 'Reddit - Existing Threads' has no September rows yet (latest dated rows still run through 7 Jul 26)."
       },
       "Quora": {
         "projects": {},
