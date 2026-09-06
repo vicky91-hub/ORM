@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T00:45:12.224289+00:00",
+  "generated_at": "2026-09-06T00:44:43.049680+00:00",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -2436,19 +2436,25 @@
         "projects": {
           "Folium": {
             "positive": [
-              "Folium logged four straight 5-star September GMB reviews -- Manish Nishad's bare 'Very good' (Sep 1), rahul kapale's specific praise for the CRM team ('CRM team awesome, very helpful', Sep 1), Velixa Health's compliment on the property's infrastructure and decoration (Sep 2), and Kavitha S's bare 5-star (Sep 3) -- with zero complaints logged this month."
+              "September opened strong for Folium with four straight 5-star GMB reviews before the month's one written complaint arrived: Manish Nishad's bare 'Very good' (Sep 1), rahul kapale singling out the CRM team as 'awesome, very helpful' (Sep 1), Velixa Health praising the property's infrastructure and decoration (Sep 2), and Kavitha S's bare 5-star (Sep 3)."
             ],
-            "negative": [],
+            "negative": [
+              "Prateek Thawait's scathing 1-star (Sep 5) used sustained sarcasm to detail a genuine Phase 1 registration ordeal -- an 8-month wait since January, a sale deed delivered with typos, an 11-day wait for a noncommittal reply to his rectification-deed request, and a total absence of a real point of contact ('a mythical phone number,' emails into 'a peaceful, infinite void')."
+            ],
             "topKeywords": {
               "positive": [
                 "CRM team praise (rahul kapale)",
                 "infrastructure & decoration compliment",
-                "4 straight 5-star ratings"
+                "four 5-star ratings before Sep 5"
               ],
-              "negative": []
+              "negative": [
+                "8-month registration delay since Jan",
+                "sale deed typos + 11-day rectification wait",
+                "no dedicated point of contact"
+              ]
             },
-            "verdict": "Strong Positive",
-            "keyTakeaway": "Folium opened September with four 5-star GMB reviews and zero complaints -- rahul kapale singled out the CRM team as 'awesome, very helpful' and Velixa Health praised the infrastructure and decoration."
+            "verdict": "Positive",
+            "keyTakeaway": "Four 5-star GMB reviews opened September for Folium before Prateek Thawait's sarcastic 1-star detailed an 8-month Phase 1 registration delay, sale deed typos, and an 11-day wait for a noncommittal rectification response."
           },
           "Capitol Towers": {
             "positive": [
@@ -2494,74 +2500,54 @@
           },
           "Edition": {
             "positive": [
-              "Edition's only September GMB entry so far, from new buyer Pradeep Vasamsetty (Sep 3), was a 5-star rating noting he 'got an apartment here' and would 'update the review as per construction pace,' while inviting other buyers to join a group -- the sole data point this month."
+              "Edition logged two September GMB entries so far: new buyer Pradeep Vasamsetty (Sep 3) gave a 5-star noting he 'got an apartment here' and would 'update the review as per construction pace,' while inviting other buyers to join a group, and Paritosh Sahay (Sep 5) added a second bare 5-star with no written comment."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
                 "new buyer, will update per construction pace",
-                "buyer group invite"
+                "buyer group invite",
+                "second bare 5-star (Paritosh Sahay)"
               ],
               "negative": []
             },
             "verdict": "Positive",
-            "keyTakeaway": "Edition's only September GMB review so far, a 5-star from new buyer Pradeep Vasamsetty (Sep 3), promised a construction-pace update and invited others into a buyer group."
+            "keyTakeaway": "Edition picked up two September 5-star GMB reviews so far -- Pradeep Vasamsetty's promise to track construction pace and invite others into a buyer group, plus a bare 5-star from Paritosh Sahay."
           }
         }
       },
       "Instagram": {
         "projects": {},
-        "_note": "The Sumadhura Daily Tracker's 'specific data' tab has 22 September rows on the sumadhurainfracon Instagram Business account through 3 Sep (the sheet's latest dated rows as of this refresh) -- Raksha Bandhan/childhood-memory story reposts, follower tags and emoji reactions, corporate PR reposts of the ₹400 crore Chennai logistics-park investment and the India PropTech Demo Day event, plus two content-free 'Where is this place'/'Price?' inquiries mistagged positive -- with none naming any of the 11 tracked residential projects, so there is no project-level Instagram sentiment to report yet this month."
+        "_note": "September's Instagram Business inbox (33 rows in the Daily Tracker's 'specific data' tab, through Sep 4 -- the sheet's latest dated rows) carries no genuine Sumadhura-project sentiment: the great majority are emoji reactions, @-tags, and unrelated personal Raksha Bandhan reels/stories cross-posted to the corporate account, plus a recycled corporate PR post announcing a ₹400-crore Chennai logistics park (Infracon's own expansion, not a residential project) that drew only generic congratulatory replies, and one branded fitness-equipment post (Star Trac) naming no specific project. Nothing here rises to project-specific buyer or resident feedback -- flagged rather than fabricated."
       },
       "Facebook": {
-        "projects": {
-          "Infracon": {
-            "positive": [
-              "Generic short-form acknowledgments carried what little positive signal there was this month -- 'Nice 👍,' 'Hii,' 'super adds,' and an 'Interested to be part of samudra' inquiry -- none naming a specific project or amenity, in keeping with prior months' generic brand-page engagement."
-            ],
-            "negative": [
-              "The month's one substantive complaint was blunt and unattributed to any specific project -- 'Dnt fake people... Roads are not good... Worst location to communicate on anything' -- echoing the roads/infrastructure grievance that has recurred on this page since July."
-            ],
-            "topKeywords": {
-              "positive": [
-                "generic \"nice\"/\"hii\" acknowledgments",
-                "investment-interest inquiry (\"samudra\")"
-              ],
-              "negative": [
-                "roads & location complaint"
-              ]
-            },
-            "verdict": "Positive",
-            "keyTakeaway": "September's thin three-day Facebook Page activity stayed net positive despite one blunt complaint calling the roads 'not good' and the location 'worst' -- the same infrastructure grievance recurring since July.",
-            "_note": "All comments landed on the corporate 'Sumadhura Infracon Private Limited' page rather than a per-project Channel Name, and the positive one-liners carry no real specificity."
-          }
-        },
-        "_note": "September's 'specific data' tab logs 24 Facebook Page rows and 8 Facebook Mail rows through 3 Sep (the sheet's latest dated rows as of this refresh). Most volume was non-sentiment noise excluded from the bullets above: Raksha Bandhan family-memory story reposts, a repost of the ₹400 crore Chennai logistics-park announcement, one-word/emoji replies ('Xx,' 'Congratulations 💐' x2, 'Good morning'), assorted gibberish, and all 8 Facebook Mail rows being near-identical 'interested to invest in a Retail Space in Hive by Sumadhura, Whitefield' lead-gen form fills (sales leads, not sentiment)."
+        "projects": {},
+        "_note": "September's Facebook inbox (39 rows in the Daily Tracker's 'specific data' tab, through Sep 4) is dominated by 9 identical templated lead-gen inquiries about retail-space investment in 'Hive by Sumadhura' (Whitefield) -- interest signals, not sentiment -- plus generic Raksha Bandhan reposts, one-word/emoji comments, and congratulations on the Chennai logistics park (Infracon) announcement. The one substantive complaint, 'Dnt fake people... Roads are not good... Worst location to communicate on anything,' named no specific project and can't be attributed to one. No genuine project-specific sentiment to report this month -- flagged rather than fabricated."
       },
       "LinkedIn": {
         "projects": {},
-        "_note": "No September rows exist yet on any LinkedIn source in the Sumadhura Daily Tracker's 'specific data' tab as of this refresh -- no LinkedIn activity to report yet this month."
+        "_note": "No LinkedIn rows exist in the Daily Tracker's 'specific data' tab for September -- the sheet's most recent dated LinkedIn entries remain in August. No data to report this month."
       },
       "Reddit": {
         "projects": {
           "Folium": {
             "positive": [
-              "Six seeded Reddit comments (1-3 Sep) built out a family-livability narrative for Folium: in-community sports and coaching cut down on after-school logistics, post-possession residents said they noticed natural light, window placement and room proportions more than showflat décor, and both a young parent and a Hindi-language comment about elderly parents' evening walks praised pedestrian-first planning, benches and shade.",
-              "One post-possession comment struck a more practical note -- 'you definitely notice switches, hardware and bathroom fittings more after moving in than you expect during booking' -- read as a mild fit-and-finish observation rather than a complaint."
+              "Seven seeded Reddit comments (1-4 Sep) built out a family-livability narrative for Folium: in-community sports coaching cut down on after-school logistics (two separate accounts, Sep 1), a young parent (Sep 3) and a Hindi-language comment about elderly parents' evening walks (Sep 3) praised pedestrian-first planning, benches and shade, and a dog owner (Sep 4) welcomed the calmer low-traffic routes.",
+              "Two more comments (Sep 1) added a post-possession angle -- one noting natural light, window placement and room proportions matter more day to day than sample-flat décor, the other observing 'you definitely notice switches, hardware and bathroom fittings more after moving in than you expect during booking,' read as a mild fit-and-finish note rather than a complaint."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "in-community sports & coaching",
+                "in-community sports coaching",
                 "pedestrian-first / child & elder safety",
-                "natural light & room proportions",
+                "dog-friendly low-traffic routes",
                 "post-possession fit & finish"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Six seeded September Reddit comments cast Folium residents praising in-community sports coaching, pedestrian-first walkways for kids and elderly parents, and post-possession livability over showflat décor.",
-            "_note": "All six mentions are Sumadhura's own seeded Reddit comments (posed as residents and parents) across generic family-safety and post-possession threads, not organic buyer feedback."
+            "keyTakeaway": "Seven seeded September Reddit comments (through Sep 4) cast Folium residents praising in-community sports coaching, pedestrian-first walkways for kids, elderly parents and dog owners, and post-possession livability over showflat décor.",
+            "_note": "All seven mentions are Sumadhura's own seeded Reddit comments (posed as residents, parents and a dog owner) across generic family-safety and post-possession threads, not organic buyer feedback."
           },
           "Capitol Residences": {
             "positive": [
@@ -2596,13 +2582,29 @@
             "verdict": "Positive",
             "keyTakeaway": "Epitome's lone September Reddit mention was a seeded comment favoring its corner-home layout's actual dimensions over sample-flat styling.",
             "_note": "This is a single Sumadhura-seeded comment on a generic Whitefield-buyer thread, not organic Epitome feedback."
+          },
+          "Elysium": {
+            "positive": [
+              "The month's only Elysium Reddit mention (Sep 4) was a seeded comment favoring its planned landscaped environment, preferring communities where 'outdoor movement is part of the overall design rather than just a narrow walking track.'"
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "planned landscaped environment",
+                "outdoor movement by design"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Elysium's lone September Reddit mention was a seeded comment favoring its planned landscaped environment where 'outdoor movement is part of the overall design,' not just a narrow walking track.",
+            "_note": "This is a single Sumadhura-seeded comment on a generic Whitefield family-buyer thread, not organic Elysium feedback -- the project remains under construction."
           }
         },
-        "_note": "September's 'Reddit - New Seeds' tab logs 19 rows through 3 Sep plus one fresh seed post published 4 Sep awaiting its first comment (a generic elderly-friendly clubhouse-sizing question, no project named) -- all comments are Sumadhura's own seeded content, not organic Reddit sentiment. One seeded comment (2 Sep) referenced 'Sumadhura Pramoda,' a project outside the 11 tracked in this dashboard, so it was excluded from the buckets above. 'Reddit - Existing Threads' has no September rows yet (latest dated rows still run through 7 Jul 26)."
+        "_note": "September's 'Reddit - New Seeds' tab logs 24 seeded comments through 4 Sep, plus two fresh seed posts (published 4 Sep and 5 Sep) still awaiting their first comment -- all comments are Sumadhura's own seeded content, not organic Reddit sentiment. A handful of comments referenced 'Sumadhura Pramoda' or the cross-project 'Real View'/'Quality Studio' initiatives rather than a tracked project, so they were excluded from the buckets above. 'Reddit - Existing Threads' has no September rows yet (latest dated rows still run through 2 Aug 26)."
       },
       "Quora": {
         "projects": {},
-        "_note": "No September entries exist yet in the 'Quora - New + Existing' tab of the Reddit & Quora Content Plan sheet as of this refresh (latest dated rows run through 17 Aug 26) -- no Quora activity to report yet this month."
+        "_note": "The Reddit & Quora Content Plan's 'Quora - New + Existing' tab currently ends 17 Aug with no September-dated rows yet. No project-specific content to report this month -- flagged rather than fabricated."
       }
     }
   },
