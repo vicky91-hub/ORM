@@ -3338,7 +3338,7 @@ window.addEventListener('resize', ()=>{
 // A password gate (#mmGateWrap) shows first; only a correct password reveals #mmContent.
 // This is a client-side speed bump, not real security — the password below is visible to
 // anyone who views source, same as the site's Basic Auth password in middleware.js.
-const MM_GATE_PASSWORD = 'nsd@910';
+const MM_GATE_PASSWORD = 'nsd@2026';
 function enterMindMapStandalone(){
   document.body.classList.add('mindmap-standalone');
   document.getElementById('mindMapSection')?.classList.remove('hidden');
@@ -3349,7 +3349,9 @@ document.getElementById('mmGateForm')?.addEventListener('submit', (e)=>{
   const input = document.getElementById('mmGatePassword');
   const error = document.getElementById('mmGateError');
   if(input.value === MM_GATE_PASSWORD){
-    document.getElementById('mmGateWrap').hidden = true;
+    // .mm-gate-wrap sets display:flex itself, which as author CSS beats the UA [hidden]
+    // rule's display:none even with the attribute set — so force it via style instead.
+    document.getElementById('mmGateWrap').style.display = 'none';
     document.getElementById('mmContent').hidden = false;
     renderMindMap();
   } else {
