@@ -483,6 +483,81 @@
   .methodology h4{ margin:14px 0 4px; font-size:12.5px; color:var(--constellation); }
   .methodology h4:first-child{ margin-top:0; }
   .methodology code{ background:var(--cloud); padding:1px 5px; border-radius:3px; font-size:11px; }
+
+  /* ---------- MIND MAP — Keyword Cluster x Content Coverage Map ---------- */
+  /* Self-contained dark theme, scoped under #mindMapSection so it doesn't leak into the
+     rest of the (light-themed) dashboard. Data is a hardcoded snapshot pulled from the
+     "Coverage Gap Summary" table in the ORM tracker sheet (Live+Not Live+Planned summed
+     per channel, per keyword cluster) -- same convention as the rest of this file: refreshed
+     by hand when the source sheet changes, not live-polled. */
+  #mindMapSection{ background:#141110; border-radius:14px; padding:32px 5vw; margin:0 -5vw; }
+  #mindMapSection *{ box-sizing:border-box; }
+  .mm-wrap{ max-width:1400px; margin:0 auto; }
+  .mm-header{ display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap; margin-bottom:26px; }
+  .mm-eyebrow{ font-size:11px; font-weight:bold; letter-spacing:1.4px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+  .mm-header h2{ margin:0 0 8px; font-size:32px; font-weight:600; color:#fdfcfa; }
+  .mm-sub{ margin:0; font-size:13.5px; color:#9a978f; max-width:560px; line-height:1.55; }
+  .mm-header-right{ display:flex; flex-direction:column; align-items:flex-end; gap:10px; flex-shrink:0; }
+  .mm-live-badge{ display:inline-flex; align-items:center; gap:7px; font-size:12px; color:#c8c5bd; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:6px 14px; white-space:nowrap; }
+  .mm-live-badge .dot{ width:7px; height:7px; border-radius:50%; background:#3fbf6f; box-shadow:0 0 0 3px rgba(63,191,111,0.2); }
+  .mm-refresh-btn{ display:inline-flex; align-items:center; gap:6px; font-family:var(--font-body); font-size:12px; font-weight:bold; color:var(--gold); background:transparent; border:1px solid rgba(201,169,110,0.4); border-radius:20px; padding:7px 14px; cursor:pointer; white-space:nowrap; }
+  .mm-refresh-btn:hover{ background:rgba(201,169,110,0.1); }
+  .mm-refresh-btn svg{ width:13px; height:13px; }
+  .mm-refresh-btn.spinning svg{ animation:mmSpin .6s linear; }
+  @keyframes mmSpin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+
+  .mm-card{ background:#1a1714; border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:26px 28px 28px; margin-bottom:20px; }
+  .mm-section-label{ font-size:11px; font-weight:bold; letter-spacing:1.2px; text-transform:uppercase; color:#8a8780; margin-bottom:10px; }
+  .mm-card h3{ margin:0 0 8px; font-size:21px; font-weight:600; color:#fdfcfa; }
+  .mm-card > p{ margin:0 0 14px; font-size:13px; color:#9a978f; line-height:1.55; max-width:640px; }
+  .mm-stat-line{ font-size:13px; color:#9a978f; margin-bottom:22px; }
+  .mm-stat-line strong{ color:var(--gold); font-size:15px; }
+
+  .mm-diagram{ position:relative; display:flex; align-items:stretch; justify-content:space-between; gap:0; min-height:520px; }
+  .mm-lines{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; overflow:visible; }
+  .mm-col{ display:flex; flex-direction:column; justify-content:space-between; width:44%; z-index:1; gap:6px; }
+  .mm-row{ display:flex; align-items:center; gap:14px; }
+  .mm-row-left{ justify-content:flex-end; }
+  .mm-row-right{ justify-content:flex-start; }
+  .mm-metrics{ display:flex; flex-direction:column; gap:3px; font-size:11.5px; min-width:118px; flex-shrink:0; }
+  .mm-row-left .mm-metrics{ align-items:stretch; }
+  .mm-metric{ display:flex; align-items:center; gap:6px; color:#b8b5ad; white-space:nowrap; }
+  .mm-metric .mm-dot{ width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+  .mm-metric .mm-mlabel{ flex:1; }
+  .mm-metric .mm-mval{ font-weight:bold; color:#e9e7e1; font-variant-numeric:tabular-nums; min-width:14px; text-align:right; }
+  .mm-node-card{ background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.09); border-radius:10px; padding:12px 15px 13px; width:210px; flex-shrink:0; }
+  .mm-node-card .mm-node-title{ font-family:var(--font-body); font-weight:bold; font-size:14px; color:#fdfcfa; margin-bottom:7px; line-height:1.25; }
+  .mm-node-card .mm-node-tag{ display:inline-block; font-size:10.5px; font-weight:bold; color:var(--gold); background:rgba(201,169,110,0.12); border-radius:5px; padding:2px 8px; margin-bottom:10px; }
+  .mm-node-bar{ display:flex; height:5px; border-radius:3px; overflow:hidden; background:rgba(255,255,255,0.06); }
+  .mm-node-bar span{ height:100%; }
+
+  .mm-center-wrap{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:2; }
+  .mm-center-circle{ width:168px; height:168px; border-radius:50%; background:#181512; border:1.5px solid var(--gold); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:10px; }
+  .mm-center-s{ font-family:var(--font-display); font-size:34px; color:var(--gold); line-height:1; margin-bottom:6px; }
+  .mm-center-name{ font-family:var(--font-display); font-size:13px; font-weight:600; color:#f2f0ea; line-height:1.25; letter-spacing:0.3px; }
+  .mm-center-tag{ font-size:8px; letter-spacing:1px; color:#8a8780; text-transform:uppercase; margin-top:5px; }
+
+  .mm-legend{ display:flex; flex-wrap:wrap; gap:18px; margin-top:22px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.06); }
+  .mm-legend-item{ display:flex; align-items:center; gap:7px; font-size:11.5px; color:#b8b5ad; }
+  .mm-legend-item .mm-dot{ width:9px; height:9px; border-radius:2px; flex-shrink:0; }
+
+  .mm-totals-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:14px; margin-top:4px; }
+  .mm-total-tile{ background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:16px 16px 14px; }
+  .mm-total-tile .mm-total-value{ font-family:var(--font-display); font-size:30px; font-weight:600; color:#fdfcfa; line-height:1; margin-bottom:10px; }
+  .mm-total-tile .mm-total-label{ display:flex; align-items:center; gap:6px; font-size:11.5px; color:#b8b5ad; }
+  .mm-total-tile .mm-dot{ width:8px; height:8px; border-radius:2px; flex-shrink:0; }
+
+  .mm-footer{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; font-size:11px; color:#77746c; margin-top:4px; }
+
+  @media (max-width: 900px){
+    .mm-diagram{ min-height:0; display:block; }
+    .mm-lines{ display:none; }
+    .mm-center-wrap{ position:static; transform:none; margin:18px auto; }
+    .mm-col{ width:100%; }
+    .mm-row-left, .mm-row-right{ justify-content:flex-start; }
+    .mm-node-card{ width:auto; flex:1; }
+    .mm-metrics{ min-width:104px; }
+  }
 </style>
 </head>
 <body>
@@ -552,6 +627,7 @@
       <button class="tab-btn" data-target="reddit"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1.2" fill="currentColor" stroke="none"/><path d="M8.5 15.5c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2"/></svg>Reddit</button>
       <button class="tab-btn" data-target="quora"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.8" y2="15.8"/></svg>Quora</button>
       <button class="tab-btn" data-target="social"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Social</button>
+      <button class="tab-btn" data-target="mindmap"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="20" cy="18" r="2"/><line x1="9.8" y1="10.6" x2="5.6" y2="7"/><line x1="9.8" y1="13.4" x2="5.6" y2="17"/><line x1="14.2" y1="10.6" x2="18.4" y2="7"/><line x1="14.2" y1="13.4" x2="18.4" y2="17"/></svg>Mind Map</button>
       <div class="tab-btn-dropdown" id="reportNavDropdown">
         <button class="tab-btn" data-target="report"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>Monthly Report</button>
         <!-- Touch-only affordance (CSS-gated to coarse/no-hover pointers) — hover doesn't
@@ -598,6 +674,7 @@
         <button class="tab-btn" data-target="reddit"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1.2" fill="currentColor" stroke="none"/><path d="M8.5 15.5c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2"/></svg>Reddit</button>
         <button class="tab-btn" data-target="quora"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.8" y2="15.8"/></svg>Quora</button>
         <button class="tab-btn" data-target="social"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Social</button>
+        <button class="tab-btn" data-target="mindmap"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="20" cy="18" r="2"/><line x1="9.8" y1="10.6" x2="5.6" y2="7"/><line x1="9.8" y1="13.4" x2="5.6" y2="17"/><line x1="14.2" y1="10.6" x2="18.4" y2="7"/><line x1="14.2" y1="13.4" x2="18.4" y2="17"/></svg>Mind Map</button>
         <button class="tab-btn" data-target="report"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>Monthly Report</button>
       </nav>
     </div>
@@ -853,6 +930,60 @@
       <canvas id="chartRatingHistory" height="170"></canvas>
       <div id="historyEmptyNote" class="card-sub" style="margin-top:10px;"></div>
       <div id="autoSaveNote" class="card-sub" style="margin-top:6px;font-style:italic;"></div>
+    </div>
+  </section>
+
+  <!-- MIND MAP — Keyword Cluster x Content Coverage Map (static snapshot from the ORM
+       tracker's "Coverage Gap Summary" table, same convention as Monthly Report below:
+       hidden by default, shown only via the "Mind Map" nav tab, content built by JS
+       from the MINDMAP_CLUSTERS data below). -->
+  <section id="mindMapSection" class="hidden">
+    <div class="mm-wrap">
+      <div class="mm-header">
+        <div>
+          <div class="mm-eyebrow">Sumadhura Bangalore · ORM &amp; LLM Content Strategy</div>
+          <h2>Keyword Cluster × Content Coverage Map</h2>
+          <p class="mm-sub">How each priority keyword cluster is being addressed across Offsite, Onsite, Listings, Reddit and Quora content.</p>
+        </div>
+        <div class="mm-header-right">
+          <span class="mm-live-badge"><span class="dot"></span>Snapshot · updated <span id="mmUpdatedTime"></span></span>
+          <button class="mm-refresh-btn" id="mmRefreshBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><polyline points="21 3 21 9 15 9"/></svg>Refresh</button>
+        </div>
+      </div>
+
+      <div class="mm-card">
+        <div class="mm-section-label">01 · By Keyword Cluster</div>
+        <h3>Cluster-wise Content Mapping</h3>
+        <p>See how each priority keyword cluster is covered across channels, along with the volume of mapped content.</p>
+        <div class="mm-stat-line"><strong id="mmClusterCount">0</strong> Priority Clusters &nbsp;·&nbsp; <strong id="mmChannelCount">0</strong> Content Channels</div>
+
+        <div class="mm-diagram" id="mmDiagram">
+          <svg class="mm-lines" id="mmLines"></svg>
+          <div class="mm-col mm-col-left" id="mmColLeft"></div>
+          <div class="mm-center-wrap">
+            <div class="mm-center-circle">
+              <div class="mm-center-s">S</div>
+              <div class="mm-center-name">SUMADHURA GROUP<br>BANGALORE</div>
+              <div class="mm-center-tag">Foundation of Happiness</div>
+            </div>
+          </div>
+          <div class="mm-col mm-col-right" id="mmColRight"></div>
+        </div>
+
+        <div class="mm-legend" id="mmLegend"></div>
+      </div>
+
+      <div class="mm-card">
+        <div class="mm-section-label">02 · By Content Type</div>
+        <h3>Content Type Totals</h3>
+        <p>Grand totals across every cluster, one tile per channel.</p>
+        <div class="mm-totals-grid" id="mmTotalsGrid"></div>
+      </div>
+
+      <div class="mm-footer">
+        <span>Source: Internal LLM Campaign Tracker — Sumadhura Bangalore</span>
+        <span id="mmFooterTime"></span>
+      </div>
     </div>
   </section>
 
@@ -2985,10 +3116,10 @@ buttons.forEach(btn=>{
     buttons.forEach(b=>b.classList.toggle('active', b.dataset.target===target));
     document.querySelectorAll('section[data-platform]').forEach(sec=>{
       const plat = sec.dataset.platform;
-      // "report" is a dedicated standalone view — none of the regular rolling-dashboard
-      // sections belong there, including "all" sections that otherwise stay visible on
-      // every real platform tab because they carry their own inner filters.
-      if(target === 'report'){ sec.classList.add('hidden'); return; }
+      // "report" and "mindmap" are dedicated standalone views — none of the regular
+      // rolling-dashboard sections belong there, including "all" sections that otherwise
+      // stay visible on every real platform tab because they carry their own inner filters.
+      if(target === 'report' || target === 'mindmap'){ sec.classList.add('hidden'); return; }
       if(plat === 'all'){
         const hasInnerFilters = !!sec.querySelector('[data-platform]');
         sec.classList.toggle('hidden', !hasInnerFilters && target !== 'all');
@@ -2996,26 +3127,166 @@ buttons.forEach(btn=>{
         sec.classList.toggle('hidden', !(target==='all' || plat===target));
       }
     });
-    if(target !== 'report'){
+    if(target !== 'report' && target !== 'mindmap'){
       document.querySelectorAll(':not(section)[data-platform]').forEach(el=>{
         if(el.closest('section') && el.closest('section').dataset.platform==='all'){
           el.classList.toggle('hidden', !(target==='all' || el.dataset.platform===target));
         }
       });
     }
-    // Monthly Report has no data-platform (deliberately outside the generic loop above —
-    // it must never show on "Overview"/"all" the way other platform sections do, since it's
-    // a heavy one-off snapshot, not part of the live rolling dashboard).
+    // Monthly Report and Mind Map have no data-platform (deliberately outside the generic
+    // loop above — they must never show on "Overview"/"all" the way other platform sections
+    // do, since they're one-off standalone views, not part of the live rolling dashboard).
     const reportSection = document.getElementById('monthlyReportSection');
     if(reportSection){
       reportSection.classList.toggle('hidden', target !== 'report');
       if(target === 'report') renderMonthlyReport();
+    }
+    const mindMapSection = document.getElementById('mindMapSection');
+    if(mindMapSection){
+      mindMapSection.classList.toggle('hidden', target !== 'mindmap');
+      if(target === 'mindmap') renderMindMap();
     }
     if(btn.closest('#mobileMenu')){
       document.getElementById('mobileMenu').hidden = true;
       document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'false');
     }
   });
+});
+
+// ---------- MIND MAP — Keyword Cluster x Content Coverage Map ----------
+// Hardcoded snapshot pulled from the "Coverage Gap Summary: Segments x Channels" table in
+// the ORM tracker sheet (Google Sheet 17IyI4woqcUWuZa2MRoUV84JnN78QCqgZxLH4F867FP0), Live +
+// Not Live + Planned summed per channel per keyword cluster. Same convention as the rest of
+// this file: a manual snapshot, refreshed by hand when the source sheet changes.
+const MM_CHANNELS = [
+  { key:'offsite',  label:'Offsite Blogs',            color:'#5b7fff' },
+  { key:'onsite',   label:'Onsite Blogs',             color:'#2bbfa0' },
+  { key:'rewrite',  label:'Onsite Blogs (Rewrite)',   color:'#d99a44' },
+  { key:'listings', label:'Listings',                 color:'#b06bc9' },
+  { key:'reddit',   label:'Reddit Posts',             color:'#e2572c' },
+  { key:'quora',    label:'Quora Posts',              color:'#5a67d8' },
+];
+const MINDMAP_CLUSTERS = [
+  { name:'Flats by BHK',            side:'left',  counts:{ offsite:1, onsite:4, rewrite:1, listings:4, reddit:7, quora:4 } },
+  { name:'Luxury & Premium',        side:'left',  counts:{ offsite:0, onsite:0, rewrite:5, listings:1, reddit:1, quora:1 } },
+  { name:'Plots & Villa Plots',     side:'left',  counts:{ offsite:1, onsite:1, rewrite:1, listings:2, reddit:0, quora:0 } },
+  { name:'Panathur',                side:'left',  counts:{ offsite:1, onsite:1, rewrite:0, listings:4, reddit:4, quora:1 } },
+  { name:'East Bangalore',          side:'left',  counts:{ offsite:3, onsite:5, rewrite:0, listings:3, reddit:5, quora:6 } },
+  { name:'City-wide · Commercial',  side:'left',  counts:{ offsite:0, onsite:0, rewrite:0, listings:1, reddit:0, quora:0 } },
+  { name:'Bangalore City-wide',     side:'right', counts:{ offsite:3, onsite:1, rewrite:6, listings:2, reddit:10, quora:9 } },
+  { name:'New Launches',            side:'right', counts:{ offsite:1, onsite:0, rewrite:0, listings:1, reddit:0, quora:1 } },
+  { name:'Whitefield',              side:'right', counts:{ offsite:1, onsite:2, rewrite:2, listings:4, reddit:11, quora:11 } },
+  { name:'North Bangalore',         side:'right', counts:{ offsite:0, onsite:1, rewrite:0, listings:3, reddit:2, quora:2 } },
+  { name:'Marathahalli',            side:'right', counts:{ offsite:0, onsite:1, rewrite:0, listings:2, reddit:1, quora:0 } },
+  { name:'Whitefield · Commercial', side:'right', counts:{ offsite:1, onsite:1, rewrite:0, listings:1, reddit:0, quora:0 } },
+];
+
+function mmClusterTotal(counts){ return MM_CHANNELS.reduce((sum,ch)=>sum+(counts[ch.key]||0), 0); }
+
+function mmBuildNodeCard(cluster){
+  const total = mmClusterTotal(cluster.counts);
+  const card = document.createElement('div');
+  card.className = 'mm-node-card';
+  const bar = MM_CHANNELS.filter(ch=>cluster.counts[ch.key]>0).map(ch=>
+    `<span style="width:${(cluster.counts[ch.key]/total*100).toFixed(2)}%; background:${ch.color};"></span>`
+  ).join('');
+  card.innerHTML = `
+    <div class="mm-node-title">${cluster.name}</div>
+    <div class="mm-node-tag">${total} Content Piece${total===1?'':'s'}</div>
+    <div class="mm-node-bar">${bar}</div>
+  `;
+  return card;
+}
+
+function mmBuildMetrics(cluster){
+  const wrap = document.createElement('div');
+  wrap.className = 'mm-metrics';
+  MM_CHANNELS.forEach(ch=>{
+    const v = cluster.counts[ch.key]||0;
+    if(v<=0) return;
+    const row = document.createElement('div');
+    row.className = 'mm-metric';
+    row.innerHTML = `<span class="mm-dot" style="background:${ch.color};"></span><span class="mm-mlabel">${ch.label.replace('Onsite Blogs (Rewrite)','Rewrite').replace(' Blogs','').replace(' Posts','')}</span><span class="mm-mval">${v}</span>`;
+    wrap.appendChild(row);
+  });
+  return wrap;
+}
+
+function mmDrawLines(){
+  const svg = document.getElementById('mmLines');
+  const diagram = document.getElementById('mmDiagram');
+  const circle = diagram.querySelector('.mm-center-circle');
+  if(!svg || !diagram || !circle || diagram.offsetWidth===0) return;
+  const dRect = diagram.getBoundingClientRect();
+  const cRect = circle.getBoundingClientRect();
+  const cLeft = { x:cRect.left-dRect.left, y:cRect.top-dRect.top+cRect.height/2 };
+  const cRight = { x:cRect.right-dRect.left, y:cRect.top-dRect.top+cRect.height/2 };
+  let paths = '';
+  diagram.querySelectorAll('.mm-node-card').forEach(card=>{
+    const isLeft = !!card.closest('.mm-col-left');
+    const rRect = card.getBoundingClientRect();
+    const x1 = isLeft ? rRect.right-dRect.left : rRect.left-dRect.left;
+    const y1 = rRect.top-dRect.top + rRect.height/2;
+    const target = isLeft ? cLeft : cRight;
+    const midX = (x1+target.x)/2;
+    paths += `<path d="M ${x1} ${y1} C ${midX} ${y1}, ${midX} ${target.y}, ${target.x} ${target.y}" fill="none" stroke="rgba(201,169,110,0.35)" stroke-width="1.3"/>`;
+  });
+  svg.innerHTML = paths;
+}
+
+function renderMindMap(){
+  const colLeft = document.getElementById('mmColLeft');
+  const colRight = document.getElementById('mmColRight');
+  if(!colLeft || !colRight) return;
+  colLeft.innerHTML = '';
+  colRight.innerHTML = '';
+
+  MINDMAP_CLUSTERS.filter(c=>c.side==='left').forEach(cluster=>{
+    const row = document.createElement('div');
+    row.className = 'mm-row mm-row-left';
+    row.appendChild(mmBuildMetrics(cluster));
+    row.appendChild(mmBuildNodeCard(cluster));
+    colLeft.appendChild(row);
+  });
+  MINDMAP_CLUSTERS.filter(c=>c.side==='right').forEach(cluster=>{
+    const row = document.createElement('div');
+    row.className = 'mm-row mm-row-right';
+    row.appendChild(mmBuildNodeCard(cluster));
+    row.appendChild(mmBuildMetrics(cluster));
+    colRight.appendChild(row);
+  });
+
+  const legend = document.getElementById('mmLegend');
+  if(legend) legend.innerHTML = MM_CHANNELS.map(ch=>
+    `<div class="mm-legend-item"><span class="mm-dot" style="background:${ch.color};"></span>${ch.label}</div>`
+  ).join('');
+
+  const totalsGrid = document.getElementById('mmTotalsGrid');
+  if(totalsGrid){
+    totalsGrid.innerHTML = MM_CHANNELS.map(ch=>{
+      const total = MINDMAP_CLUSTERS.reduce((sum,c)=>sum+(c.counts[ch.key]||0), 0);
+      return `<div class="mm-total-tile"><div class="mm-total-value">${total}</div><div class="mm-total-label"><span class="mm-dot" style="background:${ch.color};"></span>${ch.label}</div></div>`;
+    }).join('');
+  }
+
+  document.getElementById('mmClusterCount').textContent = MINDMAP_CLUSTERS.length;
+  document.getElementById('mmChannelCount').textContent = MM_CHANNELS.length;
+  const now = new Date();
+  const timeStr = now.toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' });
+  document.getElementById('mmUpdatedTime').textContent = timeStr;
+  document.getElementById('mmFooterTime').textContent = `Snapshot rendered ${timeStr}`;
+
+  requestAnimationFrame(mmDrawLines);
+}
+
+document.getElementById('mmRefreshBtn')?.addEventListener('click', function(){
+  this.classList.add('spinning');
+  renderMindMap();
+  setTimeout(()=>this.classList.remove('spinning'), 600);
+});
+window.addEventListener('resize', ()=>{
+  if(!document.getElementById('mindMapSection')?.classList.contains('hidden')) mmDrawLines();
 });
 
 // ---------- MONTHLY REPORT NOTIFICATION ----------
