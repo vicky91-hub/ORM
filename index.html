@@ -531,20 +531,15 @@
   .mm-stat-line{ font-size:13px; color:var(--fog); margin-bottom:22px; }
   .mm-stat-line strong{ color:var(--gold-deep); font-size:15px; }
 
-  .mm-diagram{ position:relative; display:flex; align-items:stretch; justify-content:space-between; gap:0; min-height:640px; max-width:1160px; margin:0 auto; }
+  .mm-diagram{ position:relative; display:flex; align-items:stretch; justify-content:space-between; gap:0; min-height:520px; max-width:920px; margin:0 auto; }
   .mm-lines{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; overflow:visible; }
-  .mm-col{ display:flex; flex-direction:column; justify-content:space-between; flex:0 1 460px; max-width:460px; z-index:1; gap:10px; }
+  .mm-col{ display:flex; flex-direction:column; justify-content:space-between; flex:0 1 360px; max-width:360px; z-index:1; gap:8px; }
   .mm-row{ display:block; }
-  .mm-node-card{ border-radius:14px; border:1px solid var(--cloud); padding:16px 20px 18px; width:100%; }
-  .mm-node-head{ display:flex; align-items:center; gap:14px; margin-bottom:14px; }
-  .mm-node-card .mm-node-title{ flex:1; font-family:var(--font-body); font-weight:bold; font-size:16px; color:var(--constellation); line-height:1.25; }
-  .mm-node-divider{ width:1px; align-self:stretch; background:rgba(44,62,80,0.14); flex-shrink:0; }
-  .mm-node-count{ display:flex; align-items:center; gap:6px; flex-shrink:0; }
-  .mm-node-count-num{ font-family:var(--font-display); font-size:25px; font-weight:600; color:var(--constellation); line-height:1; }
-  .mm-node-count-label{ font-size:10.5px; color:var(--fog); line-height:1.15; }
-  .mm-node-grid{ display:grid; grid-template-columns:1fr 1fr; gap:9px 20px; }
-  .mm-chip{ display:flex; align-items:center; gap:7px; font-size:12.5px; color:var(--dusk); white-space:nowrap; }
-  .mm-chip .mm-dot{ width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+  .mm-node-card{ border-radius:12px; border:1px solid var(--cloud); padding:12px 14px 13px; width:100%; }
+  .mm-node-card .mm-node-title{ font-family:var(--font-body); font-weight:bold; font-size:13.5px; color:var(--constellation); line-height:1.25; margin-bottom:9px; }
+  .mm-node-grid{ display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+  .mm-chip{ display:flex; align-items:center; gap:6px; font-size:11px; color:var(--dusk); white-space:nowrap; background:rgba(255,255,255,0.55); border:1px solid rgba(44,62,80,0.08); border-radius:6px; padding:4px 7px; }
+  .mm-chip .mm-dot{ width:6px; height:6px; border-radius:50%; flex-shrink:0; }
   .mm-chip .mm-clabel{ flex:1; }
   .mm-chip .mm-cval{ font-weight:bold; color:var(--constellation); font-variant-numeric:tabular-nums; }
 
@@ -3222,8 +3217,6 @@ const MINDMAP_CLUSTERS = [
   { name:'Whitefield · Commercial', side:'right', counts:{ offsite:1, onsite:1, rewrite:0, listings:1, reddit:0, quora:0 } },
 ];
 
-function mmClusterTotal(counts){ return MM_CHANNELS.reduce((sum,ch)=>sum+(counts[ch.key]||0), 0); }
-
 // One accent per cluster card (background tint + border + matching connector line color),
 // cycling through a small palette -- independent of the per-channel dot colors above.
 const MM_ACCENTS = [
@@ -3236,7 +3229,6 @@ const MM_ACCENTS = [
 ];
 
 function mmBuildNodeCard(cluster, accent){
-  const total = mmClusterTotal(cluster.counts);
   const card = document.createElement('div');
   card.className = 'mm-node-card';
   card.style.background = accent.bg;
@@ -3247,11 +3239,7 @@ function mmBuildNodeCard(cluster, accent){
     return `<div class="mm-chip"><span class="mm-dot" style="background:${ch.color};"></span><span class="mm-clabel">${shortLabel}</span><span class="mm-cval">${cluster.counts[ch.key]}</span></div>`;
   }).join('');
   card.innerHTML = `
-    <div class="mm-node-head">
-      <div class="mm-node-title">${cluster.name}</div>
-      <div class="mm-node-divider"></div>
-      <div class="mm-node-count"><span class="mm-node-count-num">${total}</span><span class="mm-node-count-label">Content<br>Piece${total===1?'':'s'}</span></div>
-    </div>
+    <div class="mm-node-title">${cluster.name}</div>
     <div class="mm-node-grid">${chips}</div>
   `;
   return card;
