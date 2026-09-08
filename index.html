@@ -3327,9 +3327,22 @@ window.addEventListener('resize', ()=>{
 // This is a client-side speed bump, not real security — the password below is visible to
 // anyone who views source, same as the site's Basic Auth password in middleware.js.
 const MM_GATE_PASSWORD = 'nsd@2026';
+const MM_GATE_SESSION_KEY = 'mm_gate_unlocked';
+function mmUnlockContent(){
+  // .mm-gate-wrap sets display:flex itself, which as author CSS beats the UA [hidden]
+  // rule's display:none even with the attribute set — so force it via style instead.
+  document.getElementById('mmGateWrap').style.display = 'none';
+  document.getElementById('mmContent').hidden = false;
+  renderMindMap();
+}
 function enterMindMapStandalone(){
   document.body.classList.add('mindmap-standalone');
   document.getElementById('mindMapSection')?.classList.remove('hidden');
+  // Stay unlocked for the rest of this browser tab's session (sessionStorage) so a refresh
+  // or re-clicking the link doesn't re-prompt -- a new tab still asks, closing the tab clears it.
+  let alreadyUnlocked = false;
+  try{ alreadyUnlocked = sessionStorage.getItem(MM_GATE_SESSION_KEY) === '1'; }catch(e){}
+  if(alreadyUnlocked){ mmUnlockContent(); return; }
   document.getElementById('mmGatePassword')?.focus();
 }
 document.getElementById('mmGateForm')?.addEventListener('submit', (e)=>{
@@ -3337,11 +3350,8 @@ document.getElementById('mmGateForm')?.addEventListener('submit', (e)=>{
   const input = document.getElementById('mmGatePassword');
   const error = document.getElementById('mmGateError');
   if(input.value === MM_GATE_PASSWORD){
-    // .mm-gate-wrap sets display:flex itself, which as author CSS beats the UA [hidden]
-    // rule's display:none even with the attribute set — so force it via style instead.
-    document.getElementById('mmGateWrap').style.display = 'none';
-    document.getElementById('mmContent').hidden = false;
-    renderMindMap();
+    try{ sessionStorage.setItem(MM_GATE_SESSION_KEY, '1'); }catch(e){}
+    mmUnlockContent();
   } else {
     error.hidden = false;
     input.value = '';
