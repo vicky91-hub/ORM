@@ -567,6 +567,18 @@
 
   .mm-footer{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; font-size:11px; color:var(--fog); margin-top:4px; }
 
+  .mm-gate-wrap{ min-height:60vh; display:flex; align-items:center; justify-content:center; padding:20px; }
+  .mm-gate-card{ background:#fff; border:1px solid var(--cloud); border-radius:10px; padding:36px 34px; max-width:420px; width:100%; text-align:center; box-shadow:0 10px 30px rgba(44,62,80,0.08); }
+  .mm-gate-card .mm-eyebrow{ margin-bottom:10px; }
+  .mm-gate-card h2{ margin:0 0 10px; font-size:24px; font-weight:600; color:var(--constellation); }
+  .mm-gate-card .mm-sub{ margin:0 auto 22px; max-width:none; }
+  #mmGateForm{ display:flex; gap:10px; }
+  .mm-gate-input{ flex:1; min-width:0; font-family:var(--font-body); font-size:14px; color:var(--atlas); background:var(--mist); border:1px solid var(--cloud); border-radius:20px; padding:9px 16px; }
+  .mm-gate-input:focus{ outline:none; border-color:var(--gold); }
+  #mmGateForm .mm-refresh-btn{ background:var(--gold); color:#fff; border-color:var(--gold); }
+  #mmGateForm .mm-refresh-btn:hover{ background:var(--gold-deep); }
+  .mm-gate-error{ margin-top:14px; font-size:12.5px; color:#c0392b; }
+
   @media (max-width: 900px){
     .mm-diagram{ min-height:0; display:block; }
     .mm-lines{ display:none; }
@@ -958,7 +970,23 @@
        dashboard (body.mindmap-standalone), so that tab shows a bare full-page mind map with
        no ORM header/nav. Content built by JS from the MINDMAP_CLUSTERS data below. -->
   <section id="mindMapSection" class="hidden">
-    <div class="mm-wrap">
+    <!-- Client-side password gate — a lightweight speed bump (password lives in this page's
+         JS, same as the Basic Auth password already sitting in plaintext in middleware.js
+         for the whole site), not real security. Shown first in standalone mode; correct
+         password swaps it out for #mmContent. -->
+    <div class="mm-gate-wrap" id="mmGateWrap">
+      <div class="mm-gate-card">
+        <div class="mm-eyebrow">Sumadhura Bangalore · ORM &amp; LLM Content Strategy</div>
+        <h2>Keyword Cluster × Content Coverage Map</h2>
+        <p class="mm-sub">This view is password-protected. Enter the password to continue.</p>
+        <form id="mmGateForm" autocomplete="off">
+          <input type="password" id="mmGatePassword" class="mm-gate-input" placeholder="Password" autocomplete="off" />
+          <button type="submit" class="mm-refresh-btn">Unlock</button>
+        </form>
+        <div class="mm-gate-error" id="mmGateError" hidden>Incorrect password. Try again.</div>
+      </div>
+    </div>
+    <div class="mm-wrap" id="mmContent" hidden>
       <div class="mm-header">
         <div>
           <div class="mm-eyebrow">Sumadhura Bangalore · ORM &amp; LLM Content Strategy</div>
@@ -3307,11 +3335,29 @@ window.addEventListener('resize', ()=>{
 // Standalone mode: the nav "Mind Map" link points at "#mindmap" on this same URL and opens
 // in a new tab (target="_blank") — so that new tab loads this exact document with the hash
 // set, and we swap it to a bare, full-page view of just the mind map (no dashboard chrome).
+// A password gate (#mmGateWrap) shows first; only a correct password reveals #mmContent.
+// This is a client-side speed bump, not real security — the password below is visible to
+// anyone who views source, same as the site's Basic Auth password in middleware.js.
+const MM_GATE_PASSWORD = 'nsd@910';
 function enterMindMapStandalone(){
   document.body.classList.add('mindmap-standalone');
   document.getElementById('mindMapSection')?.classList.remove('hidden');
-  renderMindMap();
+  document.getElementById('mmGatePassword')?.focus();
 }
+document.getElementById('mmGateForm')?.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const input = document.getElementById('mmGatePassword');
+  const error = document.getElementById('mmGateError');
+  if(input.value === MM_GATE_PASSWORD){
+    document.getElementById('mmGateWrap').hidden = true;
+    document.getElementById('mmContent').hidden = false;
+    renderMindMap();
+  } else {
+    error.hidden = false;
+    input.value = '';
+    input.focus();
+  }
+});
 if(location.hash === '#mindmap') enterMindMapStandalone();
 window.addEventListener('hashchange', ()=>{
   if(location.hash === '#mindmap') enterMindMapStandalone();
