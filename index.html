@@ -62,6 +62,17 @@
   nav.tabs button.active{ color:var(--constellation); background:var(--gold); }
   nav.tabs button:hover:not(.active){ color:#fff; background:rgba(255,255,255,0.06); }
 
+  /* Mind Map is a real standalone view (index.html#mindmap opened in a new tab, its own
+     full-page light theme with no dashboard chrome), not an in-page filter -- so it's an
+     <a target="_blank"> rather than a .tab-btn, styled to match. */
+  nav.tabs a.tab-link{
+    background:transparent; border:none; color:#9AA3BD; font-family:var(--font-body); font-size:13px; font-weight:bold;
+    padding:8px 14px; cursor:pointer; border-radius:8px; white-space:nowrap; flex-shrink:0;
+    display:flex; align-items:center; gap:7px; text-decoration:none;
+  }
+  nav.tabs a.tab-link svg{ width:15px; height:15px; stroke:currentColor; flex-shrink:0; }
+  nav.tabs a.tab-link:hover{ color:#fff; background:rgba(255,255,255,0.06); }
+
   /* Monthly Report nav tab — hovering reveals every archived month (built at runtime from
      REPORT_MONTHS by buildReportNavDropdown()). Panel is position:fixed and placed via JS on
      hover so it always escapes nav.tabs' own overflow-x:auto instead of being clipped by it. */
@@ -133,7 +144,7 @@
     .mobile-menu{ display:block; background:var(--constellation); }
     .mobile-menu[hidden]{ display:none; }
     .mobile-menu .mobile-tabs{ flex-direction:column; overflow-x:visible; gap:4px; }
-    .mobile-menu .mobile-tabs button{ width:100%; padding:11px 12px; font-size:14px; }
+    .mobile-menu .mobile-tabs button, .mobile-menu .mobile-tabs a.tab-link{ width:100%; padding:11px 12px; font-size:14px; }
     #mobileRangeSection .range-control{ position:static; }
     #mobileRangeSection .range-trigger{ display:none; }
     #mobileRangeSection .range-dropdown{ position:static; border:none; background:transparent; padding:0; box-shadow:none; min-width:0; }
@@ -485,69 +496,76 @@
   .methodology code{ background:var(--cloud); padding:1px 5px; border-radius:3px; font-size:11px; }
 
   /* ---------- MIND MAP — Keyword Cluster x Content Coverage Map ---------- */
-  /* Self-contained dark theme, scoped under #mindMapSection so it doesn't leak into the
-     rest of the (light-themed) dashboard. Data is a hardcoded snapshot pulled from the
+  /* Light theme, matching the rest of the dashboard (var(--arctic)/--cloud/--gold palette,
+     same .card look as .kpi-card etc). Data is a hardcoded snapshot pulled from the
      "Coverage Gap Summary" table in the ORM tracker sheet (Live+Not Live+Planned summed
      per channel, per keyword cluster) -- same convention as the rest of this file: refreshed
      by hand when the source sheet changes, not live-polled. */
-  #mindMapSection{ background:#141110; border-radius:14px; padding:32px 5vw; margin:0 -5vw; }
   #mindMapSection *{ box-sizing:border-box; }
+  /* Standalone mode: index.html#mindmap opened in its own tab shows ONLY the mind map,
+     none of the dashboard's header/nav/other sections -- entered via body.mindmap-standalone,
+     toggled by the hash-check JS near renderMindMap(). */
+  body.mindmap-standalone > .app-header,
+  body.mindmap-standalone > footer,
+  body.mindmap-standalone #dataStatusBar{ display:none !important; }
+  body.mindmap-standalone main > section:not(#mindMapSection){ display:none !important; }
+  body.mindmap-standalone main{ padding:36px 5vw 60px; }
   .mm-wrap{ max-width:1400px; margin:0 auto; }
   .mm-header{ display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap; margin-bottom:26px; }
-  .mm-eyebrow{ font-size:11px; font-weight:bold; letter-spacing:1.4px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
-  .mm-header h2{ margin:0 0 8px; font-size:32px; font-weight:600; color:#fdfcfa; }
-  .mm-sub{ margin:0; font-size:13.5px; color:#9a978f; max-width:560px; line-height:1.55; }
+  .mm-eyebrow{ font-size:11px; font-weight:bold; letter-spacing:1.4px; text-transform:uppercase; color:var(--gold-deep); margin-bottom:8px; }
+  .mm-header h2{ margin:0 0 8px; font-size:32px; font-weight:600; color:var(--constellation); }
+  .mm-sub{ margin:0; font-size:13.5px; color:var(--fog); max-width:560px; line-height:1.55; }
   .mm-header-right{ display:flex; flex-direction:column; align-items:flex-end; gap:10px; flex-shrink:0; }
-  .mm-live-badge{ display:inline-flex; align-items:center; gap:7px; font-size:12px; color:#c8c5bd; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:6px 14px; white-space:nowrap; }
-  .mm-live-badge .dot{ width:7px; height:7px; border-radius:50%; background:#3fbf6f; box-shadow:0 0 0 3px rgba(63,191,111,0.2); }
-  .mm-refresh-btn{ display:inline-flex; align-items:center; gap:6px; font-family:var(--font-body); font-size:12px; font-weight:bold; color:var(--gold); background:transparent; border:1px solid rgba(201,169,110,0.4); border-radius:20px; padding:7px 14px; cursor:pointer; white-space:nowrap; }
-  .mm-refresh-btn:hover{ background:rgba(201,169,110,0.1); }
+  .mm-live-badge{ display:inline-flex; align-items:center; gap:7px; font-size:12px; color:var(--dusk); background:var(--mist); border:1px solid var(--cloud); border-radius:20px; padding:6px 14px; white-space:nowrap; }
+  .mm-live-badge .dot{ width:7px; height:7px; border-radius:50%; background:#3fbf6f; box-shadow:0 0 0 3px rgba(63,191,111,0.18); }
+  .mm-refresh-btn{ display:inline-flex; align-items:center; gap:6px; font-family:var(--font-body); font-size:12px; font-weight:bold; color:var(--gold-deep); background:#fff; border:1px solid rgba(201,169,110,0.5); border-radius:20px; padding:7px 14px; cursor:pointer; white-space:nowrap; }
+  .mm-refresh-btn:hover{ background:rgba(201,169,110,0.08); }
   .mm-refresh-btn svg{ width:13px; height:13px; }
   .mm-refresh-btn.spinning svg{ animation:mmSpin .6s linear; }
   @keyframes mmSpin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
 
-  .mm-card{ background:#1a1714; border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:26px 28px 28px; margin-bottom:20px; }
-  .mm-section-label{ font-size:11px; font-weight:bold; letter-spacing:1.2px; text-transform:uppercase; color:#8a8780; margin-bottom:10px; }
-  .mm-card h3{ margin:0 0 8px; font-size:21px; font-weight:600; color:#fdfcfa; }
-  .mm-card > p{ margin:0 0 14px; font-size:13px; color:#9a978f; line-height:1.55; max-width:640px; }
-  .mm-stat-line{ font-size:13px; color:#9a978f; margin-bottom:22px; }
-  .mm-stat-line strong{ color:var(--gold); font-size:15px; }
+  .mm-card{ background:#fff; border:1px solid var(--cloud); border-radius:10px; padding:26px 28px 28px; margin-bottom:20px; }
+  .mm-section-label{ font-size:11px; font-weight:bold; letter-spacing:1.2px; text-transform:uppercase; color:var(--fog); margin-bottom:10px; }
+  .mm-card h3{ margin:0 0 8px; font-size:21px; font-weight:600; color:var(--constellation); }
+  .mm-card > p{ margin:0 0 14px; font-size:13px; color:var(--fog); line-height:1.55; max-width:640px; }
+  .mm-stat-line{ font-size:13px; color:var(--fog); margin-bottom:22px; }
+  .mm-stat-line strong{ color:var(--gold-deep); font-size:15px; }
 
-  .mm-diagram{ position:relative; display:flex; align-items:stretch; justify-content:space-between; gap:0; min-height:520px; }
+  .mm-diagram{ position:relative; display:flex; align-items:stretch; justify-content:space-between; gap:0; min-height:520px; max-width:920px; margin:0 auto; }
   .mm-lines{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; overflow:visible; }
-  .mm-col{ display:flex; flex-direction:column; justify-content:space-between; width:44%; z-index:1; gap:6px; }
+  .mm-col{ display:flex; flex-direction:column; justify-content:space-between; flex:0 1 380px; max-width:380px; z-index:1; gap:6px; }
   .mm-row{ display:flex; align-items:center; gap:14px; }
   .mm-row-left{ justify-content:flex-end; }
   .mm-row-right{ justify-content:flex-start; }
   .mm-metrics{ display:flex; flex-direction:column; gap:3px; font-size:11.5px; min-width:118px; flex-shrink:0; }
   .mm-row-left .mm-metrics{ align-items:stretch; }
-  .mm-metric{ display:flex; align-items:center; gap:6px; color:#b8b5ad; white-space:nowrap; }
+  .mm-metric{ display:flex; align-items:center; gap:6px; color:var(--dusk); white-space:nowrap; }
   .mm-metric .mm-dot{ width:7px; height:7px; border-radius:50%; flex-shrink:0; }
   .mm-metric .mm-mlabel{ flex:1; }
-  .mm-metric .mm-mval{ font-weight:bold; color:#e9e7e1; font-variant-numeric:tabular-nums; min-width:14px; text-align:right; }
-  .mm-node-card{ background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.09); border-radius:10px; padding:12px 15px 13px; width:210px; flex-shrink:0; }
-  .mm-node-card .mm-node-title{ font-family:var(--font-body); font-weight:bold; font-size:14px; color:#fdfcfa; margin-bottom:7px; line-height:1.25; }
-  .mm-node-card .mm-node-tag{ display:inline-block; font-size:10.5px; font-weight:bold; color:var(--gold); background:rgba(201,169,110,0.12); border-radius:5px; padding:2px 8px; margin-bottom:10px; }
-  .mm-node-bar{ display:flex; height:5px; border-radius:3px; overflow:hidden; background:rgba(255,255,255,0.06); }
+  .mm-metric .mm-mval{ font-weight:bold; color:var(--constellation); font-variant-numeric:tabular-nums; min-width:14px; text-align:right; }
+  .mm-node-card{ background:var(--mist); border:1px solid var(--cloud); border-radius:10px; padding:12px 15px 13px; width:210px; flex-shrink:0; }
+  .mm-node-card .mm-node-title{ font-family:var(--font-body); font-weight:bold; font-size:14px; color:var(--constellation); margin-bottom:7px; line-height:1.25; }
+  .mm-node-card .mm-node-tag{ display:inline-block; font-size:10.5px; font-weight:bold; color:var(--gold-deep); background:rgba(201,169,110,0.14); border-radius:5px; padding:2px 8px; margin-bottom:10px; }
+  .mm-node-bar{ display:flex; height:5px; border-radius:3px; overflow:hidden; background:var(--cloud); }
   .mm-node-bar span{ height:100%; }
 
   .mm-center-wrap{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:2; }
-  .mm-center-circle{ width:168px; height:168px; border-radius:50%; background:#181512; border:1.5px solid var(--gold); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:10px; }
-  .mm-center-s{ font-family:var(--font-display); font-size:34px; color:var(--gold); line-height:1; margin-bottom:6px; }
-  .mm-center-name{ font-family:var(--font-display); font-size:13px; font-weight:600; color:#f2f0ea; line-height:1.25; letter-spacing:0.3px; }
-  .mm-center-tag{ font-size:8px; letter-spacing:1px; color:#8a8780; text-transform:uppercase; margin-top:5px; }
+  .mm-center-circle{ width:168px; height:168px; border-radius:50%; background:#fff; border:2px solid var(--gold); box-shadow:0 6px 18px rgba(44,62,80,0.1); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:10px; }
+  .mm-center-s{ font-family:var(--font-display); font-size:34px; color:var(--gold-deep); line-height:1; margin-bottom:6px; }
+  .mm-center-name{ font-family:var(--font-display); font-size:13px; font-weight:600; color:var(--constellation); line-height:1.25; letter-spacing:0.3px; }
+  .mm-center-tag{ font-size:8px; letter-spacing:1px; color:var(--fog); text-transform:uppercase; margin-top:5px; }
 
-  .mm-legend{ display:flex; flex-wrap:wrap; gap:18px; margin-top:22px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.06); }
-  .mm-legend-item{ display:flex; align-items:center; gap:7px; font-size:11.5px; color:#b8b5ad; }
+  .mm-legend{ display:flex; flex-wrap:wrap; gap:18px; margin-top:22px; padding-top:18px; border-top:1px solid var(--cloud); }
+  .mm-legend-item{ display:flex; align-items:center; gap:7px; font-size:11.5px; color:var(--dusk); }
   .mm-legend-item .mm-dot{ width:9px; height:9px; border-radius:2px; flex-shrink:0; }
 
   .mm-totals-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:14px; margin-top:4px; }
-  .mm-total-tile{ background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:16px 16px 14px; }
-  .mm-total-tile .mm-total-value{ font-family:var(--font-display); font-size:30px; font-weight:600; color:#fdfcfa; line-height:1; margin-bottom:10px; }
-  .mm-total-tile .mm-total-label{ display:flex; align-items:center; gap:6px; font-size:11.5px; color:#b8b5ad; }
+  .mm-total-tile{ background:var(--mist); border:1px solid var(--cloud); border-radius:10px; padding:16px 16px 14px; }
+  .mm-total-tile .mm-total-value{ font-family:var(--font-display); font-size:30px; font-weight:600; color:var(--constellation); line-height:1; margin-bottom:10px; }
+  .mm-total-tile .mm-total-label{ display:flex; align-items:center; gap:6px; font-size:11.5px; color:var(--dusk); }
   .mm-total-tile .mm-dot{ width:8px; height:8px; border-radius:2px; flex-shrink:0; }
 
-  .mm-footer{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; font-size:11px; color:#77746c; margin-top:4px; }
+  .mm-footer{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; font-size:11px; color:var(--fog); margin-top:4px; }
 
   @media (max-width: 900px){
     .mm-diagram{ min-height:0; display:block; }
@@ -627,7 +645,7 @@
       <button class="tab-btn" data-target="reddit"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1.2" fill="currentColor" stroke="none"/><path d="M8.5 15.5c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2"/></svg>Reddit</button>
       <button class="tab-btn" data-target="quora"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.8" y2="15.8"/></svg>Quora</button>
       <button class="tab-btn" data-target="social"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Social</button>
-      <button class="tab-btn" data-target="mindmap"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="20" cy="18" r="2"/><line x1="9.8" y1="10.6" x2="5.6" y2="7"/><line x1="9.8" y1="13.4" x2="5.6" y2="17"/><line x1="14.2" y1="10.6" x2="18.4" y2="7"/><line x1="14.2" y1="13.4" x2="18.4" y2="17"/></svg>Mind Map</button>
+      <a class="tab-link" href="#mindmap" target="_blank" rel="noopener" title="Opens the Mind Map in a new tab"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="20" cy="18" r="2"/><line x1="9.8" y1="10.6" x2="5.6" y2="7"/><line x1="9.8" y1="13.4" x2="5.6" y2="17"/><line x1="14.2" y1="10.6" x2="18.4" y2="7"/><line x1="14.2" y1="13.4" x2="18.4" y2="17"/></svg>Mind Map</a>
       <div class="tab-btn-dropdown" id="reportNavDropdown">
         <button class="tab-btn" data-target="report"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>Monthly Report</button>
         <!-- Touch-only affordance (CSS-gated to coarse/no-hover pointers) — hover doesn't
@@ -674,7 +692,7 @@
         <button class="tab-btn" data-target="reddit"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1.2" fill="currentColor" stroke="none"/><path d="M8.5 15.5c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2"/></svg>Reddit</button>
         <button class="tab-btn" data-target="quora"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.8" y2="15.8"/></svg>Quora</button>
         <button class="tab-btn" data-target="social"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Social</button>
-        <button class="tab-btn" data-target="mindmap"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="20" cy="18" r="2"/><line x1="9.8" y1="10.6" x2="5.6" y2="7"/><line x1="9.8" y1="13.4" x2="5.6" y2="17"/><line x1="14.2" y1="10.6" x2="18.4" y2="7"/><line x1="14.2" y1="13.4" x2="18.4" y2="17"/></svg>Mind Map</button>
+        <a class="tab-link" href="#mindmap" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="20" cy="18" r="2"/><line x1="9.8" y1="10.6" x2="5.6" y2="7"/><line x1="9.8" y1="13.4" x2="5.6" y2="17"/><line x1="14.2" y1="10.6" x2="18.4" y2="7"/><line x1="14.2" y1="13.4" x2="18.4" y2="17"/></svg>Mind Map</a>
         <button class="tab-btn" data-target="report"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>Monthly Report</button>
       </nav>
     </div>
@@ -934,9 +952,11 @@
   </section>
 
   <!-- MIND MAP — Keyword Cluster x Content Coverage Map (static snapshot from the ORM
-       tracker's "Coverage Gap Summary" table, same convention as Monthly Report below:
-       hidden by default, shown only via the "Mind Map" nav tab, content built by JS
-       from the MINDMAP_CLUSTERS data below). -->
+       tracker's "Coverage Gap Summary" table). Hidden by default; the nav "Mind Map" link
+       opens this same page in a new tab at "#mindmap", and the hash-check JS near
+       enterMindMapStandalone() then unhides just this section and hides the rest of the
+       dashboard (body.mindmap-standalone), so that tab shows a bare full-page mind map with
+       no ORM header/nav. Content built by JS from the MINDMAP_CLUSTERS data below. -->
   <section id="mindMapSection" class="hidden">
     <div class="mm-wrap">
       <div class="mm-header">
@@ -3116,10 +3136,10 @@ buttons.forEach(btn=>{
     buttons.forEach(b=>b.classList.toggle('active', b.dataset.target===target));
     document.querySelectorAll('section[data-platform]').forEach(sec=>{
       const plat = sec.dataset.platform;
-      // "report" and "mindmap" are dedicated standalone views — none of the regular
-      // rolling-dashboard sections belong there, including "all" sections that otherwise
-      // stay visible on every real platform tab because they carry their own inner filters.
-      if(target === 'report' || target === 'mindmap'){ sec.classList.add('hidden'); return; }
+      // "report" is a dedicated standalone view — none of the regular rolling-dashboard
+      // sections belong there, including "all" sections that otherwise stay visible on
+      // every real platform tab because they carry their own inner filters.
+      if(target === 'report'){ sec.classList.add('hidden'); return; }
       if(plat === 'all'){
         const hasInnerFilters = !!sec.querySelector('[data-platform]');
         sec.classList.toggle('hidden', !hasInnerFilters && target !== 'all');
@@ -3127,25 +3147,20 @@ buttons.forEach(btn=>{
         sec.classList.toggle('hidden', !(target==='all' || plat===target));
       }
     });
-    if(target !== 'report' && target !== 'mindmap'){
+    if(target !== 'report'){
       document.querySelectorAll(':not(section)[data-platform]').forEach(el=>{
         if(el.closest('section') && el.closest('section').dataset.platform==='all'){
           el.classList.toggle('hidden', !(target==='all' || el.dataset.platform===target));
         }
       });
     }
-    // Monthly Report and Mind Map have no data-platform (deliberately outside the generic
-    // loop above — they must never show on "Overview"/"all" the way other platform sections
-    // do, since they're one-off standalone views, not part of the live rolling dashboard).
+    // Monthly Report has no data-platform (deliberately outside the generic loop above —
+    // it must never show on "Overview"/"all" the way other platform sections do, since it's
+    // a heavy one-off snapshot, not part of the live rolling dashboard).
     const reportSection = document.getElementById('monthlyReportSection');
     if(reportSection){
       reportSection.classList.toggle('hidden', target !== 'report');
       if(target === 'report') renderMonthlyReport();
-    }
-    const mindMapSection = document.getElementById('mindMapSection');
-    if(mindMapSection){
-      mindMapSection.classList.toggle('hidden', target !== 'mindmap');
-      if(target === 'mindmap') renderMindMap();
     }
     if(btn.closest('#mobileMenu')){
       document.getElementById('mobileMenu').hidden = true;
@@ -3230,7 +3245,7 @@ function mmDrawLines(){
     const y1 = rRect.top-dRect.top + rRect.height/2;
     const target = isLeft ? cLeft : cRight;
     const midX = (x1+target.x)/2;
-    paths += `<path d="M ${x1} ${y1} C ${midX} ${y1}, ${midX} ${target.y}, ${target.x} ${target.y}" fill="none" stroke="rgba(201,169,110,0.35)" stroke-width="1.3"/>`;
+    paths += `<path d="M ${x1} ${y1} C ${midX} ${y1}, ${midX} ${target.y}, ${target.x} ${target.y}" fill="none" stroke="rgba(184,146,58,0.55)" stroke-width="1.3"/>`;
   });
   svg.innerHTML = paths;
 }
@@ -3287,6 +3302,19 @@ document.getElementById('mmRefreshBtn')?.addEventListener('click', function(){
 });
 window.addEventListener('resize', ()=>{
   if(!document.getElementById('mindMapSection')?.classList.contains('hidden')) mmDrawLines();
+});
+
+// Standalone mode: the nav "Mind Map" link points at "#mindmap" on this same URL and opens
+// in a new tab (target="_blank") — so that new tab loads this exact document with the hash
+// set, and we swap it to a bare, full-page view of just the mind map (no dashboard chrome).
+function enterMindMapStandalone(){
+  document.body.classList.add('mindmap-standalone');
+  document.getElementById('mindMapSection')?.classList.remove('hidden');
+  renderMindMap();
+}
+if(location.hash === '#mindmap') enterMindMapStandalone();
+window.addEventListener('hashchange', ()=>{
+  if(location.hash === '#mindmap') enterMindMapStandalone();
 });
 
 // ---------- MONTHLY REPORT NOTIFICATION ----------
