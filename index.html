@@ -531,23 +531,22 @@
   .mm-stat-line{ font-size:13px; color:var(--fog); margin-bottom:22px; }
   .mm-stat-line strong{ color:var(--gold-deep); font-size:15px; }
 
-  .mm-diagram{ position:relative; display:flex; align-items:stretch; justify-content:space-between; gap:0; min-height:520px; max-width:920px; margin:0 auto; }
+  .mm-diagram{ position:relative; display:flex; align-items:stretch; justify-content:space-between; gap:0; min-height:640px; max-width:1160px; margin:0 auto; }
   .mm-lines{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; overflow:visible; }
-  .mm-col{ display:flex; flex-direction:column; justify-content:space-between; flex:0 1 380px; max-width:380px; z-index:1; gap:6px; }
-  .mm-row{ display:flex; align-items:center; gap:14px; }
-  .mm-row-left{ justify-content:flex-end; }
-  .mm-row-right{ justify-content:flex-start; }
-  .mm-metrics{ display:flex; flex-direction:column; gap:3px; font-size:11.5px; min-width:118px; flex-shrink:0; }
-  .mm-row-left .mm-metrics{ align-items:stretch; }
-  .mm-metric{ display:flex; align-items:center; gap:6px; color:var(--dusk); white-space:nowrap; }
-  .mm-metric .mm-dot{ width:7px; height:7px; border-radius:50%; flex-shrink:0; }
-  .mm-metric .mm-mlabel{ flex:1; }
-  .mm-metric .mm-mval{ font-weight:bold; color:var(--constellation); font-variant-numeric:tabular-nums; min-width:14px; text-align:right; }
-  .mm-node-card{ background:var(--mist); border:1px solid var(--cloud); border-radius:10px; padding:12px 15px 13px; width:210px; flex-shrink:0; }
-  .mm-node-card .mm-node-title{ font-family:var(--font-body); font-weight:bold; font-size:14px; color:var(--constellation); margin-bottom:7px; line-height:1.25; }
-  .mm-node-card .mm-node-tag{ display:inline-block; font-size:10.5px; font-weight:bold; color:var(--gold-deep); background:rgba(201,169,110,0.14); border-radius:5px; padding:2px 8px; margin-bottom:10px; }
-  .mm-node-bar{ display:flex; height:5px; border-radius:3px; overflow:hidden; background:var(--cloud); }
-  .mm-node-bar span{ height:100%; }
+  .mm-col{ display:flex; flex-direction:column; justify-content:space-between; flex:0 1 460px; max-width:460px; z-index:1; gap:10px; }
+  .mm-row{ display:block; }
+  .mm-node-card{ border-radius:14px; border:1px solid var(--cloud); padding:16px 20px 18px; width:100%; }
+  .mm-node-head{ display:flex; align-items:center; gap:14px; margin-bottom:14px; }
+  .mm-node-card .mm-node-title{ flex:1; font-family:var(--font-body); font-weight:bold; font-size:16px; color:var(--constellation); line-height:1.25; }
+  .mm-node-divider{ width:1px; align-self:stretch; background:rgba(44,62,80,0.14); flex-shrink:0; }
+  .mm-node-count{ display:flex; align-items:center; gap:6px; flex-shrink:0; }
+  .mm-node-count-num{ font-family:var(--font-display); font-size:25px; font-weight:600; color:var(--constellation); line-height:1; }
+  .mm-node-count-label{ font-size:10.5px; color:var(--fog); line-height:1.15; }
+  .mm-node-grid{ display:grid; grid-template-columns:1fr 1fr; gap:9px 20px; }
+  .mm-chip{ display:flex; align-items:center; gap:7px; font-size:12.5px; color:var(--dusk); white-space:nowrap; }
+  .mm-chip .mm-dot{ width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+  .mm-chip .mm-clabel{ flex:1; }
+  .mm-chip .mm-cval{ font-weight:bold; color:var(--constellation); font-variant-numeric:tabular-nums; }
 
   .mm-center-wrap{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:2; }
   .mm-center-circle{ width:168px; height:168px; border-radius:50%; background:#fff; border:2px solid var(--gold); box-shadow:0 6px 18px rgba(44,62,80,0.1); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:10px; }
@@ -583,10 +582,8 @@
     .mm-diagram{ min-height:0; display:block; }
     .mm-lines{ display:none; }
     .mm-center-wrap{ position:static; transform:none; margin:18px auto; }
-    .mm-col{ width:100%; }
-    .mm-row-left, .mm-row-right{ justify-content:flex-start; }
-    .mm-node-card{ width:auto; flex:1; }
-    .mm-metrics{ min-width:104px; }
+    .mm-col{ width:100%; max-width:none; }
+    .mm-node-grid{ grid-template-columns:1fr 1fr; }
   }
 </style>
 </head>
@@ -3227,33 +3224,37 @@ const MINDMAP_CLUSTERS = [
 
 function mmClusterTotal(counts){ return MM_CHANNELS.reduce((sum,ch)=>sum+(counts[ch.key]||0), 0); }
 
-function mmBuildNodeCard(cluster){
+// One accent per cluster card (background tint + border + matching connector line color),
+// cycling through a small palette -- independent of the per-channel dot colors above.
+const MM_ACCENTS = [
+  { bg:'rgba(224,71,94,0.08)',   border:'rgba(224,71,94,0.28)',  line:'#d9455f' },
+  { bg:'rgba(124,111,214,0.09)', border:'rgba(124,111,214,0.30)', line:'#7c6fd6' },
+  { bg:'rgba(201,141,31,0.09)',  border:'rgba(201,141,31,0.30)', line:'#c98d1f' },
+  { bg:'rgba(47,168,138,0.09)',  border:'rgba(47,168,138,0.30)', line:'#2fa88a' },
+  { bg:'rgba(217,79,134,0.09)',  border:'rgba(217,79,134,0.30)', line:'#d94f86' },
+  { bg:'rgba(74,127,214,0.09)',  border:'rgba(74,127,214,0.30)', line:'#4a7fd6' },
+];
+
+function mmBuildNodeCard(cluster, accent){
   const total = mmClusterTotal(cluster.counts);
   const card = document.createElement('div');
   card.className = 'mm-node-card';
-  const bar = MM_CHANNELS.filter(ch=>cluster.counts[ch.key]>0).map(ch=>
-    `<span style="width:${(cluster.counts[ch.key]/total*100).toFixed(2)}%; background:${ch.color};"></span>`
-  ).join('');
+  card.style.background = accent.bg;
+  card.style.borderColor = accent.border;
+  card.dataset.lineColor = accent.line;
+  const chips = MM_CHANNELS.filter(ch=>cluster.counts[ch.key]>0).map(ch=>{
+    const shortLabel = ch.label.replace('Onsite Blogs (Rewrite)','Rewrite').replace(' Blogs','').replace(' Posts','');
+    return `<div class="mm-chip"><span class="mm-dot" style="background:${ch.color};"></span><span class="mm-clabel">${shortLabel}</span><span class="mm-cval">${cluster.counts[ch.key]}</span></div>`;
+  }).join('');
   card.innerHTML = `
-    <div class="mm-node-title">${cluster.name}</div>
-    <div class="mm-node-tag">${total} Content Piece${total===1?'':'s'}</div>
-    <div class="mm-node-bar">${bar}</div>
+    <div class="mm-node-head">
+      <div class="mm-node-title">${cluster.name}</div>
+      <div class="mm-node-divider"></div>
+      <div class="mm-node-count"><span class="mm-node-count-num">${total}</span><span class="mm-node-count-label">Content<br>Piece${total===1?'':'s'}</span></div>
+    </div>
+    <div class="mm-node-grid">${chips}</div>
   `;
   return card;
-}
-
-function mmBuildMetrics(cluster){
-  const wrap = document.createElement('div');
-  wrap.className = 'mm-metrics';
-  MM_CHANNELS.forEach(ch=>{
-    const v = cluster.counts[ch.key]||0;
-    if(v<=0) return;
-    const row = document.createElement('div');
-    row.className = 'mm-metric';
-    row.innerHTML = `<span class="mm-dot" style="background:${ch.color};"></span><span class="mm-mlabel">${ch.label.replace('Onsite Blogs (Rewrite)','Rewrite').replace(' Blogs','').replace(' Posts','')}</span><span class="mm-mval">${v}</span>`;
-    wrap.appendChild(row);
-  });
-  return wrap;
 }
 
 function mmDrawLines(){
@@ -3273,7 +3274,8 @@ function mmDrawLines(){
     const y1 = rRect.top-dRect.top + rRect.height/2;
     const target = isLeft ? cLeft : cRight;
     const midX = (x1+target.x)/2;
-    paths += `<path d="M ${x1} ${y1} C ${midX} ${y1}, ${midX} ${target.y}, ${target.x} ${target.y}" fill="none" stroke="rgba(184,146,58,0.55)" stroke-width="1.3"/>`;
+    const color = card.dataset.lineColor || '#c9a96e';
+    paths += `<path d="M ${x1} ${y1} C ${midX} ${y1}, ${midX} ${target.y}, ${target.x} ${target.y}" fill="none" stroke="${color}" stroke-width="1.6" opacity="0.55"/>`;
   });
   svg.innerHTML = paths;
 }
@@ -3285,18 +3287,16 @@ function renderMindMap(){
   colLeft.innerHTML = '';
   colRight.innerHTML = '';
 
-  MINDMAP_CLUSTERS.filter(c=>c.side==='left').forEach(cluster=>{
+  MINDMAP_CLUSTERS.filter(c=>c.side==='left').forEach((cluster, i)=>{
     const row = document.createElement('div');
-    row.className = 'mm-row mm-row-left';
-    row.appendChild(mmBuildMetrics(cluster));
-    row.appendChild(mmBuildNodeCard(cluster));
+    row.className = 'mm-row';
+    row.appendChild(mmBuildNodeCard(cluster, MM_ACCENTS[i % MM_ACCENTS.length]));
     colLeft.appendChild(row);
   });
-  MINDMAP_CLUSTERS.filter(c=>c.side==='right').forEach(cluster=>{
+  MINDMAP_CLUSTERS.filter(c=>c.side==='right').forEach((cluster, i)=>{
     const row = document.createElement('div');
-    row.className = 'mm-row mm-row-right';
-    row.appendChild(mmBuildNodeCard(cluster));
-    row.appendChild(mmBuildMetrics(cluster));
+    row.className = 'mm-row';
+    row.appendChild(mmBuildNodeCard(cluster, MM_ACCENTS[(i+3) % MM_ACCENTS.length]));
     colRight.appendChild(row);
   });
 
