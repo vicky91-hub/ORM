@@ -518,6 +518,8 @@
   .mm-header-right{ display:flex; flex-direction:column; align-items:flex-end; gap:10px; flex-shrink:0; }
   .mm-live-badge{ display:inline-flex; align-items:center; gap:7px; font-size:12px; color:var(--dusk); background:var(--mist); border:1px solid var(--cloud); border-radius:20px; padding:6px 14px; white-space:nowrap; }
   .mm-live-badge .dot{ width:7px; height:7px; border-radius:50%; background:#3fbf6f; box-shadow:0 0 0 3px rgba(63,191,111,0.18); }
+  .mm-live-badge.mm-badge-error .dot{ background:#c0392b; box-shadow:0 0 0 3px rgba(192,57,43,0.18); }
+  .mm-fetch-error{ margin:-10px 0 16px; font-size:12px; color:#c0392b; background:rgba(192,57,43,0.07); border:1px solid rgba(192,57,43,0.25); border-radius:8px; padding:8px 12px; }
   .mm-refresh-btn{ display:inline-flex; align-items:center; gap:6px; font-family:var(--font-body); font-size:12px; font-weight:bold; color:var(--gold-deep); background:#fff; border:1px solid rgba(201,169,110,0.5); border-radius:20px; padding:7px 14px; cursor:pointer; white-space:nowrap; }
   .mm-refresh-btn:hover{ background:rgba(201,169,110,0.08); }
   .mm-refresh-btn svg{ width:13px; height:13px; }
@@ -955,12 +957,12 @@
     </div>
   </section>
 
-  <!-- MIND MAP — Keyword Cluster x Content Coverage Map (static snapshot from the ORM
-       tracker's "Coverage Gap Summary" table). Hidden by default; the nav "Mind Map" link
-       opens this same page in a new tab at "#mindmap", and the hash-check JS near
-       enterMindMapStandalone() then unhides just this section and hides the rest of the
-       dashboard (body.mindmap-standalone), so that tab shows a bare full-page mind map with
-       no ORM header/nav. Content built by JS from the MINDMAP_CLUSTERS data below. -->
+  <!-- MIND MAP — Keyword Cluster x Content Coverage Map, live-fetched from the ORM
+       tracker's "Coverage Gap Summary" table on every open/refresh (see mmFetchClusters()).
+       Hidden by default; the nav "Mind Map" link opens this same page in a new tab at
+       "#mindmap", and the hash-check JS near enterMindMapStandalone() then unhides just this
+       section and hides the rest of the dashboard (body.mindmap-standalone), so that tab
+       shows a bare full-page mind map with no ORM header/nav. -->
   <section id="mindMapSection" class="hidden">
     <!-- Client-side password gate — a lightweight speed bump (password lives in this page's
          JS, same as the Basic Auth password already sitting in plaintext in middleware.js
@@ -986,10 +988,11 @@
           <p class="mm-sub">How each priority keyword cluster is being addressed across Offsite, Onsite, Listings, Reddit and Quora content.</p>
         </div>
         <div class="mm-header-right">
-          <span class="mm-live-badge"><span class="dot"></span>Snapshot · updated <span id="mmUpdatedTime"></span></span>
+          <span class="mm-live-badge" id="mmLiveBadge"><span class="dot" id="mmLiveDot"></span><span id="mmLiveLabel">Loading…</span></span>
           <button class="mm-refresh-btn" id="mmRefreshBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><polyline points="21 3 21 9 15 9"/></svg>Refresh</button>
         </div>
       </div>
+      <div class="mm-fetch-error" id="mmFetchError" hidden></div>
 
       <div class="mm-card">
         <div class="mm-section-label">01 · By Keyword Cluster</div>
@@ -3190,10 +3193,12 @@ buttons.forEach(btn=>{
 });
 
 // ---------- MIND MAP — Keyword Cluster x Content Coverage Map ----------
-// Hardcoded snapshot pulled from the "Coverage Gap Summary: Segments x Channels" table in
-// the ORM tracker sheet (Google Sheet 17IyI4woqcUWuZa2MRoUV84JnN78QCqgZxLH4F867FP0), Live +
-// Not Live + Planned summed per channel per keyword cluster. Same convention as the rest of
-// this file: a manual snapshot, refreshed by hand when the source sheet changes.
+// Live-fetched from the "Coverage Gap Summary: Segments x Channels" table in the ORM
+// tracker sheet, the same way the rest of this dashboard pulls GMB/Reddit/Quora/Social data
+// (fetchSheetRows against the public gviz CSV export -- see sheetCsvUrl() above). Every open
+// (and every "Refresh" click) re-fetches; nothing here is a hand-maintained snapshot anymore.
+const MM_SHEET_ID = '17IyI4woqcUWuZa2MRoUV84JnN78QCqgZxLH4F867FP0';
+const MM_SHEET_TAB = 'Coverage Gap '; // trailing space is literally part of the tab's name
 const MM_CHANNELS = [
   { key:'offsite',  label:'Offsite Blogs',            color:'#5b7fff' },
   { key:'onsite',   label:'Onsite Blogs',             color:'#2bbfa0' },
@@ -3202,20 +3207,70 @@ const MM_CHANNELS = [
   { key:'reddit',   label:'Reddit Posts',             color:'#e2572c' },
   { key:'quora',    label:'Quora Posts',              color:'#5a67d8' },
 ];
-const MINDMAP_CLUSTERS = [
-  { name:'Flats by BHK',            side:'left',  counts:{ offsite:1, onsite:4, rewrite:1, listings:4, reddit:9, quora:4 } },
-  { name:'Luxury & Premium',        side:'left',  counts:{ offsite:1, onsite:1, rewrite:5, listings:1, reddit:9, quora:12 } },
-  { name:'Plots & Villa Plots',     side:'left',  counts:{ offsite:1, onsite:1, rewrite:1, listings:2, reddit:0, quora:0 } },
-  { name:'Panathur',                side:'left',  counts:{ offsite:1, onsite:1, rewrite:0, listings:4, reddit:4, quora:1 } },
-  { name:'East Bangalore',          side:'left',  counts:{ offsite:3, onsite:5, rewrite:0, listings:3, reddit:5, quora:6 } },
-  { name:'City-wide · Commercial',  side:'left',  counts:{ offsite:0, onsite:0, rewrite:0, listings:1, reddit:0, quora:0 } },
-  { name:'Bangalore City-wide',     side:'right', counts:{ offsite:3, onsite:1, rewrite:6, listings:2, reddit:12, quora:11 } },
-  { name:'New Launches',            side:'right', counts:{ offsite:1, onsite:0, rewrite:0, listings:1, reddit:0, quora:2 } },
-  { name:'Whitefield',              side:'right', counts:{ offsite:1, onsite:2, rewrite:2, listings:4, reddit:11, quora:12 } },
-  { name:'North Bangalore',         side:'right', counts:{ offsite:0, onsite:1, rewrite:0, listings:3, reddit:2, quora:2 } },
-  { name:'Marathahalli',            side:'right', counts:{ offsite:0, onsite:1, rewrite:0, listings:2, reddit:2, quora:0 } },
-  { name:'Whitefield · Commercial', side:'right', counts:{ offsite:1, onsite:1, rewrite:0, listings:1, reddit:0, quora:0 } },
-];
+// Display name + diagram side for each known Beacon Keyword Segment (exact sheet text ->
+// display). A segment that shows up in the sheet but isn't listed here still renders (see
+// mmFetchClusters below) -- it's auto-named and auto-balanced onto whichever side has fewer
+// cards -- but add it here once noticed, so its name/side stay stable across refreshes.
+const MM_SEGMENT_MAP = {
+  'Residential: Flats by BHK':        { name:'Flats by BHK',            side:'left'  },
+  'Residential: Luxury & Premium':    { name:'Luxury & Premium',        side:'left'  },
+  'Residential: Plots & Villa Plots': { name:'Plots & Villa Plots',     side:'left'  },
+  'Residential: Panathur':            { name:'Panathur',                side:'left'  },
+  'Residential: East Bangalore':      { name:'East Bangalore',          side:'left'  },
+  'Commercial: City-wide':            { name:'City-wide · Commercial',  side:'left'  },
+  'Residential: Bangalore City-wide': { name:'Bangalore City-wide',     side:'right' },
+  'Residential: New Launches':        { name:'New Launches',            side:'right' },
+  'Residential: Whitefield':          { name:'Whitefield',              side:'right' },
+  'Residential: North Bangalore':     { name:'North Bangalore',         side:'right' },
+  'Residential: Marathahalli':        { name:'Marathahalli',            side:'right' },
+  'Commercial: Whitefield':           { name:'Whitefield · Commercial', side:'right' },
+};
+const MM_CHANNEL_COLS = ['offsite','onsite','rewrite','listings','reddit','quora']; // sheet column order, cols C-H
+
+// Fetches the Coverage Gap tab fresh and aggregates Live+Not Live+Planned per channel per
+// segment. The segment cell is only populated on the first of each status-trio's 3 rows
+// (merged in the sheet), so blank segment cells forward-fill from the row above.
+async function mmFetchClusters(){
+  const rows = await fetchSheetRows(MM_SHEET_ID, MM_SHEET_TAB);
+  const clusterTotals = {}; // segment text -> {offsite:.., onsite:.., ...}
+  const order = [];
+  let currentSegment = '';
+  let grandTotal = null;
+  for(let i=1;i<rows.length;i++){ // rows[0] is the header
+    const r = rows[i];
+    const segRaw = (r[0]||'').trim();
+    if(segRaw) currentSegment = segRaw;
+    if(currentSegment === 'Grand total'){
+      grandTotal = {};
+      MM_CHANNEL_COLS.forEach((key,idx)=>{ grandTotal[key] = parseInt(r[2+idx],10) || 0; });
+      break;
+    }
+    if(!currentSegment) continue;
+    if(!clusterTotals[currentSegment]){
+      clusterTotals[currentSegment] = { offsite:0, onsite:0, rewrite:0, listings:0, reddit:0, quora:0 };
+      order.push(currentSegment);
+    }
+    MM_CHANNEL_COLS.forEach((key,idx)=>{ clusterTotals[currentSegment][key] += parseInt(r[2+idx],10) || 0; });
+  }
+
+  const left = [], right = [];
+  order.forEach(segment=>{
+    const known = MM_SEGMENT_MAP[segment];
+    if(known){
+      (known.side === 'left' ? left : right).push({ name:known.name, counts:clusterTotals[segment] });
+    } else {
+      console.warn(`Mind Map: unmapped segment "${segment}" -- add it to MM_SEGMENT_MAP for a stable name/side.`);
+      const name = segment.replace(/^Residential:\s*/,'').replace(/^Commercial:\s*/,'') + ' (new)';
+      (left.length <= right.length ? left : right).push({ name, counts:clusterTotals[segment] });
+    }
+  });
+
+  if(!grandTotal){
+    grandTotal = { offsite:0, onsite:0, rewrite:0, listings:0, reddit:0, quora:0 };
+    order.forEach(segment=>MM_CHANNEL_COLS.forEach(key=>{ grandTotal[key] += clusterTotals[segment][key]; }));
+  }
+  return { left, right, grandTotal };
+}
 
 // One accent per cluster card (background tint + border + matching connector line color),
 // cycling through a small palette -- independent of the per-channel dot colors above.
@@ -3268,20 +3323,25 @@ function mmDrawLines(){
   svg.innerHTML = paths;
 }
 
-function renderMindMap(){
+let mmLastGoodData = null; // cached last successful fetch, so a failed refresh doesn't blank the page
+function mmSetBadge(label, isError){
+  document.getElementById('mmLiveLabel').textContent = label;
+  document.getElementById('mmLiveBadge').classList.toggle('mm-badge-error', !!isError);
+}
+function mmRenderFromData(data){
   const colLeft = document.getElementById('mmColLeft');
   const colRight = document.getElementById('mmColRight');
   if(!colLeft || !colRight) return;
   colLeft.innerHTML = '';
   colRight.innerHTML = '';
 
-  MINDMAP_CLUSTERS.filter(c=>c.side==='left').forEach((cluster, i)=>{
+  data.left.forEach((cluster, i)=>{
     const row = document.createElement('div');
     row.className = 'mm-row';
     row.appendChild(mmBuildNodeCard(cluster, MM_ACCENTS[i % MM_ACCENTS.length]));
     colLeft.appendChild(row);
   });
-  MINDMAP_CLUSTERS.filter(c=>c.side==='right').forEach((cluster, i)=>{
+  data.right.forEach((cluster, i)=>{
     const row = document.createElement('div');
     row.className = 'mm-row';
     row.appendChild(mmBuildNodeCard(cluster, MM_ACCENTS[(i+3) % MM_ACCENTS.length]));
@@ -3295,26 +3355,46 @@ function renderMindMap(){
 
   const totalsGrid = document.getElementById('mmTotalsGrid');
   if(totalsGrid){
-    totalsGrid.innerHTML = MM_CHANNELS.map(ch=>{
-      const total = MINDMAP_CLUSTERS.reduce((sum,c)=>sum+(c.counts[ch.key]||0), 0);
-      return `<div class="mm-total-tile"><div class="mm-total-value">${total}</div><div class="mm-total-label"><span class="mm-dot" style="background:${ch.color};"></span>${ch.label}</div></div>`;
-    }).join('');
+    totalsGrid.innerHTML = MM_CHANNELS.map(ch=>
+      `<div class="mm-total-tile"><div class="mm-total-value">${data.grandTotal[ch.key]||0}</div><div class="mm-total-label"><span class="mm-dot" style="background:${ch.color};"></span>${ch.label}</div></div>`
+    ).join('');
   }
 
-  document.getElementById('mmClusterCount').textContent = MINDMAP_CLUSTERS.length;
+  document.getElementById('mmClusterCount').textContent = data.left.length + data.right.length;
   document.getElementById('mmChannelCount').textContent = MM_CHANNELS.length;
-  const now = new Date();
-  const timeStr = now.toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' });
-  document.getElementById('mmUpdatedTime').textContent = timeStr;
-  document.getElementById('mmFooterTime').textContent = `Snapshot rendered ${timeStr}`;
 
   requestAnimationFrame(mmDrawLines);
 }
 
-document.getElementById('mmRefreshBtn')?.addEventListener('click', function(){
+async function renderMindMap(){
+  const errorBox = document.getElementById('mmFetchError');
+  mmSetBadge('Loading…', false);
+  try{
+    const data = await mmFetchClusters();
+    mmLastGoodData = data;
+    mmRenderFromData(data);
+    const timeStr = new Date().toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' });
+    mmSetBadge(`Live · updated ${timeStr}`, false);
+    document.getElementById('mmFooterTime').textContent = `Live snapshot fetched ${timeStr}`;
+    errorBox.hidden = true;
+  } catch(err){
+    console.error('Mind Map fetch failed:', err);
+    const timeStr = new Date().toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' });
+    if(mmLastGoodData){
+      mmRenderFromData(mmLastGoodData);
+      mmSetBadge(`Live · showing cached data (refresh failed ${timeStr})`, true);
+    } else {
+      mmSetBadge(`Fetch failed ${timeStr}`, true);
+    }
+    errorBox.hidden = false;
+    errorBox.textContent = `Couldn't fetch the latest data from the tracker sheet (${err.message}). ${mmLastGoodData ? 'Showing the last successful fetch.' : ''}`;
+  }
+}
+
+document.getElementById('mmRefreshBtn')?.addEventListener('click', async function(){
   this.classList.add('spinning');
-  renderMindMap();
-  setTimeout(()=>this.classList.remove('spinning'), 600);
+  await renderMindMap();
+  this.classList.remove('spinning');
 });
 window.addEventListener('resize', ()=>{
   if(!document.getElementById('mindMapSection')?.classList.contains('hidden')) mmDrawLines();
