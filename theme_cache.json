@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T00:47:21.519730+00:00",
+  "generated_at": "2026-09-12T00:55:19.912587+00:00",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -2462,18 +2462,18 @@
           },
           "Capitol Towers": {
             "positive": [
-              "Capitol Towers logged three bare 5-star GMB ratings in September so far, all on the same GMB listing: Anup Deka's one-word 'Good' (Sep 1), 'Great warrior's unlabeled 'Just a rating' (Sep 7), and Anil kumar MISHRA's bare 5-star (Sep 9) -- none of the three reviewers left any detailed feedback."
+              "Capitol Towers logged four bare-to-short 5-star GMB ratings in September, all on the same listing and none with detailed feedback: Anup Deka's one-word 'Good' (Sep 1), 'Great warrior's unlabeled 'Just a rating' (Sep 7), Anil kumar MISHRA's bare 5-star (Sep 9), and TacoTech's bare 5-star (Sep 10)."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "three bare 5-star ratings",
+                "four bare-to-short 5-star ratings",
                 "no written feedback from any reviewer"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Capitol Towers added a third bare 5-star GMB rating in September -- Anil kumar MISHRA (Sep 9) -- following Anup Deka (Sep 1) and 'Great warrior' (Sep 7), with no written feedback from any of the three."
+            "keyTakeaway": "Capitol Towers added a fourth bare 5-star GMB rating in September -- TacoTech (Sep 10) -- following Deka (Sep 1), 'Great warrior' (Sep 7) and Mishra (Sep 9), with no written feedback from any of them."
           },
           "Epitome": {
             "positive": [
@@ -2505,7 +2505,7 @@
           },
           "Edition": {
             "positive": [
-              "Edition drew three positive GMB mentions in September: new buyer Pradeep Vasamsetty (Sep 3) got an apartment and promised to track the review 'as per construction pace' while inviting other buyers into a group; Paritosh Sahay (Sep 5) called the project 'thoughtfully developed' and credited Mr Francis for explaining and closing the deal; and Deepa Prasanth (Sep 6) was 'very happy' booking a flat and separately credited Francis for guiding her well -- though her review was logged under Solace's GMB listing rather than Edition's."
+              "Edition drew four positive September GMB mentions: new buyer Pradeep Vasamsetty (Sep 3) got an apartment and promised to track the review 'as per construction pace' while inviting other buyers into a group; Paritosh Sahay (Sep 5) called the project 'thoughtfully developed' and credited Mr Francis for explaining and closing the deal; Deepa Prasanth (Sep 6) was 'very happy' booking a flat and separately credited Francis for guiding her well -- though her review was logged under Solace's GMB listing rather than Edition's; and Debasish Patnaik (Sep 10) left a bare 5-star rating."
             ],
             "negative": [],
             "topKeywords": {
@@ -2518,7 +2518,7 @@
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Edition earned three positive September GMB mentions with salesperson Francis named twice (Sahay, Prasanth) for closing and guiding deals -- though Prasanth's review was oddly logged under Solace's GMB listing, not Edition's."
+            "keyTakeaway": "Edition earned four positive September GMB mentions with salesperson Francis named twice (Sahay, Prasanth) for closing and guiding deals -- though Prasanth's review was oddly logged under Solace's GMB listing, not Edition's."
           }
         }
       },
@@ -2538,40 +2538,58 @@
         "projects": {
           "Folium": {
             "positive": [
-              "Reddit's only organic-reading Folium thread this month -- 'Sumadhura Folium Resale Prices' (3 Sep, r/BangaloreRealEstates, comments dated 9 Sep) -- had a self-described resident argue tower, floor, sunlight, balcony side and clubhouse distance matter more than psf, and a second commenter value the 'certainty' of an occupied, functioning society (Phase 1 & 2) over a cleaner builder price in a later phase.",
-              "One commenter said plainly 'I actually like Folium as a society,' and buyer-side advice throughout leaned toward shortlisting specific units by floor/facing/view rather than chasing the cheapest listing -- 3BHKs were cited as starting around 1,660 sq ft."
+              "Folium was by far the month's most-seeded Reddit project: over twenty comments on the 'New Seeds' tab (1-10 Sep) pushed in-community sports coaching ('Club Sumadhura') as removing after-school driving logistics, pedestrian-first safety for kids, elderly parents and a dog owner, natural light and room proportions over sample-flat decor, clubhouse zoning that separates fitness/sports from quiet senior seating, and amenity-mix framing for three-generation households.",
+              "On an organic-sounding 'Folium Resale Prices' thread (posted 3 Sep, comments 9-10 Sep), a self-described resident argued tower, floor, sunlight, balcony side and lift access matter more than psf, and a second commenter valued the 'certainty' of an already-occupied, functioning society (Phase 1 & 2) over a cleaner builder price in a later phase; 3BHKs were cited as starting around 1,660 sq ft."
             ],
             "negative": [
-              "Multiple commenters flagged Borewell Road traffic as the resale price's main caveat -- 'the project inside and road outside are two different experiences,' with one noting 'some other Folium threads also flag the road as the main compromise' -- alongside a neighbor asking well above builder rate to recoup his own 'holding cost,' which a buyer said they 'wouldnt automatically pay.'"
+              "On the same resale thread, one commenter flagged Borewell Road as 'the one thing I would factor into price' -- 'the project inside and road outside are two different experiences ... some other Folium threads also flag the road as the main compromise' -- while another described a neighbour pricing a resale unit 'way above builder rate' to recoup his own holding costs, which the buyer said they 'wouldnt automatically pay.'"
             ],
             "topKeywords": {
               "positive": [
-                "tower/floor/facing valued over psf",
-                "occupied Phase 1 & 2 certainty",
-                "organic resale due-diligence thread"
+                "Club Sumadhura sports coaching",
+                "pedestrian-first / child & elder safety",
+                "occupied-phase certainty (landscaping, crowd level)",
+                "tower/sunlight/balcony matter more than psf"
               ],
               "negative": [
-                "Borewell Road traffic \"main compromise\"",
+                "Borewell Road \"main compromise\"",
                 "resale sellers pricing above builder rate"
               ]
             },
-            "verdict": "Mixed",
-            "keyTakeaway": "A 3 Sep 'Sumadhura Folium Resale Prices' Reddit thread saw residents weigh tower, floor and facing over price-per-sqft, while repeatedly flagging Borewell Road traffic as the resale caveat.",
-            "_note": "Sole basis is the 'Reddit - Existing Threads' tab; the 'New Seeds' tab logged zero rows dated September this month (see platform-level note)."
+            "verdict": "Positive",
+            "keyTakeaway": "Folium drew the heaviest Reddit seeding of any project this month (20+ comments on sports coaching, pedestrian safety and post-possession fit) against a real resale thread that repeatedly named Borewell Road traffic as the main compromise.",
+            "_note": "The large majority of positive mentions are Sumadhura's own seeded comments (posed as residents, parents and a dog owner) on the 'New Seeds' tab, recurring in near-identical form across unrelated family-safety, clubhouse and balcony threads -- a tell of coordinated seeding, not organic volume. The 'Folium Resale Prices' thread on 'Existing Threads' reads more organically."
+          },
+          "Capitol Residences": {
+            "positive": [
+              "Capitol Residences' still-under-construction vehicle-free landscaped ground plane was the month's dominant pitch across 13 seeded 'New Seeds' comments (1-10 Sep): called 'one of the strongest family-friendly ideas in the current lineup' and repeated for benefiting both kids and seniors, a roughly 22,000 sq ft clubhouse for ~405 homes cited as an easy resident-to-amenity ratio to judge, and buyer-diligence asks around finish-package documentation and tower-facing/balcony outlook."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "vehicle-free ground plane",
+                "~22,000 sq ft clubhouse / 405 homes",
+                "finish-package documentation ask",
+                "tower-facing / balcony outlook"
+              ],
+              "negative": []
+            },
+            "verdict": "Strong Positive",
+            "keyTakeaway": "Capitol Residences' under-construction vehicle-free ground plane and ~405-home scale were pitched across 13 seeded September Reddit comments as its strongest family-friendly differentiators.",
+            "_note": "All mentions are Sumadhura-seeded 'New Seeds' comments on generic Whitefield/family-buyer and clubhouse-sizing threads, not organic Capitol Residences feedback -- the project remains under construction."
           },
           "Epitome": {
             "positive": [
-              "Reddit's only Epitome thread this month -- 'Should I consider sumadhura solea/epitome!' (2 Sep, r/BangaloreRealEstates, comments dated 9 Sep) -- reads as organic buyer discussion: visitors repeatedly praised the corner-home layout with 'less direct facing, decent openness,' no-shared-wall planning and privacy versus 'high density projects nearby,' plus useful Manyata Tech Park commute access.",
-              "One visitor said the floor plan 'looked better than most projects I had shortlisted,' and another concluded they 'liked the home more than the location' after weighing the layout against site concerns."
+              "A seeded comment (Sep 2) favored Epitome's planned corner-home layout and actual dimensions over sample-flat styling, while three apparently organic comments on a 'should I consider Solea/Epitome' thread (comments 9-10 Sep) liked the corner units with no shared walls, privacy and open feeling versus 'high density projects nearby,' plus useful Manyata Tech Park connectivity -- one visitor said the floor plan 'looked better than most projects I had shortlisted.'"
             ],
             "negative": [
-              "Every comment in the thread raised the adjacent railway line unprompted -- 'the railway line started bothering me more than I expected' -- with one visitor admitting they 'had almost dropped Sumadhura Epitome after reading about the railway track' before a second, evening visit softened but didn't remove the concern; consensus advice was to avoid track-facing units specifically rather than reject the project outright."
+              "All three organic-sounding commenters on the same thread independently raised the adjacent railway line: one said it 'started bothering me more than I expected' on the road outside, a second 'had almost dropped Sumadhura Epitome after reading about the railway track' before a second evening visit softened (not removed) the concern, and a third likewise weighed 'railway + surrounding compromises' against the unit itself -- consensus advice was to avoid track-facing units specifically rather than reject the project outright."
             ],
             "topKeywords": {
               "positive": [
                 "corner homes, no shared walls",
                 "privacy vs. high-density neighbors",
-                "Manyata Tech Park commute"
+                "Manyata Tech Park connectivity"
               ],
               "negative": [
                 "adjacent railway-line noise",
@@ -2580,36 +2598,123 @@
               ]
             },
             "verdict": "Mixed",
-            "keyTakeaway": "Epitome's only organic Reddit thread this month (2 Sep) had visitors repeatedly praise its corner-home layout and privacy while the adjacent railway line stayed an unresolved, recurring concern.",
-            "_note": "Sole basis is the 'Reddit - Existing Threads' tab; the 'New Seeds' tab logged zero rows dated September this month (see platform-level note)."
+            "keyTakeaway": "Three apparently organic September Reddit visitors liked Epitome's corner-home layout and privacy but every one of them independently flagged the adjacent railway line as a real, unresolved drawback.",
+            "_note": "The corner-layout comment (Sep 2) is Sumadhura-seeded ('New Seeds'); the three railway-noise comments on the 'Should I consider sumadhura solea/epitome' thread ('Existing Threads', comments 9-10 Sep) read as organic buyer due-diligence."
+          },
+          "Elysium": {
+            "positive": [
+              "The month's only Elysium Reddit mention (Sep 4) was a seeded comment favoring its planned landscaped environment, preferring communities where 'outdoor movement is part of the overall design rather than just a narrow walking track.'"
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "planned landscaped environment",
+                "outdoor movement by design"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Elysium's lone September Reddit mention was a seeded comment favoring its planned landscaped environment where 'outdoor movement is part of the overall design,' not just a narrow walking track.",
+            "_note": "This is a single Sumadhura-seeded 'New Seeds' comment on a generic Whitefield family-buyer thread, not organic Elysium feedback -- the project remains under construction."
+          },
+          "Edition": {
+            "positive": [
+              "Eleven seeded comments (9-10 Sep) pitched Edition's masterplan as spreading social life across gardens, sports courts, meditation areas and coworking-style spaces rather than one central clubhouse, plus a balcony-orientation-and-tower-distance angle and a 'routines change over time' pitch for joint families weighing long-term flexibility."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "masterplan spreads social spaces (gardens, sports, coworking)",
+                "balcony orientation / tower distance",
+                "flexibility for changing family routines"
+              ],
+              "negative": []
+            },
+            "verdict": "Strong Positive",
+            "keyTakeaway": "Edition's masterplan -- gardens, sports courts, meditation areas and coworking space spread across the site rather than one clubhouse -- was the pitch across 11 seeded September Reddit comments.",
+            "_note": "All mentions are Sumadhura-seeded 'New Seeds' comments on generic clubhouse-sizing, balcony and joint-family threads, not organic Edition feedback."
           },
           "Solace": {
             "positive": [
-              "Solace appeared only under the spelling 'Solea' in the same 2 Sep 'solea/epitome' thread -- one visitor said it 'surprised me a bit,' preferring its smaller, less-crowded community feel to 'another big crowded project,' and a second said their wife liked it more than they did initially because the layout 'felt more family friendly and not overly packed.'"
+              "Eleven seeded 'New Seeds' comments (9-10 Sep) cited Solace's large open-green planning -- one pegging a 45,000 sq ft clubhouse against '81% open green' -- as an evening-crowd release valve and a balcony differentiator, and a twelfth, apparently organic comment on the 'Solea/Epitome' thread (comment 10 Sep) said the smaller, less-crowded community feel 'surprised me' and that a visiting spouse 'liked Solea much more' for feeling 'family friendly and not overly packed.'"
             ],
             "negative": [
-              "Both comments flagged the site's graveyard and railway-line adjacency -- 'the surroundings are obviously not perfect' -- with visibility of either depending heavily on unit/stack; one couple said the graveyard 'didnt bother us much eventually, but railway side and approach road still matter.'"
+              "Two organic-sounding commenters on the same thread flagged the site's graveyard and railway-line adjacency -- 'the surroundings are obviously not perfect' -- with visibility depending heavily on unit/stack; one couple said the graveyard 'didnt bother us much eventually, but railway side and approach road still matter.'"
             ],
             "topKeywords": {
               "positive": [
+                "81% open-green planning, 45,000 sq ft clubhouse",
                 "smaller, less-crowded community feel",
-                "family-friendly layout"
+                "evening-crowd release valve"
               ],
               "negative": [
                 "graveyard proximity",
                 "railway-line/approach-road visibility"
               ]
             },
-            "verdict": "Mixed",
-            "keyTakeaway": "Solace surfaced as 'Solea' in a 2 Sep Reddit thread, liked for its smaller, less-crowded feel, though graveyard and railway proximity concerned visitors depending on the unit.",
-            "_note": "Thread title and comments spell the project 'Solea' rather than 'Solace' -- mapped here on context (graveyard/railway-adjacent site, family-buyer framing). Sole basis is the 'Reddit - Existing Threads' tab."
+            "verdict": "Positive",
+            "keyTakeaway": "Solace's open-green planning drew a dozen positive September Reddit mentions, but two organic-sounding visitors on the same thread flagged graveyard and railway-line proximity as real, stack-dependent concerns.",
+            "_note": "Eleven of the twelve positive mentions are Sumadhura-seeded 'New Seeds' comments on clubhouse-sizing and balcony threads; the thread title and comments spell the project 'Solea' rather than 'Solace' -- mapped here on context (graveyard/railway-adjacent site, family-buyer framing) since Sumadhura has no project by that name."
           }
         },
-        "_note": "The 'Reddit - New Seeds' tab logged zero rows with a September 2026 date this month -- its raw comment data runs through early August, and three newly-posted thread URLs tracked in the rollup summary (4, 5 and 8 Sep) show 0 comments so far. All September Reddit signal instead comes from 'Reddit - Existing Threads': two organic-reading discussions -- a Folium resale-pricing thread (3 Sep) and a Solace/Epitome comparison thread (2 Sep, using the spelling 'Solea' for Solace) -- both reflected in the project buckets above. No Reddit activity this month for Capitol Residences, Panorama, Capitol Towers, Elysium, Infracon, Z-hub, Hive and Thrive, or Edition."
+        "_note": "September's 'Reddit - New Seeds' tab logged 57 comment rows through Sep 10 once thread-level fields (which the sheet leaves blank on follow-up comments within the same thread) are correctly carried forward -- about 45 named a tracked project (bucketed above), one referenced 'Sumadhura Pramoda' (not a tracked project, excluded), and the rest were generic Quality Studio/Real View or buyer-advice comments naming no specific project. 'Reddit - Existing Threads' logged its first September activity this month -- 10 comments across two threads ('Should I consider sumadhura solea/epitome', 'Sumadhura Folium Resale Prices') once the same forward-fill is applied -- several of which read as organic rather than seeded. No Reddit activity this month for Panorama, Capitol Towers, Infracon, Z-hub, or Hive and Thrive."
       },
       "Quora": {
-        "projects": {},
-        "_note": "The 'Quora - New + Existing' tab's only September-dated content (19 seeded answers, 8-10 Sep, across four question threads) was entirely about Sumadhura Group's non-canonical Chennai industrial vertical -- the 'Sumadhura Industrial & Logistics Park' at Red Hills -- covering CPRR connectivity, built-to-suit tenant demand, and portfolio-diversification questions; the project is never called 'Infracon' in the source. Folium, Capitol Residences, Edition and Solace were each named only as background list items inside three of those diversification answers (e.g. 'Sumadhura is already well known for residential projects like Folium, Capitol Residences, Edition and Solace') with no dedicated sentiment of their own, so no per-project entry is reported this month. No genuine canonical-project Quora discussion this month -- flagged rather than fabricated."
+        "projects": {
+          "Folium": {
+            "positive": [
+              "Folium dominated Quora's September activity with 25 seeded answers across four fresh questions: ten answers on a 'sports coaching' question all credited in-community 'Club Sumadhura' coaching with cutting after-school driving logistics for swimming, badminton and tennis; three more (on a 'loved the sample apartment' question) praised the 'Real View' finished-unit concept; six (on an 'overcrowded clubhouse' question) praised zoning that lets seniors reach quiet seating away from noisier activity zones; and six (on a three-generation amenities question) called out its broad, established amenity mix as easy to split across parents, adults and kids."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "Club Sumadhura sports coaching cuts driving logistics",
+                "Real View finished-unit walkthrough",
+                "quiet-seating zoning for seniors",
+                "broad amenity mix for three generations"
+              ],
+              "negative": []
+            },
+            "verdict": "Strong Positive",
+            "keyTakeaway": "Folium was Quora's most-seeded project by far in September -- 25 answers across four questions, led by ten praising 'Club Sumadhura' in-community sports coaching as a time-saver for parents ferrying kids to outside academies.",
+            "_note": "All 25 answers follow a small set of seeded templates (a relative's child with a scheduling problem solved by Club Sumadhura; a friend/cousin who liked Real View or the clubhouse zoning) across newly created Quora questions -- a clear coordinated-seeding pattern, not organic Q&A."
+          },
+          "Capitol Residences": {
+            "positive": [
+              "Capitol Residences drew 20 seeded Quora answers across five questions: ten (on a 'vehicle-free internal layout' question) highlighted its vehicle-free landscaped ground level as reassurance for buyers with young kids or elderly parents, five (on the sample-apartment question) praised the 'Real View' concept for judging real balcony/daylight orientation instead of a showflat, two (on the tiles/fittings question) cited its 'Quality Studio' concept for physically verifying finishes before booking, and three more (clubhouse-overcrowding and three-generation questions) cited its smaller ~405-home scale as easier to plan around."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "vehicle-free landscaped ground level",
+                "Real View (finished-unit walkthrough)",
+                "Quality Studio (finish verification)",
+                "~405-home scale"
+              ],
+              "negative": []
+            },
+            "verdict": "Strong Positive",
+            "keyTakeaway": "Capitol Residences' vehicle-free ground level was Quora's most-repeated pitch for the project in September -- ten of its 20 seeded answers cited it as reassurance for families with kids or elderly parents.",
+            "_note": "All 20 answers are Sumadhura-seeded, following a near-identical 'a friend/cousin/colleague was evaluating X and liked...' template across freshly posted Quora questions -- not organic buyer answers."
+          },
+          "Epitome": {
+            "positive": [
+              "Epitome picked up three seeded Quora answers: one (overcrowded-clubhouse question) cited a specific ~19,800 sq ft clubhouse for a 262-home community as an easy-to-judge resident-to-amenity ratio, and two (three-generation question) praised its corner-home, no-shared-wall planning for giving each generation separate privacy."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "~19,800 sq ft clubhouse / 262 homes",
+                "corner-home, no-shared-wall privacy"
+              ],
+              "negative": []
+            },
+            "verdict": "Strong Positive",
+            "keyTakeaway": "Epitome's three seeded September Quora answers leaned on a specific ~19,800 sq ft/262-home ratio and its no-shared-wall corner layout to pitch privacy for multi-generational households.",
+            "_note": "All three answers are Sumadhura-seeded, on the same clubhouse-sizing and three-generation questions that also carried Folium and Capitol Residences answers."
+          }
+        },
+        "_note": "The 'Quora - New + Existing' tab published six fresh seed questions in September (5-8 Sep) that drew 70 seeded answers through Sep 11 once blank follow-up rows (which inherit the question/date from the first answer in the same thread) are correctly carried forward; 48 named a tracked project (Folium, Capitol Residences and Epitome, above) and the remaining 22 were generic Quality Studio/Real View or documentation-themed answers naming no specific project, excluded rather than force-fit. No Quora activity this month for Panorama, Capitol Towers, Elysium, Infracon, Z-hub, Hive and Thrive, or Edition."
       }
     }
   },
