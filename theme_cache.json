@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T00:55:19.912587+00:00",
+  "generated_at": "2026-09-13T00:47:06.289788+00:00",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -2437,7 +2437,7 @@
           "Folium": {
             "positive": [
               "September opened strong for Folium with four straight 5-star GMB reviews before the month's first written complaint arrived: Manish Nishad's bare 'Very good' (Sep 1), rahul kapale singling out the CRM team as 'awesome, very helpful' (Sep 1), Velixa Health praising the property's infrastructure and decoration (Sep 2), and Kavitha S's bare 5-star (Sep 3).",
-              "A fifth bare 5-star rating from Jitesh Ramchandani (Sep 9) closed out the month's positive tally, arriving after both written complaints below."
+              "A fifth bare 5-star from Jitesh Ramchandani (Sep 9) and a sixth from Sudha m (Sep 12, 'Best amenities and community' -- still awaiting a reply as of this pull) rounded out the month's positive tally, both arriving after the two written complaints below."
             ],
             "negative": [
               "Prateek Thawait's scathing 1-star (Sep 5) used sustained sarcasm to detail a genuine Phase 1 registration ordeal -- an 8-month wait since January, a sale deed delivered with typos, an 11-day wait for a noncommittal reply to his rectification-deed request, and a total absence of a real point of contact ('a mythical phone number,' emails into 'a peaceful, infinite void').",
@@ -2448,7 +2448,7 @@
                 "CRM team praise (rahul kapale)",
                 "infrastructure & decoration compliment",
                 "four 5-star ratings before Sep 5",
-                "fifth 5-star (Jitesh, Sep 9)"
+                "fifth & sixth 5-star ratings (Jitesh Sep 9, Sudha Sep 12)"
               ],
               "negative": [
                 "8-month registration delay since Jan",
@@ -2458,7 +2458,7 @@
               ]
             },
             "verdict": "Positive",
-            "keyTakeaway": "Five 5-star September GMB reviews for Folium were offset by two distinct complaints -- Prateek Thawait's sarcastic account of an 8-month registration delay, and Sam A's report of recurring venomous snake sightings near the children's play area."
+            "keyTakeaway": "Six 5-star September GMB reviews for Folium -- the latest from Sudha m on Sep 12 -- were offset by two distinct complaints: Prateek Thawait's sarcastic account of an 8-month registration delay, and Sam A's report of recurring venomous snake sightings near the children's play area."
           },
           "Capitol Towers": {
             "positive": [
@@ -2477,7 +2477,7 @@
           },
           "Epitome": {
             "positive": [
-              "Epitome's only September GMB entry so far, from ramesh (Sep 1), was a bare 5-star rating logged as 'Just a Rating' with no written comment -- the sole data point this month."
+              "Epitome's only September GMB entry, from ramesh (Sep 1), was a bare 5-star rating logged as 'Just a Rating' with no written comment -- the sole data point this month, unchanged through Sep 12."
             ],
             "negative": [],
             "topKeywords": {
@@ -2487,11 +2487,11 @@
               "negative": []
             },
             "verdict": "Positive",
-            "keyTakeaway": "Epitome's only September GMB review so far is a bare 5-star rating from ramesh (Sep 1), with no written feedback or complaints logged through Sep 7."
+            "keyTakeaway": "Epitome's only September GMB review remains a bare 5-star rating from ramesh (Sep 1), with no written feedback or complaints logged through Sep 12."
           },
           "Elysium": {
             "positive": [
-              "Elysium's only September GMB entry so far, from Sourav Jahed (Sep 2), was a bare 5-star rating logged as 'Just a Rating' with no written comment -- the sole data point this month."
+              "Elysium's only September GMB entry, from Sourav Jahed (Sep 2), was a bare 5-star rating logged as 'Just a Rating' with no written comment -- the sole data point this month, unchanged through Sep 12."
             ],
             "negative": [],
             "topKeywords": {
@@ -2501,7 +2501,7 @@
               "negative": []
             },
             "verdict": "Positive",
-            "keyTakeaway": "Elysium's only September GMB review so far is a bare 5-star rating from Sourav Jahed (Sep 2), with no written feedback or complaints logged through Sep 7."
+            "keyTakeaway": "Elysium's only September GMB review remains a bare 5-star rating from Sourav Jahed (Sep 2), with no written feedback or complaints logged through Sep 12."
           },
           "Edition": {
             "positive": [
@@ -2523,12 +2523,56 @@
         }
       },
       "Instagram": {
-        "projects": {},
-        "_note": "September's Instagram Business inbox (55 rows in the Daily Tracker's 'specific data' tab, through Sep 9) carries no genuine Sumadhura-project sentiment: the large majority are emoji reactions, @-tags, and unrelated personal Raksha Bandhan reels/stories cross-posted to the corporate account, a recycled corporate PR post announcing a ₹400-crore Chennai logistics park (Infracon's own industrial expansion, not a residential project, reposted several times 1-4 Sep) that drew only generic congratulatory or curious replies, and one branded fitness-equipment post (Star Trac) naming no specific project. A Sep 7 mocking comment ('Tatti ghar banate hi bhai tumlog😅') was mistagged Neutral by the CRM but reads as a genuine build-quality jibe -- still not tied to any named project. Sep 9 added only trivial spam, a repeat PropTech-event PR repost, and generic price/location inquiries. Nothing here rises to project-specific buyer or resident feedback -- flagged rather than fabricated."
+        "projects": {
+          "Infracon": {
+            "positive": [
+              "September's Instagram activity centered on the same two corporate announcements as Facebook -- the ₹400 crore Chennai logistics-park entry and Sumadhura Group's 30-year-anniversary post -- drawing scattered one-word reactions ('Gazzab', 'Gwt') and a partner shout-out ('Special Thanks to @prestigeconstructions @sumadhurainfracon...'); one commenter's 'Finally, in The GATEWAY OF SOUTH. Need office and apartments from sumadhura as well' was the only genuine expression of buyer interest."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "Chennai ₹400cr logistics-park reactions",
+                "30-year anniversary post",
+                "partner/vendor shout-outs",
+                "buyer interest in office + apartments"
+              ],
+              "negative": []
+            },
+            "verdict": "Strong Positive",
+            "keyTakeaway": "Infracon's September Instagram activity was thin and generic -- reactions to the Chennai logistics-park announcement and 30th-anniversary post -- with zero negative comments and only one genuine expression of buyer interest.",
+            "_note": "None of the 12 positive-tagged comments engage with resident or project-quality experience; most are one-word reactions or bare inquiries (price, location) to the same two corporate announcements also posted to Facebook."
+          }
+        },
+        "_note": "September's Instagram activity (65 rows in the Daily Tracker's 'specific data' tab, through Sep 11) is entirely on the 'sumadhurainfracon' handle; the Infracon entry above covers its genuine engagement (Chennai logistics-park announcement, 30th anniversary, one partner shout-out, one buyer-interest comment). Excluded as unattributable to any of the 11 tracked projects: a branded fitness-equipment post (Star Trac) naming no specific project, a PropTech-event repost, unrelated personal Raksha Bandhan reels/stories cross-posted to the corporate account, and generic emoji reactions, @-tags and price/location inquiries. A Sep 7 mocking comment ('Tatti ghar banate hi bhai tumlog😅') was mistagged Neutral by the CRM and reads as a genuine build-quality jibe, but names no specific project so is left out of the Infracon bullets above."
       },
       "Facebook": {
-        "projects": {},
-        "_note": "September's Facebook inbox (67 rows in the Daily Tracker's 'specific data' tab -- 54 Page comments plus 13 Mail inquiries, through Sep 9) is dominated by lead-gen inquiries about retail-space investment in 'Hive by Sumadhura' (Whitefield) -- interest signals, not sentiment -- plus a wave of congratulatory comments on the Chennai logistics park (Infracon) announcement, Raksha Bandhan reposts, and generic one-word/emoji/price-inquiry comments naming no project. Two substantive but unattributable complaints surfaced: 'Dnt fake people... Roads are not good... Worst location to communicate on anything' (Sep 2), and a Sep 8 comment mocking a 6-year-running ad and implying price depreciation near Kadubesanahalli/the Kia showroom -- neither names a tracked project. A Sep 1 comment mistagged Negative by the CRM was actually an unrelated childhood Raksha Bandhan story misclassified by keyword matching. Sep 9 added only trivial spam and one generic warehouse-partnership inquiry. No genuine project-specific sentiment to report this month -- flagged rather than fabricated."
+        "projects": {
+          "Infracon": {
+            "positive": [
+              "Facebook engagement this month tracked two real corporate events -- the ₹400 crore Chennai logistics-park expansion announcement (Sep 1-2) and Sumadhura Group's 30-year-anniversary post -- both drawing a wave of one-word 'Congratulations' and 'Very nice'/'Very good' reactions, plus a couple of prospecting comments ('Interested to be part of...') from parties wanting warehouse space; none of the roughly 20 positive-tagged comments engaged with actual resident or project-quality experience."
+            ],
+            "negative": [
+              "Four distinct, genuine complaints surfaced: 'Dnt fake people... Roads are not good... Worst location to communicate on anything' (Sep 2), a dismissive 'Yucks flat culture sucks.' plus a one-word 'Bakwas' on the same day (Sep 10), and a sarcastic 'Yeah prime Flooding 🤣' (Sep 11) implying a drainage complaint near the project."
+            ],
+            "topKeywords": {
+              "positive": [
+                "Chennai ₹400cr logistics-park announcement reactions",
+                "30th-anniversary congratulations",
+                "generic \"nice/good\" praise",
+                "warehouse-space prospecting inquiries"
+              ],
+              "negative": [
+                "bad roads / \"worst location\"",
+                "\"flat culture sucks\" / bakwas",
+                "sarcastic flooding complaint"
+              ]
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Genuine Infracon Facebook complaints about bad roads, a 'worst location' knock, and a sarcastic flooding jab were outweighed by roughly 20 generic congratulations on the ₹400cr Chennai logistics-park news and the group's 30th anniversary.",
+            "_note": "Positive-tagged volume is dominated by one-word congratulations on two corporate announcements (Chennai expansion, 30th anniversary) rather than resident or project-experience feedback; a long, entirely off-topic Raksha Bandhan childhood story mistagged 'Negative' by the automated sentiment model was excluded here as irrelevant noise, not a real complaint."
+          }
+        },
+        "_note": "September's Facebook inbox (84 rows in the Daily Tracker's 'specific data' tab, through Sep 11) is entirely on the 'Sumadhura Infracon Private Limited' page; the Infracon entry above covers its two real events (Chennai logistics-park announcement, 30th anniversary) and four genuine complaints. Excluded as unattributable to any of the 11 tracked projects: lead-gen inquiries about retail-space investment in 'Hive by Sumadhura' (Whitefield) -- interest signals, not sentiment; a Sep 8 comment mocking a 6-year-running ad and implying price depreciation near Kadubesanahalli/the Kia showroom; Raksha Bandhan reposts and reels; and generic one-word/emoji/price-location inquiries naming no project. A Sep 1 comment mistagged 'Negative' by the CRM was an unrelated childhood Raksha Bandhan story misclassified by keyword matching, not a real complaint."
       },
       "LinkedIn": {
         "projects": {},
@@ -2539,7 +2583,7 @@
           "Folium": {
             "positive": [
               "Folium was by far the month's most-seeded Reddit project: over twenty comments on the 'New Seeds' tab (1-10 Sep) pushed in-community sports coaching ('Club Sumadhura') as removing after-school driving logistics, pedestrian-first safety for kids, elderly parents and a dog owner, natural light and room proportions over sample-flat decor, clubhouse zoning that separates fitness/sports from quiet senior seating, and amenity-mix framing for three-generation households.",
-              "On an organic-sounding 'Folium Resale Prices' thread (posted 3 Sep, comments 9-10 Sep), a self-described resident argued tower, floor, sunlight, balcony side and lift access matter more than psf, and a second commenter valued the 'certainty' of an already-occupied, functioning society (Phase 1 & 2) over a cleaner builder price in a later phase; 3BHKs were cited as starting around 1,660 sq ft."
+              "On an organic-sounding 'Folium Resale Prices' thread (posted 3 Sep, comments 9-12 Sep), a self-described resident argued tower, floor, sunlight, balcony side and lift access matter more than psf, and a second commenter valued the 'certainty' of an already-occupied, functioning society (Phase 1 & 2) over a cleaner builder price in a later phase; 3BHKs were cited as starting around 1,660 sq ft."
             ],
             "negative": [
               "On the same resale thread, one commenter flagged Borewell Road as 'the one thing I would factor into price' -- 'the project inside and road outside are two different experiences ... some other Folium threads also flag the road as the main compromise' -- while another described a neighbour pricing a resale unit 'way above builder rate' to recoup his own holding costs, which the buyer said they 'wouldnt automatically pay.'"
