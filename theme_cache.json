@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T00:57:29.947291+00:00",
+  "generated_at": "2026-09-19T00:50:55.151592+00:00",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -2493,17 +2493,23 @@
           },
           "Elysium": {
             "positive": [
-              "Elysium's only September GMB entry, from Sourav Jahed (Sep 2), was a bare 5-star rating logged as 'Just a Rating' with no written comment -- the sole data point this month, unchanged through Sep 17."
+              "Elysium's one bare 5-star GMB rating this month came from Sourav Jahed (Sep 2), logged as 'Just a Rating' with no written feedback."
             ],
-            "negative": [],
+            "negative": [
+              "Satish Kumar's 1-star review (Sep 17) argued the Varthur-Gunjur-Panathur belt's still-pending CDP roads and drainage make it \"one of the worst area[s]\" to buy in Bangalore, calling Sumadhura's build quality merely \"decent\" next to Sobha and Prestige despite CAT-A pricing -- Sumadhura's reply reframed Elysium's low-density, self-contained design as insulation from those exact civic gaps."
+            ],
             "topKeywords": {
               "positive": [
                 "bare 5-star rating"
               ],
-              "negative": []
+              "negative": [
+                "CDP road & drainage absent (Varthur/Gunjur/Panathur)",
+                "pricing vs. Sobha/Prestige comparison",
+                "\"one of the worst areas\" claim"
+              ]
             },
-            "verdict": "Positive",
-            "keyTakeaway": "Elysium's only September GMB review remains a bare 5-star rating from Sourav Jahed (Sep 2), with no written feedback or complaints logged all month through Sep 17.",
+            "verdict": "Mixed",
+            "keyTakeaway": "Elysium's month split evenly: Sourav Jahed's bare 5-star rating (Sep 2) against Satish Kumar's detailed complaint (Sep 17) that the Varthur-Gunjur-Panathur belt still lacks CDP roads and drainage despite Sumadhura's promises.",
             "_note": "The month's one GMB entry tagged with Elysium's handle (Udit Chandna, Sep 16) is a post-handover complaint whose text explicitly names Folium ('as a buyer... with sumadhura in folium') -- almost certainly a mistagged handle, so it's counted under Folium instead."
           },
           "Edition": {
