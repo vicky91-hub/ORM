@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T00:56:42.031342+00:00",
+  "generated_at": "2026-09-20T00:58:00.649027+00:00",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -2542,6 +2542,22 @@
             },
             "verdict": "Positive",
             "keyTakeaway": "Capitol Residences picked up its first September GMB review only on Sep 17, with Suresh Gouda praising the community's 'full development.'"
+          },
+          "Panorama": {
+            "positive": [],
+            "negative": [
+              "Saransh's 1-star (Sep 19) flagged a Phase 2 marketing-vs-RERA discrepancy: areas the public brochure markets as amenities and parks are marked as CA (common) area in the RERA filing, which by law the builder must relinquish to the government -- he urged buyers to do a proper legal check before purchase."
+            ],
+            "topKeywords": {
+              "positive": [],
+              "negative": [
+                "Phase 2 brochure vs RERA CA-area mismatch",
+                "amenities marked as common area (must go to govt)",
+                "buyer urged to do legal check pre-purchase"
+              ]
+            },
+            "verdict": "Negative",
+            "keyTakeaway": "Panorama's only September GMB review (Saransh, Sep 19) raised a Phase 2 discrepancy: areas the marketing brochure calls amenities/parks are marked CA (common) area in the RERA filing, which must legally go to the government."
           }
         }
       },
@@ -2619,17 +2635,17 @@
         "projects": {
           "Folium": {
             "positive": [
-              "Five comments (Sep 9-12) on a 'Sumadhura Folium Resale Prices' thread (posted Sep 3) took a residents'-eye view of the resale market: unit-specific factors -- tower, sunlight, balcony side, lift access, distance from clubhouse -- were said to matter more than psf, and Phase 1/2's already-occupied status was flagged as giving resale buyers real certainty (visible landscaping, clubhouse, crowd level) that a fresh builder unit can't offer.",
-              "One commenter's practical resale advice -- shortlist 4-5 actual units by floor/facing/view rather than chasing the cheapest listing, since '3BHKs at Folium start around 1,660 sq ft' and unit quality varies -- read as the thread's most substantive buyer guidance."
+              "Three comments (Sep 9-10) on a 'Sumadhura Folium Resale Prices' thread (posted Sep 3) took a residents'-eye view of the resale market: one said tower, sunlight, balcony side, lift access and clubhouse distance matter more than psf, while another watched a neighbor try to price a resale well above builder rate to recoup early-booking and construction-wait 'holding costs' -- concluding sellers price from their own journey while buyers price from today's value, with real deals landing in between.",
+              "A third commenter compared a Folium resale unit to a fresh builder unit and judged that occupied Phase 1/2 give real certainty -- visible landscaping, clubhouse, crowd level -- that a still-building phase can't offer, though they added they 'still wouldnt pay 15% more blindly.'"
             ],
             "negative": [
               "The thread's one clear complaint: a commenter said they 'actually like' Folium as a society but would 'factor in' Borewell Road before paying a resale premium, adding that 'some other Folium threads also flag the road as the main compromise' -- a telling self-reference back to this same seeding campaign's recurring talking point."
             ],
             "topKeywords": {
               "positive": [
-                "unit-specific factors (tower, sunlight, lift access) over psf",
-                "Phase 1/2 occupied-status resale certainty",
-                "resale shopping guidance (shortlist by floor/facing)"
+                "unit-specific factors over psf (tower, sunlight, lift access)",
+                "neighbor's above-builder resale ask (holding-cost debate)",
+                "occupied Phase 1/2 resale certainty"
               ],
               "negative": [
                 "Borewell Road flagged as recurring compromise",
@@ -2637,7 +2653,7 @@
               ]
             },
             "verdict": "Positive",
-            "keyTakeaway": "Folium's only real September Reddit activity was five comments on a Sep 3 resale-pricing thread -- occupied-phase certainty was praised, but Borewell Road was flagged again as the compromise to price in."
+            "keyTakeaway": "Folium's only real September Reddit activity was four comments on a Sep 3 resale-pricing thread (Sep 9-12) -- occupied-phase certainty and a neighbor's above-builder pricing debate were the throughline, while one commenter still flagged Borewell Road as the compromise to price in."
           },
           "Solace": {
             "positive": [
@@ -2662,10 +2678,10 @@
           },
           "Epitome": {
             "positive": [
-              "Two comments (Sep 9, Sep 12) on the same 'Should I consider sumadhura solea/epitome' thread praised Epitome's corner-home layout, privacy and open feel versus nearby high-density projects, with one crediting a second evening site visit and Manyata Tech Park connectivity for winning them back over."
+              "Three comments (Sep 9, 10, 12) on the joint 'Should I consider sumadhura solea/epitome' thread (posted Sep 2) praised Epitome's corner-home layout, privacy and no-shared-wall design versus nearby high-density projects -- one credited a second evening site visit and Manyata Tech Park connectivity for winning them back over, another said the layout and openness worked for self-use despite reservations."
             ],
             "negative": [
-              "Both commenters flagged the adjacent railway line's noise as position-dependent -- 'wouldnt book a track-facing unit just because the internal layout is good' and 'almost dropped Epitome after reading about the railway track' -- with the second adding caution for investment buyers weighing 'railway + surrounding compromises.'"
+              "All three commenters flagged the adjacent railway line's noise as position-dependent -- 'wouldnt book a track-facing unit just because the internal layout is good' (Sep 9), 'almost dropped Epitome after reading about the railway track' before a second visit changed their mind (Sep 10), and a third weighing 'railway + surrounding compromises' urged more caution for investment buyers than for self-use (Sep 12)."
             ],
             "topKeywords": {
               "positive": [
@@ -2674,15 +2690,15 @@
                 "second-visit reversal"
               ],
               "negative": [
-                "railway-line noise, position-dependent (2x)",
-                "investment-buyer caution"
+                "railway-line noise, position-dependent (3x)",
+                "investment-buyer caution vs self-use"
               ]
             },
             "verdict": "Mixed",
-            "keyTakeaway": "Epitome's only September Reddit mentions (2 comments, Sep 9 & 12) praised its corner-home privacy and openness while both flagged the adjacent railway line's noise as a real, position-dependent trade-off."
+            "keyTakeaway": "Epitome's only September Reddit mentions (3 comments, Sep 9-12) praised its corner-home privacy and Manyata connectivity while all three flagged the adjacent railway line's noise as a real, position-dependent trade-off."
           }
         },
-        "_note": "September's only genuine Reddit activity was two 'Existing Threads' conversations: a Sep 3 'Folium Resale Prices' thread (5 comments, Sep 9-12) and a Sep 2 joint 'Should I consider sumadhura solea/epitome' thread (5 comments, Sep 9-12, split above by which project each individual comment names). The 'Reddit - New Seeds' tab carries zero September rows (its Post Publish/Comment dates run only 25 Jun-12 Aug); three September dashboard-tracked link-rows (clubhouse-sizing, balcony-vs-clubhouse, and 3BHK-amenities threads, Sep 4/5/8) carry only aggregate comment counts with no body text and no identifiable Sumadhura project, so they aren't attributed to any project here. No Reddit activity this month for Capitol Residences, Panorama, Capitol Towers, Elysium, Infracon, Z-hub, Hive and Thrive, or Edition. (Corrected from a previous version of this cache that attributed elaborate 'Club Sumadhura'/family-scenario content to several of these projects -- that content does not appear anywhere in the current source spreadsheet and has been removed.)"
+        "_note": "September's only genuine Reddit activity was two 'Existing Threads' conversations: a Sep 3 'Folium Resale Prices' thread (4 comments, Sep 9-12) and a Sep 2 joint 'Should I consider sumadhura solea/epitome' thread (5 comments, Sep 9-12, split above by which project each individual comment names). The 'Reddit - New Seeds' tab carries zero September rows (its Post Publish/Comment dates run only 25 Jun-12 Aug); three September dashboard-tracked link-rows (clubhouse-sizing, balcony-vs-clubhouse, and 3BHK-amenities threads, Sep 4/5/8) carry only aggregate comment counts with no body text and no identifiable Sumadhura project, so they aren't attributed to any project here. No Reddit activity this month for Capitol Residences, Panorama, Capitol Towers, Elysium, Infracon, Z-hub, Hive and Thrive, or Edition. (Corrected from a previous version of this cache that attributed elaborate 'Club Sumadhura'/family-scenario content to several of these projects -- that content does not appear anywhere in the current source spreadsheet and has been removed.)"
       },
       "Quora": {
         "projects": {
