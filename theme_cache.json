@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T00:57:00.293802+00:00",
+  "generated_at": "2026-09-22T00:51:01.365470+00:00",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -2607,24 +2607,30 @@
         "projects": {
           "Infracon": {
             "positive": [
-              "The ₹400 crore Chennai logistics-park announcement (Sep 1-2) and other corporate posts drew roughly two dozen one-word 'Congratulations'/'Very nice'/'Good' reactions through the month, plus two inbound warehouse-investment inquiries unrelated to the Hive retail leads ('Interested to be part of samudra,' Sep 2; 'Interested to be part of GPN sons warehouse Private Limited,' Sep 9)."
+              "The ₹400 crore Chennai logistics-park announcement (Sep 1-2) and other corporate posts drew roughly two dozen one-word 'Congratulations'/'Very nice'/'Good' reactions through the month, plus two inbound warehouse-investment inquiries unrelated to the Hive retail leads ('Interested to be part of samudra,' Sep 2; 'Interested to be part of GPN sons warehouse Private Limited,' Sep 9).",
+              "A Sep 20 commenter's 'Plot is really good but other then railway cross do u have any plan for alternative road' was the month's one substantive late-month buyer question, pairing genuine interest with a real infrastructure concern."
             ],
             "negative": [
-              "Panathur's road and drainage quality was flagged three separate times in a five-day span -- 'Panathur is a trap... no proper road' (Sep 14), an ad called 'fake information' since 'bad roads and not much basic facilities' plague the area (Sep 15), and 'garbage road, bad water, drainage and high pollution' with a challenge to the pricing (Sep 16) -- alongside scattered one-line gripes ('Yucks flat culture sucks,' 'Bakwas,' a 'concrete jungle' rant about Bengaluru's growth) with no specific project named."
+              "Panathur's road and drainage quality was flagged three separate times in a five-day span -- 'Panathur is a trap... no proper road' (Sep 14), an ad called 'fake information' since 'bad roads and not much basic facilities' plague the area (Sep 15), and 'garbage road, bad water, drainage and high pollution' with a challenge to the pricing (Sep 16) -- with an earlier, separately worded Sep 2 comment ('Dnt fake people... Roads are not good... Worst location to communicate on anything') raising the same road-quality complaint against an unnamed listing before the Panathur cluster began.",
+              "Scattered one-line gripes rounded out the month: 'Yucks flat culture sucks' and 'Bakwas' (both Sep 10), a sarcastic 'Yeah prime Flooding' (Sep 11), and a 'concrete jungle' rant about Bengaluru's growth (Sep 16) -- none naming a specific project."
             ],
             "topKeywords": {
               "positive": [
                 "Chennai logistics-park congratulations wave",
-                "two warehouse-investment inquiries"
+                "two warehouse-investment inquiries",
+                "Sep 20 railway-crossing buyer question"
               ],
               "negative": [
                 "Panathur roads/water/drainage (3x, Sep 14-16)",
+                "Sep 2 roads/'worst location' gripe",
                 "ad called 'fake information'",
+                "sarcastic 'prime Flooding' jab (Sep 11)",
                 "generic 'flat culture sucks' / 'Bakwas' gripes"
               ]
             },
             "verdict": "Positive",
-            "keyTakeaway": "Three separate Panathur infrastructure complaints in a five-day span (Sep 14-16) -- one calling the ad itself 'fake information' -- stood out, but roughly two dozen congratulations on the Chennai logistics-park news and 30th-anniversary posts still kept the month net-positive."
+            "keyTakeaway": "Panathur infrastructure complaints (3x, Sep 14-16) plus an earlier Sep 2 roads/location gripe and a sarcastic Sep 11 flooding jab kept a steady negative undercurrent, but roughly two dozen Chennai-logistics-park congratulations and a genuine Sep 20 railway-crossing question from a prospective buyer kept the month net-positive.",
+            "_note": "A Sep 1 Rakhi-festival personal story was auto-tagged Negative by sentiment scoring but is unrelated, off-topic content (not counted above)."
           },
           "Hive and Thrive": {
             "positive": [
