@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T00:59:30.282496+00:00",
+  "generated_at": "2026-09-25T00:46:36.071180+00:00",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -2465,18 +2465,18 @@
           },
           "Capitol Towers": {
             "positive": [
-              "Capitol Towers logged seven bare-to-short 5-star GMB ratings in September, all on the same listing and none with detailed feedback: Anup Deka's one-word 'Good' (Sep 1), 'Great warrior's unlabeled 'Just a rating' (Sep 7), Anil kumar MISHRA's bare 5-star (Sep 9), TacoTech's bare 5-star (Sep 10), Jami Saranya's bare 5-star (Sep 12), Mahima Kumari's bare 5-star (Sep 13), and a seventh from Suresh Gouda (Sep 17)."
+              "Capitol Towers logged nine bare-to-short 5-star/4-star GMB ratings in September, all on the same listing and none with detailed feedback: Anup Deka's one-word 'Good' (Sep 1), 'Great warrior's unlabeled 'Just a rating' (Sep 7), Anil kumar MISHRA's bare 5-star (Sep 9), TacoTech's bare 5-star (Sep 10), Jami Saranya's bare 5-star (Sep 12), Mahima Kumari's bare 5-star (Sep 13), a seventh from Suresh Gouda (Sep 17), vaibhav singh bisht's bare 4-star (Sep 24), and vibhava nadimpalli's near-bare 5-star simply naming the project (Sep 24)."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "seven bare-to-short 5-star ratings",
-                "no written feedback from any reviewer"
+                "nine bare-to-short ratings, zero complaints",
+                "no written feedback beyond naming the project"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Capitol Towers added a seventh straight bare 5-star GMB rating in September (Suresh Gouda, Sep 17), keeping an unbroken run of ratings with zero written feedback all month.",
+            "keyTakeaway": "Capitol Towers closed September with a ninth straight bare-to-short GMB rating (vibhava nadimpalli, Sep 24), keeping an unbroken month-long run of ratings with zero written feedback and zero complaints.",
             "_note": "A Sep 20 GMB entry tagged 'capitol towers' by reviewer Udit Chandna is a shortened repost of his Sep 16 Folium post-handover complaint -- its own text still reads \"as a buyer of apartment with sumadhura in folium ,BEWARE...\" -- so it's treated as a mistagged repost, not a genuine Capitol Towers complaint, and isn't counted in the tally above."
           },
           "Epitome": {
@@ -2496,7 +2496,7 @@
           "Elysium": {
             "positive": [
               "Elysium's lone early-month review was Sourav Jahed's bare 5-star GMB rating (Sep 2), logged as 'Just a Rating' with no written feedback.",
-              "Three substantive positives followed later in September: Raj Shekhar (Sep 19) praised Elysium's suitability for multi-generation households, citing 'peace of mind, mainly for elders' with his parents living with him; Kamal kishor Mishra (Sep 21) called the layout 'reasonably spacious' and 'practical for a family of four or five'; and Riya (Sep 22) singled out the clubhouse's indoor games area and open lounge spaces as unusually 'breathable' compared to other projects she'd toured, adding she 'ended up blocking a 3BHK' after her visit."
+              "Three substantive positives followed later in September: Raj Shekhar (Sep 19) praised Elysium's suitability for multi-generation households, citing 'peace of mind, mainly for elders' with his parents living with him; Kamal kishor Mishra (Sep 21) called the layout 'reasonably spacious' and 'practical for a family of four or five'; and Riya (Sep 22) singled out the clubhouse's indoor games area and open lounge spaces as unusually 'breathable' compared to other projects she'd toured, adding she 'ended up blocking a 3BHK' after her visit; and Poetic Soul (Sep 24) credited Elysium's Panathur Main Road location for cutting the commute to RMZ Ecoworld and singled out the 80% open green space as room for kids to 'play safely.'"
             ],
             "negative": [
               "Satish Kumar's 1-star review (Sep 17) argued the Varthur-Gunjur-Panathur belt's still-pending CDP roads and drainage make it \"one of the worst area[s]\" to buy in Bangalore, calling Sumadhura's build quality merely \"decent\" next to Sobha and Prestige despite CAT-A pricing -- Sumadhura's reply reframed Elysium's low-density, self-contained design as insulation from those exact civic gaps.",
@@ -2504,6 +2504,7 @@
             ],
             "topKeywords": {
               "positive": [
+                "commute relief to RMZ Ecoworld (Poetic Soul)",
                 "multi-generation / elder-friendly comfort (Raj Shekhar)",
                 "family-of-4-5 layout praise (Kamal kishor Mishra)",
                 "clubhouse & indoor games area (Riya)",
@@ -2516,8 +2517,8 @@
                 "pricing vs. Sobha/Prestige comparison"
               ]
             },
-            "verdict": "Mixed",
-            "keyTakeaway": "Three new late-month reviews (Raj Shekhar, Kamal kishor Mishra, Riya) praised family comfort and the clubhouse, but Vikash Singh's Sep 21 fake-review accusation and Satish Kumar's CDP-road complaint kept Elysium Mixed rather than clearing to Positive.",
+            "verdict": "Positive",
+            "keyTakeaway": "Five positive September mentions -- family comfort, spacious layout, clubhouse breathability, and Poetic Soul's Sep 24 praise for the RMZ Ecoworld commute and 80% green space -- outweighed Satish Kumar's CDP-road gripe and Vikash Singh's fake-review accusation, tipping Elysium to Positive.",
             "_note": "The month's one GMB entry tagged with Elysium's handle (Udit Chandna, Sep 16) is a post-handover complaint whose text explicitly names Folium ('as a buyer... with sumadhura in folium') -- almost certainly a mistagged handle, so it's counted under Folium instead."
           },
           "Edition": {
@@ -2552,14 +2553,19 @@
             "keyTakeaway": "Capitol Residences picked up its first September GMB review only on Sep 17, with Suresh Gouda praising the community's 'full development.'"
           },
           "Panorama": {
-            "positive": [],
+            "positive": [
+              "Siri Kishore's 5-star review (Sep 24) offered the month's only positive counterweight, calling both Phase 1 and Phase 2 'well planned' with 'a peaceful atmosphere and a good community feel' and praising the pace of surrounding infrastructure development."
+            ],
             "negative": [
               "Saransh's 1-star (Sep 19) flagged a Phase 2 marketing-vs-RERA discrepancy: areas the public brochure markets as amenities and parks are marked as CA (common) area in the RERA filing, which by law the builder must relinquish to the government -- he urged buyers to do a proper legal check before purchase.",
               "Sudhakar Reddy's 1-star (Sep 20) echoed and extended the same Phase 2 concerns in a detailed buyer-advisory list -- undisclosed CA-area location, amenities/parks sited on CA or forest-buffer land, plots planned on a rain-water nala, an unspecified 'theme' plan, and a since-confirmed railway depot just 10-15 feet from the boundary wall -- urging buyers not to sign until each point is answered.",
               "Sai Krishna's 1-star (Sep 21) disputed Panorama's 'Luxury' positioning directly, citing still-unpaved tar roads despite Phase-1 promises, cost-cutting versus category peers like Prestige, and three pending legal cases tied to Phase 1 with no clarity on when registration will happen."
             ],
             "topKeywords": {
-              "positive": [],
+              "positive": [
+                "well planned Phase 1 & 2 (Siri Kishore)",
+                "peaceful atmosphere & community feel"
+              ],
               "negative": [
                 "Phase 2 brochure vs RERA CA-area mismatch",
                 "railway depot ~10-15 ft from boundary wall",
@@ -2569,8 +2575,8 @@
                 "'Luxury' positioning disputed"
               ]
             },
-            "verdict": "Strong Negative",
-            "keyTakeaway": "Three separate 1-star reviews this month (Saransh, Sudhakar Reddy, Sai Krishna) piled on Phase 2 due-diligence warnings -- CA-area/RERA mismatches, a railway depot 10-15 ft from the boundary wall, and three pending Phase-1 legal cases -- with zero positive counterweight."
+            "verdict": "Negative",
+            "keyTakeaway": "Siri Kishore's Sep 24 five-star praise for both phases' planning was the lone positive against three separate Phase 2 due-diligence warnings this month -- CA-area/RERA mismatches, a railway depot 10-15 ft from the boundary wall, and three pending Phase-1 legal cases."
           },
           "Z-hub": {
             "positive": [
@@ -2634,7 +2640,7 @@
             "_note": "127 of 146 September comments were near-content-free (emoji, single words, '[Media]', or reposts of corporate PR/unrelated business-solicitation spam) and excluded from sentiment above. All content sits under one corporate handle with no per-project tagging, consistent with prior months; a previous version of this entry covered only a partial Sep 7-21 window and included some quotes (a burst of 'Price' replies, an '@imraanlightsuptheworld' endorsement) not found in this month's fuller verified pull, so they have been dropped."
           }
         },
-        "_note": "September's Instagram activity (122 'Instagram Business' rows in the Daily Tracker's 'specific data' tab, through Sep 18 -- the sheet's latest logged date) is entirely on the 'sumadhurainfracon' handle; the Infracon entry above covers its genuine engagement (Chennai logistics-park announcement, 30th anniversary, ₹17,000cr FY2030 expansion plan, one partner shout-out, one buyer-interest comment). Nothing project-specific or substantive surfaced in the Sep 14-18 tail beyond what's already captured -- a Sep 17 'Maintenance will be bomb when the builder gives to society' aside and a Sep 17 fatalistic troll comment name no specific project. Excluded as unattributable to any of the 11 tracked projects: a branded fitness-equipment post (Star Trac) naming no specific project, a PropTech-event repost, unrelated personal Raksha Bandhan reels/stories cross-posted to the corporate account, an Onam-celebration post, a Ganesh Chaturthi post, and generic emoji reactions, @-tags and price/location inquiries. A Sep 7 mocking comment ('Tatti ghar banate hi bhai tumlog😅') was mistagged Neutral by the CRM and reads as a genuine build-quality jibe, but names no specific project so is left out of the Infracon bullets above."
+        "_note": "September's Instagram activity (122 'Instagram Business' rows in the Daily Tracker's 'specific data' tab, through Sep 18 -- the sheet's latest logged date) is entirely on the 'sumadhurainfracon' handle; the Infracon entry above covers its genuine engagement (Chennai logistics-park announcement, 30th anniversary, ₹17,000cr FY2030 expansion plan, one partner shout-out, one buyer-interest comment). Nothing project-specific or substantive surfaced in the Sep 14-18 tail beyond what's already captured -- a Sep 17 'Maintenance will be bomb when the builder gives to society' aside and a Sep 17 fatalistic troll comment name no specific project. Excluded as unattributable to any of the 11 tracked projects: a branded fitness-equipment post (Star Trac) naming no specific project, a PropTech-event repost, unrelated personal Raksha Bandhan reels/stories cross-posted to the corporate account, an Onam-celebration post, a Ganesh Chaturthi post, and generic emoji reactions, @-tags and price/location inquiries. A Sep 7 mocking comment ('Tatti ghar banate hi bhai tumlog😅') was mistagged Neutral by the CRM and reads as a genuine build-quality jibe, but names no specific project so is left out of the Infracon bullets above. (Checked again this run: the Daily Tracker's 'specific data' tab -- 3,319 rows -- sits behind a much larger 6,510-row 'raw' ticket-export tab in the same workbook, and the connector available this run could not render past that 'raw' tab to reach fresh 'specific data' rows, so coverage for this platform remains as last verified, through Sep 18.)"
       },
       "Facebook": {
         "projects": {
@@ -2702,7 +2708,7 @@
             "_note": "None of these comments name 'Elysium' directly -- they name 'Panathur,' this cache's established site for the Elysium project (see GMB/Reddit/Quora entries) -- so they're attributed here rather than left under Infracon."
           }
         },
-        "_note": "September's Facebook inbox (103 'Facebook Page' + 17 'Facebook Mail' rows in the Daily Tracker's 'specific data' tab, through Sep 18 -- the sheet's latest logged date) is entirely on the 'Sumadhura Infracon Private Limited' page; the Infracon entry above covers its two real events (Chennai logistics-park announcement, 30th anniversary) and genuine complaints. Nothing new and project-specific surfaced in the Sep 17-18 tail beyond what's already captured. Excluded as unattributable to any of the 11 tracked projects: lead-gen inquiries about retail-space investment in 'Hive by Sumadhura' (Whitefield) -- interest signals, not sentiment; a Sep 8 comment mocking a 6-year-running ad and implying price depreciation near Kadubesanahalli/the Kia showroom; Raksha Bandhan reposts and reels; and generic one-word/emoji/price-location inquiries naming no project. A Sep 1 comment mistagged 'Negative' by the CRM was an unrelated childhood Raksha Bandhan story misclassified by keyword matching, not a real complaint."
+        "_note": "September's Facebook inbox (103 'Facebook Page' + 17 'Facebook Mail' rows in the Daily Tracker's 'specific data' tab, through Sep 18 -- the sheet's latest logged date) is entirely on the 'Sumadhura Infracon Private Limited' page; the Infracon entry above covers its two real events (Chennai logistics-park announcement, 30th anniversary) and genuine complaints. Nothing new and project-specific surfaced in the Sep 17-18 tail beyond what's already captured. Excluded as unattributable to any of the 11 tracked projects: lead-gen inquiries about retail-space investment in 'Hive by Sumadhura' (Whitefield) -- interest signals, not sentiment; a Sep 8 comment mocking a 6-year-running ad and implying price depreciation near Kadubesanahalli/the Kia showroom; Raksha Bandhan reposts and reels; and generic one-word/emoji/price-location inquiries naming no project. A Sep 1 comment mistagged 'Negative' by the CRM was an unrelated childhood Raksha Bandhan story misclassified by keyword matching, not a real complaint. (Checked again this run: the Daily Tracker's 'specific data' tab -- 3,319 rows -- sits behind a much larger 6,510-row 'raw' ticket-export tab in the same workbook, and the connector available this run could not render past that 'raw' tab to reach fresh 'specific data' rows, so coverage for this platform remains as last verified, through Sep 18.)"
       },
       "LinkedIn": {
         "projects": {
@@ -2718,7 +2724,7 @@
             "_note": "Verified directly against the Daily Tracker's raw 'specific data' rows (952 total Linkedin Page rows across the tracker's full history): the latest dated row anywhere is 14-Aug-2026, zero rows fall in September. A prior version of this entry described specific September LinkedIn posts (a Graduate Engineer Trainee session, a Whitefield-Kannamangala JDA announcement) that do not appear in the raw data for this month and have been removed as unverifiable/mis-dated. Flagging for the team to check the LinkedIn feed/integration into this tracker."
           }
         },
-        "_note": "No LinkedIn rows exist in the Daily Tracker's 'specific data' tab for September (checked through Sep 18, the sheet's latest logged date) -- the sheet's most recent dated LinkedIn entries remain from mid-August (14 Aug). No data to report this month."
+        "_note": "No LinkedIn rows exist in the Daily Tracker's 'specific data' tab for September (checked through Sep 18, the sheet's latest logged date) -- the sheet's most recent dated LinkedIn entries remain from mid-August (14 Aug). No data to report this month. (Checked again this run: the Daily Tracker's 'specific data' tab -- 3,319 rows -- sits behind a much larger 6,510-row 'raw' ticket-export tab in the same workbook, and the connector available this run could not render past that 'raw' tab to reach fresh 'specific data' rows, so coverage for this platform remains as last verified, through Sep 18.)"
       },
       "Reddit": {
         "projects": {
@@ -2786,9 +2792,32 @@
             "verdict": "Mixed",
             "keyTakeaway": "Epitome's only September Reddit activity -- three comments (Sep 9, 10, 12) on a Sep 2 solea/epitome thread -- praised its corner-home privacy and Manyata connectivity, but all three also flagged the adjacent railway line's noise as position-dependent.",
             "_note": "A seeded comment previously logged here under Sep 2 is not attributable to a genuine September Existing-Thread comment and has been removed; the three organic comments above (Sep 9, 10, 12) are the verified September Reddit activity for Epitome."
+          },
+          "Edition": {
+            "positive": [
+              "A Sep 19 reply thread on the pre-existing r/BangaloreRealEstates 'Sumadhura Edition final booking' post fielded several practical buyer questions with specifics: Phase 2's RERA inventory shows roughly one registered parking slot per unit, Phase 2 currently carries no declared litigation flag (unlike Phase 1), and Whitefield/Bagmane/ITPL proximity was repeatedly cited as the strongest draw versus cheaper, farther-out projects."
+            ],
+            "negative": [
+              "The same thread flagged real due-diligence caveats specific to Edition's J tower: possession isn't until 2029, so buyers were urged to weigh a 3+ year wait against still paying rent; J tower's facing toward Spectra Raya was flagged for a tower-to-tower privacy check; and commenters warned not to assume the 12.5-12.7k/sqft price points from a few months back still hold without renegotiating."
+            ],
+            "topKeywords": {
+              "positive": [
+                "~1 parking slot per unit (Phase 2 RERA)",
+                "no litigation flag on Phase 2",
+                "Whitefield/Bagmane/ITPL proximity"
+              ],
+              "negative": [
+                "2029 possession, 3+ year wait",
+                "J tower facing Spectra Raya (privacy)",
+                "stale bp pricing needs renegotiation"
+              ]
+            },
+            "verdict": "Mixed",
+            "keyTakeaway": "A Sep 19 reply thread on an existing 'Edition final booking' post gave specific, balanced buyer guidance -- Phase 2's ~1-per-unit parking and clean litigation record against J tower's 2029 possession date and a Spectra Raya facing/privacy check.",
+            "_note": "Sourced from the 'Reddit - Existing Threads' tab (seeded replies into a genuine, pre-existing Reddit post, not a company-created thread), consistent with how Folium's and Solace/Epitome's Existing-Threads comments are treated elsewhere in this month's cache."
           }
         },
-        "_note": "September's Reddit activity has two distinct layers. (1) Genuine 'Existing Threads' conversations: a Sep 3 'Folium Resale Prices' thread (4 comments, Sep 9-12) and a Sep 2 joint 'Should I consider sumadhura solea/epitome' thread (5 comments, Sep 9-12, split above by which project each comment names) -- both captured in the Folium, Solace and Epitome entries above. (2) A large seeded amenity-marketing campaign in the 'Reddit - New Seeds' tab (63 September rows, Sep 1-18, scripted personas posting supportive comments across a dozen-plus r/indianrealestate and r/BangaloreRealEstates threads about Club Sumadhura sports coaching, Quality Studio finishes, Real View, vehicle-free layouts, clubhouse crowding and multi-generation living) -- this correctly re-supersedes a previous version of this cache, which had (incorrectly) recorded zero September rows in that tab; the campaign in fact names Folium, Capitol Residences, Solace, Edition, Epitome and Elysium, captured above. No Reddit activity this month, seeded or organic, for Panorama, Capitol Towers, Infracon, Z-hub or Hive and Thrive."
+        "_note": "September's Reddit activity comes entirely from the 'Existing Threads' tab -- seeded replies posted into genuine, pre-existing Reddit discussions (not company-created posts): a Sep 3 'Folium Resale Prices' thread (4 comments, Sep 9-12), a Sep 2 joint 'Should I consider sumadhura solea/epitome' thread (5 comments, Sep 9-12, split above by which project each names), and a Sep 19 'Sumadhura Edition final booking' thread -- captured above under Folium, Solace, Epitome and Edition. The separate 'Reddit - New Seeds' tab -- scripted personas creating fresh posts from scratch across r/indianrealestate and r/BangaloreRealEstates about Club Sumadhura sports coaching, Quality Studio finishes, Real View, vehicle-free layouts and multi-generation living -- was reviewed and excluded here: it is outright marketing content rather than engagement with an existing conversation, consistent with Folium's, Solace's and Epitome's own per-project notes. No Reddit activity this month, seeded or organic, for Panorama, Capitol Towers, Infracon, Z-hub or Hive and Thrive. (This corrects an earlier version of this note, which incorrectly claimed the New Seeds campaign had been counted as September activity for Folium, Capitol Residences, Solace, Edition, Epitome and Elysium -- it was not; only Folium, Solace and Epitome had projects entries, and Edition's entry above is new, sourced from Existing Threads, not New Seeds.)"
       },
       "Quora": {
         "projects": {
@@ -2809,9 +2838,72 @@
             "verdict": "Strong Positive",
             "keyTakeaway": "Twenty seeded Quora answers (Sep 8-11) uniformly framed the new ₹400cr Chennai logistics park around CPRR connectivity and Sumadhura's existing Hoskote track record, positioning it as a deliberate diversification beyond the group's residential portfolio.",
             "_note": "All 20 answers are Sumadhura-seeded responses to four freshly posted 'unanswered' Quora questions about the Chennai logistics park (verified Sep 8-11 dates) -- not organic Q&A; Folium/Capitol Residences/Edition/Solace are named only as portfolio context, not reviewed themselves. Separately, seeded Quora entries previously logged this month under Folium, Capitol Residences and Epitome came from the tab's 'Fresh Seed' section, which has zero rows dated in September (its Post Dates top out 17 Aug 2026) -- those three entries have been removed as mis-dated rather than genuine September Quora activity."
+          },
+          "Folium": {
+            "positive": [
+              "Two seeded 'Fresh Seed' Quora answers (Sep 19, Sep 24) praised Folium's community design: one said its social spaces aren't centred on one indoor clubhouse but spread across sports areas, walking paths and landscaped outdoor zones that give residents 'different reasons to be outside at different times'; the other flagged the clubhouse/amenity setup as large enough that maintenance costs need itemizing -- which facilities are covered vs. billed separately (sports coaching, academy access)."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "distributed outdoor/social spaces, not one clubhouse",
+                "large amenity setup (context for maintenance Q)"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Two seeded Quora 'Fresh Seed' answers this month (Sep 19, 24) framed Folium's community design as spread-out rather than clubhouse-centric, while one raised maintenance-cost transparency as a fair question for its large amenity list.",
+            "_note": "Sourced from the 'Quora - New + Existing' tab's Fresh Seed section -- scripted persona answers to freshly posted questions, not organic Q&A, verified by genuine September Post Dates (Sep 19, 24). Reported and clearly labeled as seeded marketing content, consistent with how the Infracon Chennai-logistics-park seeded campaign is treated above."
+          },
+          "Capitol Residences": {
+            "positive": [
+              "A Sep 19 seeded answer praised Capitol Residences' vehicle-free ground planning as practical for elderly residents who want to walk without dodging delivery-vehicle traffic in the evening; a Sep 24 answer (on evaluating maintenance costs for 'taller' Sumadhura projects) recommended buyers specifically ask about lift count, service lifts, AMC structure and sinking-fund provisioning for major repairs."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "vehicle-free ground plan (elderly safety)",
+                "lift count / AMC / sinking fund (buyer-advisory)"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Seeded Quora answers this month (Sep 19, 24) praised Capitol Residences' vehicle-free ground planning for elderly walkers and used it as a prompt to advise buyers to verify lift count and AMC/sinking-fund provisioning.",
+            "_note": "Sourced from the 'Quora - New + Existing' tab's Fresh Seed section -- scripted persona answers to freshly posted questions, not organic Q&A, verified by genuine September Post Dates (Sep 19, 24). Reported and clearly labeled as seeded marketing content, consistent with how the Infracon Chennai-logistics-park seeded campaign is treated above."
+          },
+          "Edition": {
+            "positive": [
+              "A Sep 19 seeded answer on elder-friendly common spaces cited Edition's quieter reading and meditation-type zones as well suited to older residents with less active lifestyles, arguing different generations need different amenities rather than one blanket fitness-heavy offering."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "reading/meditation zones for elders"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Edition's only September Quora mention -- a Sep 19 seeded answer -- praised its quieter reading and meditation-style spaces as better suited to less-active elderly residents than a typical fitness-heavy amenity list.",
+            "_note": "Sourced from the 'Quora - New + Existing' tab's Fresh Seed section -- a scripted persona answer to a freshly posted question, not organic Q&A, verified by a genuine September Post Date (Sep 19). Reported and clearly labeled as seeded marketing content, consistent with how the Infracon Chennai-logistics-park seeded campaign is treated above."
+          },
+          "Panorama": {
+            "positive": [
+              "Two seeded answers (Sep 22, Sep 23) framed Panorama Phase 2's plotted format positively for specific buyer needs: one said private outdoor space suits families managing pets without repeated trips downstairs, especially for elderly relatives who look after them during the day; the other flagged that a larger plotted layout needs enough early move-ins to feel like a real neighbourhood for growing children, alongside checking construction activity before buying."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "private outdoor space for pets/elderly caregivers",
+                "plotted-format flexibility"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Seeded Quora answers this month (Sep 22, 23) pitched Panorama Phase 2's plotted format around pet-owning families and elderly caregivers, while also flagging early-occupancy levels as worth checking before buying.",
+            "_note": "Sourced from the 'Quora - New + Existing' tab's Fresh Seed section -- scripted persona answers to freshly posted questions, not organic Q&A, verified by genuine September Post Dates (Sep 22, 23). Reported and clearly labeled as seeded marketing content, consistent with how the Infracon Chennai-logistics-park seeded campaign is treated above. Distinct from this month's GMB activity, where Panorama also drew three organic 1-star Phase-2 due-diligence complaints."
           }
         },
-        "_note": "September's Quora activity has two distinct sources. (1) A coordinated 20-answer seeding campaign in the workbook's 'Quora Existing' tab (Sep 8-11) about the new Sumadhura Industrial & Logistics Park in Chennai (Red Hills/CPRR) -- captured above under Infracon; Folium/Capitol Residences/Edition/Solace are named only as background portfolio context inside those answers, not reviewed themselves. (2) A separate, larger seeded amenity-marketing campaign in the 'Quora - New + Existing' tab (Sep 5-18) naming Folium, Capitol Residences and Epitome specifically -- captured above; this corrects a previous version of this cache, which had not yet captured this second campaign. No Quora activity this month for Solace, Edition, Panorama, Capitol Towers, Elysium, Z-hub or Hive and Thrive -- Sumadhura Pramoda and Sumadhura Sarang also appear repeatedly in the same seeded campaign but aren't tracked projects on this dashboard, so they're excluded here. (Corrected from an earlier version of this cache that attributed ~44 additional seeded answers -- with invented specifics like named sports academies and exact clubhouse square-footage -- to Folium, Capitol Residences and Epitome; that content has since been verified as genuinely present in the sheet, under the theme cited above, and is restored here with sourcing corrected.)"
+        "_note": "September's Quora activity has two distinct sources, both seeded marketing content rather than organic Q&A, each clearly labeled per project above. (1) A coordinated 20-answer campaign in the 'Quora Existing' tab (Sep 8-11) about the new Sumadhura Industrial & Logistics Park in Chennai (Red Hills/CPRR) -- captured above under Infracon; Folium/Capitol Residences/Edition/Solace are named only as background portfolio context inside those answers, not reviewed themselves. (2) A 'Fresh Seed' campaign in the 'Quora - New + Existing' tab with genuine September Post Dates (Sep 19-24) naming Folium, Capitol Residences, Edition and Panorama specifically -- captured above under each. No Quora activity this month for Solace, Capitol Towers, Elysium, Z-hub or Hive and Thrive -- Sumadhura Pramoda, Sumadhura Sarang and Codename Aikya also appear repeatedly in the same seeded campaign but aren't tracked projects on this dashboard, so they're excluded here. (This corrects an earlier version of this note that had removed the Fresh Seed campaign entirely as mis-dated -- that was accurate for the Aug 5-18 batch it reviewed at the time, but a further Sep 19-24 batch has since been posted with genuine September Post Dates and is restored here.)"
       }
     }
   },
