@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T00:46:36.071180+00:00",
+  "generated_at": "2026-09-26T00:50:25.284484+00:00",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -2437,7 +2437,7 @@
           "Folium": {
             "positive": [
               "September opened strong for Folium with four straight 5-star GMB reviews before the month's first written complaint arrived: Manish Nishad's bare 'Very good' (Sep 1), rahul kapale singling out the CRM team as 'awesome, very helpful' (Sep 1), Velixa Health praising the property's infrastructure and decoration (Sep 2), and Kavitha S's bare 5-star (Sep 3).",
-              "Six more 5-stars followed later in the month -- Jitesh Ramchandani (Sep 9), Sudha m ('Best amenities and community,' Sep 12), bare ratings from Anand Sai and Raja Reddy (both Sep 16), and a bare 5-star from Ananya Moitra (Sep 22) -- for nine positive reviews total against four written complaints."
+              "Six more 5-stars followed later in the month -- Jitesh Ramchandani (Sep 9), Sudha m ('Best amenities and community,' Sep 12), bare ratings from Anand Sai and Raja Reddy (both Sep 16), a bare 5-star from Ananya Moitra (Sep 22), and a tenth from Tejpal Singh Chauhan (Sep 25) -- for ten positive reviews total against four written complaints."
             ],
             "negative": [
               "Prateek Thawait's scathing 1-star (Sep 5) used sustained sarcasm to detail a genuine Phase 1 registration ordeal -- an 8-month wait since January, a sale deed delivered with typos, an 11-day wait for a noncommittal reply to his rectification-deed request, and a total absence of a real point of contact ('a mythical phone number,' emails into 'a peaceful, infinite void').",
@@ -2449,7 +2449,7 @@
               "positive": [
                 "CRM team praise (rahul kapale)",
                 "infrastructure & decoration compliment",
-                "nine 5-star ratings total",
+                "ten 5-star ratings total",
                 "'Best amenities and community' (Sudha m)"
               ],
               "negative": [
@@ -2459,8 +2459,8 @@
                 "fresh seepage + fixture damage (Archana Kamat)"
               ]
             },
-            "verdict": "Mixed",
-            "keyTakeaway": "Four distinct complaints this month -- Prateek Thawait's 8-month registration saga, two separate venomous-snake-sighting reports, Udit Chandna's sweeping post-handover mismanagement list, and Archana Kamat's fresh seepage -- pulled Folium down from its usual strong-positive run to Mixed.",
+            "verdict": "Positive",
+            "keyTakeaway": "A tenth bare 5-star (Tejpal Singh Chauhan, Sep 25) nudged Folium just past the 70% positive ratio, flipping September from Mixed to Positive despite four distinct complaints -- registration delays, two snake sightings, sweeping post-handover mismanagement, and fresh seepage -- still on record.",
             "_note": "A second, shorter repost of Udit Chandna's post-handover complaint (Sep 20) also appears in this month's data -- now naming a helpdesk staffer, Yashwant, and threatening to 'burn your money' -- tagged 'capitol towers' rather than Folium in the Project Highlighted field even though its text still names Folium; treated as the same mistagged review, not a new complaint, and not double-counted above."
           },
           "Capitol Towers": {
@@ -2523,7 +2523,7 @@
           },
           "Edition": {
             "positive": [
-              "Edition drew five positive September GMB mentions: new buyer Pradeep Vasamsetty (Sep 3) got an apartment and promised to track the review 'as per construction pace' while inviting other buyers into a group; Paritosh Sahay (Sep 5) called the project 'thoughtfully developed' and credited Mr Francis for explaining and closing the deal; Deepa Prasanth (Sep 6) was 'very happy' booking a flat and separately credited Francis for guiding her well -- though her review was logged under Solace's GMB listing rather than Edition's; Debasish Patnaik (Sep 10) left a bare 5-star rating; and nagendra prasad (Sep 23) added a second bare 5-star rating bookending the month."
+              "Edition drew six positive September GMB mentions: new buyer Pradeep Vasamsetty (Sep 3) got an apartment and promised to track the review 'as per construction pace' while inviting other buyers into a group; Paritosh Sahay (Sep 5) called the project 'thoughtfully developed' and credited Mr Francis for explaining and closing the deal; Deepa Prasanth (Sep 6) was 'very happy' booking a flat and separately credited Francis for guiding her well -- though her review was logged under Solace's GMB listing rather than Edition's; Debasish Patnaik (Sep 10) left a bare 5-star rating; nagendra prasad (Sep 23) added a second bare 5-star rating; and Ram Lahoti (Sep 25) closed the month with a third bare 5-star."
             ],
             "negative": [],
             "topKeywords": {
@@ -2531,30 +2531,33 @@
                 "Francis named twice for closing/guiding deals",
                 "new buyer tracking construction pace",
                 "buyer group invite",
-                "review misfiled under Solace's GMB listing"
+                "review misfiled under Solace's GMB listing",
+                "three bare 5-star ratings (Patnaik, nagendra prasad, Ram Lahoti)"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Edition earned five positive September GMB mentions with salesperson Francis named twice (Sahay, Prasanth) for closing and guiding deals -- though Prasanth's review was oddly logged under Solace's GMB listing -- plus bare 5-star ratings opening and closing the month (Patnaik Sep 10, nagendra prasad Sep 23)."
+            "keyTakeaway": "Edition earned six positive September GMB mentions, closing with Ram Lahoti's Sep 25 bare 5-star -- Francis was named twice (Sahay, Prasanth) for closing/guiding deals, and zero complaints were logged all month."
           },
           "Capitol Residences": {
             "positive": [
-              "Capitol Residences' sole September GMB review, from Suresh Gouda (Sep 17), praised the community's 'full development' -- the only mention this month."
+              "Capitol Residences drew two September GMB reviews: Suresh Gouda (Sep 17) praised the community's 'full development,' and raghu nath (Sep 25) added a bare 5-star rating with no written feedback."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "'full development' praise (Suresh Gouda)"
+                "'full development' praise (Suresh Gouda)",
+                "second bare 5-star (raghu nath, Sep 25)"
               ],
               "negative": []
             },
             "verdict": "Positive",
-            "keyTakeaway": "Capitol Residences picked up its first September GMB review only on Sep 17, with Suresh Gouda praising the community's 'full development.'"
+            "keyTakeaway": "Capitol Residences closed September with a second GMB review -- raghu nath's bare 5-star (Sep 25) -- following Suresh Gouda's Sep 17 'full development' praise, with zero complaints logged."
           },
           "Panorama": {
             "positive": [
-              "Siri Kishore's 5-star review (Sep 24) offered the month's only positive counterweight, calling both Phase 1 and Phase 2 'well planned' with 'a peaceful atmosphere and a good community feel' and praising the pace of surrounding infrastructure development."
+              "Siri Kishore's 5-star review (Sep 24) offered the month's first positive counterweight, calling both Phase 1 and Phase 2 'well planned' with 'a peaceful atmosphere and a good community feel' and praising the pace of surrounding infrastructure development.",
+              "Raju Gowda's bare 5-star (Sep 24) followed the same day, adding a second positive rating with no written detail."
             ],
             "negative": [
               "Saransh's 1-star (Sep 19) flagged a Phase 2 marketing-vs-RERA discrepancy: areas the public brochure markets as amenities and parks are marked as CA (common) area in the RERA filing, which by law the builder must relinquish to the government -- he urged buyers to do a proper legal check before purchase.",
@@ -2564,7 +2567,8 @@
             "topKeywords": {
               "positive": [
                 "well planned Phase 1 & 2 (Siri Kishore)",
-                "peaceful atmosphere & community feel"
+                "peaceful atmosphere & community feel",
+                "second bare 5-star (Raju Gowda)"
               ],
               "negative": [
                 "Phase 2 brochure vs RERA CA-area mismatch",
@@ -2575,8 +2579,8 @@
                 "'Luxury' positioning disputed"
               ]
             },
-            "verdict": "Negative",
-            "keyTakeaway": "Siri Kishore's Sep 24 five-star praise for both phases' planning was the lone positive against three separate Phase 2 due-diligence warnings this month -- CA-area/RERA mismatches, a railway depot 10-15 ft from the boundary wall, and three pending Phase-1 legal cases."
+            "verdict": "Mixed",
+            "keyTakeaway": "Two Sep 24 positive ratings (Siri Kishore's planning praise, Raju Gowda's bare 5-star) softened Panorama to Mixed, but three separate Phase 2 due-diligence warnings -- CA-area/RERA mismatches, a railway depot near the boundary wall, and pending Phase-1 litigation -- remain the substantive story."
           },
           "Z-hub": {
             "positive": [
@@ -2597,18 +2601,19 @@
           },
           "Hive and Thrive": {
             "positive": [
-              "Hive and Thrive picked up two positive September GMB reviews: Leo Avijit (Sep 21) praised the project's 'smart planning' -- a simple, well-placed layout he called 'easy to handle' for residents -- and Madhav (Sep 23), visiting for an enterprise client presentation, called out swift security screening and fast elevators that got him to an 8th-floor conference room with time to spare."
+              "Hive and Thrive picked up three positive September GMB reviews: Leo Avijit (Sep 21) praised the project's 'smart planning' -- a simple, well-placed layout he called 'easy to handle' for residents; Madhav (Sep 23), visiting for an enterprise client presentation, called out swift security screening and fast elevators that got him to an 8th-floor conference room with time to spare; and Neha Sharma (Sep 24) praised effortless parking despite Whitefield's usual chaotic traffic and said the open plaza area made her informal coffee catch-up 'feel super relaxed and premium.'"
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
                 "'smart planning' / layout praise (Leo Avijit)",
-                "swift security & fast elevators (Madhav)"
+                "swift security & fast elevators (Madhav)",
+                "effortless parking + open plaza praise (Neha Sharma)"
               ],
               "negative": []
             },
-            "verdict": "Positive",
-            "keyTakeaway": "Hive and Thrive added a second positive GMB review this month (Madhav, Sep 23), praising swift security and fast elevators during an enterprise-client visit -- echoing Leo Avijit's Sep 21 layout praise, with zero complaints logged."
+            "verdict": "Strong Positive",
+            "keyTakeaway": "Hive and Thrive picked up a third straight positive September GMB review (Neha Sharma, Sep 24) praising effortless parking and a relaxed open-plaza feel, pushing the month to Strong Positive with zero complaints logged."
           }
         }
       },
@@ -2730,7 +2735,8 @@
         "projects": {
           "Folium": {
             "positive": [
-              "Five real comments (Sep 9-12) on a Sep 3 'Sumadhura Folium Resale Prices' thread carried genuine resident insight: a self-identified Folium resident said tower, sunlight, balcony side, lift access and clubhouse distance 'matter more than I thought' after moving in, another called it a society they 'actually like,' and a third noted occupied Phase 1/2 units carry real certainty -- visible landscaping, an established clubhouse, actual crowd levels -- that a still-building phase can't offer."
+              "Five real comments (Sep 9-12) on a Sep 3 'Sumadhura Folium Resale Prices' thread carried genuine resident insight: a self-identified Folium resident said tower, sunlight, balcony side, lift access and clubhouse distance 'matter more than I thought' after moving in, another called it a society they 'actually like,' and a third noted occupied Phase 1/2 units carry real certainty -- visible landscaping, an established clubhouse, actual crowd levels -- that a still-building phase can't offer.",
+              "A separate Sep 12 'Any Sumadhura Folium owners here? Need genuine feedback before buying' thread drew one direct resident reply praising the community's open space as the biggest plus -- enough to skip leaving the complex for a post-work walk."
             ],
             "negative": [
               "The thread's recurring caution was Borewell Road: the commenter who 'actually likes' Folium as a society said they'd still 'factor in' the road before paying a resale premium, adding 'some other Folium threads also flag the road as the main compromise' -- a road-access drawback repeated organically rather than a one-off gripe -- alongside general skepticism that resale asks running 15%+ over builder rate are inflated relative to actual value."
@@ -2739,7 +2745,8 @@
               "positive": [
                 "insider tower/sunlight/balcony advice",
                 "occupied Phase 1/2 resale certainty",
-                "'actually like [it] as a society'"
+                "'actually like [it] as a society'",
+                "open space enables post-work walking (separate Sep 12 thread)"
               ],
               "negative": [
                 "Borewell Road flagged as main compromise (recurring)",
@@ -2747,8 +2754,8 @@
               ]
             },
             "verdict": "Mixed",
-            "keyTakeaway": "Folium's only real September Reddit activity was five comments on a Sep 3 resale-pricing thread -- genuine residents defended the society itself but repeatedly flagged Borewell Road access as resale's main compromise, keeping the thread cautious rather than glowing.",
-            "_note": "A 'New Seeds' amenity-marketing campaign previously logged here under September dates is, in the source sheet, dated entirely 25 Jun-12 Aug 2026 -- before this month -- so it has been removed rather than counted as September activity; only the Existing-Threads resale discussion above genuinely falls in this month."
+            "keyTakeaway": "Folium's September Reddit activity spanned two threads: five Sep 3 resale-pricing comments defended the society but flagged Borewell Road as the main compromise, while a separate Sep 12 owner's reply praised the community's open space for after-work walks.",
+            "_note": "A 'New Seeds' amenity-marketing campaign previously logged here under September dates is, in the source sheet, dated entirely 25 Jun-12 Aug 2026 -- before this month -- so it has been removed rather than counted as September activity; a separate Sep 8 New Seeds seeded comment naming Folium was likewise excluded as scripted marketing content, not organic feedback. The two genuine Existing-Threads discussions above -- the Sep 3 resale-pricing thread and a separate Sep 12 owner-feedback thread -- are this month's verified Reddit activity for Folium."
           },
           "Solace": {
             "positive": [
