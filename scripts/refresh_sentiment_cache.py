@@ -19,6 +19,17 @@ Run this every Monday (per the user's ask) to backfill the week that just comple
 Mirrors the exact aggregation logic in index.html's applyDateRange() — if that logic
 changes, update this script to match (see the inline references to line-anchored
 comments in index.html for what each block replicates).
+
+** STALE as of the Sep 2026 Reddit/Quora source swap — DO NOT RUN until rewritten. **
+index.html's Reddit/Quora loading was rewritten to read the new brand-tracking workbook
+(one "<Brand> Reddit" / "<Brand> Quora" tab per brand, grouped thread+comment rows, sentiment
+graded once per thread, windowed by "Comments Date") — see loadRedditQuora()/parseBrandTab()/
+sentimentCountsForThreads() in index.html. load_reddit_rows()/load_quora_sentiment()/
+reddit_counts_for_window() below still assume the OLD "Reddit - New Seeds" / "Reddit - Existing
+Threads" / "Quora - New + Existing" tabs and column names, which no longer exist in
+SHEET_IDS["redditQuora"]. Running this as-is will fail (tab not found) or, if SHEET_IDS still
+pointed at the old workbook, silently freeze counts from a source the dashboard no longer uses.
+Needs a matching rewrite before its next run.
 """
 import csv
 import io

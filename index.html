@@ -483,6 +483,10 @@
   .exec-table .sent-verdict.negative{ color:var(--gold-deep); }
   .exec-table .sent-verdict.negative .dot{ background:var(--gold-deep); }
   .exec-table .takeaway{ line-height:1.45; }
+  .competitor-table .takeaway{ line-height:1.45; }
+  .theme-bullets{ margin:0; padding-left:16px; }
+  .theme-bullets li{ margin-bottom:4px; }
+  .theme-bullets li:last-child{ margin-bottom:0; }
   .theme-modal-overlay{ position:fixed; inset:0; background:rgba(10,14,26,0.6); z-index:200; display:none; align-items:center; justify-content:center; padding:20px; }
   .theme-modal{ background:#fff; border-radius:12px; max-width:560px; width:100%; max-height:75vh; overflow-y:auto; padding:24px; position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.3); }
   .theme-modal-close{ position:absolute; top:12px; right:14px; border:none; background:none; font-size:22px; line-height:1; color:var(--fog); cursor:pointer; }
@@ -821,6 +825,18 @@
         <p class="card-sub" style="margin-top:10px;" id="redditThemeFootnote">One-line verdict per project — click a row for the full narrative behind it.</p>
       </div>
     </div>
+    <div class="card" data-platform="reddit" style="margin-bottom:20px;">
+      <h3>Competitor Snapshot — Reddit</h3>
+      <p class="card-sub">Same window, same sheet — organic-only themes (seeded replies excluded) for Sumadhura and the competitor brands tracked alongside it.</p>
+      <div class="theme-toggle" id="redditCompetitorThemeToggle" style="margin-bottom:8px;">
+        <button class="filter-btn active" data-sentiment-sel="positive">Positive</button>
+        <button class="filter-btn" data-sentiment-sel="negative">Negative</button>
+      </div>
+      <table class="theme-table competitor-table">
+        <thead><tr><th>Brand</th><th>Mentions</th><th>Theme</th><th>Top Thread</th></tr></thead>
+        <tbody id="redditCompetitorThemeBody"></tbody>
+      </table>
+    </div>
 
     <div class="grid-2" data-platform="quora" style="margin-bottom:20px;">
       <div class="card">
@@ -828,7 +844,6 @@
         <p class="card-sub" id="quoraPieSub">Quora sentiment on published answers within the current tracking window.</p>
         <div class="pie-chart-shell"><canvas id="pieQuora"></canvas></div>
         <div class="pie-window-bar" data-pie-platform="quora"></div>
-        <p class="card-sub pie-window-note" id="quoraWindowNote">Quora threads aren't dated in the source sheet — every window currently shows the same full-period totals.</p>
       </div>
       <div class="card">
         <h3>Executive Snapshot</h3>
@@ -838,6 +853,18 @@
         </table>
         <p class="card-sub" style="margin-top:10px;" id="quoraThemeFootnote">One-line verdict per project — click a row for the full narrative behind it.</p>
       </div>
+    </div>
+    <div class="card" data-platform="quora" style="margin-bottom:20px;">
+      <h3>Competitor Snapshot — Quora</h3>
+      <p class="card-sub">Same window, same sheet — organic-only themes (seeded replies excluded) for Sumadhura and the competitor brands tracked alongside it.</p>
+      <div class="theme-toggle" id="quoraCompetitorThemeToggle" style="margin-bottom:8px;">
+        <button class="filter-btn active" data-sentiment-sel="positive">Positive</button>
+        <button class="filter-btn" data-sentiment-sel="negative">Negative</button>
+      </div>
+      <table class="theme-table competitor-table">
+        <thead><tr><th>Brand</th><th>Mentions</th><th>Theme</th><th>Top Thread</th></tr></thead>
+        <tbody id="quoraCompetitorThemeBody"></tbody>
+      </table>
     </div>
 
     <div class="grid-2" data-platform="gmb" style="margin-bottom:20px;">
@@ -1269,10 +1296,24 @@ const barLabelPlugin = {
 // regardless of Google's column-type-sniffing heuristics.
 const SHEET_IDS = {
   summary: '1w-KzhMosrUQvxhRPMrk5YggJ_Dwi3ibsWv5kNqifC7c',            // Summary tab (weekly activity)
-  redditQuora: '1pEp5zMru4ZqF339rb_glcbWe-XrAufiH5mUOgcQKPCs',        // Reddit & Quora Content Plan
+  redditQuora: '11CCJfMkxmTaBqeUWIga-MrogIAWFga-prgz-_OkZbh0',        // Reddit & Quora brand-tracking workbook (Sumadhura + competitors, one tab per brand per platform)
   daily: '1IjbMN2n2n2xPNmLFifmM5yNYoxyPKi-TPTjdUa3Dbo0',              // Sumadhura Daily Tracker
   gmbEscalation: '1PsBz-XXb-862vNES8WEgmtorVh7_stqaP6YbmAnUC14',      // GMB Escalation Tracker — "Project Ratings" tab
 };
+// Brand -> {Reddit tab, Quora tab} inside SHEET_IDS.redditQuora. Sumadhura is "us" (feeds the
+// existing Reddit/Quora sentiment + Project Sentiment Themes); the rest feed the Competitor
+// Snapshot tables. Tab names/casing are copied exactly as they appear in the live sheet —
+// capitalization is inconsistent across brands (e.g. "Sattva reddit" vs "Prestige Reddit"),
+// which is the sheet's own doing, not a typo here. The xlsx tab lookup is case-sensitive.
+const BRAND_TABS = [
+  {brand:'Sumadhura', reddit:'Sumadhura Reddit', quora:'Sumadhura Quora', isUs:true},
+  {brand:'Prestige', reddit:'Prestige Reddit', quora:'Prestige Quora'},
+  {brand:'Sobha', reddit:'Sobha Reddit', quora:'Sobha Quora'},
+  {brand:'Brigade', reddit:'Brigade Reddit', quora:'Brigade Quora'},
+  {brand:'Sattva', reddit:'Sattva reddit', quora:'Sattva Quora'},
+  {brand:'Lodha', reddit:'Lodha reddit', quora:'Lodha Quora'},
+  {brand:'Hiranandani', reddit:'HiraNandani reddit', quora:'HiraNandani Quora'},
+];
 
 // forceHeaders=true pins row 1 as the header row (needed for the Daily Tracker's
 // "specific data" tab, where Google's auto-heuristic otherwise merges row 1 into row 2).
@@ -1323,27 +1364,6 @@ async function fetchSheetObjects(sheetId, tabName, forceHeaders){
     return obj;
   });
 }
-// Same as fetchSheetObjects, but locates the header row by content instead of assuming it's
-// row 1 — some tabs (e.g. "Reddit - New Seeds") have a stray formula/count row sitting above
-// the real header in the live sheet, which would otherwise get read as the header itself and
-// silently zero out every column match below it.
-async function fetchSheetObjectsAutoHeader(sheetId, tabName, headerHint){
-  const rows = await fetchSheetRows(sheetId, tabName);
-  if(!rows.length) return [];
-  const idx = rows.findIndex(r => r.some(c => c.trim() === headerHint));
-  const headerRow = idx >= 0 ? idx : 0;
-  const headers = rows[headerRow].map(h=>h.trim());
-  return rows.slice(headerRow+1).map(r=>{
-    const obj = {};
-    headers.forEach((h,i)=>{ obj[h] = (r[i]||'').trim(); });
-    return obj;
-  });
-}
-// A row only counts as a real, published comment if the column immediately after "Comment
-// Status" ("Comment Link") holds an actual URL — unpublished/placeholder rows leave this blank.
-function hasCommentLink(row){
-  return !!sanitizeUrl(getMatchingRowValue(row, ['Comment Link'], []));
-}
 // The gviz CSV endpoint (fetchSheetRows/fetchSheetObjects above) silently respects any active
 // Google Sheets filter on the tab — a filter hides rows from every reader, not just the person
 // who applied it, including API/export access. The full-workbook XLSX export does not: it's
@@ -1369,6 +1389,114 @@ async function fetchSheetObjectsXlsx(sheetId, tabName){
     Object.entries(r).forEach(([k,v])=>{ obj[k.trim()] = typeof v === 'string' ? v.trim() : v; });
     return obj;
   });
+}
+// ---------- Reddit/Quora brand-tab fetch + parse (grouped-row format) ----------
+// This workbook's Date/Comments Date columns are real date cells whose display format hides
+// the year ("2 Sep", not "2026-09-02") — both the gviz CSV endpoint and the shared XLSX loader
+// above (raw:false, i.e. formatted-string output) reproduce that same truncated display and
+// silently lose the year. Reading raw cell values with cellDates:true sidesteps this by
+// returning actual JS Date objects instead of the cell's display string.
+let xlsxCellDateWorkbookCache = {};
+async function fetchWorkbookXlsxCellDates(sheetId){
+  if(xlsxCellDateWorkbookCache[sheetId]) return xlsxCellDateWorkbookCache[sheetId];
+  const res = await fetch(`https://docs.google.com/spreadsheets/d/${sheetId}/export?format=xlsx`, {cache:'no-store'});
+  if(!res.ok) throw new Error(`Workbook export failed (HTTP ${res.status}) — check it's shared "Anyone with the link".`);
+  const buf = await res.arrayBuffer();
+  const wb = XLSX.read(buf, {type:'array', cellDates:true});
+  xlsxCellDateWorkbookCache[sheetId] = wb;
+  return wb;
+}
+async function fetchSheetAoaXlsx(sheetId, tabName){
+  const wb = await fetchWorkbookXlsxCellDates(sheetId);
+  const ws = wb.Sheets[tabName];
+  if(!ws) throw new Error(`Tab "${tabName}" not found in workbook.`);
+  return XLSX.utils.sheet_to_json(ws, {header:1, defval:'', raw:true});
+}
+function ciIndex(headers, name){ return headers.findIndex(h => (h||'').toString().trim().toLowerCase() === name); }
+function ciLastIndex(headers, name){
+  for(let i=headers.length-1;i>=0;i--){ if((headers[i]||'').toString().trim().toLowerCase()===name) return i; }
+  return -1;
+}
+function normalizeSentimentLabel(raw){
+  const s = (raw||'').toString().trim().toLowerCase();
+  if(!s) return null;
+  if(s.startsWith('pos')) return 'positive';
+  if(s.startsWith('neg') || s.startsWith('nag')) return 'negative'; // sheet spells it "Nagative" elsewhere too
+  return 'neutral'; // covers 'Neutral' and the sheet's own 'Neutarl' typo
+}
+function asDate(v){
+  if(v instanceof Date) return Number.isNaN(v.getTime()) ? null : v;
+  return parseDateValue(v);
+}
+// Each brand tab is a flat list of "thread" rows (Query Title populated) each optionally
+// followed by further "comment" rows (Query Title blank) belonging to that thread, running
+// until the next populated Query Title starts a new thread. A thread row is simultaneously
+// "the thread" and "its own first comment" — its own Response Posted/Mention/Response URL/
+// Comments Date cells are populated too, not just the second-comment-onward rows. Two columns
+// share the header "Upvotes" (thread-level, right after Subreddit/Date, and comment-level,
+// right before Comments Date) — first occurrence is the thread's, last is the comment's;
+// Quora tabs have only one "Upvotes" column (comment/answer-level), so both resolve to the
+// same index there, which is harmless since Quora's thread-level upvotes are never displayed.
+function parseBrandTab(aoa){
+  if(!aoa || !aoa.length) return [];
+  const headers = aoa[0].map(h => (h||'').toString().trim());
+  const col = {
+    title: ciIndex(headers, 'query title'),
+    type: ciIndex(headers, 'query type'),
+    url: ciIndex(headers, 'url'),
+    subreddit: ciIndex(headers, 'subreddit'),
+    threadUpvotes: ciIndex(headers, 'upvotes'),
+    date: ciIndex(headers, 'date'),
+    keyword: ciIndex(headers, 'keyword'),
+    sentiment: ciIndex(headers, 'sentiment'),
+    commentText: ciIndex(headers, 'response posted'),
+    mention: ciIndex(headers, 'mention'),
+    commentOrigin: ciIndex(headers, 'comment origin'),
+    responseUrl: ciIndex(headers, 'response url'),
+    commentUpvotes: ciLastIndex(headers, 'upvotes'),
+    views: ciIndex(headers, 'views'),
+    commentsDate: ciIndex(headers, 'comments date'),
+  };
+  const get = (row, i) => (i>=0 && i<row.length) ? row[i] : '';
+  const threads = [];
+  let current = null;
+  for(let r=1;r<aoa.length;r++){
+    const row = aoa[r];
+    if(!row || !row.some(c => c!==null && c!==undefined && c!=='')) continue;
+    const title = (get(row,col.title)||'').toString().trim();
+    if(title){
+      current = {
+        title, type: (get(row,col.type)||'').toString().trim(),
+        url: sanitizeUrl(get(row,col.url)),
+        subreddit: (get(row,col.subreddit)||'').toString().trim(),
+        upvotes: numOr(get(row,col.threadUpvotes), 0),
+        dateRaw: get(row,col.date), date: asDate(get(row,col.date)),
+        keyword: (get(row,col.keyword)||'').toString().trim(),
+        sentiment: normalizeSentimentLabel(get(row,col.sentiment)),
+        comments: [],
+      };
+      threads.push(current);
+    }
+    if(!current) continue; // stray rows before the first real thread (e.g. a lone date cell)
+    const text = (get(row,col.commentText)||'').toString().trim();
+    const responseUrl = sanitizeUrl(get(row,col.responseUrl));
+    const commentDate = asDate(get(row,col.commentsDate));
+    if(!text && !responseUrl && !commentDate) continue; // seeded question with no reply yet
+    current.comments.push({
+      text, mention: (get(row,col.mention)||'').toString().trim(),
+      origin: (get(row,col.commentOrigin)||'').toString().trim(),
+      url: responseUrl, upvotes: numOr(get(row,col.commentUpvotes), 0),
+      views: numOr(get(row,col.views), 0), date: commentDate,
+    });
+  }
+  return threads;
+}
+async function loadBrandThreads(brandTab){
+  const [redditAoa, quoraAoa] = await Promise.all([
+    fetchSheetAoaXlsx(SHEET_IDS.redditQuora, brandTab.reddit),
+    fetchSheetAoaXlsx(SHEET_IDS.redditQuora, brandTab.quora),
+  ]);
+  return {reddit: parseBrandTab(redditAoa), quora: parseBrandTab(quoraAoa)};
 }
 function numOr(v, fallback){ const n = parseFloat(v); return Number.isFinite(n) ? n : fallback; }
 // Sheet "Post Link" cells are sometimes bare domains (no protocol) or rich-text
@@ -1440,14 +1568,6 @@ function parseDateValue(value){
   }
   const d = new Date(s);
   return Number.isNaN(d.getTime()) ? null : d;
-}
-function getRowDate(row){
-  const candidates = ['Post Publish date','Post Date','Comment Date','Date','Post date'];
-  for(const key of candidates){
-    const parsed = parseDateValue(row?.[key]);
-    if(parsed) return parsed;
-  }
-  return null;
 }
 function normalizeRange(startDate, endDate){
   const start = startDate ? new Date(startDate) : null;
@@ -1559,73 +1679,54 @@ function getMatchingRowValue(row, candidates, excludeFragments=[]){
   }
   return '';
 }
-// New Seeds rows use "Title / Question" / "Post Publish date"; Existing Threads rows use
-// "Thread Title " / "Post Date " (note the sheet's own trailing spaces) — getMatchingRowValue
-// handles both via its candidate-list fallback, so one builder covers both sources instead of
-// the post-grid only ever showing New Seeds rows (which silently dropped every Existing
-// Threads post, since those never have a "Title / Question" field to filter on).
-function buildRedditPosts(rows){
-  return rows.map(r => ({
-    week: r.Week || getMatchingRowValue(r, ['Week'], []),
-    subreddit: r.Subreddit || '',
-    bucket: r.Bucket || getMatchingRowValue(r, ['Bucket'], []),
-    title: r['Title / Question'] || getMatchingRowValue(r, ['Thread Title'], []),
-    date: r['Post Publish date'] || getMatchingRowValue(r, ['Post Date'], []),
-    upvotes: numOr(getMatchingRowValue(r, ['Total Upvotes'], []), 0),
-    comments: numOr(getMatchingRowValue(r, ['Total Comments'], []), 0),
-    positive: numOr(getMatchingRowValue(r, ['Total Positive comments'], []), 0),
-    negative: numOr(getMatchingRowValue(r, ['Total Nagative comments','Total Negative comments'], []), 0),
-    neutral: numOr(getMatchingRowValue(r, ['Total Neutral comments'], []), 0),
-    link: sanitizeUrl(getMatchingRowValue(r, ['Existing Thread URL','Post Link','Link','Thread Link','Post URL','URL'], [])),
-  })).filter(p => p.title).sort((a,b)=>{
-    // Most-recent-first — undated rows (a handful of Existing Threads entries have no date
-    // logged yet) sort to the end rather than breaking the ordering.
-    const da = parseDateValue(a.date), db = parseDateValue(b.date);
-    if(!da && !db) return 0;
-    if(!da) return 1;
-    if(!db) return -1;
-    return db - da;
+// ---------- Comment-date-windowed aggregation over Reddit/Quora thread groups ----------
+// Sentiment is graded once per thread (the seeded query/title), not per reply, so "periodic"
+// here means: a window's sentiment tally counts each COMMENT whose own Comments Date falls
+// inside the window, attributed to its parent thread's sentiment. This is deliberately keyed
+// off Comments Date rather than the thread's own post Date — that column is frequently an
+// unparseable relative string ("3 month ago", "1 Day ago") rather than an absolute date, so it
+// can't reliably place a thread into a specific week/month anyway. Comments Date is a real,
+// populated date on almost every row (thread + replies) across every brand tab.
+function weekLabelForDate(d){
+  if(!d) return '';
+  const idx = Math.floor((d - WEEK1_START)/(7*86400000)) + 1;
+  return idx>=1 ? `W${idx}` : '';
+}
+function sentimentCountsForThreads(threads, start, end){
+  const counts = {positive:0, negative:0, neutral:0};
+  (threads||[]).forEach(t=>{
+    t.comments.forEach(c=>{
+      if(c.date && isDateInRange(c.date, start, end) && t.sentiment && counts[t.sentiment]!==undefined) counts[t.sentiment]++;
+    });
+  });
+  return counts;
+}
+// Threads with activity in the window — either a comment dated inside it, or (a freshly
+// seeded thread with no reply yet) the thread's own post date inside it, so a just-published,
+// not-yet-answered question still shows up instead of disappearing until someone replies.
+function threadsActiveInWindow(threads, start, end){
+  return (threads||[]).filter(t=>{
+    if(t.comments.some(c => c.date && isDateInRange(c.date, start, end))) return true;
+    return t.comments.length===0 && t.date && isDateInRange(t.date, start, end);
   });
 }
-function getDiscussionText(row, textFields){
-  return textFields.map(field => {
-    const fieldCandidates = Array.isArray(field) ? field : [field];
-    const exclude = fieldCandidates.some(c => normalizeHeaderName(c).includes('comment'))
-      ? ['status','link','date','upvote','total']
-      : [];
-    return getMatchingRowValue(row, fieldCandidates, exclude);
-  }).filter(Boolean).join(' ');
-}
-function rowByLabel(rows, label){ return rows.find(r => r.some(c => c.trim() === label)); }
-function lastN(row, n){ return row ? row.slice(row.length-n).map(v=>(v||'').trim()) : Array(n).fill(''); }
-
-// Groups free-text rows (Reddit/Quora threads) by whichever locked GMB project name is
-// mentioned in the title/body — mechanical keyword match, not curated judgment. Loses the
-// nuance a human curator would apply (micro-market aliases like "Devanahalli" -> Panorama)
-// but stays fully live.
-function buildMentionThemes(rows, textFields, sentimentGetter){
+// Groups threads by whichever locked GMB project name is mentioned in the title/keyword/reply
+// text — mechanical keyword match, not curated judgment. Loses the nuance a human curator
+// would apply (micro-market aliases like "Devanahalli" -> Panorama) but stays fully live.
+// Shared by both Reddit and Quora threads (and by loadRedditQuora's own projects, not brands).
+function projectThemesForWindow(threads, start, end){
   const byProject = {};
-  rows.forEach(row=>{
-    const discussionText = getDiscussionText(row, textFields);
-    const haystack = discussionText.toLowerCase();
+  threadsActiveInWindow(threads, start, end).forEach(t=>{
+    const haystack = [t.title, t.keyword, ...t.comments.map(c=>c.text)].filter(Boolean).join(' ').toLowerCase();
     const matched = GMB_PROJECTS.find(p => haystack.includes(p.toLowerCase()));
     if(!matched) return;
-    const sc = sentimentGetter(row);
-    if(!sc) return;
     if(!byProject[matched]) byProject[matched] = {project:matched, mentions:0, positive:{count:0, snippets:[]}, negative:{count:0, snippets:[]}};
     const m = byProject[matched];
     m.mentions += 1;
-    const dominant = sc.positive >= sc.negative ? 'positive' : 'negative';
-    const excerptText = excerpt(discussionText);
-    if(sc.positive){
-      if(dominant==='positive' && m.positive.snippets.length<2) m.positive.snippets.push(excerptText || `${sc.positive} positive repl${sc.positive===1?'y':'ies'} on this thread.`);
-      else if(m.positive.snippets.length<2) m.positive.snippets.push(`${sc.positive} positive repl${sc.positive===1?'y':'ies'} on this thread (see the negative-leaning excerpt above for the topic).`);
-      m.positive.count += sc.positive;
-    }
-    if(sc.negative){
-      if(dominant==='negative' && m.negative.snippets.length<2) m.negative.snippets.push(excerptText || `${sc.negative} negative repl${sc.negative===1?'y':'ies'} on this otherwise positive thread.`);
-      else if(m.negative.snippets.length<2) m.negative.snippets.push(`${sc.negative} negative repl${sc.negative===1?'y':'ies'} on this otherwise positive thread (see the positive excerpt above for the topic).`);
-      m.negative.count += sc.negative;
+    if(t.sentiment === 'positive' || t.sentiment === 'negative'){
+      const bucket = m[t.sentiment];
+      bucket.count += 1;
+      if(bucket.snippets.length < 2) bucket.snippets.push(excerpt(t.comments.find(c=>c.text)?.text || t.title));
     }
   });
   return Object.values(byProject).map(m=>({
@@ -1633,6 +1734,98 @@ function buildMentionThemes(rows, textFields, sentimentGetter){
     positive:{count:m.positive.count, themes:m.positive.snippets, theme: m.positive.snippets.length ? m.positive.snippets.join(' / ') : null},
     negative:{count:m.negative.count, themes:m.negative.snippets, theme: m.negative.snippets.length ? m.negative.snippets.join(' / ') : null},
   }));
+}
+// Competitor Snapshot tables: keyed by brand (including Sumadhura itself, so its own organic
+// conversation can be read side by side with competitors) rather than by Sumadhura project —
+// the sheet doesn't give us a project-per-competitor taxonomy to key by, and fabricating one
+// wasn't asked for. Deliberately ORGANIC-ONLY (Comment Origin === "Organic", not "Seeded"):
+// for competitors this barely changes anything (we don't seed their threads), but for
+// Sumadhura it's the whole point — its Reddit/Quora activity is a mix of our own seeded
+// replies and real community replies, and mixing them in here would make our own outreach
+// look like organic buzz about us. Excluding "Seeded" answers that honestly, e.g. Sumadhura
+// Quora currently comes back with zero organic comments at all (100% seeded) — a real finding,
+// not a bug, and worth the table saying so plainly rather than hiding the brand.
+function organicCommentsInWindow(thread, start, end){
+  return thread.comments.filter(c => c.date && isDateInRange(c.date, start, end) && /^organic/i.test((c.origin||'').trim()));
+}
+function buildBrandThemes(threadsByBrand, start, end){
+  return BRAND_TABS.map(b=>{
+    const qualifying = (threadsByBrand[b.brand]||[])
+      .map(t => ({t, organic: organicCommentsInWindow(t, start, end)}))
+      .filter(x => x.organic.length>0);
+    // Theme is 3-4 bullet points drawn from every qualifying organic comment in the window,
+    // not just one or two — ranked by upvotes (community endorsement is a better "this is the
+    // theme" signal than raw length), length as the tie-break. Capped at 2 bullets per thread
+    // so one heavily-upvoted thread can't fill the whole list on its own; picking across
+    // multiple threads is what makes 3-4 bullets actually representative of the period rather
+    // than one popular subthread. This is still a mechanical excerpt pick, not true abstractive
+    // summarization (real synthesis needs an LLM read of the text, which this live, client-side
+    // computation can't do) — but drawing from the whole period's comments and capping
+    // per-thread repeats gets meaningfully closer to "the themes" than a single quote did.
+    const themeFor = sentiment => {
+      const set = qualifying.filter(x => x.t.sentiment===sentiment);
+      const comments = set.flatMap(x => x.organic.map(c => ({...c, thread:x.t})))
+        .filter(c => c.text && c.text.trim().length>20)
+        .sort((a,b)=> (b.upvotes||0)-(a.upvotes||0) || b.text.length-a.text.length);
+      const picked = [];
+      const perThreadCount = new Map();
+      for(const c of comments){
+        const n = perThreadCount.get(c.thread) || 0;
+        if(n >= 2) continue;
+        picked.push(c);
+        perThreadCount.set(c.thread, n+1);
+        if(picked.length >= 4) break;
+      }
+      const topThreadEntry = set.slice().sort((a,b)=> b.organic.length-a.organic.length || (b.t.upvotes||0)-(a.t.upvotes||0))[0];
+      return {
+        count: set.length,
+        themes: picked.map(c=>excerpt(c.text)),
+        topThread: topThreadEntry ? {title: topThreadEntry.t.title, url: topThreadEntry.t.url} : null,
+      };
+    };
+    return {
+      brand: b.brand, isUs: !!b.isUs, mentions: qualifying.length,
+      positive: themeFor('positive'), negative: themeFor('negative'),
+    };
+  }).sort((a,b)=> (b.isUs?1:0)-(a.isUs?1:0) || b.mentions-a.mentions);
+}
+function buildRedditPostsFromThreads(threads, start, end){
+  const active = threadsActiveInWindow(threads, start, end).slice().sort((a,b)=>{
+    if(!a.date && !b.date) return 0;
+    if(!a.date) return 1;
+    if(!b.date) return -1;
+    return b.date - a.date;
+  });
+  return active.map(t=>{
+    const inWindow = t.comments.filter(c=>c.date && isDateInRange(c.date, start, end));
+    const commentCount = inWindow.length || t.comments.length;
+    const sentiment = t.sentiment || 'neutral';
+    return {
+      bucket: t.type || 'Reddit', title: t.title, subreddit: t.subreddit,
+      week: t.date ? weekLabelForDate(t.date) : '',
+      date: t.date ? fmtShort(t.date) : (typeof t.dateRaw==='string' && t.dateRaw.trim() ? t.dateRaw.trim() : 'date not tracked'),
+      upvotes: t.upvotes||0, comments: commentCount,
+      positive: sentiment==='positive' ? commentCount : 0,
+      negative: sentiment==='negative' ? commentCount : 0,
+      neutral: sentiment==='neutral' ? commentCount : 0,
+      link: t.url,
+    };
+  });
+}
+function buildQuoraQuestionsFromThreads(threads, start, end){
+  return threadsActiveInWindow(threads, start, end).map(t=>{
+    const inWindow = t.comments.filter(c=>c.date && isDateInRange(c.date, start, end));
+    const commentCount = inWindow.length || t.comments.length;
+    const sentiment = t.sentiment || 'neutral';
+    return {
+      category: t.keyword || 'Quora', title: t.title,
+      date: t.date ? fmtShort(t.date) : '',
+      comments: commentCount,
+      positive: sentiment==='positive' ? commentCount : 0,
+      negative: sentiment==='negative' ? commentCount : 0,
+      link: t.url,
+    };
+  }).filter(q => q.link);
 }
 // ---------- Theme cache (polished project-level themes, precomputed by Claude) ----------
 // Genuinely polished narrative themes (not mechanical excerpts) require reading and
@@ -1737,76 +1930,25 @@ function buildPlatformProgressRows(){
   return {redditProgressRows, quoraProgressRows};
 }
 
+// Loads every brand's Reddit + Quora thread groups (Sumadhura + competitors) from the
+// tracking workbook. Sentiment pies/theme tables/post cards for the currently selected window
+// are (re)computed from these thread maps by applyDateRange() — see projectThemesForWindow(),
+// buildBrandThemes(), buildRedditPostsFromThreads() and buildQuoraQuestionsFromThreads() above.
+// This function's own return value is a placeholder shape only: loadAllData() calls
+// applyRangeMode() (-> applyDateRange() -> renderDashboard()) immediately after loading, which
+// overwrites every one of these fields before anything renders.
 async function loadRedditQuora(){
-  const [summaryRaw, seedRows, existingRows, quoraRows] = await Promise.all([
-    fetchSheetRows(SHEET_IDS.redditQuora, 'Summary'),
-    fetchSheetObjectsAutoHeader(SHEET_IDS.redditQuora, 'Reddit - New Seeds', 'Title / Question'),
-    fetchSheetObjects(SHEET_IDS.redditQuora, 'Reddit - Existing Threads'),
-    fetchSheetObjects(SHEET_IDS.redditQuora, 'Quora - New + Existing'),
-  ]);
-
-  const kpisIdx = summaryRaw.findIndex(r => r.some(c => c.trim()==='KPIs'));
-  const after = kpisIdx<0 ? [] : summaryRaw.slice(kpisIdx+1);
-  const kpiRow = label => rowByLabel(after, label);
-  // Reddit/Quora Delivery-vs-Target progress rows are built separately in loadAllData(),
-  // straight from the (reliable, already-parsed) main Summary sheet's full-month totals —
-  // see buildPlatformProgressRows(). Not sourced from this sheet's own Summary tab.
-
-  const positiveKpi = lastN(kpiRow('Positive comments'), 3).map(Number);
-  const negativeKpi = lastN(kpiRow('Nagative comments'), 3).map(Number); // sheet's own spelling
-  const neutralKpi = lastN(kpiRow('Neutral comments'), 3).map(Number);
-  const redditSentiment = {positive: positiveKpi[2]||0, negative: negativeKpi[2]||0, neutral: neutralKpi[2]||0};
-
-  // A row (in either tab) only counts if it has a real, published comment — the "Comment
-  // Link" column immediately after "Comment Status" holds an actual URL. New Seeds has no
-  // per-row Total Upvotes/Comments columns at all, so the old Title+Upvotes check could
-  // never match a New Seeds row regardless of the header-detection fix above.
-  const threadRows = seedRows.filter(hasCommentLink);
-  const existingThreadRows = existingRows.filter(hasCommentLink);
-  const redditPosts = buildRedditPosts([...threadRows, ...existingThreadRows]);
-
-  // Previously required a non-empty "Total Comments" to count a row at all — but that column
-  // (along with Post Date, Link, upvotes, Positive/Nagative comments) is currently 100% empty
-  // in the live sheet, so nothing ever qualified and the questions themselves never showed up
-  // anywhere. Track every seeded question row regardless of whether engagement counts exist
-  // yet; the sentiment split will legitimately read 0/0/0 until the sheet has count data, but
-  // the questions themselves are now visible.
-  const quoraThreadRows = quoraRows.filter(r => r['Title / Question']);
-  let qPos=0, qNeg=0, qTotal=0;
-  quoraThreadRows.forEach(r=>{
-    qTotal += numOr(r['Total Comments'],0); qPos += numOr(r['Positive comments'],0); qNeg += numOr(r['Nagative Comments'],0);
+  const brandThreads = await Promise.all(BRAND_TABS.map(loadBrandThreads));
+  allRedditThreadsByBrand = {}; allQuoraThreadsByBrand = {};
+  BRAND_TABS.forEach((b,i)=>{
+    allRedditThreadsByBrand[b.brand] = brandThreads[i].reddit;
+    allQuoraThreadsByBrand[b.brand] = brandThreads[i].quora;
   });
-  const quoraSentiment = {positive:qPos, negative:qNeg, neutral:Math.max(0, qTotal-qPos-qNeg)};
-  // Only show questions that are actually live (have a real link) — a missing link means the
-  // question is still pending publication and shouldn't be surfaced on the dashboard yet.
-  const quoraQuestions = quoraThreadRows.map(r => ({
-    title: r['Title / Question'], category: r['Category / Topic'], date: r['Post Date'],
-    comments: numOr(r['Total Comments'],0),
-    positive: numOr(r['Positive comments'],0), negative: numOr(r['Nagative Comments'],0),
-    link: sanitizeUrl(getMatchingRowValue(r, ['Link','Post Link','Question Link','URL'], [])),
-  })).filter(q => q.link);
-
-  const redditThemeData = buildMentionThemes(
-    [...threadRows, ...existingThreadRows],
-    [
-      ['Title / Question','Title','Question'],
-      ['Body','Body / Context'],
-      ['Thread Title','Thread Title ','Thread title'],
-      ['Comments (Seeded)','Comment/Answer','Comment/Answer 1','Comments','Answers']
-    ],
-    row => ({positive:numOr(getMatchingRowValue(row,['Total Positive comments','Positive comments'], []),0), negative:numOr(getMatchingRowValue(row,['Total Nagative Comments','Nagative Comments','Negative comments'], []),0)})
-  );
-  const quoraThemeData = buildMentionThemes(
-    quoraThreadRows,
-    [
-      ['Title / Question','Title','Question'],
-      ['Body / Context','Body','Context'],
-      ['Comment/Answer 1','Comment/Answer','Comments','Answers']
-    ],
-    row => ({positive:numOr(getMatchingRowValue(row,['Positive comments','Positive Comments'], []),0), negative:numOr(getMatchingRowValue(row,['Nagative Comments','Negative Comments','Negative comments'], []),0)})
-  );
-
-  return {redditSentiment, redditPosts, quoraSentiment, quoraQuestions, redditThemeData, quoraThemeData, redditRows: [...threadRows, ...existingThreadRows], quoraRows: quoraThreadRows};
+  return {
+    redditSentiment:{positive:0,negative:0,neutral:0}, redditPosts:[],
+    quoraSentiment:{positive:0,negative:0,neutral:0}, quoraQuestions:[],
+    redditThemeData:[], quoraThemeData:[],
+  };
 }
 
 // GMB rows are classified by star rating, not the Final Sentiment tag: 4-5 stars = positive,
@@ -1963,10 +2105,15 @@ let visibleWeekCount = 3; // totalWeekCount clamped to weeks that have actually 
 let redditSentiment={positive:0,negative:0,neutral:0}, gmbSentiment={positive:0,negative:0,neutral:0};
 let socialSentiment={positive:0,negative:0,neutral:0}, overallSentiment={positive:0,negative:0,neutral:0};
 let socialTrend=[], socialWeekly=[], redditPosts=[], quoraQuestions=[], gmbProjects=[];
-let allRedditRows=[], allQuoraRows=[], allSocialRows=[];
+let allSocialRows=[];
+// Brand -> thread-group arrays (see parseBrandTab/loadBrandThreads) for every brand in
+// BRAND_TABS, including Sumadhura ('Sumadhura' key) — populated once by loadRedditQuora(),
+// re-windowed by comment date on every range change in applyDateRange().
+let allRedditThreadsByBrand={}, allQuoraThreadsByBrand={};
 let socialByPlatform={Instagram:{positive:0,negative:0,neutral:0},Facebook:{positive:0,negative:0,neutral:0},LinkedIn:{positive:0,negative:0,neutral:0}};
 let gmbMessageLevelSentiment={positive:0,negative:0,neutral:0}, quoraSentiment={positive:0,negative:0,neutral:0};
 let gmbThemeData=[], redditThemeData=[], quoraThemeData=[], overallThemeData=[];
+let redditCompetitorThemeData=[], quoraCompetitorThemeData=[];
 let socialThemeData={Instagram:[],Facebook:[],LinkedIn:[]};
 let redditProgressRows=[], quoraProgressRows=[];
 let kpiScopes=null;
@@ -2014,7 +2161,7 @@ async function loadAllData(){
 
   try {
     const rq = await loadRedditQuora();
-    ({redditSentiment, redditPosts, quoraSentiment, quoraQuestions, redditThemeData, quoraThemeData, redditRows: allRedditRows, quoraRows: allQuoraRows} = rq);
+    ({redditSentiment, redditPosts, quoraSentiment, quoraQuestions, redditThemeData, quoraThemeData} = rq);
   } catch(e){ errors.push('Reddit & Quora Content Plan: '+e.message); }
 
   try {
@@ -2212,12 +2359,6 @@ function applyDateRange(){
     ? (bucket ? '' : `No cached narrative themes for ${activeRangeMode.label || activeRangeMode.key} yet — ask Claude to regenerate theme_cache.json to cover this period.`)
     : themeCacheStatus;
 
-  const filteredRedditRows = allRedditRows.filter(r=>{ const d=getRowDate(r); return d && isDateInRange(d, rangeStart, rangeEnd); });
-  // Quora sheet's "Post Date" column is entirely unpopulated in the source data (a genuine
-  // gap in what the agency tracks, not something fixable client-side) — date-filtering it
-  // would always return zero rows regardless of the selected window, so Quora sentiment is
-  // deliberately left ungated by range here, same pattern as the always-visible delivery table.
-  const filteredQuoraRows = allQuoraRows;
   const filteredSocialRows = allSocialRows.filter(r=>r.date && isDateInRange(r.date, rangeStart, rangeEnd));
   // GMB review counts/sentiment/messages all come from the Daily Tracker's "raw" tab (Source =
   // Google Business, Case Start Date within the selected window) — the GMB Escalation Tracker
@@ -2225,28 +2366,17 @@ function applyDateRange(){
   // breakage, and Daily Tracker already has the full picture in one place).
   const filteredGmbDailyRows = filteredSocialRows.filter(r=>r.platform==='GMB' && r.project);
 
-  redditPosts = buildRedditPosts(filteredRedditRows);
-  redditSentiment = filteredRedditRows.reduce((acc,r)=>({
-    positive: acc.positive + numOr(getMatchingRowValue(r, ['Total Positive comments'], []), 0),
-    negative: acc.negative + numOr(getMatchingRowValue(r, ['Total Nagative comments','Total Negative comments'], []), 0),
-    neutral: acc.neutral + numOr(getMatchingRowValue(r, ['Total Neutral comments'], []), 0),
-  }), {positive:0, negative:0, neutral:0});
-  redditThemeData = bucket?.Reddit?.projects ? cacheToThemeRows(bucket.Reddit.projects) : buildMentionThemes(filteredRedditRows, [ ['Title / Question','Title','Question'], ['Body','Body / Context'], ['Thread Title','Thread Title ','Thread title'], ['Comments (Seeded)','Comment/Answer','Comment/Answer 1','Comments','Answers'] ], row => ({positive:numOr(getMatchingRowValue(row,['Total Positive comments','Positive comments'], []),0), negative:numOr(getMatchingRowValue(row,['Total Nagative Comments','Nagative Comments','Negative comments'], []),0)}));
+  const redditThreads = allRedditThreadsByBrand.Sumadhura || [];
+  const quoraThreads = allQuoraThreadsByBrand.Sumadhura || [];
+  redditPosts = buildRedditPostsFromThreads(redditThreads, rangeStart, rangeEnd);
+  redditSentiment = sentimentCountsForThreads(redditThreads, rangeStart, rangeEnd);
+  redditThemeData = bucket?.Reddit?.projects ? cacheToThemeRows(bucket.Reddit.projects) : projectThemesForWindow(redditThreads, rangeStart, rangeEnd);
+  redditCompetitorThemeData = buildBrandThemes(allRedditThreadsByBrand, rangeStart, rangeEnd);
 
-  const quoraQuestionRows = filteredQuoraRows.filter(r => r['Title / Question']);
-  const qPos = quoraQuestionRows.reduce((s,r)=>s+numOr(r['Positive comments'],0),0);
-  const qNeg = quoraQuestionRows.reduce((s,r)=>s+numOr(r['Nagative Comments'],0),0);
-  const qTotal = quoraQuestionRows.reduce((s,r)=>s+numOr(r['Total Comments'],0),0);
-  quoraSentiment = {positive:qPos, negative:qNeg, neutral:Math.max(0, qTotal-qPos-qNeg)};
-  // Only show questions that are actually live (have a real link) — a missing link means the
-  // question is still pending publication and shouldn't be surfaced on the dashboard yet.
-  quoraQuestions = quoraQuestionRows.map(r => ({
-    title: r['Title / Question'], category: r['Category / Topic'], date: r['Post Date'],
-    comments: numOr(r['Total Comments'],0),
-    positive: numOr(r['Positive comments'],0), negative: numOr(r['Nagative Comments'],0),
-    link: sanitizeUrl(getMatchingRowValue(r, ['Link','Post Link','Question Link','URL'], [])),
-  })).filter(q => q.link);
-  quoraThemeData = bucket?.Quora?.projects ? cacheToThemeRows(bucket.Quora.projects) : buildMentionThemes(filteredQuoraRows, [ ['Title / Question','Title','Question'], ['Body / Context','Body','Context'], ['Comment/Answer 1','Comment/Answer','Comments','Answers'] ], row => ({positive:numOr(getMatchingRowValue(row,['Positive comments','Positive Comments'], []),0), negative:numOr(getMatchingRowValue(row,['Nagative Comments','Negative Comments','Negative comments'], []),0)}));
+  quoraSentiment = sentimentCountsForThreads(quoraThreads, rangeStart, rangeEnd);
+  quoraQuestions = buildQuoraQuestionsFromThreads(quoraThreads, rangeStart, rangeEnd);
+  quoraThemeData = bucket?.Quora?.projects ? cacheToThemeRows(bucket.Quora.projects) : projectThemesForWindow(quoraThreads, rangeStart, rangeEnd);
+  quoraCompetitorThemeData = buildBrandThemes(allQuoraThreadsByBrand, rangeStart, rangeEnd);
 
   gmbProjects = GMB_PROJECTS.map(project=>{
     const rows = filteredGmbDailyRows.filter(r=>r.project===project);
@@ -2383,12 +2513,10 @@ function frozenBucketFor(sel){
   return themeCache?.[type]?.[key] || null;
 }
 function liveRedditCounts(start,end){
-  return allRedditRows.filter(r=>{ const d=getRowDate(r); return d && isDateInRange(d,start,end); })
-    .reduce((acc,r)=>({
-      positive: acc.positive + numOr(getMatchingRowValue(r, ['Total Positive comments'], []), 0),
-      negative: acc.negative + numOr(getMatchingRowValue(r, ['Total Nagative comments','Total Negative comments'], []), 0),
-      neutral: acc.neutral + numOr(getMatchingRowValue(r, ['Total Neutral comments'], []), 0),
-    }), {positive:0,negative:0,neutral:0});
+  return sentimentCountsForThreads(allRedditThreadsByBrand.Sumadhura, start, end);
+}
+function liveQuoraCounts(start,end){
+  return sentimentCountsForThreads(allQuoraThreadsByBrand.Sumadhura, start, end);
 }
 function liveGmbCounts(start,end){
   return allSocialRows.filter(r=>r.platform==='GMB' && r.project && r.date && isDateInRange(r.date,start,end))
@@ -2418,7 +2546,7 @@ function computeCountsForWindow(platform, sel){
   const frozen = frozenCountsFor(platform, sel);
   if(frozen) return frozen;
   const {start,end} = pieWindowBounds(sel);
-  if(platform==='quora') return quoraSentiment; // sheet has no populated date column — always the full-period total
+  if(platform==='quora') return liveQuoraCounts(start,end);
   if(platform==='reddit') return liveRedditCounts(start,end);
   if(platform==='gmb') return liveGmbCounts(start,end);
   // The Social tab's pie follows whichever platform is selected in the Executive Snapshot
@@ -2436,13 +2564,10 @@ function computeThemeRowsForWindow(platform, sel){
   const bucket = frozenBucketFor(sel);
   const {start,end} = pieWindowBounds(sel);
   if(platform==='reddit'){
-    const rows = allRedditRows.filter(r=>{ const d=getRowDate(r); return d && isDateInRange(d,start,end); });
-    return bucket?.Reddit?.projects ? cacheToThemeRows(bucket.Reddit.projects) : buildMentionThemes(rows,
-      [ ['Title / Question','Title','Question'], ['Body','Body / Context'], ['Thread Title','Thread Title ','Thread title'], ['Comments (Seeded)','Comment/Answer','Comment/Answer 1','Comments','Answers'] ],
-      row => ({positive:numOr(getMatchingRowValue(row,['Total Positive comments','Positive comments'], []),0), negative:numOr(getMatchingRowValue(row,['Total Nagative Comments','Nagative Comments','Negative comments'], []),0)}));
+    return bucket?.Reddit?.projects ? cacheToThemeRows(bucket.Reddit.projects) : projectThemesForWindow(allRedditThreadsByBrand.Sumadhura, start, end);
   }
   if(platform==='quora'){
-    return bucket?.Quora?.projects ? cacheToThemeRows(bucket.Quora.projects) : quoraThemeData;
+    return bucket?.Quora?.projects ? cacheToThemeRows(bucket.Quora.projects) : projectThemesForWindow(allQuoraThreadsByBrand.Sumadhura, start, end);
   }
   if(platform==='gmb'){
     const rows = allSocialRows.filter(r=>r.platform==='GMB' && r.project && r.date && isDateInRange(r.date,start,end));
@@ -2473,6 +2598,17 @@ function renderPieWindow(platform){
   pie(PIE_CANVAS_ID[platform], counts);
   const rows = computeThemeRowsForWindow(platform, sel);
   renderExecTable(PIE_TBODY_ID[platform], platform==='overall' ? rows.slice(0,6) : rows);
+  // Competitor Snapshot tables follow the same pill row as the sentiment pie/exec table right
+  // above them (This Month / a specific week — pieWindowState defaults to 'global', which
+  // mirrors the header's own month picker), so switching to a specific week here also re-scopes
+  // the competitor themes to that week instead of only ever showing the header's month.
+  if(platform==='reddit' || platform==='quora'){
+    const {start,end} = pieWindowBounds(sel);
+    const threadsByBrand = platform==='reddit' ? allRedditThreadsByBrand : allQuoraThreadsByBrand;
+    const data = buildBrandThemes(threadsByBrand, start, end);
+    if(platform==='reddit') redditCompetitorThemeData = data; else quoraCompetitorThemeData = data;
+    renderCompetitorThemeTable(`${platform}CompetitorThemeBody`, `${platform}CompetitorThemeToggle`, data);
+  }
 }
 function renderAllPieWindows(){
   refreshAllPieWindowBars(); // keep "This Month" pill labels in sync with the header before rendering
@@ -3118,6 +3254,8 @@ function renderDashboard(){
   renderExecTable('gmbThemeBody', gmbThemeData);
   renderExecTable('redditThemeBody', redditThemeData);
   renderExecTable('quoraThemeBody', quoraThemeData);
+  renderCompetitorThemeTable('redditCompetitorThemeBody', 'redditCompetitorThemeToggle', redditCompetitorThemeData);
+  renderCompetitorThemeTable('quoraCompetitorThemeBody', 'quoraCompetitorThemeToggle', quoraCompetitorThemeData);
   renderSocialThemeTable();
   renderExecTable('overallThemeBody', overallThemeData.slice(0,6));
 
@@ -3138,6 +3276,46 @@ document.getElementById('socialThemePlatformToggle').addEventListener('click', e
   document.getElementById('socialThemePlatformToggle').querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   e.target.classList.add('active');
   renderPieWindow('social'); // re-render honoring whichever week/month is currently picked for Social
+});
+
+// Competitor Snapshot tables (Reddit/Quora): a global Positive/Negative toggle switches every
+// row's Theme + Top Thread at once (there's no per-row verdict here, unlike the exec-table
+// pattern used elsewhere — mentions can be mixed-sentiment, so one row can't collapse to a
+// single verdict pill the way a project's can).
+function renderCompetitorThemeTable(tbodyId, toggleId, data){
+  const tbody = document.getElementById(tbodyId);
+  if(!tbody) return;
+  const sentiment = document.querySelector(`#${toggleId} .filter-btn.active`)?.dataset.sentimentSel || 'positive';
+  if(!data.length){
+    tbody.innerHTML = `<tr><td colspan="4"><span class="theme-empty">No themes for this period.</span></td></tr>`;
+    return;
+  }
+  tbody.innerHTML = data.map(row=>{
+    const cell = row[sentiment];
+    const theme = cell.themes && cell.themes.length
+      ? `<ul class="theme-bullets">${cell.themes.map(t=>`<li>${escapeHtml(t)}</li>`).join('')}</ul>`
+      : `<span class="theme-empty">No organic ${sentiment} conversation this period.</span>`;
+    const link = cell.topThread?.url
+      ? `<a href="${cell.topThread.url}" target="_blank" rel="noopener">${escapeHtml(cell.topThread.title)}</a>`
+      : '—';
+    return `<tr>
+      <td class="proj-name">${escapeHtml(row.brand)}${row.isUs ? ' (Sumadhura)' : ''}</td>
+      <td>${row.mentions}</td>
+      <td class="takeaway">${theme}</td>
+      <td>${link}</td>
+    </tr>`;
+  }).join('');
+}
+[['redditCompetitorThemeToggle','redditCompetitorThemeBody',()=>redditCompetitorThemeData],
+ ['quoraCompetitorThemeToggle','quoraCompetitorThemeBody',()=>quoraCompetitorThemeData]].forEach(([toggleId, tbodyId, getData])=>{
+  const el = document.getElementById(toggleId);
+  if(!el) return;
+  el.addEventListener('click', e=>{
+    if(!e.target.classList.contains('filter-btn')) return;
+    el.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    e.target.classList.add('active');
+    renderCompetitorThemeTable(tbodyId, toggleId, getData());
+  });
 });
 
 // ---------- BOOTSTRAP ----------

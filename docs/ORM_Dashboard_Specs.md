@@ -194,6 +194,119 @@ Only show posts with real outcome data (upvotes/comments/sentiment populated). *
 ## Bug fixed: TDZ error on `socialTrendChart`
 When the Social Sentiment Trend switchable-bar-chart was added (batch #16), `renderSocialTrendChart('Positive')` and its click-handler wiring were placed *before* the `let socialTrendChart = null;` declaration and the `function renderSocialTrendChart(...)` definition later in the script. Function declarations are hoisted, but the `let socialTrendChart` binding inside the function body is not usable until its own declaration line actually executes — calling the function earlier threw `ReferenceError: Cannot access 'socialTrendChart' before initialization` (temporal dead zone). **Fix**: moved the `let socialTrendChart = null;` + `function renderSocialTrendChart(){...}` definition to *before* `renderSocialTrendChart('Positive')` is first called, same ordering pattern already used correctly for `weeklyChart`/`renderWeeklyChart`. **General rule for this file**: any `render<X>Chart` pair (`let <x>Chart = null; function render<X>Chart(){ if(<x>Chart) <x>Chart.destroy(); ... }`) must have its `let` declaration and function definition appear textually before the first call to that function in the script — don't add the initial call/button-wiring block right after a *different* chart's setup and assume hoisting covers it.
 
+## Reddit/Quora source swap (Sep 2026) — new workbook, competitor themes, comment-date windowing
+- **Source changed**: `SHEET_IDS.redditQuora` now points at a different Google Sheet
+  (`11CCJfMkxmTaBqeUWIga-MrogIAWFga-prgz-_OkZbh0`), replacing the old "Reddit & Quora Content
+  Plan" sheet (`1pEp5zMru4ZqF339rb_glcbWe-XrAufiH5mUOgcQKPCs`). The new workbook has a
+  completely different shape: one `"<Brand> Reddit"` / `"<Brand> Quora"` tab per brand
+  (Sumadhura + 6 competitors — Prestige, Sobha, Brigade, Sattva, Lodha, Hiranandani), not the
+  old `Summary` / `Reddit - New Seeds` / `Reddit - Existing Threads` / `Quora - New + Existing`
+  tab set. See `BRAND_TABS` in index.html for the exact tab-name mapping (capitalization is
+  inconsistent across brands in the sheet itself, e.g. "Sattva reddit" vs "Prestige Reddit" —
+  copied exactly, not a typo here).
+- **Row format is "grouped", not one-row-per-thread**: each tab is a flat row list where a
+  populated `Query Title` starts a new thread, and every following row with a blank `Query
+  Title` is another comment/reply on that same thread, until the next populated `Query Title`.
+  A thread's own row is simultaneously "the thread" and "its own first comment" (its Response
+  Posted/Mention/Response URL/Comments Date cells are populated too). See `parseBrandTab()`.
+  Sentiment is graded **once per thread** (on the seed query/title), not per reply — there is
+  no per-comment sentiment in this sheet.
+- **Comments Date drives all periodic (weekly/monthly) bucketing, not the thread's own `Date`
+  column** — this was an explicit ask, and it's also the only column that's reliably an actual
+  date here: the thread `Date` column is frequently an unparseable relative string ("3 month
+  ago", "1 Day ago"), which can't be placed into a specific week/month at all, while `Comments
+  Date` is a real, populated date on almost every row (thread + replies) across every brand
+  tab. A window's sentiment tally counts each **comment** whose own Comments Date falls inside
+  the window, attributed to its parent thread's sentiment (see `sentimentCountsForThreads()`).
+  Quora's sentiment pie is consequently now genuinely windowed too — it used to show the same
+  full-period total for every window because the old sheet's Quora tab had no populated date
+  column at all; that caveat no longer applies and the "Quora threads aren't dated" UI note was
+  removed.
+- **XLSX fetch with `cellDates:true`, not the usual CSV/XLSX path** — this workbook's Date/
+  Comments Date cells are real dates whose display format hides the year ("2 Sep", not
+  "2026-09-02"). Both the gviz CSV endpoint and the existing `fetchSheetObjectsXlsx()` (which
+  reads formatted display strings via `raw:false`) reproduce that same truncated display and
+  silently lose the year. `fetchWorkbookXlsxCellDates()` / `fetchSheetAoaXlsx()` read raw cell
+  values with `cellDates:true` instead, returning real JS `Date` objects. If a future sheet in
+  this project shows the same symptom (dates rendering without a year), this is the fix.
+- **Competitor Snapshot tables added** — new full-width cards under the existing Reddit and
+  Quora Executive Snapshot tables (`redditCompetitorThemeBody` / `quoraCompetitorThemeBody`),
+  keyed by **brand** rather than by Sumadhura project (`buildBrandThemes()`). The sheet doesn't
+  give a project-per-competitor taxonomy to key by, and fabricating one wasn't asked for —
+  brand-level mentions/sentiment/theme-excerpt is what's actually buildable and honest from
+  this data. Sourced from the same window as Sumadhura's own tables (the header's range
+  picker), not the per-chart pie-window pickers.
+  - **Revised per follow-up feedback** (own dedicated table shape now, not `exec-table`):
+    (1) **Organic-only** — `organicCommentsInWindow()` filters every brand's comments to
+    `Comment Origin === "Organic"` (excludes "Seeded") before anything else runs. For
+    competitors this barely moves the numbers (we don't seed their threads), but it's the
+    whole point for Sumadhura's own row: mixing our own seeded replies into "what's the organic
+    theme" would make our own outreach look like organic buzz about us.
+    (2) **Sumadhura is now a row in this same table**, sorted first, so its organic-only theme
+    sits directly next to competitors' for comparison — this is the direct answer to "what's
+    Sumadhura's organic theme." Sumadhura Quora currently comes back as 0 mentions / "No
+    organic conversation this period" because every tracked Quora comment there is seeded —
+    a real, honest finding (there's no organic Quora conversation about Sumadhura being
+    picked up yet), not a bug; don't "fix" it by loosening the origin filter.
+    (3) **Theme text is now built from every qualifying organic comment in the window**, not
+    just the first comment of up to two threads — ranked by upvotes (community endorsement is
+    a better "this is the theme" signal than raw text length), length as the tie-break, top 2
+    shown. Previously a brand's dozens of comments this period could all collapse to whichever
+    two threads happened to be iterated first.
+    (4) **Positive/Negative toggle** (`.theme-toggle` buttons, same DOM pattern as
+    `socialThemePlatformToggle`) switches every row's Theme + Top Thread at once — read from
+    `data-sentiment-sel` on the active button, no separate state variable. A brand's mentions
+    count is sentiment-agnostic (both bucket counts summed), but the same theme/link column
+    can't show both sentiments' text at once, hence the toggle rather than two static columns.
+    (5) **Top Thread column** — a real clickable link to whichever qualifying thread has the
+    most organic in-window comments for the active sentiment (upvotes as tie-break), via
+    `renderCompetitorThemeTable()`. Previously this table had no links at all.
+  - **Revised again per a second round of follow-up feedback**:
+    (1) **Theme is now 3-4 bullet points, not 1-2 quotes joined with " / "** — `themeFor()`
+    picks up to 4 comments (still ranked by upvotes then length) but caps **2 per thread**
+    before moving on, so one heavily-upvoted thread can't fill the whole list; the result
+    reflects several different conversations in the period, not one popular subthread repeated.
+    Rendered as an actual `<ul class="theme-bullets">` in the Theme column, not a run-on
+    sentence. Row shape changed from `{theme: string}` to `{themes: string[]}` accordingly —
+    `renderCompetitorThemeTable()` was updated to match. **This is still mechanical excerpt
+    selection, not abstractive summarization** — true paraphrase-into-new-sentences synthesis
+    needs an LLM reading the text, which this live, client-side computation can't do. Said this
+    plainly rather than let bullets look like something they're not.
+    (2) **Wired into the same per-chart week/month pill row as the sentiment pie/exec table
+    directly above it** (`renderPieWindow()`, in the `platform==='reddit'||'quora'` branch) —
+    previously the Competitor Snapshot tables were only ever driven by the header's own month
+    picker (which has no weekly granularity at all), while the pill row right above them
+    (`pieWindowState`, "This Month" + W1..W14) looked like it should control everything on the
+    tab but silently didn't reach these tables. Clicking a week pill now re-scopes mentions/
+    themes/top-thread to that week; `pieWindowState` defaults to `'global'` (mirrors the
+    header's month), so **month is still the default** — nothing changed about that, the gap
+    was that weekly was previously unreachable for this table specifically, not that month
+    wasn't already the default.
+    (3) Competitor Snapshot tables' HTML class changed from `theme-table exec-table` to
+    `theme-table competitor-table` — they don't use `exec-table`'s per-row click-to-modal
+    behavior at all (there's no single verdict to click into), so keeping that class on gave a
+    misleading `cursor:pointer` with no click handler behind it.
+- **`theme_cache.json`'s curated Reddit/Quora narrative buckets were stripped** (both the
+  `weekly`/`monthly` project-narrative entries and the `sentimentCounts.weekly`/`.monthly`
+  frozen counts) — they were curated/frozen from the old sheet and would otherwise silently
+  override the new mechanical computation for every period that happened to already be cached
+  (this included the current reporting month, 2026-09). GMB/Social entries were left untouched.
+  A `.bak` copy of the pre-edit file sits next to it. Re-curating genuine narrative Reddit/Quora
+  themes from the new sheet (the same kind of manual synthesis GMB's cache entries get) is a
+  reasonable follow-up but wasn't done here — the mechanical builder is what's live now.
+- **`scripts/refresh_sentiment_cache.py` is now stale and must not be run as-is** — its
+  `load_reddit_rows()`/`load_quora_sentiment()`/`reddit_counts_for_window()` still assume the
+  old tab/column names, which no longer exist in the new workbook. Flagged with a docstring
+  warning in the script itself rather than silently updating `SHEET_IDS` there (which would
+  just fail differently, or worse, run against tabs that don't mean what the code assumes).
+  Needs a matching Python rewrite (mirroring `parseBrandTab`/`sentimentCountsForThreads`)
+  before its next scheduled run.
+- **Removed as dead code once every call site was migrated**: `buildRedditPosts()`,
+  `buildMentionThemes()`, `getDiscussionText()`, `rowByLabel()`, `lastN()`, `getRowDate()`,
+  `fetchSheetObjectsAutoHeader()`, `hasCommentLink()` — all were old-sheet-format-specific and
+  had no remaining callers after the rewrite. If something from an older revision of this doc
+  references them, that guidance no longer applies.
+
 ## Brand/style
 Follow `NSD_Brand_Guidelines.md` exactly: Constellation (#1A1F36) headers/nav, Arctic White (#F8F9FA) content bg, Meridian (#1A5276) as primary/positive, Compass Gold family (#C9A96E / #B8923A) as accent/negative-flag, Atlas (#2C3E50) as neutral/tertiary, Arial throughout. Sentiment palette convention used here: **Positive = Meridian, Negative = Deep Gold, Neutral = Atlas** (avoids red/green per brand rule, stays inside the existing chart-color hierarchy).
 
