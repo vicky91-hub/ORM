@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T00:49:49.118478+00:00",
+  "generated_at": "2026-09-28T00:56:47.189788+00:00",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -1786,7 +1786,8 @@
           "Panorama": {
             "positive": [
               "Siri Kishore's 5-star review (Sep 24) offered the month's first positive counterweight, calling both Phase 1 and Phase 2 'well planned' with 'a peaceful atmosphere and a good community feel' and praising the pace of surrounding infrastructure development.",
-              "Raju Gowda's bare 5-star (Sep 24) followed the same day, adding a second positive rating with no written detail."
+              "Raju Gowda's bare 5-star (Sep 24) followed the same day, adding a second positive rating with no written detail.",
+              "Two Sep 27 site-visit reviews added further positive momentum — Yash Jaiswal (4-star) brought his parents to the Devanahalli site and praised the ‘sprawling open spaces and green landscaping’ for a ‘calm, peaceful vibe away from city chaos’ and a neat plot layout, while Madhav (5-star) highlighted the wide internal roads and plot boundary stones already laid out on a weekend site visit."
             ],
             "negative": [
               "Saransh's 1-star (Sep 19) flagged a Phase 2 marketing-vs-RERA discrepancy: areas the public brochure markets as amenities and parks are marked as CA (common) area in the RERA filing, which by law the builder must relinquish to the government -- he urged buyers to do a proper legal check before purchase.",
@@ -1797,7 +1798,8 @@
               "positive": [
                 "well planned Phase 1 & 2 (Siri Kishore)",
                 "peaceful atmosphere & community feel",
-                "second bare 5-star (Raju Gowda)"
+                "second bare 5-star (Raju Gowda)",
+                "Devanahalli site visits (Sep 27): wide roads, green landscaping"
               ],
               "negative": [
                 "Phase 2 brochure vs RERA CA-area mismatch",
@@ -1809,7 +1811,7 @@
               ]
             },
             "verdict": "Mixed",
-            "keyTakeaway": "Two Sep 24 positive ratings (Siri Kishore's planning praise, Raju Gowda's bare 5-star) softened Panorama to Mixed, but three separate Phase 2 due-diligence warnings -- CA-area/RERA mismatches, a railway depot near the boundary wall, and pending Phase-1 litigation -- remain the substantive story."
+            "keyTakeaway": "Two more Sep 27 site-visit reviews (wide internal roads, green landscaping) pushed positive ratings to four, but three separate Phase 2 due-diligence warnings — CA-area/RERA mismatches, a railway depot near the boundary wall, and pending Phase-1 litigation — remain the bigger story this month."
           },
           "Z-hub": {
             "positive": [
@@ -1961,6 +1963,112 @@
           }
         },
         "_note": "No LinkedIn rows exist in the Daily Tracker's 'specific data' tab for September, now confirmed via a full workbook export (952 total 'Linkedin Page' rows across the tracker's entire history) that reaches past the 'raw' ticket-export tab that limited earlier runs -- the latest dated LinkedIn row anywhere in the sheet is 14-Aug-2026. This is a genuine tracking gap, not a connector limitation: flagging for the team to check the LinkedIn feed's integration into this tracker."
+      },
+      "Reddit": {
+        "projects": {
+          "Folium": {
+            "positive": [
+              "A handful of genuinely positive organic voices surfaced this month: a Folium resident replying on a resale-price thread said tower, sunlight/balcony orientation and lift access ‘matter more than I thought’ when comparing units against pure psf, and the month's one detailed owner review (on a ‘need genuine feedback’ thread) praised the near-complete access to the Whitefield main road, the lake-adjacent open space and sports infrastructure, and ‘premium’ internal lobbies and fixtures."
+            ],
+            "negative": [
+              "The dominant story was an NRI renter's list of reasons for not buying after 6 months on rent: ‘quality of crowd is bad,’ ‘shoddy maintenance by builder,’ water accumulating in the basement during recent rain, his US-citizen kids getting scolded by aunties, and messy water quality, on top of heavy Varthur-direction traffic — echoed by a separate reply calling build quality, maintenance and crowd ‘not as good as you’d expect in a tier 1 complex.’",
+              "The same owner review that praised the location also flagged recurring ‘multiple instances of water pipe bursting in the basement’ still being fixed, no piped-gas/Cauvery connection yet, jammed Borewell Road and old-airport-road school-hour bottlenecks, and an understaffed facilities team not yet enforcing rules; two further replies added ‘very little greenery inside the complex’ with a smelly nearby naala, and ‘insanely small’ 2BHK room sizes ‘not really worth the hype.’"
+            ],
+            "topKeywords": {
+              "positive": [
+                "tower/sunlight/lift access > psf",
+                "Whitefield main road access",
+                "lake-adjacent open space, premium fixtures"
+              ],
+              "negative": [
+                "NRI renter's crowd/maintenance complaints",
+                "recurring basement water-pipe bursts",
+                "no piped-gas/Cauvery connection yet",
+                "'insanely small' room sizes",
+                "little greenery, smelly naala"
+              ]
+            },
+            "verdict": "Negative",
+            "keyTakeaway": "An NRI renter's list of reasons for walking away (crowd quality, shoddy maintenance, basement water accumulation, messy water) anchored a mostly negative month, compounded by an owner's own account of recurring basement pipe bursts and ‘insanely small’ rooms, against only scattered praise for location and amenities."
+          },
+          "Edition": {
+            "positive": [
+              "‘Check edition once!’ — a lone organic nudge inside a Solea/Epitome pricing debate, suggesting at least one Redditor sees Edition as the safer alternative; beyond that, the month's only Edition volume was Sumadhura's own seeded copy repeating its 20-acre masterplan (gardens, sports courts, coworking spaces) across five unrelated generic threads about balconies, clubhouses and family amenities."
+            ],
+            "negative": [
+              "One organic caution stood out on a dedicated ‘Sumadhura edition final booking’ thread: ‘This project has litigation, pls proceed carefully,’ followed by a request for the actual all-inclusive price paid — neither drew an in-thread rebuttal or clarification."
+            ],
+            "topKeywords": {
+              "positive": [
+                "'check edition once' organic nod",
+                "seeded 20-acre masterplan copy (gardens, sports, coworking)"
+              ],
+              "negative": [
+                "'has litigation, proceed carefully' warning"
+              ]
+            },
+            "verdict": "Mixed",
+            "keyTakeaway": "A single organic litigation caution (‘proceed carefully’) was Edition's only real red flag this month, balanced only by one Redditor nudging a buyer to ‘check edition’ — everything else attributed to Edition was Sumadhura's own seeded masterplan copy repeated across unrelated threads, not genuine buyer sentiment."
+          },
+          "Epitome": {
+            "positive": [
+              "Sumadhura's own seeded replies pushed a ‘judge the exact unit, not the whole project’ rebuttal in the same thread — one visitor said he liked the corner-home layout, privacy and openness enough that he ‘wouldn't reject Epitome completely,’ and another described a second, evening visit where train noise was present but privacy and Manyata connectivity outweighed it."
+            ],
+            "negative": [
+              "Every organic Redditor in a ‘should I consider Solea/Epitome’ thread was discouraging — ‘walk away as fast as you can,’ ‘back off, it's not worth it,’ and a detailed complaint that the amenities (one badminton court, no temperature-controlled pool) don't justify the price given the adjacent railway track."
+            ],
+            "topKeywords": {
+              "positive": [
+                "seeded 'judge the exact unit' rebuttal",
+                "corner-home layout, privacy praise (seeded)"
+              ],
+              "negative": [
+                "organic 'walk away'/'back off' dismissals",
+                "railway-track proximity vs price",
+                "amenities don't justify price"
+              ]
+            },
+            "verdict": "Mixed",
+            "keyTakeaway": "Every organic voice in a ‘should I consider Solea/Epitome’ thread said to walk away over price-vs-amenities and the adjacent railway track, while Sumadhura's own seeded replies pushed back with a softer ‘judge the exact unit’ framing — genuine buyer skepticism versus in-house damage control."
+          },
+          "Capitol Residences": {
+            "positive": [],
+            "negative": [],
+            "topKeywords": {
+              "positive": [],
+              "negative": []
+            },
+            "verdict": "No data",
+            "keyTakeaway": "No organic Reddit engagement with Capitol Residences this month — every mention was Sumadhura's own seeded copy repeating the same masterplan talking points (vehicle-free landscaped ground, ~405 homes, ~22,000 sq ft clubhouse) across five unrelated generic threads.",
+            "_note": "Seeded comments appeared in threads about clubhouse crowding, balcony size and three-generation amenities, but no real Redditor engaged with or reacted to Capitol Residences specifically — excluded from the sentiment counts as marketing copy, not genuine feedback."
+          },
+          "Elysium": {
+            "positive": [],
+            "negative": [],
+            "topKeywords": {
+              "positive": [],
+              "negative": []
+            },
+            "verdict": "No data",
+            "keyTakeaway": "Elysium's only September Reddit mention was a single seeded comment praising its ‘planned landscaped environment’ in a generic vehicle-free-layout thread — no organic engagement at all.",
+            "_note": "One seeded reply namechecked Elysium's landscaping in the 'vehicle free internal layout' thread; excluded from sentiment counts as marketing copy rather than real buyer feedback."
+          },
+          "Solace": {
+            "positive": [],
+            "negative": [],
+            "topKeywords": {
+              "positive": [],
+              "negative": []
+            },
+            "verdict": "No data",
+            "keyTakeaway": "Solace was seeded repeatedly into balcony and clubhouse-crowding threads (81% open green, 45,000 sq ft clubhouse), but drew zero organic Reddit replies this month.",
+            "_note": "Repeated seeded mentions across the 'large clubhouse' and 'better balcony' threads pushed the same open-green/clubhouse-size talking points; no genuine Redditor reacted to or discussed Solace specifically, so excluded from sentiment counts."
+          }
+        }
+      },
+      "Quora": {
+        "projects": {},
+        "_note": "September's four Sumadhura Quora threads were entirely about the new Chennai Industrial & Logistics Park at Red Hills — CPRR connectivity, expected tenant demand, and group diversification — none of the 11 tracked residential projects. One answer under the diversification question namechecked Folium, Edition, Solace and Capitol Residences only as background portfolio context ('the residential side... remains strong'), with no project-specific sentiment; excluded rather than fabricated into a per-project verdict."
       }
     }
   },
