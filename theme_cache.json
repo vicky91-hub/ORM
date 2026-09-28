@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T00:56:47.189788+00:00",
+  "generated_at": "2026-09-28T15:25:22.169180+00:00",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -1651,6 +1651,48 @@
           }
         },
         "_note": "August's 'specific data' tab logs 317 LinkedIn rows this month (through 21 Aug, the sheet's latest dated rows): 30 tagged to the corporate 'Sumadhura Infracon Pvt. Ltd' page (JDA/land-deal news, hiring, awards, generic industry news) and 287 untagged generic reactions (congratulations, motivational replies, emoji) carrying no project-specific sentiment. The one genuine item all month is the 5 Aug CII Bengaluru Learning Mission post captured under Capitol Towers below. A 4 Aug 'Top 7 Gated Communities' award-recognition post also names Folium and Capitol Residences in passing, but it's B2B trade-press editorial rather than resident or buyer sentiment, and too thin on detail to synthesize a genuine takeaway from -- left out rather than padded. No LinkedIn rows exist at all for 17-21 Aug."
+      },
+      "Reddit": {
+        "competitors": {
+          "Prestige": {
+            "positive": [
+              "Shortlist credibility — Prestige Evergreen is routinely benchmarked against Lodha Elanza and Assetz Mizumi, with buyers sharing firm price points (≈₹3.01 Cr for 1,884 sq ft).",
+              "Buyer-friendly payment plans — Existing owners view current flexible payment plans as a market-wide benefit to buyers rather than a sign of weak demand."
+            ],
+            "negative": [
+              "Location and connectivity — Prestige City, Sarjapur is seen as remote, with heavy Sarjapur Road congestion and no sanctioned metro line in the foreseeable future.",
+              "Investor liquidity — Large volumes of unlet and unsold inventory (200+ rental listings) are making exits difficult for investors and depressing rents.",
+              "Density and liveability — Concerns over very high density, long lift waiting times, shared common walls and amenities undersized for the number of residents.",
+              "Sales practices and timelines — Low-interest payment plans and 'final phase' messaging are viewed with suspicion, and delays of 12–18 months are widely expected."
+            ]
+          },
+          "Sobha": {
+            "positive": [
+              "Construction quality and delivery — Consistently rated among the top Bangalore developers for build quality, landscaping, on-time delivery and clean legal title.",
+              "Rental performance (Dubai) — Sobha Hartland owners report strong tenant demand, low maintenance issues and after-sales service above market norms.",
+              "Unit planning — Some buyers find Sobha 3BHKs more spacious than comparable Prestige or Brigade offerings."
+            ],
+            "negative": [
+              "Oversupply and exit losses (Dubai) — Sobha Central buyers face exit losses of up to ~24%, with a 20:80 plan relaunched after earlier 'sold out' messaging.",
+              "Resale pricing — Sobha Dream Acres resale prices (~₹1.25–1.3 Cr vs ~₹62L at launch) are viewed as broker-inflated, with sellers withdrawing from agreed deals.",
+              "Compact layouts and density — Recurring criticism of small unit sizes and high tower density affecting comfort and resale appeal.",
+              "Premium pricing vs location — Sobha Windsor (~₹19k/sq ft) and Sobha One World (toll access) are questioned on value for their locations."
+            ]
+          },
+          "Brigade": {
+            "positive": [
+              "Fair pricing on select launches — Brigade Silver Crest is seen as reasonably priced against nearby resale benchmarks, with a boutique 133-unit scale.",
+              "Floor plan design — Brigade Avalon's layouts (larger bedrooms, decks) are well regarded, with confirmed bookings from engaged buyers.",
+              "Brand trust — Several users defend Brigade as a Category-A developer on construction quality and delivery timelines."
+            ],
+            "negative": [
+              "Shrinking unit sizes — Belvedere, Lakefront, Valencia and El Dorado are criticised for small bedrooms and compact '3BHK' configurations.",
+              "Rental yield and oversupply — Brigade El Dorado is viewed as a weak investment given heavy supply and distance from the metro.",
+              "Pricing and land parcel — Brigade Avalon is seen as launched at peak pricing on a small plot with limited outdoor amenities.",
+              "Site surroundings — Brigade Granada's proximity to a graveyard is a recurring deterrent."
+            ]
+          }
+        }
       }
     },
     "2026-09": {
@@ -2064,11 +2106,121 @@
             "keyTakeaway": "Solace was seeded repeatedly into balcony and clubhouse-crowding threads (81% open green, 45,000 sq ft clubhouse), but drew zero organic Reddit replies this month.",
             "_note": "Repeated seeded mentions across the 'large clubhouse' and 'better balcony' threads pushed the same open-green/clubhouse-size talking points; no genuine Redditor reacted to or discussed Solace specifically, so excluded from sentiment counts."
           }
+        },
+        "competitors": {
+          "Sumadhura": {
+            "positive": [
+              "Buyer priorities aligned with our messaging — Discussions show a clear preference for private balconies and open space over large clubhouses, a theme Sumadhura projects can lean into.",
+              "Informed due diligence — Folium Phase IV buyers are investing in independent legal verification, signalling serious purchase intent.",
+              "Location and amenities (Folium) — Owners cite upcoming Whitefield main-road access, open spaces and sports infrastructure as strengths."
+            ],
+            "negative": [
+              "Maintenance and build quality (Folium) — Concerns over builder maintenance, basement water-logging during rains and compact room sizes.",
+              "Pricing vs amenities (Solea / Epitome) — Seen as priced above its amenity offering, with railway-line proximity cited as a drawback.",
+              "Resale expectations (Eden Garden) — Resale asks well above comparable listings, alongside questions about litigation status.",
+              "Document transparency — Reports that some documents were hard to obtain during legal due diligence.",
+              "Market confidence — The ₹17,000 Cr expansion plan prompted concerns about demand softness and delivery risk on pre-booked inventory."
+            ]
+          },
+          "Prestige": {
+            "positive": [
+              "Project quality (Pine Forest) — Well regarded for layout and spacious units; recent bookings at ~₹17.4–17.7k/sq ft considered fair value.",
+              "Build quality and resale liquidity — In head-to-head comparisons, Prestige is frequently preferred over Mana, Adarsh, Sattva and Alembic.",
+              "Reasonable resale entry points — Select resale units (e.g., Song of the South at ~₹1 Cr) are viewed as fairly priced."
+            ],
+            "negative": [
+              "Resale price corrections — Asking prices at Song of the South, Finsbury Park and Prestige City are seen as well above realised market values (e.g., ~₹8.8–9k/sq ft at Prestige City).",
+              "Pricing and payment schemes (Evergreen) — The ₹3.3 Cr price and 2-year payment holiday are perceived as a built-in markup, with 2030 possession and adjacent nalas.",
+              "Density and amenity adequacy — High density at Prestige City, ParkLane (~150 units/acre) and Ferns Residency, with amenities undersized for the resident count.",
+              "Site location risks — New launches near data centres (KIADB Phase-2), graveyards and nalas (Southern Star), and weak feedback on Golden Grove, Hyderabad."
+            ]
+          },
+          "Sobha": {
+            "positive": [
+              "Construction quality — Remains Sobha's most consistent strength, acknowledged even in critical threads.",
+              "Long-term value (Sobha Manhattan) — Viewed as a solid long-term hold on Hosur Road with healthy rental demand.",
+              "Site improvements (Sobha Infinia) — Upgraded drainage and flood mitigation noted positively, along with forest-facing views."
+            ],
+            "negative": [
+              "Connectivity (Sobha Neopolis) — Poor approach roads, reliance on the yet-to-be-built CDP road and tanker-dependent water supply.",
+              "Layout, light and ventilation — Compact carpet areas and north-facing, low-sunlight units at Sentosa and Royal Pavilion; HT line concerns at Sentosa.",
+              "Inflated resale asks — Dream Acres and Windsor listings seen as 30–45% above what residents consider fair value.",
+              "Investment outlook — Appreciation already priced in at Sobha One World; lakebed siting concerns; Sobha Central (Dubai) seen as oversupplied."
+            ]
+          },
+          "Brigade": {
+            "positive": [
+              "Resale demand — Brigade Valencia resale listings attract multiple interested buyers, and rental enquiries are active near Orion Mall."
+            ],
+            "negative": [
+              "Construction and maintenance quality — Complaints about STP maintenance, water quality and plumbing (e.g., Brigade Gateway); ranked below Sobha and Prestige.",
+              "Unit size and oversupply (El Dorado) — Compact units, heavy supply and distance from the city and IT hubs; resale at ~₹8.2–9.2k/sq ft vs ~₹11k asked.",
+              "Project density — Belvedere (~175 units/acre) and Orchards Ivory ('2BHK in 1BHK area') are cited as over-dense.",
+              "Legal and site risks — HT line and High Court case at Lakecrest; litigation, graveyard and cement plant adjacency at Granada."
+            ]
+          },
+          "Sattva": {
+            "positive": [
+              "Lower density and better planning — Sattva Songbird is preferred over Brigade Belvedere (~110 vs ~170 units/acre) with stronger floor plans and Phase 2 upside.",
+              "Negotiation headroom — Buyers report room of up to ~₹500/sq ft below quoted prices."
+            ],
+            "negative": [
+              "Commute and infrastructure (Knowledge City, Hyderabad) — Severe peak-hour congestion; criticism is aimed at civic planning rather than the product.",
+              "Premium pricing — The 4BHK premium at Sattva City is seen as unjustified.",
+              "Perceived material quality — Rated below Prestige in direct comparisons (Aeropolis vs ParkLane)."
+            ]
+          },
+          "Lodha": {
+            "positive": [
+              "Exclusivity and privacy — Lodha Sadahalli is positioned as a premium, private community with strong future demand in North Bangalore."
+            ],
+            "negative": [
+              "Connectivity and appreciation (Lodha Amara, Thane) — Long commute to Thane station, limited appreciation and parking constraints.",
+              "Access roads — Narrow village approach road to Lodha Sadahalli."
+            ]
+          },
+          "Hiranandani": {
+            "positive": [
+              "Location desirability — Hiranandani Powai is seen as the most desirable address near major offices, though conversation centres on the neighbourhood rather than a specific project."
+            ],
+            "negative": []
+          }
         }
       },
       "Quora": {
         "projects": {},
-        "_note": "September's four Sumadhura Quora threads were entirely about the new Chennai Industrial & Logistics Park at Red Hills — CPRR connectivity, expected tenant demand, and group diversification — none of the 11 tracked residential projects. One answer under the diversification question namechecked Folium, Edition, Solace and Capitol Residences only as background portfolio context ('the residential side... remains strong'), with no project-specific sentiment; excluded rather than fabricated into a per-project verdict."
+        "_note": "September's four Sumadhura Quora threads were entirely about the new Chennai Industrial & Logistics Park at Red Hills — CPRR connectivity, expected tenant demand, and group diversification — none of the 11 tracked residential projects. One answer under the diversification question namechecked Folium, Edition, Solace and Capitol Residences only as background portfolio context ('the residential side... remains strong'), with no project-specific sentiment; excluded rather than fabricated into a per-project verdict.",
+        "competitors": {
+          "Sobha": {
+            "positive": [
+              "Market visibility — Strong promotional presence for Sobha Rivana (Noida Extension), Crescent and Altus (Gurugram) and Liora / One World (Whitefield), highlighting location and connectivity.",
+              "Caveat — Content is predominantly promotional rather than genuine buyer opinion; some threads carry unrelated third-party ads."
+            ]
+          },
+          "Sattva": {
+            "positive": [
+              "Investment and lifestyle positioning — Sattva Lumina (Yelahanka) promoted on its North Bangalore growth corridor and dual clubhouses; nearest metro is ~15 km away. Content is largely promotional."
+            ]
+          },
+          "Hiranandani": {
+            "positive": [
+              "Township brand equity — Promotional coverage of Krisala Township Phase 3 (Hinjewadi) and House of Hiranandani Vikhroli / Kolshet; premium pricing justified by planned communities and amenities."
+            ]
+          },
+          "Lodha": {
+            "positive": [
+              "Amenities and location — Lodha Amara's private forest and sports facilities, Palava's space-for-budget value, and Crown Kolshet's location are highlighted."
+            ],
+            "negative": [
+              "Construction quality and after-sales — An owner reports leakage and seepage within 1–2 years of handover and slow resolution from the developer."
+            ]
+          },
+          "Prestige": {
+            "positive": [
+              "Market entry (Thane) — Prestige City Thane coverage is limited to a project overview; no organic buyer opinion yet."
+            ]
+          }
+        }
       }
     }
   },

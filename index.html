@@ -184,6 +184,11 @@
   #deliveryTable tfoot td, #gmbTable tfoot td{ font-weight:bold; color:var(--constellation); background:var(--mist); border-top:2px solid var(--cloud); border-bottom:none; }
   #deliveryTable td:first-child{ white-space:normal; min-width:200px; }
   #deliveryTable th.num, #deliveryTable td.num{ min-width:70px; }
+  /* Metric column stays frozen while the week columns scroll horizontally. Sticky cells need an
+     opaque background (matching their row's) or the scrolled columns show through underneath. */
+  #deliveryTable th:first-child, #deliveryTable td:first-child{ position:sticky; left:0; z-index:1; background:#fff; box-shadow:inset -1px 0 0 var(--cloud), 4px 0 6px -4px rgba(0,0,0,0.12); }
+  #deliveryTable thead th:first-child, #deliveryTable tfoot td:first-child{ background:var(--mist); z-index:2; }
+  #deliveryTable tbody tr:hover td:first-child{ background:var(--mist); }
   tr:last-child td{ border-bottom:none; }
   tbody tr:hover{ background:var(--mist); }
   .num{ text-align:right; font-variant-numeric:tabular-nums; }
@@ -792,7 +797,7 @@
       <h3>Full Delivery Breakdown</h3>
       <p class="card-sub">Source: Summary tab — activity tracking only (not a sentiment measure). Filter by platform:</p>
       <div class="filter-bar" id="deliveryFilterBar"></div>
-      <div style="overflow-x:auto;">
+      <div id="deliveryTableScroll" style="overflow-x:auto;">
         <table id="deliveryTable">
           <thead>
             <tr id="deliveryTableHeadRow"><th>Metric</th><th>Platform</th></tr>
@@ -829,11 +834,11 @@
       <h3>Competitor Snapshot — Reddit</h3>
       <p class="card-sub">Same window, same sheet — organic-only themes (seeded replies excluded) for Sumadhura and the competitor brands tracked alongside it.</p>
       <div class="theme-toggle" id="redditCompetitorThemeToggle" style="margin-bottom:8px;">
-        <button class="filter-btn active" data-sentiment-sel="positive">Positive</button>
-        <button class="filter-btn" data-sentiment-sel="negative">Negative</button>
+        <button class="filter-btn active" data-sentiment-sel="positive">Positives</button>
+        <button class="filter-btn" data-sentiment-sel="negative">Pain Points</button>
       </div>
       <table class="theme-table competitor-table">
-        <thead><tr><th>Brand</th><th>Mentions</th><th>Theme</th><th>Top Thread</th></tr></thead>
+        <thead><tr><th>Brand</th><th>Mentions</th><th>What the public is saying</th><th>Top Thread</th></tr></thead>
         <tbody id="redditCompetitorThemeBody"></tbody>
       </table>
     </div>
@@ -858,11 +863,11 @@
       <h3>Competitor Snapshot — Quora</h3>
       <p class="card-sub">Same window, same sheet — organic-only themes (seeded replies excluded) for Sumadhura and the competitor brands tracked alongside it.</p>
       <div class="theme-toggle" id="quoraCompetitorThemeToggle" style="margin-bottom:8px;">
-        <button class="filter-btn active" data-sentiment-sel="positive">Positive</button>
-        <button class="filter-btn" data-sentiment-sel="negative">Negative</button>
+        <button class="filter-btn active" data-sentiment-sel="positive">Positives</button>
+        <button class="filter-btn" data-sentiment-sel="negative">Pain Points</button>
       </div>
       <table class="theme-table competitor-table">
-        <thead><tr><th>Brand</th><th>Mentions</th><th>Theme</th><th>Top Thread</th></tr></thead>
+        <thead><tr><th>Brand</th><th>Mentions</th><th>What the public is saying</th><th>Top Thread</th></tr></thead>
         <tbody id="quoraCompetitorThemeBody"></tbody>
       </table>
     </div>
@@ -1748,7 +1753,11 @@ function projectThemesForWindow(threads, start, end){
 function organicCommentsInWindow(thread, start, end){
   return thread.comments.filter(c => c.date && isDateInRange(c.date, start, end) && /^organic/i.test((c.origin||'').trim()));
 }
-function buildBrandThemes(threadsByBrand, start, end){
+// `curated` is theme_cache.json's <period>.<Reddit|Quora>.competitors — Claude-written
+// Positives / Pain Points per brand ("Aspect — finding" bullets) synthesized from the full
+// threads (titles + organic replies). When a brand/sentiment has a curated entry it wins over
+// the mechanical excerpt pick below; Mentions and Top Thread always stay live.
+function buildBrandThemes(threadsByBrand, start, end, curated){
   return BRAND_TABS.map(b=>{
     const qualifying = (threadsByBrand[b.brand]||[])
       .map(t => ({t, organic: organicCommentsInWindow(t, start, end)}))
@@ -1777,9 +1786,11 @@ function buildBrandThemes(threadsByBrand, start, end){
         if(picked.length >= 4) break;
       }
       const topThreadEntry = set.slice().sort((a,b)=> b.organic.length-a.organic.length || (b.t.upvotes||0)-(a.t.upvotes||0))[0];
+      const summary = curated?.[b.brand]?.[sentiment];
       return {
         count: set.length,
-        themes: picked.map(c=>excerpt(c.text)),
+        themes: Array.isArray(summary) ? summary : picked.map(c=>excerpt(c.text)),
+        summarized: Array.isArray(summary),
         topThread: topThreadEntry ? {title: topThreadEntry.t.title, url: topThreadEntry.t.url} : null,
       };
     };
@@ -2371,12 +2382,12 @@ function applyDateRange(){
   redditPosts = buildRedditPostsFromThreads(redditThreads, rangeStart, rangeEnd);
   redditSentiment = sentimentCountsForThreads(redditThreads, rangeStart, rangeEnd);
   redditThemeData = bucket?.Reddit?.projects ? cacheToThemeRows(bucket.Reddit.projects) : projectThemesForWindow(redditThreads, rangeStart, rangeEnd);
-  redditCompetitorThemeData = buildBrandThemes(allRedditThreadsByBrand, rangeStart, rangeEnd);
+  redditCompetitorThemeData = buildBrandThemes(allRedditThreadsByBrand, rangeStart, rangeEnd, bucket?.Reddit?.competitors);
 
   quoraSentiment = sentimentCountsForThreads(quoraThreads, rangeStart, rangeEnd);
   quoraQuestions = buildQuoraQuestionsFromThreads(quoraThreads, rangeStart, rangeEnd);
   quoraThemeData = bucket?.Quora?.projects ? cacheToThemeRows(bucket.Quora.projects) : projectThemesForWindow(quoraThreads, rangeStart, rangeEnd);
-  quoraCompetitorThemeData = buildBrandThemes(allQuoraThreadsByBrand, rangeStart, rangeEnd);
+  quoraCompetitorThemeData = buildBrandThemes(allQuoraThreadsByBrand, rangeStart, rangeEnd, bucket?.Quora?.competitors);
 
   gmbProjects = GMB_PROJECTS.map(project=>{
     const rows = filteredGmbDailyRows.filter(r=>r.project===project);
@@ -2605,7 +2616,8 @@ function renderPieWindow(platform){
   if(platform==='reddit' || platform==='quora'){
     const {start,end} = pieWindowBounds(sel);
     const threadsByBrand = platform==='reddit' ? allRedditThreadsByBrand : allQuoraThreadsByBrand;
-    const data = buildBrandThemes(threadsByBrand, start, end);
+    const curated = frozenBucketFor(sel)?.[platform==='reddit' ? 'Reddit' : 'Quora']?.competitors;
+    const data = buildBrandThemes(threadsByBrand, start, end, curated);
     if(platform==='reddit') redditCompetitorThemeData = data; else quoraCompetitorThemeData = data;
     renderCompetitorThemeTable(`${platform}CompetitorThemeBody`, `${platform}CompetitorThemeToggle`, data);
   }
@@ -2820,7 +2832,25 @@ function renderDeliveryTable(filter){
   const weekTotals = Array.from({length:visibleWeekCount}, (_,i)=> totalRows.reduce((s,row)=>s+(row['w'+(i+1)]||0),0));
   const grandTotal = totalRows.reduce((s,row)=>s+row.total,0);
   footRow.innerHTML = `<tr><td>Total</td><td></td>${weekTotals.map(v=>`<td class="num">${v}</td>`).join('')}<td class="num">${grandTotal}</td></tr>`;
+  scrollDeliveryTableToLatest();
 }
+// Open the table on the latest (current) week rather than W1 — the most recent columns are what
+// people come here for; earlier weeks are one scroll to the left. The table can render while its
+// tab is hidden (scrollWidth 0), so this also re-runs once when it first becomes visible.
+function scrollDeliveryTableToLatest(){
+  const el = document.getElementById('deliveryTableScroll');
+  if(el) el.scrollLeft = el.scrollWidth;
+}
+(function(){
+  const el = document.getElementById('deliveryTableScroll');
+  if(!el || !('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver(entries=>{
+    if(!entries.some(e=>e.isIntersecting)) return;
+    scrollDeliveryTableToLatest();
+    io.disconnect(); // once only — don't yank the view back after the user scrolls left
+  });
+  io.observe(el);
+})();
 function renderProgress(containerId, rows){
   const el = document.getElementById(containerId);
   el.innerHTML = rows.map(r=>{
@@ -3292,9 +3322,18 @@ function renderCompetitorThemeTable(tbodyId, toggleId, data){
   }
   tbody.innerHTML = data.map(row=>{
     const cell = row[sentiment];
+    // Curated bullets are "Aspect — finding": bold the aspect so each row scans like a brief.
+    // Uncurated periods (e.g. a single week) fall back to raw top comments — labelled as such
+    // so quotes are never mistaken for synthesized themes.
+    const bullet = t => {
+      const i = cell.summarized ? t.indexOf(' — ') : -1;
+      return i>0 ? `<li><strong>${escapeHtml(t.slice(0,i))}</strong> — ${escapeHtml(t.slice(i+3))}</li>` : `<li>${escapeHtml(t)}</li>`;
+    };
+    const label = sentiment==='positive' ? 'positives' : 'pain points';
     const theme = cell.themes && cell.themes.length
-      ? `<ul class="theme-bullets">${cell.themes.map(t=>`<li>${escapeHtml(t)}</li>`).join('')}</ul>`
-      : `<span class="theme-empty">No organic ${sentiment} conversation this period.</span>`;
+      ? (cell.summarized ? '' : `<span class="theme-empty">Top organic comments (not yet summarised for this period):</span>`)
+        + `<ul class="theme-bullets">${cell.themes.map(bullet).join('')}</ul>`
+      : `<span class="theme-empty">No organic ${label} surfaced this period.</span>`;
     const link = cell.topThread?.url
       ? `<a href="${cell.topThread.url}" target="_blank" rel="noopener">${escapeHtml(cell.topThread.title)}</a>`
       : '—';
