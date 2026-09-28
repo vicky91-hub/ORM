@@ -834,11 +834,11 @@
       <h3>Competitor Snapshot — Reddit</h3>
       <p class="card-sub">Same window, same sheet — organic-only themes (seeded replies excluded) for Sumadhura and the competitor brands tracked alongside it.</p>
       <div class="theme-toggle" id="redditCompetitorThemeToggle" style="margin-bottom:8px;">
-        <button class="filter-btn active" data-sentiment-sel="positive">Positives</button>
-        <button class="filter-btn" data-sentiment-sel="negative">Pain Points</button>
+        <button class="filter-btn active" data-sentiment-sel="positive">Positive</button>
+        <button class="filter-btn" data-sentiment-sel="negative">Negative</button>
       </div>
       <table class="theme-table competitor-table">
-        <thead><tr><th>Brand</th><th>Mentions</th><th>What the public is saying</th><th>Top Thread</th></tr></thead>
+        <thead><tr><th>Brand</th><th title="Organic (non-seeded) comments in this period on threads graded with the selected sentiment">Mentions</th><th>What the public is saying</th><th>Top Thread</th></tr></thead>
         <tbody id="redditCompetitorThemeBody"></tbody>
       </table>
     </div>
@@ -863,11 +863,11 @@
       <h3>Competitor Snapshot — Quora</h3>
       <p class="card-sub">Same window, same sheet — organic-only themes (seeded replies excluded) for Sumadhura and the competitor brands tracked alongside it.</p>
       <div class="theme-toggle" id="quoraCompetitorThemeToggle" style="margin-bottom:8px;">
-        <button class="filter-btn active" data-sentiment-sel="positive">Positives</button>
-        <button class="filter-btn" data-sentiment-sel="negative">Pain Points</button>
+        <button class="filter-btn active" data-sentiment-sel="positive">Positive</button>
+        <button class="filter-btn" data-sentiment-sel="negative">Negative</button>
       </div>
       <table class="theme-table competitor-table">
-        <thead><tr><th>Brand</th><th>Mentions</th><th>What the public is saying</th><th>Top Thread</th></tr></thead>
+        <thead><tr><th>Brand</th><th title="Organic (non-seeded) comments in this period on threads graded with the selected sentiment">Mentions</th><th>What the public is saying</th><th>Top Thread</th></tr></thead>
         <tbody id="quoraCompetitorThemeBody"></tbody>
       </table>
     </div>
@@ -1789,6 +1789,9 @@ function buildBrandThemes(threadsByBrand, start, end, curated){
       const summary = curated?.[b.brand]?.[sentiment];
       return {
         count: set.length,
+        // Per-sentiment Mentions: organic comments in the window on threads graded this
+        // sentiment — so the column changes with the Positive/Negative toggle.
+        mentions: set.reduce((n,x)=> n + x.organic.length, 0),
         themes: Array.isArray(summary) ? summary : picked.map(c=>excerpt(c.text)),
         summarized: Array.isArray(summary),
         topThread: topThreadEntry ? {title: topThreadEntry.t.title, url: topThreadEntry.t.url} : null,
@@ -3320,7 +3323,9 @@ function renderCompetitorThemeTable(tbodyId, toggleId, data){
     tbody.innerHTML = `<tr><td colspan="4"><span class="theme-empty">No themes for this period.</span></td></tr>`;
     return;
   }
-  tbody.innerHTML = data.map(row=>{
+  // Sumadhura stays pinned first; competitors rank by Mentions for the selected sentiment.
+  const rows = data.slice().sort((a,b)=> (b.isUs?1:0)-(a.isUs?1:0) || b[sentiment].mentions-a[sentiment].mentions);
+  tbody.innerHTML = rows.map(row=>{
     const cell = row[sentiment];
     // Curated bullets are "Aspect — finding": bold the aspect so each row scans like a brief.
     // Uncurated periods (e.g. a single week) fall back to raw top comments — labelled as such
@@ -3329,7 +3334,7 @@ function renderCompetitorThemeTable(tbodyId, toggleId, data){
       const i = cell.summarized ? t.indexOf(' — ') : -1;
       return i>0 ? `<li><strong>${escapeHtml(t.slice(0,i))}</strong> — ${escapeHtml(t.slice(i+3))}</li>` : `<li>${escapeHtml(t)}</li>`;
     };
-    const label = sentiment==='positive' ? 'positives' : 'pain points';
+    const label = sentiment;
     const theme = cell.themes && cell.themes.length
       ? (cell.summarized ? '' : `<span class="theme-empty">Top organic comments (not yet summarised for this period):</span>`)
         + `<ul class="theme-bullets">${cell.themes.map(bullet).join('')}</ul>`
@@ -3339,7 +3344,7 @@ function renderCompetitorThemeTable(tbodyId, toggleId, data){
       : '—';
     return `<tr>
       <td class="proj-name">${escapeHtml(row.brand)}${row.isUs ? ' (Sumadhura)' : ''}</td>
-      <td>${row.mentions}</td>
+      <td>${cell.mentions}</td>
       <td class="takeaway">${theme}</td>
       <td>${link}</td>
     </tr>`;
