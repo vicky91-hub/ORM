@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T15:53:58.252960+00:00",
+  "generated_at": "2026-09-29T00:52:02.241586+00:00",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -2031,7 +2031,8 @@
             ],
             "negative": [
               "The dominant story was an NRI renter's list of reasons for not buying after 6 months on rent: ‘quality of crowd is bad,’ ‘shoddy maintenance by builder,’ water accumulating in the basement during recent rain, his US-citizen kids getting scolded by aunties, and messy water quality, on top of heavy Varthur-direction traffic — echoed by a separate reply calling build quality, maintenance and crowd ‘not as good as you’d expect in a tier 1 complex.’",
-              "The same owner review that praised the location also flagged recurring ‘multiple instances of water pipe bursting in the basement’ still being fixed, no piped-gas/Cauvery connection yet, jammed Borewell Road and old-airport-road school-hour bottlenecks, and an understaffed facilities team not yet enforcing rules; two further replies added ‘very little greenery inside the complex’ with a smelly nearby naala, and ‘insanely small’ 2BHK room sizes ‘not really worth the hype.’"
+              "The same owner review that praised the location also flagged recurring ‘multiple instances of water pipe bursting in the basement’ still being fixed, no piped-gas/Cauvery connection yet, jammed Borewell Road and old-airport-road school-hour bottlenecks, and an understaffed facilities team not yet enforcing rules; two further replies added ‘very little greenery inside the complex’ with a smelly nearby naala, and ‘insanely small’ 2BHK room sizes ‘not really worth the hype.’",
+              "A separate 'Folium Phase IV due diligence' thread surfaced a builder-transparency flag: multiple commenters noted the builder was reportedly resistant to sharing certain documents during due diligence, though which specific documents (title chain, EC, approvals) went unconfirmed."
             ],
             "topKeywords": {
               "positive": [
@@ -2044,7 +2045,8 @@
                 "recurring basement water-pipe bursts",
                 "no piped-gas/Cauvery connection yet",
                 "'insanely small' room sizes",
-                "little greenery, smelly naala"
+                "little greenery, smelly naala",
+                "builder document-sharing resistance (Phase IV)"
               ]
             },
             "verdict": "Negative",
@@ -2113,15 +2115,42 @@
             "_note": "One seeded reply namechecked Elysium's landscaping in the 'vehicle free internal layout' thread; excluded from sentiment counts as marketing copy rather than real buyer feedback."
           },
           "Solace": {
+            "positive": [
+              "Sumadhura's own seeded reply on the joint 'Solea/Epitome' thread said the layout felt 'more family friendly and not overly packed' compared to Epitome, and that a nearby graveyard 'didn't bother us much eventually.'"
+            ],
+            "negative": [
+              "Every organic voice in the same thread told the OP to walk away or back off, citing amenities (one badminton court, no temperature-controlled pool) that don't justify the price given railway-track proximity — concerns the seeded reply echoed too, still flagging railway-side noise and the approach road as unresolved."
+            ],
+            "topKeywords": {
+              "positive": [
+                "'more family friendly, not overly packed' (seeded, vs Epitome)"
+              ],
+              "negative": [
+                "organic 'walk away'/'back off' dismissals (shared thread w/ Epitome)",
+                "railway-track proximity vs price",
+                "graveyard adjacency (seeded reply)"
+              ]
+            },
+            "verdict": "Mixed",
+            "keyTakeaway": "The same joint 'Solea/Epitome' thread that hit Epitome hard split on Solace too — Sumadhura's own seeded reply called it more family-friendly than Epitome, but organic voices still said walk away over price, amenities and railway-track proximity."
+          },
+          "Infracon": {
             "positive": [],
-            "negative": [],
+            "negative": [
+              "A ₹17,000cr expansion announcement drew mostly skeptical, macro-level pushback rather than project-specific complaints: several Redditors argued the IT-driven real-estate boom ended with COVID, warned that AI-driven job and salary pressure in tech will hit housing demand with a lag, and questioned whether large office-led expansion actually translates into matching residential absorption.",
+              "The sharpest direct risk flagged was execution, not demand: one reply warned bluntly that a pre-booked, LOI-stage order 'may never get delivered,' and another asked outright what evidence backed the expansion figures — neither drew a rebuttal in-thread."
+            ],
             "topKeywords": {
               "positive": [],
-              "negative": []
+              "negative": [
+                "IT-slowdown/AI job-risk skepticism",
+                "'LOI stage order may never get delivered'",
+                "expansion figures questioned",
+                "pre-booked inventory absorption risk"
+              ]
             },
-            "verdict": "No data",
-            "keyTakeaway": "Solace was seeded repeatedly into balcony and clubhouse-crowding threads (81% open green, 45,000 sq ft clubhouse), but drew zero organic Reddit replies this month.",
-            "_note": "Repeated seeded mentions across the 'large clubhouse' and 'better balcony' threads pushed the same open-green/clubhouse-size talking points; no genuine Redditor reacted to or discussed Solace specifically, so excluded from sentiment counts."
+            "verdict": "Strong Negative",
+            "keyTakeaway": "Sumadhura's ₹17,000cr expansion plan drew a wave of organic skepticism on r/indianrealestate — posters called the IT-driven real-estate boom over, cited AI-driven job risk, and one bluntly warned a pre-booked LOI-stage order 'may never get delivered.'"
           }
         },
         "competitors": {
@@ -2208,33 +2237,41 @@
         "projects": {},
         "_note": "September's four Sumadhura Quora threads were entirely about the new Chennai Industrial & Logistics Park at Red Hills — CPRR connectivity, expected tenant demand, and group diversification — none of the 11 tracked residential projects. One answer under the diversification question namechecked Folium, Edition, Solace and Capitol Residences only as background portfolio context ('the residential side... remains strong'), with no project-specific sentiment; excluded rather than fabricated into a per-project verdict.",
         "competitors": {
+          "Prestige": {
+            "positive": [
+              "Market entry (Prestige City Thane) — The month's only content was a long promotional overview of the pre-launch project (Kolshet Road, ~14.6 acres, ~₹6,000cr GDV) emphasizing developer track record and connectivity upside.",
+              "Caveat — No organic buyer opinion surfaced; the overview reads as marketing copy, not genuine sentiment."
+            ],
+            "negative": []
+          },
           "Sobha": {
             "positive": [
-              "Market visibility — Strong promotional presence for Sobha Rivana (Noida Extension), Crescent and Altus (Gurugram) and Liora / One World (Whitefield), highlighting location and connectivity.",
-              "Caveat — Content is predominantly promotional rather than genuine buyer opinion; some threads carry unrelated third-party ads."
-            ]
+              "Market visibility — Heavy promotional presence across cities: Sobha Rivana (Noida Extension), SOBHA Crescent and Altus (Gurugram's Golf Course Extension Road / Dwarka Expressway corridors), and Sobha Liora and One World (Whitefield), consistently emphasizing connectivity, green space and build-quality legacy.",
+              "Caveat — All 12 organic-tagged threads this month were promotional content from marketing/content-syndication accounts (Sobhaoneworlde, a Wealth Housepert-linked profile, Devanshi Sharma) or unrelated third-party listings posted under a 'Sobha Rivana' handle; none reflect genuine buyer opinion."
+            ],
+            "negative": []
           },
           "Sattva": {
             "positive": [
-              "Investment and lifestyle positioning — Sattva Lumina (Yelahanka) promoted on its North Bangalore growth corridor and dual clubhouses; nearest metro is ~15 km away. Content is largely promotional."
+              "Investment and lifestyle positioning (Sattva Lumina) — Promoted on its North Bangalore growth corridor near Yelahanka/Doddaballapur, dual clubhouses and a long-term appreciation story, though the nearest metro station is ~15km away.",
+              "Caveat — All 5 organic-tagged threads were FAQ-style posts from a single repeating marketing account; no genuine buyer reviews surfaced."
+            ],
+            "negative": []
+          },
+          "Lodha": {
+            "positive": [
+              "Amenities and investment case (Lodha Amara / Crown Kolshet) — Genuine buyer and visitor answers cited Lodha Amara's private forest area and multiple segregated swimming pools as standout amenities, and praised Crown Kolshet's Ghodbunder Road connectivity, nearby retail/schools and already-ready towers as reasons to buy for investment."
+            ],
+            "negative": [
+              "Construction quality and after-sales (unnamed Lodha project) — A detailed buyer complaint described leakage and seepage appearing within a year or two of possession, disputed maintenance charges during repairs, a seven-month-to-a-year repair turnaround, and no accessible escalation point beyond on-site maintenance staff."
             ]
           },
           "Hiranandani": {
             "positive": [
-              "Township brand equity — Promotional coverage of Krisala Township Phase 3 (Hinjewadi) and House of Hiranandani Vikhroli / Kolshet; premium pricing justified by planned communities and amenities."
-            ]
-          },
-          "Lodha": {
-            "positive": [
-              "Amenities and location — Lodha Amara's private forest and sports facilities, Palava's space-for-budget value, and Crown Kolshet's location are highlighted."
+              "Caveat — Beyond the pricing exchange below, the rest of the month's organic-tagged activity was promotional content-marketing articles (Hiranandani Hinjewadi township pieces, plus Vikhroli and Kolshet project ads) rather than genuine buyer reviews."
             ],
             "negative": [
-              "Construction quality and after-sales — An owner reports leakage and seepage within 1–2 years of handover and slow resolution from the developer."
-            ]
-          },
-          "Prestige": {
-            "positive": [
-              "Market entry (Thane) — Prestige City Thane coverage is limited to a project overview; no organic buyer opinion yet."
+              "Pricing perception — A recurring public question asked why Hiranandani keeps pricing so high that ordinary buyers can't consider it; even the explanatory answer confirmed pricing sits well above typical mid-market projects, reinforcing a premium-only brand perception."
             ]
           }
         }
