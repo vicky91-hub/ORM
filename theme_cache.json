@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T00:52:02.241586+00:00",
+  "generated_at": "2026-09-30T00:51:35.673338+00:00",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -1731,18 +1731,18 @@
           },
           "Capitol Towers": {
             "positive": [
-              "Capitol Towers logged nine bare-to-short 5-star/4-star GMB ratings in September, all on the same listing and none with detailed feedback: Anup Deka's one-word 'Good' (Sep 1), 'Great warrior's unlabeled 'Just a rating' (Sep 7), Anil kumar MISHRA's bare 5-star (Sep 9), TacoTech's bare 5-star (Sep 10), Jami Saranya's bare 5-star (Sep 12), Mahima Kumari's bare 5-star (Sep 13), a seventh from Suresh Gouda (Sep 17), vaibhav singh bisht's bare 4-star (Sep 24), and vibhava nadimpalli's near-bare 5-star simply naming the project (Sep 24)."
+              "Capitol Towers logged ten bare-to-short 5-star/4-star GMB ratings in September, all on the same listing and none with detailed feedback: Anup Deka's one-word 'Good' (Sep 1), 'Great warrior's unlabeled 'Just a rating' (Sep 7), Anil kumar MISHRA's bare 5-star (Sep 9), TacoTech's bare 5-star (Sep 10), Jami Saranya's bare 5-star (Sep 12), Mahima Kumari's bare 5-star (Sep 13), a seventh from Suresh Gouda (Sep 17), vaibhav singh bisht's bare 4-star (Sep 24), vibhava nadimpalli's near-bare 5-star simply naming the project (Sep 24), and Atul Srivastava's bare 5-star closing out the month (Sep 29)."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
-                "nine bare-to-short ratings, zero complaints",
+                "ten bare-to-short ratings, zero complaints",
                 "no written feedback beyond naming the project"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Capitol Towers closed September with a ninth straight bare-to-short GMB rating (vibhava nadimpalli, Sep 24), keeping an unbroken month-long run of ratings with zero written feedback and zero complaints.",
+            "keyTakeaway": "Capitol Towers closed September with a tenth straight bare-to-short GMB rating (Atul Srivastava, Sep 29), keeping an unbroken month-long run of ratings with zero written feedback and zero complaints.",
             "_note": "A Sep 20 GMB entry tagged 'capitol towers' by reviewer Udit Chandna is a shortened repost of his Sep 16 Folium post-handover complaint -- its own text still reads \"as a buyer of apartment with sumadhura in folium ,BEWARE...\" -- so it's treated as a mistagged repost, not a genuine Capitol Towers complaint, and isn't counted in the tally above."
           },
           "Epitome": {
@@ -1768,7 +1768,8 @@
             "negative": [
               "Satish Kumar's 1-star review (Sep 17) argued the Varthur-Gunjur-Panathur belt's still-pending CDP roads and drainage make it \"one of the worst area[s]\" to buy in Bangalore, calling Sumadhura's build quality merely \"decent\" next to Sobha and Prestige despite CAT-A pricing -- Sumadhura's reply reframed Elysium's low-density, self-contained design as insulation from those exact civic gaps.",
               "Vikash Singh left two separate 1-star entries the same day (Sep 21) -- a bare rating, then a detailed follow-up alleging Elysium's 5-star reviews are fake ('just look at their profile'), that pricing is steep for what's delivered, and that agents are financially incentivized to steer buyers toward the project regardless of fit.",
-              "sachin T's 1-star (Sep 26) repeated the same civic-infrastructure complaint as Satish Kumar's Sep 17 review, calling Elysium the 'worst location' and accusing Sumadhura of 'selling apartment on the name of CDP road which will never come.'"
+              "sachin T's 1-star (Sep 26) repeated the same civic-infrastructure complaint as Satish Kumar's Sep 17 review, calling Elysium the 'worst location' and accusing Sumadhura of 'selling apartment on the name of CDP road which will never come.'",
+              "Rohit Sawant — the same name behind Sep 27's glowing 5-star pool review praising the sales advisor and resort-grade deck — logged a bare 1-star 'Just a rating' on Sep 29 with no explanation, a striking same-reviewer reversal that pulled the month's tally to 8 positive vs 5 negative and tipped the verdict from Positive into Mixed."
             ],
             "topKeywords": {
               "positive": [
@@ -1786,11 +1787,12 @@
                 "fake-review accusation (Vikash Singh)",
                 "agent financial-incentive complaint",
                 "pricing vs. Sobha/Prestige comparison",
-                "CDP-road complaint repeated (sachin T, Sep 26)"
+                "CDP-road complaint repeated (sachin T, Sep 26)",
+                "same-reviewer 5-star-to-1-star reversal (Rohit Sawant, Sep 27 vs Sep 29)"
               ]
             },
-            "verdict": "Positive",
-            "keyTakeaway": "Three Sep 27 site visits praised Elysium's gym, pool and 50k sq ft clubhouse, while sachin T's Sep 26 review echoed Satish Kumar's CDP-road grievance -- amenity-driven buyer enthusiasm kept outpacing recurring civic-infrastructure doubts, holding the month Positive.",
+            "verdict": "Mixed",
+            "keyTakeaway": "Elysium closed September on an odd note: the same name, Rohit Sawant, who gave a glowing Sep 27 pool review then logged a bare 1-star rating two days later, tipping an amenity-driven month into a narrower Mixed verdict (8 positive vs 5 negative).",
             "_note": "The month's one GMB entry tagged with Elysium's handle (Udit Chandna, Sep 16) is a post-handover complaint whose text explicitly names Folium ('as a buyer... with sumadhura in folium') -- almost certainly a mistagged handle, so it's counted under Folium instead."
           },
           "Edition": {
@@ -2027,7 +2029,8 @@
         "projects": {
           "Folium": {
             "positive": [
-              "A handful of genuinely positive organic voices surfaced this month: a Folium resident replying on a resale-price thread said tower, sunlight/balcony orientation and lift access ‘matter more than I thought’ when comparing units against pure psf, and the month's one detailed owner review (on a ‘need genuine feedback’ thread) praised the near-complete access to the Whitefield main road, the lake-adjacent open space and sports infrastructure, and ‘premium’ internal lobbies and fixtures."
+              "A handful of genuinely positive organic voices surfaced this month: a Folium resident replying on a resale-price thread said tower, sunlight/balcony orientation and lift access ‘matter more than I thought’ when comparing units against pure psf, and the month's one detailed owner review (on a ‘need genuine feedback’ thread) praised the near-complete access to the Whitefield main road, the lake-adjacent open space and sports infrastructure, and ‘premium’ internal lobbies and fixtures.",
+              "Two new organic threads on Sep 29 ('Sumadhura Folium Final Pricing' and '<Bengaluru> Sumadhura Folium') were both just buyers who'd ‘recently closed [a] deal in Sumadhura Folium’ fielding psf-pricing DM requests — genuine transaction activity continuing, but with no substantive sentiment either way."
             ],
             "negative": [
               "The dominant story was an NRI renter's list of reasons for not buying after 6 months on rent: ‘quality of crowd is bad,’ ‘shoddy maintenance by builder,’ water accumulating in the basement during recent rain, his US-citizen kids getting scolded by aunties, and messy water quality, on top of heavy Varthur-direction traffic — echoed by a separate reply calling build quality, maintenance and crowd ‘not as good as you’d expect in a tier 1 complex.’",
@@ -2038,7 +2041,8 @@
               "positive": [
                 "tower/sunlight/lift access > psf",
                 "Whitefield main road access",
-                "lake-adjacent open space, premium fixtures"
+                "lake-adjacent open space, premium fixtures",
+                "continued deal-closing / pricing DM activity (Sep 29)"
               ],
               "negative": [
                 "NRI renter's crowd/maintenance complaints",
@@ -2057,7 +2061,7 @@
               "‘Check edition once!’ — a lone organic nudge inside a Solea/Epitome pricing debate, suggesting at least one Redditor sees Edition as the safer alternative; beyond that, the month's only Edition volume was Sumadhura's own seeded copy repeating its 20-acre masterplan (gardens, sports courts, coworking spaces) across five unrelated generic threads about balconies, clubhouses and family amenities."
             ],
             "negative": [
-              "One organic caution stood out on a dedicated ‘Sumadhura edition final booking’ thread: ‘This project has litigation, pls proceed carefully,’ followed by a request for the actual all-inclusive price paid — neither drew an in-thread rebuttal or clarification."
+              "One organic caution stood out on a dedicated ‘Sumadhura edition final booking’ thread: ‘This project has litigation, pls proceed carefully,’ followed by a request for the actual all-inclusive price paid — it drew no organic rebuttal, though Sumadhura's own seeded reply on Sep 29 pushed a Phase 1/Phase 2 distinction (the litigation flag applies to Phase 1; Phase 2, where J tower sits, currently shows none in RERA-derived records) and urged the buyer to verify the exact survey number with a lawyer rather than take the blanket warning at face value."
             ],
             "topKeywords": {
               "positive": [
@@ -2065,15 +2069,17 @@
                 "seeded 20-acre masterplan copy (gardens, sports, coworking)"
               ],
               "negative": [
-                "'has litigation, proceed carefully' warning"
+                "'has litigation, proceed carefully' warning",
+                "seeded Phase 1/Phase 2 litigation rebuttal (Sep 29)"
               ]
             },
             "verdict": "Mixed",
-            "keyTakeaway": "A single organic litigation caution (‘proceed carefully’) was Edition's only real red flag this month, balanced only by one Redditor nudging a buyer to ‘check edition’ — everything else attributed to Edition was Sumadhura's own seeded masterplan copy repeated across unrelated threads, not genuine buyer sentiment."
+            "keyTakeaway": "A single organic litigation caution (‘proceed carefully’) remained Edition's only real red flag this month; Sumadhura's own seeded reply later drew a Phase 1 vs Phase 2 legal distinction rather than a genuine third-party rebuttal, so the warning still stands unanswered by any real buyer."
           },
           "Epitome": {
             "positive": [
-              "Sumadhura's own seeded replies pushed a ‘judge the exact unit, not the whole project’ rebuttal in the same thread — one visitor said he liked the corner-home layout, privacy and openness enough that he ‘wouldn't reject Epitome completely,’ and another described a second, evening visit where train noise was present but privacy and Manyata connectivity outweighed it."
+              "Sumadhura's own seeded replies pushed a ‘judge the exact unit, not the whole project’ rebuttal in the same thread — one visitor said he liked the corner-home layout, privacy and openness enough that he ‘wouldn't reject Epitome completely,’ and another described a second, evening visit where train noise was present but privacy and Manyata connectivity outweighed it.",
+              "A separate ‘Cauvery water connection, Rachanehalli area’ thread saw a generic organic reply noting civic water access varies for apartments, followed by Sumadhura's own seeded reply (Sep 29) citing Epitome's dual borewell + BWSSB/local-authority sourcing as reassurance — though it still flagged wanting clarity on how much of daily demand each source is expected to cover."
             ],
             "negative": [
               "Every organic Redditor in a ‘should I consider Solea/Epitome’ thread was discouraging — ‘walk away as fast as you can,’ ‘back off, it's not worth it,’ and a detailed complaint that the amenities (one badminton court, no temperature-controlled pool) don't justify the price given the adjacent railway track."
@@ -2081,7 +2087,8 @@
             "topKeywords": {
               "positive": [
                 "seeded 'judge the exact unit' rebuttal",
-                "corner-home layout, privacy praise (seeded)"
+                "corner-home layout, privacy praise (seeded)",
+                "seeded borewell + BWSSB water-sourcing reassurance (Sep 29)"
               ],
               "negative": [
                 "organic 'walk away'/'back off' dismissals",
