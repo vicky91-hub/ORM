@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T00:51:35.673338+00:00",
+  "generated_at": "2026-10-01T00:58:19.291863+00:00",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -1701,20 +1701,20 @@
           "Folium": {
             "positive": [
               "September opened strong for Folium with four straight 5-star GMB reviews before the month's first written complaint arrived: Manish Nishad's bare 'Very good' (Sep 1), rahul kapale singling out the CRM team as 'awesome, very helpful' (Sep 1), Velixa Health praising the property's infrastructure and decoration (Sep 2), and Kavitha S's bare 5-star (Sep 3).",
-              "Five more 5-stars followed later in the month -- Jitesh Ramchandani (Sep 9), Sudha m ('Best amenities and community,' Sep 12), bare ratings from Anand Sai and Raja Reddy (both Sep 16), and a ninth from Ananya Moitra (Sep 22); a lukewarm, textless 3-star from Tejpal Singh Chauhan (Sep 25) sat as neither praise nor complaint before two closing bare 5-stars from Vikram Bellur and Shetanshu Parihar (both Sep 28) brought the month's clean-rating count to eleven against five written 1-star complaints."
+              "Five more 5-stars followed later in the month -- Jitesh Ramchandani (Sep 9), Sudha m ('Best amenities and community,' Sep 12), bare ratings from Anand Sai and Raja Reddy (both Sep 16), and a ninth from Ananya Moitra (Sep 22); a lukewarm, textless 3-star from Tejpal Singh Chauhan (Sep 25) sat as neither praise nor complaint before two closing bare 5-stars from Vikram Bellur and Shetanshu Parihar (both Sep 28) brought the month's clean-rating count to eleven, with no further Folium activity through month-end."
             ],
             "negative": [
-              "Prateek Thawait's scathing 1-star (Sep 5) used sustained sarcasm to detail a genuine Phase 1 registration ordeal -- an 8-month wait since January, a sale deed delivered with typos, an 11-day wait for a noncommittal reply to his rectification-deed request, and a total absence of a real point of contact ('a mythical phone number,' emails into 'a peaceful, infinite void').",
               "Sam A's 1-star (Sep 2) raised a distinct safety complaint -- recurring venomous snake sightings near the children's play area and resident towers, with facility management and the builder accused of ignoring resident reports while focusing on chasing Phase 4 buyers.",
+              "Prateek Thawait's scathing 1-star (Sep 5) used sustained sarcasm to detail a genuine Phase 1 registration ordeal -- an 8-month wait since January, a sale deed delivered with typos, an 11-day wait for a noncommittal reply to his rectification-deed request, and a total absence of a real point of contact ('a mythical phone number,' emails into 'a peaceful, infinite void').",
               "Udit Chandna's 1-star (Sep 16) delivered the month's most sweeping complaint -- post-handover mismanagement spanning clubhouse, security, seepage, a second snake-sighting report, missing and delayed amenities, lifts issues, a 6-8 day ironing turnaround, a year-broken boom box, ignored emails, and resident meetings stretched from monthly to half-yearly.",
               "Archana Kamat's 1-star (Sep 17) reported a fresh seepage issue discovered shortly after handover, with no inspection visit six days after reporting it, plus separate damage to a door/fixture.",
               "Udit Chandna filed a second, separate 1-star review (Sep 20) restating the same post-handover grievance list nearly verbatim, this time naming a helpdesk staffer, Yashwant, as dishonest and warning other buyers to 'burn your money' elsewhere -- counted as a distinct written complaint since it is a separate submission, not merely a repost of the first."
             ],
             "topKeywords": {
               "positive": [
+                "eleven clean 5-star ratings (two closing Sep 28)",
                 "CRM team praise (rahul kapale)",
                 "infrastructure & decoration compliment",
-                "eleven clean 5-star ratings",
                 "'Best amenities and community' (Sudha m)"
               ],
               "negative": [
@@ -1726,28 +1726,34 @@
               ]
             },
             "verdict": "Mixed",
-            "keyTakeaway": "Eleven clean 5-star ratings, including two more bare Sep 28 stars, couldn't shake five separate 1-star complaints -- registration delays, two snake-safety reports, and Udit Chandna's post-handover grievance list filed twice -- keeping Folium's September ratio (11 of 16, 69%) just short of Positive territory.",
-            "_note": "Both Udit Chandna reviews (Sep 16, Sep 20) carry Project Highlighted = Folium in the source sheet, even though the Sep 20 entry's separate GMB Handle field reads 'capitol towers' -- Project Highlighted is the field this dashboard groups by, so both are counted here as distinct Folium complaints; the Sep 20 post also names a helpdesk staffer, Yashwant, not mentioned in the Sep 16 original. Tejpal Singh Chauhan's Sep 25 entry is a 3-star 'Just a rating' with no text -- a genuinely middling score -- and is excluded from both the positive and negative counts; an earlier version of this entry miscounted it as a 5-star and rated Folium 'Positive' as a result."
+            "keyTakeaway": "Eleven clean 5-star ratings, including two closing Sep 28 five-stars, couldn't shake five separate 1-star complaints -- registration delays, two snake-safety reports, and Udit Chandna's grievance list filed twice -- keeping Folium's September ratio (11 of 16, 69%) just short of Positive.",
+            "_note": "Both Udit Chandna reviews (Sep 16, Sep 20) carry Project Highlighted = Folium in the source sheet, even though the Sep 20 entry's separate GMB Handle field reads 'capitol towers' -- Project Highlighted is the field this dashboard groups by, so both are counted here as distinct Folium complaints; the Sep 20 post also names a helpdesk staffer, Yashwant, not mentioned in the Sep 16 original. Sam A's Sep 2 bare 1-star has no text of its own in the daily tracker; the only otherwise-unattributed Folium 1-star full text that month (the Sep 8 venomous-snake complaint, itself carrying no reviewer name) is merged into this entry rather than counted as a sixth, separate complaint. Tejpal Singh Chauhan's Sep 25 entry is a 3-star 'Just a rating' with no text -- a genuinely middling score -- and is excluded from both the positive and negative counts. No Folium GMB activity (escalation or daily tracker) was recorded after Sep 28."
           },
           "Capitol Towers": {
             "positive": [
-              "Capitol Towers logged ten bare-to-short 5-star/4-star GMB ratings in September, all on the same listing and none with detailed feedback: Anup Deka's one-word 'Good' (Sep 1), 'Great warrior's unlabeled 'Just a rating' (Sep 7), Anil kumar MISHRA's bare 5-star (Sep 9), TacoTech's bare 5-star (Sep 10), Jami Saranya's bare 5-star (Sep 12), Mahima Kumari's bare 5-star (Sep 13), a seventh from Suresh Gouda (Sep 17), vaibhav singh bisht's bare 4-star (Sep 24), vibhava nadimpalli's near-bare 5-star simply naming the project (Sep 24), and Atul Srivastava's bare 5-star closing out the month (Sep 29)."
+              "Capitol Towers logged seven bare-to-short 5-star GMB ratings through mid-month, all on the same listing and none with detailed feedback: Anup Deka's one-word 'Good' (Sep 1), 'Great warrior's unlabeled 'Just a rating' (Sep 7), Anil kumar MISHRA's bare 5-star (Sep 9), TacoTech's bare 5-star (Sep 10), Jami Saranya's bare 5-star (Sep 12), Mahima Kumari's bare 5-star (Sep 13), and a seventh from Suresh Gouda (Sep 17).",
+              "Four more clean ratings followed later in the month -- vaibhav singh bisht's bare 4-star (Sep 24), vibhava nadimpalli's near-bare 5-star simply naming the project (Sep 24), an unnamed bare 5-star logged directly in the daily tracker with no escalation counterpart (Sep 25), and Atul Srivastava's bare 5-star (Sep 29) -- extending the month's clean-rating streak to eleven before the first complaint arrived."
             ],
-            "negative": [],
+            "negative": [
+              "Atul Gupta's 2-star (Sep 30) broke the month's clean run with the first written complaint on this listing -- 'Grass areas are full of dog poop!' -- flagging a pet-waste cleanup lapse in the project's common green areas."
+            ],
             "topKeywords": {
               "positive": [
-                "ten bare-to-short ratings, zero complaints",
+                "eleven bare-to-short ratings",
+                "clean run through Sep 29",
                 "no written feedback beyond naming the project"
               ],
-              "negative": []
+              "negative": [
+                "dog poop in grass areas (Atul Gupta, Sep 30)"
+              ]
             },
-            "verdict": "Strong Positive",
-            "keyTakeaway": "Capitol Towers closed September with a tenth straight bare-to-short GMB rating (Atul Srivastava, Sep 29), keeping an unbroken month-long run of ratings with zero written feedback and zero complaints.",
-            "_note": "A Sep 20 GMB entry tagged 'capitol towers' by reviewer Udit Chandna is a shortened repost of his Sep 16 Folium post-handover complaint -- its own text still reads \"as a buyer of apartment with sumadhura in folium ,BEWARE...\" -- so it's treated as a mistagged repost, not a genuine Capitol Towers complaint, and isn't counted in the tally above."
+            "verdict": "Positive",
+            "keyTakeaway": "Capitol Towers' unbroken month-long run of bare 5-star ratings ended on the final day when Atul Gupta's Sep 30 2-star flagged dog poop littering the grass areas, nudging the month from Strong Positive to Positive.",
+            "_note": "A Sep 20 GMB entry tagged 'capitol towers' by reviewer Udit Chandna is a shortened repost of his Sep 16 Folium post-handover complaint -- its own text still reads \"as a buyer of apartment with sumadhura in folium ,BEWARE...\" -- so it's treated as a mistagged repost, not a genuine Capitol Towers complaint, and isn't counted in the tally above (see Folium's note). Eleven of eleven positive ratings this month carry no written feedback beyond a one-word compliment or the project's name; Atul Gupta's Sep 30 dog-poop complaint is the only substantive written review, positive or negative, logged against this listing all month."
           },
           "Epitome": {
             "positive": [
-              "Epitome's only September GMB entry, from ramesh (Sep 1), was a bare 5-star rating logged as 'Just a Rating' with no written comment -- the sole data point this month, unchanged through Sep 17."
+              "Epitome's only September GMB entry, from ramesh (Sep 1), was a bare 5-star rating logged as 'Just a Rating' with no written comment -- the sole data point this month, unchanged through month-end."
             ],
             "negative": [],
             "topKeywords": {
@@ -1757,47 +1763,46 @@
               "negative": []
             },
             "verdict": "Positive",
-            "keyTakeaway": "Epitome's only September GMB review remains a bare 5-star rating from ramesh (Sep 1), with no written feedback or complaints logged all month through Sep 17."
+            "keyTakeaway": "Epitome's only September GMB review remained a bare 5-star rating from ramesh (Sep 1), with no further feedback or complaints logged for the rest of the month."
           },
           "Elysium": {
             "positive": [
-              "Elysium's lone early-month review was Sourav Jahed's bare 5-star GMB rating (Sep 2), logged as 'Just a Rating' with no written feedback.",
-              "Three substantive positives followed later in September: Raj Shekhar (Sep 19) praised Elysium's suitability for multi-generation households, citing 'peace of mind, mainly for elders' with his parents living with him; Kamal kishor Mishra (Sep 21) called the layout 'reasonably spacious' and 'practical for a family of four or five'; and Riya (Sep 22) singled out the clubhouse's indoor games area and open lounge spaces as unusually 'breathable' compared to other projects she'd toured, adding she 'ended up blocking a 3BHK' after her visit; and Poetic Soul (Sep 24) credited Elysium's Panathur Main Road location for cutting the commute to RMZ Ecoworld and singled out the 80% open green space as room for kids to 'play safely.'",
-              "Three Sep 27 site-visit reviews added further momentum: Yash Jaiswal praised the gym and temperature-controlled pool as the clincher after months hunting for a place in Panathur; Arpit Mishra called the 50k sq ft clubhouse, indoor sports courts and party halls a must-have for hosting friends without leaving the community; and Rohit Sawant highlighted 'resort grade' pool and deck space, crediting sales advisor Mr Srinivas for walking him through floor-rise details."
+              "Elysium's lone early-month review was Sourav Jahed's bare 5-star GMB rating (Sep 2), logged as 'Just a Rating' with no written feedback. Three substantive positives followed later in September: Raj Shekhar (Sep 19) praised Elysium's suitability for multi-generation households, citing 'peace of mind, mainly for elders' with his parents living with him; Kamal kishor Mishra (Sep 21) called the layout 'reasonably spacious' and 'practical for a family of four or five'; and Riya (Sep 22) singled out the clubhouse's indoor games area and open lounge spaces as unusually 'breathable' compared to other projects she'd toured, adding she 'ended up blocking a 3BHK' after her visit; Poetic Soul (Sep 24) credited Elysium's Panathur Main Road location for cutting the commute to RMZ Ecoworld and singled out the 80% open green space as room for kids to 'play safely.'",
+              "A Sep 27-28 cluster added further momentum: Yash Jaiswal (4-star) praised the gym and temperature-controlled pool as the clincher after months hunting for a place in Panathur; Arpit Mishra (5-star) called the 50k sq ft clubhouse, indoor sports courts and party halls a must-have for hosting friends without leaving the community; Rohit Sawant logged a separate bare 5-star the same day; and an unnamed Sep 28 5-star reviewer, with no matching escalation entry, highlighted 'resort grade' pool and deck space and credited sales advisor Mr Srinivas for walking them through floor-rise details.",
+              "Aman Singh's 4-star (Sep 30) closed the month on a design note, praising the sample flat's floor-to-ceiling glass and natural light as ideal for his remote-work desk setup, with 'balcony views' as a bonus."
             ],
             "negative": [
-              "Satish Kumar's 1-star review (Sep 17) argued the Varthur-Gunjur-Panathur belt's still-pending CDP roads and drainage make it \"one of the worst area[s]\" to buy in Bangalore, calling Sumadhura's build quality merely \"decent\" next to Sobha and Prestige despite CAT-A pricing -- Sumadhura's reply reframed Elysium's low-density, self-contained design as insulation from those exact civic gaps.",
+              "Satish Kumar's 1-star (Sep 17) extended the same post-handover grievance list already circulating about Folium -- clubhouse, security, seepage, a snake-sighting report, missing amenities, lifts, a 6-8 day ironing turnaround, a broken boom barrier, ignored mails, and meetings stretched from monthly to half-yearly -- explicitly to Elysium, closing with 'if you think elysium will be different, happy dreaming.'",
+              "A separate, unnamed 1-star posted the next day (Sep 18) raised a distinct civic-infrastructure complaint: the Varthur-Gunjur-Panathur belt's still-pending CDP roads and drainage make it 'one of the worst area[s]' to buy in Bangalore, with Sumadhura's build quality called merely 'decent' next to Sobha and Prestige despite CAT-A pricing.",
               "Vikash Singh left two separate 1-star entries the same day (Sep 21) -- a bare rating, then a detailed follow-up alleging Elysium's 5-star reviews are fake ('just look at their profile'), that pricing is steep for what's delivered, and that agents are financially incentivized to steer buyers toward the project regardless of fit.",
-              "sachin T's 1-star (Sep 26) repeated the same civic-infrastructure complaint as Satish Kumar's Sep 17 review, calling Elysium the 'worst location' and accusing Sumadhura of 'selling apartment on the name of CDP road which will never come.'",
-              "Rohit Sawant — the same name behind Sep 27's glowing 5-star pool review praising the sales advisor and resort-grade deck — logged a bare 1-star 'Just a rating' on Sep 29 with no explanation, a striking same-reviewer reversal that pulled the month's tally to 8 positive vs 5 negative and tipped the verdict from Positive into Mixed."
+              "sachin T's 1-star (Sep 26) repeated the same civic-infrastructure complaint raised on Sep 18, calling Elysium the 'worst location' and accusing Sumadhura of 'selling apartment on the name of CDP road which will never come.'",
+              "Rohit Sawant -- the same name behind a bare Sep 27 5-star rating -- logged a bare 1-star 'Just a rating' on Sep 29 with no explanation, a striking same-reviewer reversal two days apart."
             ],
             "topKeywords": {
               "positive": [
-                "commute relief to RMZ Ecoworld (Poetic Soul)",
+                "floor-to-ceiling glass & natural light (Aman Singh, Sep 30)",
+                "gym & temperature-controlled pool (Yash Jaiswal)",
+                "50k sq ft clubhouse & indoor sports courts (Arpit Mishra)",
+                "resort-grade pool & sales advisor Srinivas (Sep 28)",
                 "multi-generation / elder-friendly comfort (Raj Shekhar)",
-                "family-of-4-5 layout praise (Kamal kishor Mishra)",
-                "clubhouse & indoor games area (Riya)",
-                "bare 5-star rating (Sourav Jahed)",
-                "gym & temperature-controlled pool (Yash Jaiswal, Sep 27)",
-                "50k sq ft clubhouse & indoor sports courts (Arpit Mishra, Sep 27)",
-                "sales advisor Srinivas praised (Rohit Sawant, Sep 27)"
+                "commute relief to RMZ Ecoworld (Poetic Soul)"
               ],
               "negative": [
-                "CDP road & drainage absent (Varthur/Gunjur/Panathur)",
+                "CDP road & drainage absent (Varthur/Gunjur/Panathur, raised twice)",
                 "fake-review accusation (Vikash Singh)",
                 "agent financial-incentive complaint",
                 "pricing vs. Sobha/Prestige comparison",
-                "CDP-road complaint repeated (sachin T, Sep 26)",
                 "same-reviewer 5-star-to-1-star reversal (Rohit Sawant, Sep 27 vs Sep 29)"
               ]
             },
             "verdict": "Mixed",
-            "keyTakeaway": "Elysium closed September on an odd note: the same name, Rohit Sawant, who gave a glowing Sep 27 pool review then logged a bare 1-star rating two days later, tipping an amenity-driven month into a narrower Mixed verdict (8 positive vs 5 negative).",
-            "_note": "The month's one GMB entry tagged with Elysium's handle (Udit Chandna, Sep 16) is a post-handover complaint whose text explicitly names Folium ('as a buyer... with sumadhura in folium') -- almost certainly a mistagged handle, so it's counted under Folium instead."
+            "keyTakeaway": "A fresh Sep 30 review praising the floor-to-ceiling glass and natural light, plus a resort-grade pool writeup, couldn't offset six separate 1-star complaints -- including Rohit Sawant's own Sep 27-to-29 reversal -- keeping Elysium Mixed (10 of 16, 63%).",
+            "_note": "Three GMB entries tagged with Elysium's handle (Sep 16, 17, 20-adjacent) share near-identical post-handover template text that primarily concerns Folium. The Sep 16 instance (date+rating matches Udit Chandna's bare Folium escalation entry) and the Sep 20 instance (tagged 'capitol towers' but date+rating matches Udit Chandna's second Folium entry) are both counted under Folium instead, consistent with that entry's note. The Sep 17 instance, by contrast, matches Satish Kumar's Elysium escalation entry directly on date, project tag and rating, and its closing line ('if you think elysium will be different') explicitly addresses Elysium buyers, so it is counted here. The Sep 18 CDP-road/location complaint is a distinct, unrelated piece of text with no reviewer name and no escalation-tracker counterpart that day, so it is counted as a separate anonymous complaint rather than merged into Satish Kumar's Sep 17 entry. The 'resort grade pool' text (Sep 28) likewise has no escalation-tracker counterpart and is reported here without a reviewer name rather than attributed to Rohit Sawant's same-day bare rating."
           },
           "Edition": {
             "positive": [
-              "Edition drew six positive September GMB mentions: new buyer Pradeep Vasamsetty (Sep 3) got an apartment and promised to track the review 'as per construction pace' while inviting other buyers into a group; Paritosh Sahay (Sep 5) called the project 'thoughtfully developed' and credited Mr Francis for explaining and closing the deal; Deepa Prasanth (Sep 6) was 'very happy' booking a flat and separately credited Francis for guiding her well -- though her review was logged under Solace's GMB listing rather than Edition's; Debasish Patnaik (Sep 10) left a bare 5-star rating; nagendra prasad (Sep 23) added a second bare 5-star rating; and Ram Lahoti (Sep 25) closed the month with a third bare 5-star."
+              "Edition drew three detailed buyer-experience reviews early in the month: new buyer Pradeep Vasamsetty (Sep 3) got an apartment and promised to track the review 'as per construction pace' while inviting other buyers into a group; Paritosh Sahay (Sep 5) called the project 'thoughtfully developed' and credited Mr Francis for explaining and closing the deal; and Deepa Prasanth (Sep 6) was 'very happy' booking a flat and separately credited Francis for guiding her well -- though her review was logged under Solace's GMB listing rather than Edition's.",
+              "Four bare 5-star ratings rounded out the month's positive tally: Debasish Patnaik (Sep 10), an unnamed reviewer logged directly in the daily tracker with no escalation counterpart (Sep 11), nagendra prasad (Sep 23), and Ram Lahoti (Sep 25) closing out the month."
             ],
             "negative": [
               "Vidya H's 1-star (Sep 26) argued Edition's specifications are barely upgraded from decade-old Sumadhura launches (Soham, Sarang) despite nearly tripling in price -- roughly ₹15,500/sq.ft. today versus ₹5,000/sq.ft. then -- and called the project overpriced next to competitors offering more modern specs at the same price point.",
@@ -1809,7 +1814,7 @@
                 "new buyer tracking construction pace",
                 "buyer group invite",
                 "review misfiled under Solace's GMB listing",
-                "three bare 5-star ratings (Patnaik, nagendra prasad, Ram Lahoti)"
+                "four bare 5-star ratings (incl. unnamed Sep 11)"
               ],
               "negative": [
                 "land-title litigation allegation (Sep 28)",
@@ -1818,28 +1823,29 @@
               ]
             },
             "verdict": "Positive",
-            "keyTakeaway": "Edition's Sep 28 review alleged unresolved land-title litigation -- a four-year court case with a contested stay order -- its most serious complaint yet, joining Vidya H's Sep 26 pricing gripe, though six buyer-experience praises kept the month Positive."
+            "keyTakeaway": "Edition's Sep 28 review alleged unresolved land-title litigation -- a four-year court case with a contested stay order -- its most serious complaint yet, joining Vidya H's Sep 26 pricing gripe, though seven buyer-experience and ratings-based positives kept the month Positive.",
+            "_note": "No Edition GMB activity (escalation or daily tracker) was recorded after Sep 28."
           },
           "Capitol Residences": {
             "positive": [
-              "Capitol Residences drew two September GMB reviews: Suresh Gouda (Sep 17) praised the community's 'full development,' and raghu nath (Sep 25) added a bare 5-star rating with no written feedback."
+              "Capitol Residences drew two September GMB reviews: Suresh Gouda (Sep 17) praised the community's 'full development,' and raghu nath (Sep 25) added a bare 5-star rating with no written feedback -- the month's only two entries, with no further activity through month-end."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
                 "'full development' praise (Suresh Gouda)",
-                "second bare 5-star (raghu nath, Sep 25)"
+                "bare 5-star rating (raghu nath, Sep 25)"
               ],
               "negative": []
             },
             "verdict": "Positive",
-            "keyTakeaway": "Capitol Residences closed September with a second GMB review -- raghu nath's bare 5-star (Sep 25) -- following Suresh Gouda's Sep 17 'full development' praise, with zero complaints logged."
+            "keyTakeaway": "Capitol Residences closed September with just two GMB reviews all month -- Suresh Gouda's 'full development' praise (Sep 17) and raghu nath's bare 5-star (Sep 25) -- with zero complaints logged."
           },
           "Panorama": {
             "positive": [
-              "Siri Kishore's 5-star review (Sep 24) offered the month's first positive counterweight, calling both Phase 1 and Phase 2 'well planned' with 'a peaceful atmosphere and a good community feel' and praising the pace of surrounding infrastructure development.",
-              "Raju Gowda's bare 5-star (Sep 24) followed the same day, adding a second positive rating with no written detail.",
-              "Two Sep 26 site-visit reviews added further positive momentum — Yash Jaiswal (4-star) brought his parents to the Devanahalli site and praised the 'sprawling open spaces and green landscaping' for a 'calm, peaceful vibe away from city chaos' and a neat plot layout, while Madhav (5-star) highlighted the wide internal roads and plot boundary stones already laid out on a weekend site visit."
+              "Siri Kishore's 5-star review (Sep 24) offered the month's first positive counterweight, calling both Phase 1 and Phase 2 'well planned' with 'a peaceful atmosphere and a good community feel' and praising the pace of surrounding infrastructure development; Raju Gowda's bare 5-star (Sep 24) followed the same day with no written detail.",
+              "Two Sep 26 site-visit reviews added further momentum: Yash Jaiswal (4-star) brought his parents to the Devanahalli site and praised the 'sprawling open spaces and green landscaping' for a 'calm, peaceful vibe away from city chaos' and a neat plot layout, while Madhav (5-star) highlighted the wide internal roads and plot boundary stones already laid out on a weekend site visit.",
+              "Sebastian's 5-star (Sep 30) closed the month with a direct experience-lounge visit: the sales team walked him through the planned clubhouse layout, pool and sports zones, and he called the airport-corridor location 'a promising long-term investment.'"
             ],
             "negative": [
               "Saransh's 1-star (Sep 19) flagged a Phase 2 marketing-vs-RERA discrepancy: areas the public brochure markets as amenities and parks are marked as CA (common) area in the RERA filing, which by law the builder must relinquish to the government -- he urged buyers to do a proper legal check before purchase.",
@@ -1849,10 +1855,10 @@
             ],
             "topKeywords": {
               "positive": [
+                "experience lounge & planned clubhouse (Sebastian, Sep 30)",
                 "well planned Phase 1 & 2 (Siri Kishore)",
-                "peaceful atmosphere & community feel",
-                "second bare 5-star (Raju Gowda)",
-                "Devanahalli site visits (Sep 26): wide roads, green landscaping"
+                "Devanahalli site visits (Sep 26): wide roads, green landscaping",
+                "airport-corridor investment framing"
               ],
               "negative": [
                 "Phase 2 brochure vs RERA CA-area mismatch",
@@ -1865,34 +1871,36 @@
               ]
             },
             "verdict": "Mixed",
-            "keyTakeaway": "Two Sep 26 site-visit reviews (wide internal roads, green landscaping) pushed positive ratings to four, but Amit Verma's Sep 27 complaint about an unresponsive marketing team joined three earlier due-diligence red flags -- CA-area/RERA mismatches, a railway depot near the boundary wall, pending litigation -- keeping Panorama Mixed.",
+            "keyTakeaway": "Sebastian's Sep 30 experience-lounge visit, highlighting the planned clubhouse, pool and sports zones, closed out a month still weighed down by four due-diligence red flags around Phase 2's CA-area compliance and pending litigation.",
             "_note": "A Sep 27 review from Aman Barange duplicates Madhav's Sep 26 'wide internal roads and plot boundary stones' text verbatim -- treated as the same templated review, not counted as a separate positive mention."
           },
           "Z-hub": {
             "positive": [
-              "Z-hub picked up four distinct positive September GMB reviews: Sarita Devi (Sep 19) described a spontaneous weekend visit finding the gym, pool, and indoor games genuinely 'meant for daily use, not just for show'; Kamal kishor Mishra (Sep 21) called out the co-living-plus-office concept specifically, saying on-site retail and workspace mean residents 'don't have to go out for basic stuff' -- a distinct draw for people who work from home; Rohit Sawant (Sep 22, 4-star) praised the ITPL site's convenience -- a short walk from Pattandur Agrahara Metro -- and came away impressed after a 20-minute conversation with the sales team; and Aaysha Eira (Sep 24) said the combination of co-living rooms, office space and retail 'sold me on the rental potential' after booking a managed room on the 4th floor, praising a smooth paperwork process.",
-              "Two Sep 27 reviews added further praise: Anannya, weighing a small franchise, liked that ground-floor retail sits inside the same compound as the co-living floors, promising 'built-in footfall every day'; and Arpit Mishra praised the planned gym, lounge and indoor-games setup as well thought out for working professionals staying in the co-living suites."
+              "Z-hub picked up four distinct positive September GMB reviews before month-end: Sarita Devi (Sep 19) described a spontaneous weekend visit finding the gym, pool, and indoor games genuinely 'meant for daily use, not just for show'; Kamal kishor Mishra (Sep 21) called out the co-living-plus-office concept specifically, saying on-site retail and workspace mean residents 'don't have to go out for basic stuff' -- a distinct draw for people who work from home; Rohit Sawant (Sep 22, 4-star) praised the ITPL site's convenience -- a short walk from Pattandur Agrahara Metro -- and came away impressed after a 20-minute conversation with the sales team; and Aaysha Eira (Sep 24) said the combination of co-living rooms, office space and retail 'sold me on the rental potential' after booking a managed room on the 4th floor, praising a smooth paperwork process.",
+              "Two Sep 27 reviews added further praise: Anannya, weighing a small franchise, liked that ground-floor retail sits inside the same compound as the co-living floors, promising 'built-in footfall every day'; and Arpit Mishra praised the planned gym, lounge and indoor-games setup as well thought out for working professionals staying in the co-living suites.",
+              "Two more reviews closed out the month cleanly: rishi agrahari (Sep 29) met sales rep Rajesh, who walked him through cash-flow projections line by line, and called the metro connectivity 'one of the smartest locations' he'd evaluated in Whitefield; and Roushan Singh (Sep 30) praised the co-living-plus-office mix and noted construction 'moving at a solid pace,' crediting Sumadhura's reputation in the Whitefield market."
             ],
             "negative": [],
             "topKeywords": {
               "positive": [
                 "amenities 'meant for daily use' (Sarita Devi)",
                 "co-living + office concept praise (Kamal kishor Mishra)",
+                "construction pace reassurance (Roushan Singh, Sep 30)",
+                "cash-flow walkthrough with sales rep Rajesh (rishi agrahari, Sep 29)",
                 "Pattandur Agrahara Metro proximity (Rohit Sawant)",
-                "rental-potential appeal + smooth paperwork (Aaysha Eira)",
-                "retail + co-living built-in footfall for franchise (Anannya, Sep 27)",
-                "gym/lounge/indoor games for co-living residents (Arpit Mishra, Sep 27)"
+                "rental-potential appeal + smooth paperwork (Aaysha Eira)"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Two more Sep 27 reviews -- a prospective franchise operator praising built-in retail footfall and a future resident praising the gym/lounge amenities -- extended Z-hub's clean run to six straight positives with zero complaints, reinforcing its co-living-plus-retail pitch.",
-            "_note": "A Sep 19 review from Sumit Seth duplicates Sarita Devi's Sep 19 text verbatim ('So me and a friend randomly went to Z-Hub last weekend...') -- almost certainly a templated or coordinated posting rather than an independent account -- and is excluded from the tally above to avoid inflating the count with duplicate content."
+            "keyTakeaway": "Z-hub closed September with two more clean positives -- rishi agrahari's Sep 29 cash-flow walkthrough and Roushan Singh's Sep 30 construction-pace praise -- extending an unbroken eight-review run with zero complaints all month.",
+            "_note": "A Sep 19 review from Sumit Seth and a Sep 25 daily-tracker entry both duplicate Sarita Devi's Sep 19 text verbatim ('So me and a friend randomly went to Z-Hub last weekend...') -- almost certainly a templated or coordinated posting rather than independent accounts -- and are excluded from the tally above to avoid inflating the count with duplicate content."
           },
           "Hive and Thrive": {
             "positive": [
-              "Hive and Thrive picked up three positive September GMB reviews: Leo Avijit (Sep 21) praised the project's 'smart planning' -- a simple, well-placed layout he called 'easy to handle' for residents; Madhav (Sep 23), visiting for an enterprise client presentation, called out swift security screening and fast elevators that got him to an 8th-floor conference room with time to spare; and Neha Sharma (Sep 24) praised effortless parking despite Whitefield's usual chaotic traffic and said the open plaza area made her informal coffee catch-up 'feel super relaxed and premium.'",
-              "Two Sep 27 reviews added commercial-tenant enthusiasm: Anannya, scouting retail units for a health-food/cafe brand, called out the Thrive tower's road visibility and 'tremendous natural footfall'; and Aman Barange, whose company leased office space in Hive, said the Purple Line Metro's direct link to Hoodi Station cut his commute to under three minutes and transformed his work-life balance."
+              "Hive and Thrive picked up three positive September GMB reviews in its first wave: Leo Avijit (Sep 21) praised the project's 'smart planning' -- a simple, well-placed layout he called 'easy to handle' for residents; Madhav (Sep 23), visiting for an enterprise client presentation, called out swift security screening and fast elevators that got him to an 8th-floor conference room with time to spare; and Neha Sharma (Sep 24) praised effortless parking despite Whitefield's usual chaotic traffic and said the open plaza area made her informal coffee catch-up 'feel super relaxed and premium.'",
+              "Two Sep 27 reviews added commercial-tenant enthusiasm: Anannya, scouting retail units for a health-food/cafe brand, called out the Thrive tower's road visibility and 'tremendous natural footfall'; and Aman Barange, whose company leased office space in Hive, said the Purple Line Metro's direct link to Hoodi Station cut his commute to under three minutes and transformed his work-life balance.",
+              "Bhavishya Aggarwal's 5-star (Sep 29) closed the month's positive run, describing a site-center visit where the 'grand double-height entrance lobby gives off an immediate corporate elegance' and the multi-level basement parking was 'exceptionally well-lit and organized.'"
             ],
             "negative": [],
             "topKeywords": {
@@ -1900,14 +1908,30 @@
                 "'smart planning' / layout praise (Leo Avijit)",
                 "swift security & fast elevators (Madhav)",
                 "effortless parking + open plaza praise (Neha Sharma)",
-                "Thrive tower visibility / retail footfall (Anannya, Sep 27)",
-                "Purple Line Metro to Hoodi Station commute (Aman Barange, Sep 27)"
+                "Purple Line Metro to Hoodi Station commute (Aman Barange, Sep 27)",
+                "site-center lobby & parking praise (Bhavishya Aggarwal, Sep 29)"
               ],
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Two more Sep 27 reviews -- a prospective retail tenant praising Thrive tower's footfall and an office tenant crediting the Purple Line Metro for a sub-three-minute commute to Hoodi Station -- extended Hive and Thrive's clean run to five straight positives with zero complaints.",
-            "_note": "Two additional Sep 21 GMB entries -- ABHI BRO 777 and Mahenderbhadoriya Bhadoriya -- duplicate Leo Avijit's 'smart planning' review text verbatim; treated as the same templated review, not counted as separate positive mentions."
+            "keyTakeaway": "Bhavishya Aggarwal's Sep 29 praise for the site center's double-height lobby and well-lit basement parking extended Hive and Thrive's clean run to six distinct positives with zero complaints all month.",
+            "_note": "Leo Avijit's Sep 21 'smart planning' review text is reposted verbatim four more times across the month -- by ABHI BRO 777 and Mahenderbhadoriya Bhadoriya the same day (Sep 21), and twice more on Sep 26 with no reviewer name attached -- treated as one templated review rather than five separate positive mentions."
+          },
+          "Solace": {
+            "positive": [
+              "Solace's only September GMB entry was Kashif Wallpaper's bare 5-star rating (Sep 30), logged as 'Just a Rating' with no written comment; unlike every other review this month across the portfolio, it had not been marked as responded to as of month-end."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "bare 5-star rating (Sep 30)",
+                "not yet responded to"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Solace's only September GMB activity was Kashif Wallpaper's bare 5-star rating on Sep 30, which remained unresponded to as of month-end.",
+            "_note": "A Sep 6 GMB entry tagged with Solace's handle ('I am very happy to book a flat at Sumadhura Edition today... Francis was very good and guided very well') is Deepa Prasanth's review of booking an Edition flat, mistagged under Solace's listing -- it is counted under Edition instead, consistent with that entry's note."
           }
         }
       },
@@ -1915,58 +1939,96 @@
         "projects": {
           "Infracon": {
             "positive": [
-              "Genuine buyer curiosity made up most of the month's 16 positive comments -- 'Where is this place' (Sep 1), 'Price?' (Sep 3), 'Where it is and how much it cost for 3bhk' (Sep 9) -- alongside a partner cross-tag shoutout ('Special Thanks to @prestigeconstructions @sumadhurainfracon @dlf.homes @godrejproperties_bengaluru @workspacesbybrigade,' Sep 9) and a wishful 'Finally, in The GATEWAY OF SOUTH. Need office and apartments from sumadhura as well' (Sep 4).",
-              "The rest were bare reactions ('Super🔥' Sep 12, 'Awesome!!' Sep 13, 'Very nice' Sep 17) or engagement on reposted corporate PR (a 30-year-milestone story, the ₹17,000 Cr expansion announcement) rather than project-specific praise."
+              "Genuine buyer/partner engagement anchored the month's signal: location and price questions ('Where is this place' Sep 1, 'Price?' Sep 3, 'Where it is and how much it cost for 3bhk' Sep 9), a wishlist comment ('Finally, in The GATEWAY OF SOUTH. Need office and apartments from sumadhura as well,' Sep 4), and a partner cross-tag shout-out ('Special Thanks to @prestigeconstructions @sumadhurainfracon @dlf.homes @godrejproperties_bengaluru @workspacesbybrigade,' Sep 9).",
+              "The rest of the Positive-tagged volume was either bare reactions ('Gazzab' Sep 4, 'Super🔥' Sep 12, 'Awesome!!' Sep 13, 'Very nice' Sep 17, '👏good job'/'Super 👏' Sep 27, assorted hearts) -- three of which landed on the 'Folium' and 'Capitol Residency' sub-handles rather than the corporate one, with no further detail -- or engagement on the month's own corporate PR reposts: the Chennai ₹400cr logistics-park entry, the 30-year-anniversary milestone, the ₹17,000cr/₹38,000cr-GDV 2030 expansion plan, a Star Trac fitness-partner feature, a 'home is more than walls' campaign post, and the new 'Sumadhura Belfort' (Soukya Road) project launch -- none of it project-specific praise for the 11 tracked projects."
             ],
             "negative": [
-              "Three genuine complaints surfaced late in the month: 'Maintenance will be bomb when the builder gives to society' (Sep 17) questioned post-handover upkeep once ownership transfers to the RWA; 'All ur endeavours are cheap quality and workmanship and over charged that sht will fall first 1.5 earthquake' (Sep 19) was a blunt construction-quality jab; and 'Next to a big drainage canal 😛' (Sep 19) added a sarcastic locational gripe -- none named a specific project."
+              "Three genuine complaints surfaced, none naming a specific project: 'Maintenance will be bomb when the builder gives to society' (Sep 17) questioned post-handover upkeep once control passes to the RWA; 'All ur endeavours are cheap quality and workmanship and over charged that sht will fall first 1.5 earthquake' (Sep 19) was a blunt construction-quality jab; and 'Next to a big drainage canal 😛' (Sep 19) added a sarcastic locational gripe."
             ],
             "topKeywords": {
               "positive": [
                 "buyer price/location curiosity",
-                "partner cross-tag shoutout (Sep 9)",
                 "'Gateway of South' wishlist comment",
-                "corporate PR repost engagement"
+                "partner cross-tag shout-out (Sep 9)",
+                "corporate PR repost engagement (expansion plan, anniversary, Belfort launch)"
               ],
               "negative": [
                 "post-handover maintenance skepticism",
-                "'cheap quality and workmanship' jab",
+                "'cheap quality and workmanship' / earthquake jab",
                 "drainage-canal proximity gripe"
               ]
             },
             "verdict": "Positive",
-            "keyTakeaway": "September's Instagram activity (146 comments under the single 'sumadhurainfracon' handle) skewed positive on volume -- 16 positive vs 3 negative -- but genuine signal was thin: three late-month complaints about post-handover maintenance and build quality were the only real friction, and nothing was project-specific.",
-            "_note": "Of the 159 September Instagram comments, 140 are near-content-free (emoji, single words, '[Media]', or reposts of corporate PR/unrelated business-solicitation spam) and excluded from sentiment above; 16 Positive and 3 Negative comments carry the genuine signal captured in the bullets. All content sits under one corporate handle with no per-project tagging, consistent with prior months."
+            "keyTakeaway": "September's Instagram activity stayed net-positive on genuine signal -- 17 real positive items against 3 complaints -- with build-quality and maintenance gripes the only recurring friction.",
+            "_note": "Of 184 September Instagram rows, roughly half are near-content-free (single characters/words, emoji-only reactions, '[Media]' or null placeholders) and another chunk is business-solicitation spam (interior designers, painters, pest/pigeon-net vendors, a recurring 'AQUATION' water-treatment pitch, brokers posting phone numbers) or off-topic content cross-posted to the corporate account (Raksha Bandhan sibling reels, Onam and Ganesh Chaturthi greetings, an unrelated vulgar political comment on Sep 23). Genuine signal is the ~20 items captured above. Two CRM-tagged-Neutral comments read as genuine negative and echo the complaints already captured: '2.7crores? Wtf?' (Sep 10, price sticker-shock) and 'Bhukamp aayega sab mar jayenge' (Sep 17, an earthquake/build-quality jibe); a Sep 7 'Tatti ghar banate hi bhai tumlog😅' mocking comment continues the same recurring jab seen in prior months. Three Positive-tagged bare reactions ('Super🔥' Sep 12, 'Awesome!!' Sep 13, 'Very nice' Sep 17) were tagged to the 'Folium' and 'Capitol Residency' sub-handles respectively but carry no further detail, so they're folded in here by name rather than given their own entries. A Sep 19 'Don't buy the project first, understand the location first...' reply on the Belfort post is a measured, neither-positive-nor-negative take on the Soukya Road micro-market; a Sep 28 'It's a huge well maintained lake.. please check your facts' reply pushes back against an unspecified negative claim -- both tagged Neutral and left out of the tallies above."
           }
         },
-        "_note": "September's Instagram activity (171 'Instagram Business' rows in the Daily Tracker's 'specific data' tab, now confirmed complete through Sep 28 -- the sheet's latest logged date -- via a full workbook export that reaches past the 'raw' ticket-export tab) is entirely on the 'sumadhurainfracon' handle; the Infracon entry above covers its genuine engagement (Chennai logistics-park announcement, 30th anniversary, ₹17,000cr FY2030 expansion plan, one partner shout-out, one buyer-interest comment). Sentiment breaks down 22 Positive / 3 Negative / 146 Neutral; nothing project-specific or substantive surfaced in the Sep 19-28 tail beyond what's already captured -- that stretch is almost entirely single-character replies, emoji, spam/business-solicitation comments, reposts of a PropTech-event recap, and a Sep 27 announcement post for 'Sumadhura Belfort' (AIKYA, Soukya Road), a new project outside the 11 tracked. Excluded as unattributable to any of the 11 tracked projects: a branded fitness-equipment post (Star Trac) naming no specific project, a PropTech-event repost, unrelated personal Raksha Bandhan reels/stories cross-posted to the corporate account, an Onam-celebration post, a Ganesh Chaturthi post, and generic emoji reactions, @-tags and price/location inquiries. A Sep 7 mocking comment ('Tatti ghar banate hi bhai tumlog😅') was mistagged Neutral by the CRM and reads as a genuine build-quality jibe, but names no specific project so is left out of the Infracon bullets above."
+        "_note": "This month's 184 'Instagram Business' rows (Sep 1-29, the data's full range) sit almost entirely on the single corporate 'sumadhurainfracon' handle (181 of 184); three rows are tagged to project-specific sub-handles -- two 'Folium' and one 'Capitol Residency' -- but each is just a bare one-word positive reaction ('Super🔥,' 'Awesome!!,' 'Very nice') with no further detail, so they're folded into the Infracon entry rather than broken out on their own (noted there by project name). Sentiment overall: 25 Positive / 3 Negative / 156 Neutral. Signal is thin: roughly half the rows are near-content-free (single characters/emoji, '[Media]'/null placeholders) and a further share is recurring business-solicitation spam (interior/paint/pest-control/water-treatment vendors posting phone numbers) or off-topic content cross-posted to the account (Raksha Bandhan reels, Onam/Ganesh Chaturthi greetings). Genuine, attributable engagement is ~20 items: ~17 distinct positives (buyer price/location questions, a 'need office + apartments too' wishlist comment, a partner cross-tag shout-out, and reactions to the month's own corporate PR -- the Chennai logistics-park entry, the 30-year anniversary, the ₹17,000cr/₹38,000cr-GDV 2030 expansion plan, and the new 'Sumadhura Belfort' project launch on Soukya Road) and 3 distinct genuine complaints (post-handover maintenance doubt, a 'cheap quality/earthquake' construction jab, a drainage-canal proximity gripe). Two more Neutral-tagged comments read as genuine negative on a close read -- '2.7crores? Wtf?' (Sep 10, price shock) and 'Bhukamp aayega sab mar jayenge' (Sep 17, an earthquake/build-quality jibe) -- echoing the same complaints without changing the tally. No comment named any of the other 10 tracked projects (Edition, Panorama, Capitol Towers, Elysium, Z-hub, Hive and Thrive, Solace, Epitome), so only Infracon has an entry this month."
       },
       "Facebook": {
         "projects": {
           "Infracon": {
             "positive": [
-              "A steady trickle of short generic praise ran through the month -- 'Nice 👍', 'Super bro' (Sep 7), 'Very nice' (Sep 13, Sep 16), 'Beautiful place' (Sep 18), 'Super'/'Nice' (Sep 20-21) -- alongside two real buyer inquiries, 'What is the cost of two rooms flat including everything' (Sep 13) and a bare 'Location and p[rice]' ask (Sep 16), plus one inbound commercial lead, 'Interested to be part of GPN sons warehouse Private Limited' (Sep 9)."
+              "A Sep 2 repost of the Chennai logistics-park announcement (₹400 crore investment, Red Hills, 52 acres, ~1.2 million sq ft of warehousing) coincided with a wave of congratulatory one-liners over the following days (Sep 2, 4-6) -- 'Congratulations to you sumadhura team,' 'Congratulations to sumadhra partners...' -- alongside a steady trickle of generic short praise all month ('Nice 👍', 'super adds', 'Very good', 'Nice project').",
+              "A handful of genuine buyer/investor leads surfaced: a 2BHK pricing inquiry ('What is the cost of two rooms flat including everything,' Sep 13), a follow-up detail request ('Sent me the details of 3bhk 2bhk,' Sep 29), a direct investment ask ('I want to invest in this can you please message me?', Sep 11), and one inbound commercial lead for a warehouse venture ('Interested to be part of GPN sons warehouse Private Limited,' Sep 9)."
             ],
             "negative": [
-              "A run of dismissive one-liners -- 'Dnt fake people... Roads are not good... Worst location to communicate on anything' (Sep 2), 'Yucks flat culture sucks' (Sep 10), 'Bakwas' (Sep 10), 'Yeah prime Flooding 🤣' (Sep 11) -- read as generic brand hostility rather than project-specific complaints, alongside a broader 'what is happening to my glorious city Bengaluru... turned into a concrete jungle' gripe about Bengaluru's growth (Sep 16).",
-              "A Sep 8 long-form comment tagged Neutral by the CRM but skeptical in substance needled at stalled sales -- 'it's already 6 years.. Why is this ad still running? Fewer bookings?... People used to run away from this place... I can give you a few points on the price depreciation.'"
+              "A Sep 2 dismissive comment -- 'Dnt fake people... Roads are not good... Worst location to communicate on anything' -- read as generic brand hostility rather than a project-specific complaint, echoed by a sarcastic 'Yeah prime Flooding 🤣' jab (Sep 11) and a broader 'what is happening to my glorious city Bengaluru... turned into a concrete jungle' gripe (Sep 16).",
+              "A Sep 8 long-form comment tagged Neutral by the sentiment engine but skeptical in substance needled at stalled sales near Kadubesanahalli -- 'it's already 6 years.. Why is this ad still running? Fewer bookings?... People used to run away from this place... I can give you a few points on the price depreciation.'"
             ],
             "topKeywords": {
               "positive": [
-                "generic \"Nice\"/\"Super\"/\"Very nice\" praise",
-                "2BHK/floor-plan cost inquiries",
-                "GPN warehouse-investment inquiry"
+                "Chennai logistics-park congratulations burst (Sep 2-6)",
+                "generic \"Nice\"/\"Super\"/\"Very good\" praise",
+                "2BHK/3BHK cost inquiries",
+                "GPN warehouse-investment lead (Sep 9)"
               ],
               "negative": [
-                "\"roads are not good\" / \"worst location\" (Sep 2)",
-                "dismissive one-liners (\"Bakwas\", \"Yucks\")",
-                "\"concrete jungle\" Bengaluru gripe",
+                "\"roads are not good\"/\"worst location\" (Sep 2)",
+                "\"prime Flooding\" sarcasm (Sep 11)",
+                "\"concrete jungle\" Bengaluru gripe (Sep 16)",
                 "skeptical \"6 years, why still running\" dig (Sep 8)"
               ]
             },
             "verdict": "Positive",
-            "keyTakeaway": "Facebook engagement stayed thin and generic -- short praise and price inquiries plus one warehouse-investment lead -- against a string of dismissive one-liners and a skeptical long-form dig at stalled sales.",
-            "_note": "This entry covers the full verified Sep 1-25 pull (138 Facebook Page comments); a previous version covered only a partial Sep 7-21 window and included a 'F**king RETARD INDIAN SCAMMERS' quote not found in this month's fuller verified pull, so it has been dropped as unverifiable. Panathur road/drainage complaints this month remain captured under Elysium, not here, since Panathur is this cache's established Elysium site; Hive by Sumadhura retail-lead activity remains captured under Hive and Thrive."
+            "keyTakeaway": "Facebook stayed thin and generic -- congratulatory reactions to a Chennai logistics-park announcement and scattered buyer inquiries outweighed a few dismissive location/flooding complaints and one skeptical sales dig.",
+            "_note": "This entry covers the complete, verified Sep 1-30 pull (160 Facebook Page rows under the 'Sumadhura Infracon Private Limited' handle). It excludes: the Panathur/railway-crossing comments (grouped under Elysium, see that entry's note), the ten Facebook Mail retail-investment leads naming 'Hive by Sumadhura' (grouped under Hive and Thrive despite carrying the raw 'Infracon' project tag), and a large volume of off-topic noise -- devotional/festival forwards, random keyboard-mash strings, bare phone numbers, a stranger's Reliance JioMart complaint, an FRP-planters vendor pitch, and plain emoji -- that make up most of the month's 114 Neutral-tagged rows."
+          },
+          "Folium": {
+            "positive": [
+              "Scattered short praise ran through the back half of the month -- 'Beautiful place' (Sep 18), 'Nice project' (Sep 24), 'Top class and quality products they provide... lovely 😍🌹' (Sep 28), 'Very good 👍' (Sep 30) -- plus bare one-word interest pings asking about 'Location' (Sep 21) and 'Cost' (Sep 22)."
+            ],
+            "negative": [
+              "Two back-to-back dismissive one-liners on Sep 10 -- 'Yucks flat culture sucks.' and 'Bakwas' -- read as blunt brand hostility with no specifics attached."
+            ],
+            "topKeywords": {
+              "positive": [
+                "\"Beautiful place\"/\"Nice project\"/\"Top class\" praise",
+                "bare \"Location\"/\"Cost\" pings"
+              ],
+              "negative": [
+                "\"flat culture sucks\" (Sep 10)",
+                "\"Bakwas\" (Sep 10)"
+              ]
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Folium drew mostly short, generic praise and bare price/location pings through the month, against two blunt dismissive one-liners posted back-to-back on Sep 10.",
+            "_note": "All ten Folium-tagged comments this month are single words or short phrases -- no detailed amenity, pricing, or delivery feedback either way."
+          },
+          "Z-hub": {
+            "positive": [
+              "Six separate comments across the month were uniformly short, generic praise -- 'Very Nice.' (Sep 10), 'Very nice' (Sep 13, Sep 16), 'Nice' (Sep 14, Sep 28), 'Super' (Sep 20) -- with zero complaints and no specifics on amenities, pricing, or delivery."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "\"Very nice\"/\"Nice\"/\"Super\" praise (Sep 10-28)"
+              ],
+              "negative": []
+            },
+            "verdict": "Strong Positive",
+            "keyTakeaway": "Z-hub's only Facebook activity was six short, generic praise comments spread across the month with zero complaints -- positive but too thin to read as detailed feedback.",
+            "_note": "All six comments are single generic words/phrases with no specifics -- a mild goodwill signal, not substantive feedback."
           },
           "Hive and Thrive": {
             "positive": [
@@ -1981,8 +2043,8 @@
               "negative": []
             },
             "verdict": "Strong Positive",
-            "keyTakeaway": "Ten separate Facebook Mail lead-gen submissions landed across September, nine in the first four days and a tenth on Sep 23, all seeking to invest in Hive by Sumadhura's ₹2,340/sq ft Whitefield retail space -- sustained, genuine commercial interest with zero complaints.",
-            "_note": "No negative Hive and Thrive mentions this month -- all activity was inbound retail-investment lead submissions, not resident or buyer commentary."
+            "keyTakeaway": "Ten separate Facebook Mail lead-gen submissions landed across September, nine in the first four days and a tenth on Sep 23, all seeking to invest in Hive by Sumadhura's ₹2,340/sq ft Whitefield retail space.",
+            "_note": "No negative Hive and Thrive mentions this month -- all activity was inbound retail-investment lead submissions via Facebook Mail, not resident or buyer commentary. These leads carry the raw project tag 'Infracon' but name 'Hive by Sumadhura' explicitly, so they're attributed here instead."
           },
           "Elysium": {
             "positive": [
@@ -1997,17 +2059,17 @@
                 "\"plot is really good\""
               ],
               "negative": [
-                "Panathur \"trap\" / no proper road (Sep 14)",
+                "Panathur \"trap\"/no proper road (Sep 14)",
                 "ad called \"fake information\" (Sep 15)",
                 "garbage road/water/drainage/pollution (Sep 16)"
               ]
             },
             "verdict": "Negative",
             "keyTakeaway": "Panathur infrastructure complaints landed three times in five days (Sep 14-16) -- bad roads, drainage, and pollution -- outweighing one buyer's otherwise positive but road-concerned comment on Sep 20.",
-            "_note": "None of these comments name 'Elysium' directly -- they name 'Panathur,' this cache's established site for the Elysium project (see GMB/Reddit/Quora entries) -- so they're attributed here rather than left under Infracon."
+            "_note": "The Sep 20 comment carries the raw project tag 'Panorama' and the three negative comments carry the raw tag 'Infracon,' but all four name or clearly describe Panathur -- this cache's established site for the Elysium project -- so they're grouped here rather than left under their literal tags or split into a standalone Panorama entry. No content in this month's pull is genuinely about the separate Sumadhura Panorama (Devanahalli) project, so no Panorama entry is included this month."
           }
         },
-        "_note": "September's Facebook inbox (148 'Facebook Page' + 23 'Facebook Mail' rows in the Daily Tracker's 'specific data' tab, now confirmed complete through Sep 28 -- the sheet's latest logged date -- via a full workbook export that reaches past the 'raw' ticket-export tab) is entirely on the 'Sumadhura Infracon Private Limited' page; the Infracon and Elysium entries above cover its genuine complaints and real events (Chennai logistics-park announcement, 30th anniversary), and the Hive and Thrive entry covers its retail-investment leads. Facebook Page sentiment breaks down 32 Positive / 8 Negative / 108 Neutral; nothing new and project-specific surfaced in the Sep 20-28 tail beyond what's already captured -- that stretch added only religious-greeting reposts, spam/vendor solicitations, a realtor-vacancy inquiry and generic one-word praise. Excluded as unattributable to any of the 11 tracked projects: a Sep 8 comment mocking a 6-year-running ad and implying price depreciation near Kadubesanahalli/the Kia showroom; Raksha Bandhan reposts and reels; and generic one-word/emoji/price-location inquiries naming no project. A Sep 1 comment mistagged 'Negative' by the CRM was an unrelated childhood Raksha Bandhan story misclassified by keyword matching, not a real complaint."
+        "_note": "September's Facebook inbox (160 'Facebook Page' rows + 25 'Facebook Mail' rows, the complete Sep 1-30 month) sits almost entirely on the generic 'Sumadhura Infracon Private Limited' page/handle; raw project tags only distinguished Infracon (143 Page + 25 Mail rows), Folium (10), Z-hub (6), and a single Panorama-tagged row. Sentiment auto-tagging skewed heavily Neutral (114 of 160 Page rows, 22 of 25 Mail rows) because most rows are noise unrelated to sentiment -- devotional/festival forwards, random keyboard-mash strings, bare phone numbers and emoji, an off-topic Reliance JioMart consumer-complaint rant, an FRP-planters vendor pitch, and templated marketing spam -- rather than genuine commentary. Within the real signal: Infracon and Folium ran net-positive (generic praise and buyer inquiries outweighing a few dismissive one-liners), Z-hub was uniformly (if thinly) positive, Hive and Thrive's Facebook Mail channel kept generating genuine retail-investment leads, and Elysium (via Panathur-site comments, mis-tagged across 'Infracon' and 'Panorama') ran net-negative on recurring road/drainage complaints. No genuine Facebook content surfaced this month for Edition, Capitol Residences, Capitol Towers, Solace, or Epitome, and no content was genuinely about the separate Sumadhura Panorama (Devanahalli) project."
       },
       "LinkedIn": {
         "projects": {
@@ -2019,22 +2081,38 @@
               "negative": []
             },
             "verdict": "No data",
-            "keyTakeaway": "No LinkedIn activity is logged for September -- the Daily Tracker's Linkedin Page source has no rows after 14 Aug 2026, pointing to a tracking gap rather than genuine brand silence.",
-            "_note": "Verified directly against the Daily Tracker's raw 'specific data' rows via a full workbook export (952 total Linkedin Page rows across the tracker's full history): the latest dated row anywhere is 14-Aug-2026, zero rows fall in September."
+            "keyTakeaway": "Infracon's only tagged LinkedIn content was two neutral corporate posts -- a 30-years Summit recap and a Chennai logistics conference speech -- with no real audience sentiment.",
+            "_note": "Both posts are generic brand/anniversary and conference-PR content, not commentary on the Infracon project itself; no comments or engagement were captured against the project tag."
+          },
+          "Capitol Residences": {
+            "positive": [
+              "A single LinkedIn comment (tagged channel 'Capitol Residency') praised metro proximity generally: 'This is a great point about how proximity to the metro can truly enhance the quality of life in a city like Bengaluru.'"
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "metro proximity praise"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "The only Capitol Residences mention was one positive but generic comment about metro proximity improving life in Bengaluru, not specific project feedback.",
+            "_note": "Single data point -- a reply about location/metro access in general, not a direct endorsement of the Capitol Residences project itself."
           }
         },
-        "_note": "No LinkedIn rows exist in the Daily Tracker's 'specific data' tab for September, now confirmed via a full workbook export (952 total 'Linkedin Page' rows across the tracker's entire history) that reaches past the 'raw' ticket-export tab that limited earlier runs -- the latest dated LinkedIn row anywhere in the sheet is 14-Aug-2026. This is a genuine tracking gap, not a connector limitation: flagging for the team to check the LinkedIn feed's integration into this tracker."
+        "_note": "LinkedIn volume was very low in September (13 items) and almost entirely generic corporate engagement: congratulations/emoji comments on a 30-years-anniversary 'Sumadhura Summit' post, plus two unrelated customer-service/job replies, none of which carry a project tag. Only two posts were tagged to a project (both neutral corporate content under Infracon: the Summit recap and a Chennai logistics conference speech) and one comment tagged to Capitol Residences (generic metro-proximity praise). No other canonical project appears in this month's LinkedIn data at all, so the projects dict above is intentionally limited to the two names that actually had tagged rows."
       },
       "Reddit": {
         "projects": {
           "Folium": {
             "positive": [
-              "A handful of genuinely positive organic voices surfaced this month: a Folium resident replying on a resale-price thread said tower, sunlight/balcony orientation and lift access ‘matter more than I thought’ when comparing units against pure psf, and the month's one detailed owner review (on a ‘need genuine feedback’ thread) praised the near-complete access to the Whitefield main road, the lake-adjacent open space and sports infrastructure, and ‘premium’ internal lobbies and fixtures.",
-              "Two new organic threads on Sep 29 ('Sumadhura Folium Final Pricing' and '<Bengaluru> Sumadhura Folium') were both just buyers who'd ‘recently closed [a] deal in Sumadhura Folium’ fielding psf-pricing DM requests — genuine transaction activity continuing, but with no substantive sentiment either way."
+              "A handful of genuinely positive organic voices surfaced this month: a Folium resident replying on a resale-price thread said tower, sunlight/balcony orientation and lift access 'matter more than I thought' when comparing units against pure psf, and the month's one detailed owner review (on a 'need genuine feedback' thread) praised the near-complete access to the Whitefield main road, the lake-adjacent open space and sports infrastructure, and 'premium' internal lobbies and fixtures.",
+              "Two new organic threads on Sep 29 ('Sumadhura Folium Final Pricing' and '<Bengaluru> Sumadhura Folium') were both just buyers who'd 'recently closed [a] deal in Sumadhura Folium' fielding psf-pricing DM requests — genuine transaction activity continuing, but with no substantive sentiment either way.",
+              "Sumadhura ran its heaviest seeded campaign of the month around Folium: standalone testimonials said in-community sports coaching 'made sports feel less like an extra appointment' and that amenities 'don't feel like something you only notice during a site visit,' while separate seeded replies inserted into unrelated, already-organic generic threads (clubhouse sizing, balcony comparisons, three-generation living) repeatedly held up Folium's completed, livable status and pedestrian-safe internal roads as an advantage over under-construction peers."
             ],
             "negative": [
-              "The dominant story was an NRI renter's list of reasons for not buying after 6 months on rent: ‘quality of crowd is bad,’ ‘shoddy maintenance by builder,’ water accumulating in the basement during recent rain, his US-citizen kids getting scolded by aunties, and messy water quality, on top of heavy Varthur-direction traffic — echoed by a separate reply calling build quality, maintenance and crowd ‘not as good as you’d expect in a tier 1 complex.’",
-              "The same owner review that praised the location also flagged recurring ‘multiple instances of water pipe bursting in the basement’ still being fixed, no piped-gas/Cauvery connection yet, jammed Borewell Road and old-airport-road school-hour bottlenecks, and an understaffed facilities team not yet enforcing rules; two further replies added ‘very little greenery inside the complex’ with a smelly nearby naala, and ‘insanely small’ 2BHK room sizes ‘not really worth the hype.’",
+              "The dominant story was an NRI renter's list of reasons for not buying after 6 months on rent: 'quality of crowd is bad,' 'shoddy maintenance by builder,' water accumulating in the basement during recent rain, his US-citizen kids getting scolded by aunties, and messy water quality, on top of heavy Varthur-direction traffic — echoed by a separate reply calling build quality, maintenance and crowd 'not as good as you'd expect in a tier 1 complex.'",
+              "The same owner review that praised the location also flagged recurring 'multiple instances of water pipe bursting in the basement' still being fixed, no piped-gas/Cauvery connection yet, jammed Borewell Road and old-airport-road school-hour bottlenecks, and an understaffed facilities team not yet enforcing rules; two further replies added 'very little greenery inside the complex' with a smelly nearby naala, and 'insanely small' 2BHK room sizes 'not really worth the hype.'",
               "A separate 'Folium Phase IV due diligence' thread surfaced a builder-transparency flag: multiple commenters noted the builder was reportedly resistant to sharing certain documents during due diligence, though which specific documents (title chain, EC, approvals) went unconfirmed."
             ],
             "topKeywords": {
@@ -2042,7 +2120,9 @@
                 "tower/sunlight/lift access > psf",
                 "Whitefield main road access",
                 "lake-adjacent open space, premium fixtures",
-                "continued deal-closing / pricing DM activity (Sep 29)"
+                "continued deal-closing / pricing DM activity (Sep 29)",
+                "seeded sports-coaching & 'completed project' testimonials",
+                "seeded reply-jacking into generic comparison threads"
               ],
               "negative": [
                 "NRI renter's crowd/maintenance complaints",
@@ -2054,41 +2134,44 @@
               ]
             },
             "verdict": "Negative",
-            "keyTakeaway": "An NRI renter's list of reasons for walking away (crowd quality, shoddy maintenance, basement water accumulation, messy water) anchored a mostly negative month, compounded by an owner's own account of recurring basement pipe bursts and ‘insanely small’ rooms, against only scattered praise for location and amenities."
+            "keyTakeaway": "Organic buyers kept flagging crowd quality, maintenance, water leaks and tiny rooms at Folium even as Sumadhura ran its heaviest seeded 'completed project' comparison push of the month.",
+            "_note": "A notable pattern this month: several Sumadhura seeded replies landed in already-organic generic threads (clubhouse sizing, balcony depth, elder-friendly amenities) days to weeks after the original organic discussion, inserting Folium/Solace/Edition/Capitol Residences comparisons — reply-jacking existing conversations rather than fresh organic engagement."
           },
           "Edition": {
             "positive": [
-              "‘Check edition once!’ — a lone organic nudge inside a Solea/Epitome pricing debate, suggesting at least one Redditor sees Edition as the safer alternative; beyond that, the month's only Edition volume was Sumadhura's own seeded copy repeating its 20-acre masterplan (gardens, sports courts, coworking spaces) across five unrelated generic threads about balconies, clubhouses and family amenities."
+              "'Check edition once!' — a lone organic nudge inside a Solea/Epitome pricing debate, suggesting at least one Redditor sees Edition as the safer alternative; beyond that, Edition's only volume was Sumadhura's own seeded copy, which this month repeated its 20-acre masterplan (gardens, sports courts, coworking spaces, resident-zoning logic) across four separate unrelated generic threads about clubhouse crowding, balconies and family amenities."
             ],
             "negative": [
-              "One organic caution stood out on a dedicated ‘Sumadhura edition final booking’ thread: ‘This project has litigation, pls proceed carefully,’ followed by a request for the actual all-inclusive price paid — it drew no organic rebuttal, though Sumadhura's own seeded reply on Sep 29 pushed a Phase 1/Phase 2 distinction (the litigation flag applies to Phase 1; Phase 2, where J tower sits, currently shows none in RERA-derived records) and urged the buyer to verify the exact survey number with a lawyer rather than take the blanket warning at face value."
+              "One organic caution stood out on a dedicated 'Sumadhura edition final booking' thread: 'This project has litigation, pls proceed carefully,' followed by a request for the actual all-inclusive price paid — it drew no organic rebuttal, though Sumadhura's own seeded replies on Sep 28-30 pushed back with a Phase 1/Phase 2 distinction (the litigation flag applies to Phase 1; Phase 2, where J tower sits, currently shows none in RERA-derived records), urged the buyer to verify the exact survey number with a lawyer, and separately flagged that Phase 2's RERA inventory shows roughly one registered parking slot per unit — a detail worth getting in writing if sales is promising more."
             ],
             "topKeywords": {
               "positive": [
                 "'check edition once' organic nod",
-                "seeded 20-acre masterplan copy (gardens, sports, coworking)"
+                "seeded 20-acre masterplan copy (gardens, sports, coworking)",
+                "seeded zoning/balcony comparison campaign (4 threads)"
               ],
               "negative": [
-                "'has litigation, proceed carefully' warning",
-                "seeded Phase 1/Phase 2 litigation rebuttal (Sep 29)"
+                "'has litigation, proceed carefully' warning (unanswered organically)",
+                "seeded Phase 1/Phase 2 litigation rebuttal",
+                "seeded parking-ratio caveat (Phase 2)"
               ]
             },
             "verdict": "Mixed",
-            "keyTakeaway": "A single organic litigation caution (‘proceed carefully’) remained Edition's only real red flag this month; Sumadhura's own seeded reply later drew a Phase 1 vs Phase 2 legal distinction rather than a genuine third-party rebuttal, so the warning still stands unanswered by any real buyer."
+            "keyTakeaway": "A single organic litigation caution ('proceed carefully') remained unanswered by any real buyer, while Sumadhura's own seeded replies offered a Phase 1/2 legal distinction instead of a genuine rebuttal."
           },
           "Epitome": {
             "positive": [
-              "Sumadhura's own seeded replies pushed a ‘judge the exact unit, not the whole project’ rebuttal in the same thread — one visitor said he liked the corner-home layout, privacy and openness enough that he ‘wouldn't reject Epitome completely,’ and another described a second, evening visit where train noise was present but privacy and Manyata connectivity outweighed it.",
-              "A separate ‘Cauvery water connection, Rachanehalli area’ thread saw a generic organic reply noting civic water access varies for apartments, followed by Sumadhura's own seeded reply (Sep 29) citing Epitome's dual borewell + BWSSB/local-authority sourcing as reassurance — though it still flagged wanting clarity on how much of daily demand each source is expected to cover."
+              "Sumadhura's own seeded replies pushed a 'judge the exact unit, not the whole project' rebuttal in the Solea/Epitome thread — one visitor said he liked the corner-home layout, privacy and openness enough that he 'wouldn't reject Epitome completely,' and another described a second, evening visit where train noise was present but privacy and Manyata connectivity outweighed it; a separate seeded reply on a 'sample apartment' thread similarly highlighted the 'planned corner-home layout and actual dimensions' over sample-flat styling.",
+              "A separate 'Cauvery water connection, Rachanehalli area' thread saw a generic organic reply noting civic water access varies for apartments, followed by Sumadhura's own seeded replies (Sep 28-30) citing Epitome's dual borewell + BWSSB/local-authority sourcing as reassurance — though one of its own replies still flagged wanting clarity on expected borewell yield and how much of daily demand each source is expected to cover, and another suggested asking the same of a named competitor (SNN Felicity) for comparison."
             ],
             "negative": [
-              "Every organic Redditor in a ‘should I consider Solea/Epitome’ thread was discouraging — ‘walk away as fast as you can,’ ‘back off, it's not worth it,’ and a detailed complaint that the amenities (one badminton court, no temperature-controlled pool) don't justify the price given the adjacent railway track."
+              "Every organic Redditor in the 'should I consider Solea/Epitome' thread was discouraging — 'walk away as fast as you can,' 'back off, it's not worth it,' and a detailed complaint that the amenities (one badminton court, no temperature-controlled pool) don't justify the price given the adjacent railway track."
             ],
             "topKeywords": {
               "positive": [
                 "seeded 'judge the exact unit' rebuttal",
                 "corner-home layout, privacy praise (seeded)",
-                "seeded borewell + BWSSB water-sourcing reassurance (Sep 29)"
+                "seeded borewell + BWSSB water-sourcing reassurance"
               ],
               "negative": [
                 "organic 'walk away'/'back off' dismissals",
@@ -2097,7 +2180,8 @@
               ]
             },
             "verdict": "Mixed",
-            "keyTakeaway": "Every organic voice in a ‘should I consider Solea/Epitome’ thread said to walk away over price-vs-amenities and the adjacent railway track, while Sumadhura's own seeded replies pushed back with a softer ‘judge the exact unit’ framing — genuine buyer skepticism versus in-house damage control."
+            "keyTakeaway": "Every organic voice in a 'should I consider Solea/Epitome' thread said to walk away over price-vs-amenities and railway proximity, against Sumadhura's own softer seeded 'judge the unit' rebuttals.",
+            "_note": "The positive signal is almost entirely Sumadhura's own seeded copy (clearly hedged, not glowing); genuine organic sentiment in the one substantive thread was uniformly negative."
           },
           "Capitol Residences": {
             "positive": [],
@@ -2107,8 +2191,8 @@
               "negative": []
             },
             "verdict": "No data",
-            "keyTakeaway": "No organic Reddit engagement with Capitol Residences this month — every mention was Sumadhura's own seeded copy repeating the same masterplan talking points (vehicle-free landscaped ground, ~405 homes, ~22,000 sq ft clubhouse) across five unrelated generic threads.",
-            "_note": "Seeded comments appeared in threads about clubhouse crowding, balcony size and three-generation amenities, but no real Redditor engaged with or reacted to Capitol Residences specifically — excluded from the sentiment counts as marketing copy, not genuine feedback."
+            "keyTakeaway": "No organic Reddit engagement with Capitol Residences this month — every mention across six unrelated generic threads was Sumadhura's own seeded masterplan copy.",
+            "_note": "Seeded replies repeated the same specs (vehicle-free landscaped ground plane, ~405 homes, ~22,000 sq ft clubhouse, metro-adjacency) across threads about clubhouse crowding, balcony-vs-clubhouse tradeoffs, three-generation family amenities, large balconies, and tile/finish verification — no real Redditor engaged with or reacted to Capitol Residences specifically, so it's excluded from the sentiment counts as marketing copy, not genuine feedback."
           },
           "Elysium": {
             "positive": [],
@@ -2118,19 +2202,22 @@
               "negative": []
             },
             "verdict": "No data",
-            "keyTakeaway": "Elysium's only September Reddit mention was a single seeded comment praising its ‘planned landscaped environment’ in a generic vehicle-free-layout thread — no organic engagement at all.",
+            "keyTakeaway": "Elysium's only September Reddit mention was a single seeded comment praising its 'planned landscaped environment' in a generic vehicle-free-layout thread — no organic engagement at all.",
             "_note": "One seeded reply namechecked Elysium's landscaping in the 'vehicle free internal layout' thread; excluded from sentiment counts as marketing copy rather than real buyer feedback."
           },
           "Solace": {
             "positive": [
-              "Sumadhura's own seeded reply on the joint 'Solea/Epitome' thread said the layout felt 'more family friendly and not overly packed' compared to Epitome, and that a nearby graveyard 'didn't bother us much eventually.'"
+              "Sumadhura's own seeded reply on the joint 'Solea/Epitome' thread said the layout felt 'more family friendly and not overly packed' compared to Epitome, and that a nearby graveyard 'didn't bother us much eventually.'",
+              "Separate seeded replies across three later generic threads (clubhouse crowding, three-generation living, large balcony) repeated Solace's '81% open green' planning and '45,000 sq ft clubhouse' stats, and were unusually candid about tradeoffs even while pitching them — one flagged that a west-facing unit 'can make a balcony reaaally hot,' another that an open-view balcony can get 'too windy to sit in for long,' and a third that senior-friendly seating and rain cover still needed checking in person."
             ],
             "negative": [
-              "Every organic voice in the same thread told the OP to walk away or back off, citing amenities (one badminton court, no temperature-controlled pool) that don't justify the price given railway-track proximity — concerns the seeded reply echoed too, still flagging railway-side noise and the approach road as unresolved."
+              "Every organic voice in the same Solea/Epitome thread told the OP to walk away or back off, citing amenities (one badminton court, no temperature-controlled pool) that don't justify the price given railway-track proximity — concerns the seeded reply echoed too, still flagging railway-side noise and the approach road as unresolved."
             ],
             "topKeywords": {
               "positive": [
-                "'more family friendly, not overly packed' (seeded, vs Epitome)"
+                "'more family friendly, not overly packed' (seeded, vs Epitome)",
+                "seeded '81% open green / 45,000 sq ft clubhouse' stats",
+                "seeded self-flagged heat/wind/noise caveats"
               ],
               "negative": [
                 "organic 'walk away'/'back off' dismissals (shared thread w/ Epitome)",
@@ -2139,7 +2226,7 @@
               ]
             },
             "verdict": "Mixed",
-            "keyTakeaway": "The same joint 'Solea/Epitome' thread that hit Epitome hard split on Solace too — Sumadhura's own seeded reply called it more family-friendly than Epitome, but organic voices still said walk away over price, amenities and railway-track proximity."
+            "keyTakeaway": "The same joint 'Solea/Epitome' thread that hit Epitome hard split on Solace too — seeded replies called it family-friendly and green, but organic voices still said walk away."
           },
           "Infracon": {
             "positive": [],
@@ -2157,131 +2244,273 @@
               ]
             },
             "verdict": "Strong Negative",
-            "keyTakeaway": "Sumadhura's ₹17,000cr expansion plan drew a wave of organic skepticism on r/indianrealestate — posters called the IT-driven real-estate boom over, cited AI-driven job risk, and one bluntly warned a pre-booked LOI-stage order 'may never get delivered.'"
+            "keyTakeaway": "Sumadhura's ₹17,000cr expansion plan drew a wave of organic skepticism on r/indianrealestate — posters called the IT boom over, cited AI-driven job risk, and warned pre-booked orders 'may never get delivered.'"
+          },
+          "Panorama": {
+            "positive": [],
+            "negative": [],
+            "topKeywords": {
+              "positive": [],
+              "negative": []
+            },
+            "verdict": "No data",
+            "keyTakeaway": "No organic Reddit engagement with Panorama this month — all mentions were Sumadhura's own late-September seeded copy introducing 'Panorama Phase 2' into generic plotted-community threads.",
+            "_note": "A distinct seeded campaign (Sep 28-30) across four unrelated threads — staged/phased home construction, pets and private outdoor space, choosing house orientation pre-construction, and plotted-community childhoods — repeatedly pitched Panorama Phase 2's plot-level flexibility (garden/bedroom/window planning, extra floor for later), but even the seeded copy self-flagged risk, e.g. 'a huge layout with very few residents initially could feel pretty empty.' No real buyer reacted to Panorama specifically."
           }
         },
         "competitors": {
           "Sumadhura": {
             "positive": [
-              "Buyer priorities aligned with our messaging — Discussions show a clear preference for private balconies and open space over large clubhouses, a theme Sumadhura projects can lean into.",
-              "Informed due diligence — Folium Phase IV buyers are investing in independent legal verification, signalling serious purchase intent.",
-              "Location and amenities (Folium) — Owners cite upcoming Whitefield main-road access, open spaces and sports infrastructure as strengths."
+              "Buyer priorities aligned with offering — General Bangalore buyer discussions favor private balconies and open outdoor space over large clubhouses, a preference Sumadhura's balcony-oriented layouts (e.g. Folium) can lean into.",
+              "Due diligence practices (Folium Phase IV) — Buyers are commissioning independent legal verification before purchase, though the exercise also surfaced that the builder was sometimes slow to share certain documents during diligence.",
+              "Caveat — One of the two positive threads was a single promotional-style reply offering to DM pricing details, not substantive buyer discussion."
             ],
             "negative": [
-              "Maintenance and build quality (Folium) — Concerns over builder maintenance, basement water-logging during rains and compact room sizes.",
-              "Pricing vs amenities (Solea / Epitome) — Seen as priced above its amenity offering, with railway-line proximity cited as a drawback.",
-              "Resale expectations (Eden Garden) — Resale asks well above comparable listings, alongside questions about litigation status.",
-              "Document transparency — Reports that some documents were hard to obtain during legal due diligence.",
-              "Market confidence — The ₹17,000 Cr expansion plan prompted concerns about demand softness and delivery risk on pre-booked inventory."
+              "Maintenance and crowd quality (Folium) — Owners and prospective renters cite basement water-logging during recent rains, an understaffed facilities/maintenance team, and small ('matchbox') room sizes versus tier-1 peers.",
+              "Pricing vs amenities (Solea/Epitome) — Seen as priced too high for the amenities offered (one badminton court, no temperature-controlled pool), compounded by railway-line proximity.",
+              "Resale and litigation concerns (Eden Garden) — A ₹1.65 Cr ask for a sub-1,200 sq ft unit was called overpriced against comparable NoBroker listings (~₹1.35 Cr), alongside a question about the property's litigation status.",
+              "Market confidence — The ₹17,000 Cr expansion plan announcement drew skepticism tied to IT-sector job uncertainty and AI-driven slowdown fears, with one commenter flagging risk that pre-booked, under-construction inventory may not get delivered."
             ]
           },
           "Prestige": {
             "positive": [
-              "Project quality (Pine Forest) — Well regarded for layout and spacious units; recent bookings at ~₹17.4–17.7k/sq ft considered fair value.",
-              "Build quality and resale liquidity — In head-to-head comparisons, Prestige is frequently preferred over Mana, Adarsh, Sattva and Alembic.",
-              "Reasonable resale entry points — Select resale units (e.g., Song of the South at ~₹1 Cr) are viewed as fairly priced."
+              "Project quality (Pine Forest) — Continues to be well regarded for layout and spaciousness, with recent bookings/resale around ₹17.4–17.7k/sq ft seen as fair value, though some flag Varthur Road congestion and inflated surrounding land pricing.",
+              "Preferred in brand comparisons — In head-to-head threads, Prestige is favored over Sattva on material quality and over Mana/Adarsh for Garden Breeze on brand strength and lower execution risk, even though Garden Breeze is noted as further from ORR.",
+              "Caveat — Muted enthusiasm — Even a milestone update (RERA approval for a final City phase) drew more skepticism than celebration, with commenters noting that basic regulatory compliance is being treated as a selling point for a lifetime purchase."
             ],
             "negative": [
-              "Resale price corrections — Asking prices at Song of the South, Finsbury Park and Prestige City are seen as well above realised market values (e.g., ~₹8.8–9k/sq ft at Prestige City).",
-              "Pricing and payment schemes (Evergreen) — The ₹3.3 Cr price and 2-year payment holiday are perceived as a built-in markup, with 2030 possession and adjacent nalas.",
-              "Density and amenity adequacy — High density at Prestige City, ParkLane (~150 units/acre) and Ferns Residency, with amenities undersized for the resident count.",
-              "Site location risks — New launches near data centres (KIADB Phase-2), graveyards and nalas (Southern Star), and weak feedback on Golden Grove, Hyderabad."
+              "Resale price corrections — Prestige City resale trades around ₹8.8–9k/sq ft against new-inventory quotes of ₹12.5–13.5k amid cited oversupply and low demand; Song of the South and Finsbury Park asks are similarly marked down from original quotes.",
+              "Pricing and payment schemes (Evergreen) — The ₹3.3 Cr unit price and lake/nala-adjacent location draw criticism, and the 2-year payment-holiday scheme is seen by some as a built-in markup ahead of a 2030 possession date.",
+              "Density and amenity adequacy (Prestige City, ParkLane, Ferns Residency) — High density (~150 units/acre at ParkLane) and amenities seen as undersized for resident counts, with construction/finishing quality viewed as behind tier-1 peers like Sobha and Brigade.",
+              "Site location risks — New launches face criticism for proximity to data centres (KIADB Phase-2) and graveyards/active nalas (Southern Star), plus weak reception for Golden Grove in Hyderabad, described as overpriced for its land/density ratio versus local alternatives."
             ]
           },
           "Sobha": {
             "positive": [
-              "Construction quality — Remains Sobha's most consistent strength, acknowledged even in critical threads.",
-              "Long-term value (Sobha Manhattan) — Viewed as a solid long-term hold on Hosur Road with healthy rental demand.",
-              "Site improvements (Sobha Infinia) — Upgraded drainage and flood mitigation noted positively, along with forest-facing views."
+              "Construction quality — Repeatedly cited as Sobha's core strength, including in comparison threads where it is preferred over Prestige and Adarsh on build quality.",
+              "Long-term value (Sobha Manhattan) — Viewed as a solid long-term hold on Hosur Road given infrastructure growth and steady rental demand; sellers are advised to hold rather than discount.",
+              "Site improvements (Sobha Infinia) — Drainage and flood-mitigation upgrades since past waterlogging incidents are noted positively, along with forest-facing views, though graveyard proximity is flagged."
             ],
             "negative": [
-              "Connectivity (Sobha Neopolis) — Poor approach roads, reliance on the yet-to-be-built CDP road and tanker-dependent water supply.",
-              "Layout, light and ventilation — Compact carpet areas and north-facing, low-sunlight units at Sentosa and Royal Pavilion; HT line concerns at Sentosa.",
-              "Inflated resale asks — Dream Acres and Windsor listings seen as 30–45% above what residents consider fair value.",
-              "Investment outlook — Appreciation already priced in at Sobha One World; lakebed siting concerns; Sobha Central (Dubai) seen as oversupplied."
+              "Connectivity (Sobha Neopolis) — Across multiple threads, buyers cite poor approach roads, reliance on the still-unbuilt CDP road, tanker-dependent water supply and graveyard proximity; several note the project's price has barely appreciated since launch because of these infra gaps.",
+              "Layout, light and ventilation (Sentosa, Royal Pavilion) — North-facing, low-sunlight units and cramped floor plans are repeated complaints, alongside an active HT line and a nearby burial ground cited at Sentosa.",
+              "Inflated resale asks (Windsor, Dream Acres) — Windsor's ~₹3.1 Cr ask is seen as above fair value (buyers cap it near ₹12k/sq ft), and a Dream Acres listing at ₹1.6 Cr for a sub-1,200 sq ft unit draws similar pushback, with ORR commute pain cited as a further discount factor.",
+              "Investment outlook (Sobha One World, Sobha Central Dubai) — One World's appreciation is seen as already priced in, with questions raised about its borewell-dependent water source; Sobha Central in Dubai is criticized as oversupplied and overpriced despite repeated 20/80 payment-plan incentives."
             ]
           },
           "Brigade": {
             "positive": [
-              "Resale demand — Brigade Valencia resale listings attract multiple interested buyers, and rental enquiries are active near Orion Mall."
+              "Resale and rental demand (Brigade Valencia) — Resale listings attract multiple interested buyers, and nearby rental enquiries (Old Madras Road/Orion Mall) remain active.",
+              "Township track record (WTC Devanhalli) — Buyers cite Brigade's history of catalyzing growth around large townships (Millennium/JP Nagar, Meadows/Kanakpura Road) as reason for confidence, even though Devanahalli itself remains unproven."
             ],
             "negative": [
-              "Construction and maintenance quality — Complaints about STP maintenance, water quality and plumbing (e.g., Brigade Gateway); ranked below Sobha and Prestige.",
-              "Unit size and oversupply (El Dorado) — Compact units, heavy supply and distance from the city and IT hubs; resale at ~₹8.2–9.2k/sq ft vs ~₹11k asked.",
-              "Project density — Belvedere (~175 units/acre) and Orchards Ivory ('2BHK in 1BHK area') are cited as over-dense.",
-              "Legal and site risks — HT line and High Court case at Lakecrest; litigation, graveyard and cement plant adjacency at Granada."
+              "Construction and maintenance quality — Recurring complaints about STP maintenance and discolored, foul-smelling bathroom water (cited at Brigade Gateway and another society), with commenters ranking Brigade below Sobha and Prestige on build quality despite premium pricing.",
+              "Unit size and oversupply (El Dorado) — Units are repeatedly called undersized (e.g. 971 sq ft 2.5BHK, 1,043 sq ft 3BHK with 623 sq ft carpet); resale realistically trades at ₹8.2–9.2k/sq ft versus asks of ₹10.5–11k, with heavy supply and distance from the city/IT hubs cited as drags.",
+              "Project density (Orchards Ivory, Belvedere) — Orchards Ivory Phase 2 draws '2BHK sold in 1BHK area' criticism for its compact layout, and Belvedere's ~175 units/acre density is repeatedly cited negatively versus lower-density alternatives.",
+              "Legal and site risks (Lakecrest, Granada) — Lakecrest faces questions over an HT line and a High Court case tied to Pashmina Waterfront; Granada is cited for graveyard and cement-plant adjacency, with one commenter claiming a 9-year litigation entanglement."
             ]
           },
           "Sattva": {
             "positive": [
-              "Lower density and better planning — Sattva Songbird is preferred over Brigade Belvedere (~110 vs ~170 units/acre) with stronger floor plans and Phase 2 upside.",
-              "Negotiation headroom — Buyers report room of up to ~₹500/sq ft below quoted prices."
+              "Lower density and planning (Songbird vs Belvedere) — Songbird's ~110 units/acre (versus Belvedere's ~170) and stronger floor plans are preferred by buyers, with earlier possession and Phase 2 appreciation cited as added upside.",
+              "Negotiation headroom — Buyers report builder margins of up to ~₹500/sq ft built into quoted prices, giving room to negotiate below the sticker rate."
             ],
             "negative": [
-              "Commute and infrastructure (Knowledge City, Hyderabad) — Severe peak-hour congestion; criticism is aimed at civic planning rather than the product.",
-              "Premium pricing — The 4BHK premium at Sattva City is seen as unjustified.",
-              "Perceived material quality — Rated below Prestige in direct comparisons (Aeropolis vs ParkLane)."
+              "Commute and infrastructure (Knowledge City, Hyderabad) — Extensive commentary on severe peak-hour congestion around Kokapet/ORR; criticism is directed mainly at civic planning and road capacity rather than the product itself.",
+              "Premium pricing (Sattva City) — The 4BHK premium (~₹14,860/sq ft all-inclusive) is seen by some as unjustified beyond vastu-compliance differences.",
+              "Perceived material quality (Aeropolis vs ParkLane) — In direct comparison with Prestige, Sattva's build material is rated lower grade."
             ]
           },
           "Lodha": {
             "positive": [
-              "Exclusivity and privacy — Lodha Sadahalli is positioned as a premium, private community with strong future demand in North Bangalore."
+              "Exclusivity and privacy (Lodha Sadahalli) — Positioned as a premium, private gated community with strong anticipated demand in North Bangalore, though the village-road approach and distance from offices are noted trade-offs."
             ],
             "negative": [
-              "Connectivity and appreciation (Lodha Amara, Thane) — Long commute to Thane station, limited appreciation and parking constraints.",
-              "Access roads — Narrow village approach road to Lodha Sadahalli."
+              "Connectivity and returns (Lodha Amara, Thane) — Buyers cite a time-consuming commute to Thane station, limited price appreciation, and inadequate nearby parking.",
+              "Access roads (Lodha Sadahalli) — The narrow village approach road to the project is flagged as a daily commuting drawback."
             ]
           },
           "Hiranandani": {
             "positive": [
-              "Location desirability — Hiranandani Powai is seen as the most desirable address near major offices, though conversation centres on the neighbourhood rather than a specific project."
+              "Location desirability (Hiranandani Powai) — Seen as the most desirable address near major offices, though most commenters steer newcomers toward cheaper adjacent areas (Vikhroli, Chandivali, Kannamwar Nagar) given Hiranandani's own high cost of living."
             ],
             "negative": []
           }
         }
       },
       "Quora": {
-        "projects": {},
-        "_note": "September's four Sumadhura Quora threads were entirely about the new Chennai Industrial & Logistics Park at Red Hills — CPRR connectivity, expected tenant demand, and group diversification — none of the 11 tracked residential projects. One answer under the diversification question namechecked Folium, Edition, Solace and Capitol Residences only as background portfolio context ('the residential side... remains strong'), with no project-specific sentiment; excluded rather than fabricated into a per-project verdict.",
+        "projects": {
+          "Folium": {
+            "positive": [
+              "A dedicated 10-reply thread (Sep 8-12) was built entirely around Club Sumadhura's named sports programs — Saina Nehwal's badminton academy and Michael Phelps Swimming — with seeded commenters posing as residents, cousins and colleagues all making the same point: in-community coaching removes the evening-commute problem of ferrying kids to separate academies, letting siblings with different interests (swimming, badminton, tennis) follow them without multiplying drive time.",
+              "Sumadhura's 'Real View' concept — letting buyers inspect an actual finished unit inside the tower instead of a styled sample flat — was pitched specifically at Folium to reassure buyers on daylight, balcony outlook and real room proportions (Sep 10-14); a separate clubhouse-crowding thread (Sep 11-16) argued Club Sumadhura avoids peak-hour congestion because sports, fitness, co-working and quiet seating sit in different zones, so grandparents, children and working adults naturally use the space at different times of day.",
+              "Through the back half of the month (Sep 14-29), repeated seeded testimonials tied Folium to Whitefield connectivity — Nallurhalli Metro and ITPL — and to an amenity mix broad enough to suit three generations under one roof simultaneously, plus informal neighbourly interaction from everyday overlap in shared outdoor space and a lower DIY-security burden than a plotted home."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "Club Sumadhura sports academies (Saina Nehwal badminton, Michael Phelps Swimming)",
+                "Real View finished-unit inspection",
+                "clubhouse zoning avoids overcrowding",
+                "Whitefield connectivity (Nallurhalli Metro, ITPL)",
+                "multigenerational amenity mix"
+              ],
+              "negative": []
+            },
+            "verdict": "Strong Positive",
+            "keyTakeaway": "September's entire Folium conversation was Sumadhura's own seeded copy pushing sports academies, Real View and multigenerational amenities, with no organic buyer thread to test it against.",
+            "_note": "All ~35 Folium mentions this month, across 8+ threads between Sep 8-29, were Sumadhura's own seeded replies — there was no organic buyer thread about Folium at all in September, so this reflects brand talking points, not verified resident sentiment. One seeded maintenance-cost thread (Sep 28-29) did raise, as buyer-education framing rather than a complaint, that clubhouse/academy access and per-sqft maintenance scaling for larger units are worth clarifying before booking; a few of the seeded replies (notably on the 'community socialise' and 'elder-friendly spaces' threads) also read as noticeably broken-English filler, which is a brand-safety/detectability concern in its own right."
+          },
+          "Capitol Residences": {
+            "positive": [
+              "An entire 10-reply thread (Sep 10-15) was devoted to Capitol Residences' vehicle-free landscaped ground level, repeatedly framed around specific family scenarios — a father with a knee problem, a six-year-old who 'can go from standing still to running in about two seconds,' a dog owner, an aunt's evening walk — all making the same pitch: separating internal traffic (cabs, delivery bikes, school vans) from play and walking areas is a genuine safety plus for kids and elderly residents.",
+              "A second dedicated thread (Sep 8-12) pushed Capitol Residences' 'Quality Studio' concept — physically showing tile, sanitaryware, switch and hardware samples rather than relying on brochure language — as protection against the finish-expectation mismatches buyers often discover only at handover; named 'friends' and 'cousins' described booking at Capitol Residences and using the studio to confirm standard-versus-upgrade specs.",
+              "The 'Real View' finished-unit concept was also applied to Capitol Residences (Sep 9-14) to let buyers judge actual balcony orientation and daylight before booking, while a clubhouse-overcrowding thread (Sep 14) cited a specific '22,000 sq ft clubhouse... for a relatively defined community of 405 residences,' and a three-generations thread (Sep 16) added Kadugodi Tree Park Metro walking distance plus ITPL proximity to the same safety-and-connectivity pitch."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "vehicle-free landscaped ground (pedestrian safety)",
+                "Quality Studio material transparency",
+                "Real View finished-unit inspection",
+                "22,000 sq ft clubhouse / 405 homes",
+                "Kadugodi Tree Park Metro + ITPL proximity"
+              ],
+              "negative": []
+            },
+            "verdict": "Strong Positive",
+            "keyTakeaway": "Entirely seeded September volume built Capitol Residences' positioning around vehicle-free safety, Quality Studio transparency and Real View, with no organic buyer discussion to confirm it.",
+            "_note": "All ~26 Capitol Residences mentions were Sumadhura's own seeded replies across dedicated threads (vehicle-free ground, Quality Studio, Real View, clubhouse scale) between Sep 8-16, plus a couple of late-month asides (Sep 28-29) — no organic buyer thread appeared. One seeded reply (Sep 29) did raise lift-count/AMC/sinking-fund due diligence as a generic caution for 'taller projects like Capitol Residences,' which reads as buyer-education rather than a complaint."
+          },
+          "Edition": {
+            "positive": [
+              "Edition's only substantive mentions were two passing seeded asides on Sep 28: one framed it around senior-friendly quiet spaces — 'elders reading habit and meditation-type spaces at Sumadhura Edition' — pitched as more useful long-term for an elderly parent who isn't into gyms; the other invoked Edition in passing on pedestrian safety, with a commenter saying they'd check traffic speed and play-area separation 'whether it's a plotted setup or a project like Sumadhura Edition.'"
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "senior-friendly quiet/meditation spaces",
+                "pedestrian-safety comparison point"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Edition saw only thin, incidental seeded mentions this month — quiet senior-friendly spaces and a pedestrian-safety aside — with no dedicated thread or organic discussion.",
+            "_note": "Edition's presence this month was genuinely thin: a brand-list name-drop in a Chennai-expansion thread (Sep 8, alongside Folium/Solace/Capitol Residences) plus the two short seeded asides above (Sep 28). No dedicated Edition thread and no organic buyer activity surfaced."
+          },
+          "Epitome": {
+            "positive": [
+              "A clubhouse-overcrowding thread (Sep 12) cited Epitome's clubhouse at roughly 19,800 sq ft for a 262-home community, used by a seeded commenter as an example of a favourable resident-to-facility ratio over chasing a bigger headline number.",
+              "A three-generations amenity thread (Sep 15) twice highlighted Epitome's corner-home layout with no shared walls for in-home privacy, alongside open green areas and proximity to Manyata Tech Park, as fitting a household split between grandparents, a teenager and a commuting parent."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "clubhouse size-to-home ratio (19,800 sq ft / 262 homes)",
+                "corner-home, no-shared-wall privacy",
+                "Manyata Tech Park proximity"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "Epitome's only September signal was seeded praise for its clubhouse-to-home ratio and no-shared-wall corner homes, with no organic buyer discussion.",
+            "_note": "Epitome activity was limited to two seeded threads (Sep 12 and Sep 15) — no dedicated Epitome thread and no organic buyer commentary this month."
+          },
+          "Panorama": {
+            "positive": [
+              "Two seeded replies on a pets-and-plotted-living thread (Sep 28-29) pitched Panorama's private outdoor space as useful for family members handling dog-walking duties, and Panorama Phase 2 specifically for a kitchen garden and weekend barbecues — personalised outdoor use an apartment's shared garden can't match."
+            ],
+            "negative": [
+              "The same week, a seeded reply on a separate 'plotted community and childhood' thread (Sep 28) raised its own caution about Panorama Phase 2's early-phase occupancy: 'if only a few houses are built initially, children may not immediately get that neighbourhood feeling,' advising buyers to check actual move-in numbers and construction progress before deciding."
+            ],
+            "topKeywords": {
+              "positive": [
+                "private outdoor space for pet care",
+                "Phase 2 kitchen garden / weekend BBQ culture"
+              ],
+              "negative": [
+                "Phase 2 early-phase occupancy / neighbourhood-feel risk"
+              ]
+            },
+            "verdict": "Mixed",
+            "keyTakeaway": "Panorama's thin seeded volume paired pet-friendly outdoor-space appeal with a self-flagged caution about Phase 2's early-phase occupancy pace.",
+            "_note": "Panorama's only September activity was seeded replies across two threads (Sep 28-29) — unusually, genuinely two-sided for seeded copy, pairing outdoor-space/pet appeal with a self-raised occupancy caution for Phase 2; no organic buyer thread appeared."
+          }
+        },
+        "_note": "September's 16 Sumadhura Quora threads were entirely Sumadhura's own seeded replies (zero organic buyer engagement found) spanning Folium, Capitol Residences, Edition, Epitome and Panorama, plus a Chennai Industrial & Logistics Park (Red Hills) thread that only name-dropped Folium/Edition/Solace/Capitol Residences as background portfolio context with no project-specific sentiment. Treat all per-project verdicts above as brand talking points, not verified resident/buyer sentiment, given the complete absence of organic discussion this month.",
         "competitors": {
           "Prestige": {
             "positive": [
-              "Market entry (Prestige City Thane) — The month's only content was a long promotional overview of the pre-launch project (Kolshet Road, ~14.6 acres, ~₹6,000cr GDV) emphasizing developer track record and connectivity upside.",
-              "Caveat — No organic buyer opinion surfaced; the overview reads as marketing copy, not genuine sentiment."
+              "Market entry (Prestige City Thane) — The month's only content was a long promotional overview of the pre-launch project on Kolshet Road, Thane West (~14.6 acres, ~5 million sq ft developable, ~₹6,000cr GDV), with no tower count, configurations, or pricing yet disclosed.",
+              "Caveat — The single organic-tagged thread was article-style marketing copy, not genuine buyer opinion; no organic reviews surfaced this month."
             ],
             "negative": []
           },
           "Sobha": {
             "positive": [
-              "Market visibility — Heavy promotional presence across cities: Sobha Rivana (Noida Extension), SOBHA Crescent and Altus (Gurugram's Golf Course Extension Road / Dwarka Expressway corridors), and Sobha Liora and One World (Whitefield), consistently emphasizing connectivity, green space and build-quality legacy.",
-              "Caveat — All 12 organic-tagged threads this month were promotional content from marketing/content-syndication accounts (Sobhaoneworlde, a Wealth Housepert-linked profile, Devanshi Sharma) or unrelated third-party listings posted under a 'Sobha Rivana' handle; none reflect genuine buyer opinion."
+              "Market visibility — Heavy promotional presence across cities this month: Sobha Rivana (Noida Extension, Sector 1), SOBHA Crescent and SOBHA Altus (Gurugram's Golf Course Extension Road and Dwarka Expressway corridors), and Sobha Liora and One World (Whitefield, Bengaluru), consistently emphasizing connectivity, green/open-space ratios and SOBHA's in-house construction/manufacturing legacy.",
+              "Project specifics [SOBHA Crescent / SOBHA Altus] — Crescent's Phase I offers 336 units across 3–4 BHK (2,277–2,966 sq ft) priced ~₹4.66–7.59 Cr, while Altus mixes large 4–5 BHK homes (~2,870–3,853 sq ft, ₹6.7 Cr onwards) with compact 1 BHK studio units in the same ultra-luxury Sector 106 project.",
+              "Caveat — Of the 12 organic-tagged threads this month, essentially all were promotional or content-marketing posts from marketing/syndication profiles (Sobhaoneworlde, a Wealth Housepert-linked account, Devanshi Sharma); three threads tagged under the Sobha Rivana keyword actually promoted unrelated competitor projects (Jaypee Greens Crescent Court, Gaurs Trecento Residences, Gaurs The Islands), indicating keyword mis-tagging; no genuine buyer opinion surfaced."
             ],
             "negative": []
           },
           "Sattva": {
             "positive": [
-              "Investment and lifestyle positioning (Sattva Lumina) — Promoted on its North Bangalore growth corridor near Yelahanka/Doddaballapur, dual clubhouses and a long-term appreciation story, though the nearest metro station is ~15km away.",
-              "Caveat — All 5 organic-tagged threads were FAQ-style posts from a single repeating marketing account; no genuine buyer reviews surfaced."
+              "Project awareness [Sattva Lumina] — Promotional and FAQ-style posts positioned the project on its North Bangalore growth corridor near Yelahanka/Doddaballapur/Devanahalli with proximity to Kempegowda International Airport (~21 km) and dual clubhouses, though one answer noted the nearest metro station (Dasarahalli) is ~14.85 km away, undercutting the connectivity pitch.",
+              "Construction status [Sattva Lumina] — A status FAQ disclosed the project is only ~26% complete as per RERA tracking (Q1 2026-27) across its 8 towers, confirming it remains an early-stage, under-construction purchase rather than a near-ready one.",
+              "Caveat — All organic-tagged threads were FAQ-style posts from a single repeating marketing account (MandA Ventures); no independent buyer reviews surfaced."
             ],
             "negative": []
           },
           "Lodha": {
             "positive": [
-              "Amenities and investment case (Lodha Amara / Crown Kolshet) — Genuine buyer and visitor answers cited Lodha Amara's private forest area and multiple segregated swimming pools as standout amenities, and praised Crown Kolshet's Ghodbunder Road connectivity, nearby retail/schools and already-ready towers as reasons to buy for investment."
+              "Amenities [Lodha Amara / Lodha Elanor, Thane] — Visitors praised Amara's private forest area and cluster-wise segregated swimming pools (reducing crowding), plus its football ground, jogging track and tennis/badminton courts; Elanor's under-construction amenity plan drew similar praise for its rooftop pool, forest trail and pickleball courts.",
+              "Investment case [Lodha Crown Kolshet / Thane vs Palava] — Buyers cited Crown Kolshet's Ghodbunder Road connectivity, nearby retail/schools/hospitals and already-ready towers as reasons to buy for rental income, while a comparison thread favored Lodha Palava over Lodha Thane for buyers wanting larger homes and ready-to-move 2–3 BHK units over a shorter Mumbai commute.",
+              "New launch [Lodha Hopefarm, Whitefield Bengaluru] — Pre-launch coverage of the ~8-acre Hope Farm Junction project cites 3.5 BHK homes from roughly ₹4 Cr, located next to Alembic City and ~400 m from a metro station, though RERA registration and final floor plans are still awaited."
             ],
             "negative": [
-              "Construction quality and after-sales (unnamed Lodha project) — A detailed buyer complaint described leakage and seepage appearing within a year or two of possession, disputed maintenance charges during repairs, a seven-month-to-a-year repair turnaround, and no accessible escalation point beyond on-site maintenance staff."
+              "Construction quality and after-sales [unnamed project] — A detailed buyer complaint described leakage and seepage appearing within a year or two of possession, a disputed maintenance-charge clause invoked during repairs, seven-month-to-one-year repair turnarounds, and no accessible escalation point beyond on-site maintenance staff."
             ]
           },
           "Hiranandani": {
             "positive": [
-              "Caveat — Beyond the pricing exchange below, the rest of the month's organic-tagged activity was promotional content-marketing articles (Hiranandani Hinjewadi township pieces, plus Vikhroli and Kolshet project ads) rather than genuine buyer reviews."
+              "Township positioning [Hiranandani Hinjewadi, Pune] — Two long promotional articles described the 105-acre Hiranandani-Krisala Phase 3 township in North Hinjewadi, featuring ultra-premium Icon (3–4 BHK simplex/duplex) and premium ARCADIA (2–3 BHK) residences, an 8-acre racetrack and polo club, a 40-acre hospitality enclave, and over 70% green landscaping.",
+              "Other projects [Vikhroli, Kolshet] — Shorter promotional posts advertised House of Hiranandani Vikhroli's 2–3 BHK homes in Central Mumbai and House of Hiranandani Kolshet's 2–4 BHK homes in Thane.",
+              "Caveat — Aside from the pricing exchange below, all organic-tagged activity this month was promotional content-marketing copy rather than genuine buyer reviews."
             ],
             "negative": [
-              "Pricing perception — A recurring public question asked why Hiranandani keeps pricing so high that ordinary buyers can't consider it; even the explanatory answer confirmed pricing sits well above typical mid-market projects, reinforcing a premium-only brand perception."
+              "Pricing perception — A publicly asked question (graded positive but containing clear criticism) asked why Hiranandani keeps pricing so high that ordinary buyers can't consider it; the response confirmed the brand operates in the premium segment and that pricing reflects its surrounding ecosystem and location rather than disputing the premium, reinforcing a premium-only brand perception among some buyers."
             ]
           }
         }
+      }
+    },
+    "2026-10": {
+      "GMB": {
+        "projects": {},
+        "_note": "No October-2026 tab exists yet in the GMB Escalation Tracker, and the Daily Tracker's 'Google Business Review' rows run only through Sep 30 -- skipping GMB for October rather than guessing at a tab name that doesn't exist yet."
+      },
+      "Instagram": {
+        "projects": {},
+        "_note": "No Instagram activity has been logged yet for October 2026 -- the month has just started (this cache was generated on 2026-10-01). Revisit once rows start appearing in the source sheets."
+      },
+      "Facebook": {
+        "projects": {},
+        "_note": "No Facebook activity has been logged yet for October 2026 -- the month has just started (this cache was generated on 2026-10-01). Revisit once rows start appearing in the source sheets."
+      },
+      "LinkedIn": {
+        "projects": {},
+        "_note": "No LinkedIn activity has been logged yet for October 2026 -- the month has just started (this cache was generated on 2026-10-01). Revisit once rows start appearing in the source sheets."
+      },
+      "Reddit": {
+        "projects": {},
+        "competitors": {},
+        "_note": "No Reddit (Sumadhura) activity has been logged yet for October 2026 -- the month has just started (this cache was generated on 2026-10-01). Revisit once rows start appearing in the source sheets."
+      },
+      "Quora": {
+        "projects": {},
+        "competitors": {},
+        "_note": "No Quora (Sumadhura) activity has been logged yet for October 2026 -- the month has just started (this cache was generated on 2026-10-01). Revisit once rows start appearing in the source sheets."
       }
     }
   },
