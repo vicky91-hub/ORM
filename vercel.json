@@ -7,10 +7,6 @@
     {
       "source": "/brandlens/:path*",
       "destination": "https://response-creator-production.up.railway.app/orm-report/sumadhura/brandlens/:path*"
-    },
-    {
-      "source": "/brandlens-ip",
-      "destination": "https://response-creator-production.up.railway.app/healthz/ip"
     }
   ]
 }
