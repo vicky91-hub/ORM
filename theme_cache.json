@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T00:58:19.291863+00:00",
+  "generated_at": "2026-10-02T00:48:55.985050+00:00",
   "weekly": {
     "2026-06-15": {
       "GMB": {
@@ -2488,29 +2488,93 @@
     "2026-10": {
       "GMB": {
         "projects": {},
-        "_note": "No October-2026 tab exists yet in the GMB Escalation Tracker, and the Daily Tracker's 'Google Business Review' rows run only through Sep 30 -- skipping GMB for October rather than guessing at a tab name that doesn't exist yet."
+        "_note": "The October-2026 GMB tab now exists in the Escalation Tracker but has zero rows logged as of Oct 2 -- skipping GMB for October until reviews start coming in."
       },
       "Instagram": {
         "projects": {},
-        "_note": "No Instagram activity has been logged yet for October 2026 -- the month has just started (this cache was generated on 2026-10-01). Revisit once rows start appearing in the source sheets."
+        "_note": "No Instagram activity has been logged yet for October 2026 (Daily Tracker rows still run only through Sep 30) -- revisit once rows start appearing in the source sheet."
       },
       "Facebook": {
         "projects": {},
-        "_note": "No Facebook activity has been logged yet for October 2026 -- the month has just started (this cache was generated on 2026-10-01). Revisit once rows start appearing in the source sheets."
+        "_note": "No Facebook activity has been logged yet for October 2026 (Daily Tracker rows still run only through Sep 30) -- revisit once rows start appearing in the source sheet."
       },
       "LinkedIn": {
         "projects": {},
-        "_note": "No LinkedIn activity has been logged yet for October 2026 -- the month has just started (this cache was generated on 2026-10-01). Revisit once rows start appearing in the source sheets."
+        "_note": "No LinkedIn activity has been logged yet for October 2026 (Daily Tracker rows still run only through Sep 30) -- revisit once rows start appearing in the source sheet."
       },
       "Reddit": {
-        "projects": {},
-        "competitors": {},
-        "_note": "No Reddit (Sumadhura) activity has been logged yet for October 2026 -- the month has just started (this cache was generated on 2026-10-01). Revisit once rows start appearing in the source sheets."
+        "projects": {
+          "Edition": {
+            "positive": [
+              "In a head-to-head Reddit comparison with Prestige Raintree Park, one buyer called Edition's construction quality and specs strong and praised its AECS Layout position -- lake-facing, tipped as 'the next Indiranagar,' and close to the upcoming Blue Line metro -- over Raintree's 'dystopian Varthur' setting.",
+              "A separate commenter concluded 'Edition is better' than Raintree Park despite flagging pricing concerns of their own, and another noted Edition's commute edge for buyers working around Marathahalli/ORR."
+            ],
+            "negative": [
+              "The same thread surfaced real friction: heavy traffic toward Borewell Road, specs called 'non-luxury' for the asking price, and a caution that the builder's quoted rate is unrealistic -- with advice to buy resale instead and avoid brokers.",
+              "At least two commenters favored alternatives on value grounds -- Prestige Raintree Park for amenities-per-rupee, and Century Gateway Marathahalli for comparable quality at a similar price -- over Edition."
+            ],
+            "topKeywords": {
+              "positive": [
+                "AECS Layout lake-view location",
+                "Blue Line metro proximity",
+                "'Edition is better' vs Raintree Park",
+                "Marathahalli/ORR commute edge"
+              ],
+              "negative": [
+                "Borewell Road traffic",
+                "'non-luxury' specs vs price",
+                "unrealistic builder quote, buy resale",
+                "Raintree Park / Century Marathahalli preferred on value"
+              ]
+            },
+            "verdict": "Mixed",
+            "keyTakeaway": "A Reddit comparison thread split on Edition vs. Prestige Raintree Park -- praised for AECS Layout's lake view and upcoming metro access, but dinged for Borewell Road traffic and specs seen as non-luxury for the price."
+          },
+          "Capitol Residences": {
+            "positive": [
+              "The month's only Capitol Residences mention was a buyer still mid-construction there saying they 'liked whatever quality they have used' so far."
+            ],
+            "negative": [],
+            "topKeywords": {
+              "positive": [
+                "construction quality liked (under-construction buyer)"
+              ],
+              "negative": []
+            },
+            "verdict": "Positive",
+            "keyTakeaway": "The only October mention of Capitol Residences was a current buyer, mid-construction, saying they're pleased with the build quality so far."
+          }
+        },
+        "competitors": {
+          "Sumadhura": {
+            "positive": [
+              "Construction & location (Edition) — In a head-to-head Reddit comparison, commenters praised Edition's construction quality and specs along with its lake-facing AECS Layout position near the upcoming Blue Line metro, with one buyer calling it the better choice over Prestige Raintree Park.",
+              "Early-stage build quality (Capitol Residences) — A buyer currently mid-construction at Capitol Residences said they are satisfied with the quality delivered so far."
+            ],
+            "negative": [
+              "Traffic and value perception (Edition) — Commenters flagged heavy traffic toward Borewell Road and called Edition's specs 'non-luxury' for the asking price, with some recommending resale purchases over the builder's quoted rate and favoring Prestige Raintree Park or Century Gateway Marathahalli on value."
+            ]
+          },
+          "Brigade": {
+            "positive": [
+              "Connectivity (North Bangalore project) — A commenter on Brigade's upcoming North Bangalore launch called Satellite Town Ring Road access its standout factor, citing good, wide approach roads."
+            ],
+            "negative": [
+              "Pricing (North Bangalore project) — The same commenter flagged pricing as steep, pegging the going rate at roughly ₹10,000+/sq ft as the current norm for the area; the reply also carried an unsolicited EOI-referral pitch rather than pure buyer commentary."
+            ]
+          }
+        }
       },
       "Quora": {
         "projects": {},
-        "competitors": {},
-        "_note": "No Quora (Sumadhura) activity has been logged yet for October 2026 -- the month has just started (this cache was generated on 2026-10-01). Revisit once rows start appearing in the source sheets."
+        "competitors": {
+          "Sumadhura": {
+            "positive": [
+              "Caveat — Content is predominantly promotional: the only Sumadhura Quora thread this month is an advertorial-style post for Sumadhura Pramoda in RR Nagar, pitching it against 'concrete jungle' and 'matchbox apartment' alternatives from ₹1.7 Cr onwards -- not genuine buyer opinion."
+            ],
+            "negative": []
+          }
+        }
       }
     }
   },
