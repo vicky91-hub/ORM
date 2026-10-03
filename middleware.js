@@ -2,8 +2,9 @@
 // Password Protection, that's Pro-only; this is the standard workaround).
 export const config = { matcher: '/:path*' };
 
-const USERNAME = 'orm-audit';
-const PASSWORD = 'Sumadhura@audit';
+// Set in Vercel → Project → Settings → Environment Variables. Without them nobody gets in.
+const USERNAME = process.env.ORM_AUTH_USER || '';
+const PASSWORD = process.env.ORM_AUTH_PASSWORD || '';
 
 export default function middleware(request) {
   // CloseLoop (proxied to Railway via vercel.json) has its own login; old /brandlens links
@@ -11,7 +12,7 @@ export default function middleware(request) {
   const { pathname } = new URL(request.url);
   if (/^\/(closeloop|brandlens)(\/|$)/.test(pathname)) return;
   const authHeader = request.headers.get('authorization');
-  if (authHeader && authHeader.startsWith('Basic ')) {
+  if (USERNAME && PASSWORD && authHeader && authHeader.startsWith('Basic ')) {
     try {
       const decoded = atob(authHeader.slice(6));
       const sepIdx = decoded.indexOf(':');
