@@ -1,12 +1,24 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/brandlens",
-      "destination": "https://response-creator-production.up.railway.app/orm-report/sumadhura/brandlens"
+      "destination": "https://www.thenorthstardigital.ai/orm-report/sumadhura/closeloop",
+      "permanent": true
     },
     {
       "source": "/brandlens/:path*",
-      "destination": "https://response-creator-production.up.railway.app/orm-report/sumadhura/brandlens/:path*"
+      "destination": "https://www.thenorthstardigital.ai/orm-report/sumadhura/closeloop/:path*",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/closeloop",
+      "destination": "https://response-creator-production.up.railway.app/orm-report/sumadhura/closeloop"
+    },
+    {
+      "source": "/closeloop/:path*",
+      "destination": "https://response-creator-production.up.railway.app/orm-report/sumadhura/closeloop/:path*"
     }
   ]
 }
