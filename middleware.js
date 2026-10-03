@@ -6,9 +6,10 @@ const USERNAME = 'orm-audit';
 const PASSWORD = 'Sumadhura@audit';
 
 export default function middleware(request) {
-  // BrandLens (proxied to Railway via vercel.json) has its own login.
+  // CloseLoop (proxied to Railway via vercel.json) has its own login; old /brandlens links
+  // pass through to their redirect.
   const { pathname } = new URL(request.url);
-  if (pathname === '/brandlens' || pathname.startsWith('/brandlens/')) return;
+  if (/^\/(closeloop|brandlens)(\/|$)/.test(pathname)) return;
   const authHeader = request.headers.get('authorization');
   if (authHeader && authHeader.startsWith('Basic ')) {
     try {
